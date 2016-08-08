@@ -24,19 +24,19 @@ class ConstantService {
     
     private var _versionDate = ""
 
-    private var _ratingQuestion: String!
-    private var _securityQuestions: [String]!
+    private var _ratingQuestion: String?
+    private var _securityQuestions: [String]?
     private var _stringConstant = [String: String]()
     
     
     // MARK: - External Data
     
     var ratingQuestion: String {
-        return _ratingQuestion == nil ? DBValueKeys.Constant.ratingQuestion.error : _ratingQuestion
+        return _ratingQuestion == nil ? DBValueKeys.Constant.ratingQuestion.error : _ratingQuestion!
     }
     
     var securityQuestions: [String] {
-        return _securityQuestions == nil ? [DBValueKeys.Constant.securityQuestions.error] : _securityQuestions
+        return _securityQuestions == nil ? [DBValueKeys.Constant.securityQuestions.error] : _securityQuestions!
     }
     
     
@@ -56,12 +56,16 @@ class ConstantService {
         
         FIR_REF.child(DBValueKeys.Constant._versionDate.value).observeSingleEventOfType(.Value, withBlock: { snapshot in
             guard snapshot.exists(), let data = snapshot.value else {
-                NSLog("No connection")
+                self.noConnectionToFirebase()
                 self.constantsFromNSUD(completion)
                 return
             }
+            
+            let firebaseVersion = String(data)
+            
+            NSLog("Constants: Local Version: \(self._versionDate); Firebase Version: \(firebaseVersion)")
 
-            if String(data) == self._versionDate {
+            if firebaseVersion == self._versionDate {
                 self.constantsFromNSUD(completion)
             } else {
                 self.constantsFromFirebase(completion)
@@ -84,57 +88,80 @@ class ConstantService {
         NSUD.setValue(_ratingQuestion, forKey: DBValueKeys.Constant.ratingQuestion.value)
         NSUD.setValue(_securityQuestions, forKey: DBValueKeys.Constant.securityQuestions.value)
         
-        NSUD.synchronize()
+        let success = NSUD.synchronize()
+        
+        NSLog("Saved Constants from Firebase to NSUD successful: \(success)")
     }
     
     private func constantsFromNSUD(completion: CompletionHandlerBool?) {
-        let pick = 3
-        var picked = 0
+        var pick = 3
         
         if let stringConstant = NSUD.objectForKey(DBValueKeys.Constant.iOSStrings.value) as? [String: String] {
             _stringConstant = stringConstant
-            picked += 1
+            pick -= 1
         }
         if let ratingQuestion = NSUD.stringForKey(DBValueKeys.Constant.ratingQuestion.value) {
             _ratingQuestion = ratingQuestion
-            picked += 1
+            pick -= 1
         }
         if let securityQuestions = NSUD.objectForKey(DBValueKeys.Constant.securityQuestions.value) as? [String] {
             _securityQuestions = securityQuestions
-            picked += 1
+            pick -= 1
         }
         
-        completion?(pick == picked)
+        let complete = pick == 0
+        
+        NSLog("Got Local Constants completely: \(complete)")
+        
+        completion?(complete)
     }
     
     
     // MARK: - Firebase
     
     private func constantsFromFirebase(completion: CompletionHandlerBool?) {
+        NSLog("Getting Constants from Firebase")
         FIR_REF.observeSingleEventOfType(.Value, withBlock: { snapshot in
             guard snapshot.exists(), let data = snapshot.value as? [String: AnyObject] else {
-                NSLog("No constants")
+                self.noConnectionToFirebase()
                 completion?(false)
                 return
             }
             
-            if let version = data[DBValueKeys.Constant._versionDate.value] as? String {
-                self._versionDate = version
+            var pick = 4
+            
+            if let version = data[DBValueKeys.Constant._versionDate.value] {
+                self._versionDate = String(version)
+                pick -= 1
             }
             
             if let stringConstant = data[DBValueKeys.Constant.iOSStrings.value] as? [String: String] {
                 self._stringConstant = stringConstant
+                pick -= 1
             }
             if let ratingQuestion = data[DBValueKeys.Constant.ratingQuestion.value] as? String {
                 self._ratingQuestion = ratingQuestion
+                pick -= 1
             }
             if let securityQuestions = data[DBValueKeys.Constant.securityQuestions.value] as? [String: AnyObject] {
                 self._securityQuestions = Array(securityQuestions.keys)
+                pick -= 1
             }
             
+            let complete = pick == 0
+            
+            NSLog("Got Constants from Firebase completely: \(complete)")
+            
             self.constantsToNSUD()
-            completion?(true)
+            completion?(complete)
         })
+    }
+    
+    
+    // MARK: - Private Methods
+    
+    private func noConnectionToFirebase() {
+        NSLog("Constants: No connection to Firebase")
     }
     
 }

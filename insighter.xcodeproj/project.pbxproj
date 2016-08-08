@@ -652,7 +652,7 @@
 				INFOPLIST_FILE = insighter/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = de.jandamm.insighter;
+				PRODUCT_BUNDLE_IDENTIFIER = co.insighter.insighterapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -666,7 +666,7 @@
 				INFOPLIST_FILE = insighter/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = de.jandamm.insighter;
+				PRODUCT_BUNDLE_IDENTIFIER = co.insighter.insighterapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
