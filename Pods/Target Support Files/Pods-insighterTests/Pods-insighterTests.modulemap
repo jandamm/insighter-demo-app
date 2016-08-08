@@ -1,0 +1,6 @@
+framework module Pods_insighterTests {
+  umbrella header "Pods-insighterTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
