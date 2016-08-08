@@ -1,5 +1,5 @@
 //
-//  DatabaseKey.swift
+//  DBValueKeys.swift
 //  insighter
 //
 //  Created by Jan Dammshäuser on 08.08.16.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct DatabaseKey {
+struct DBValueKeys {
     
     enum CompanyAverage: StringReturningEnum {
         case rating
@@ -22,8 +22,10 @@ struct DatabaseKey {
     }
 
     enum Constant: StringReturningEnum {
+        case _versionDate
+        case iOSStrings
         case ratingQuestion
-        case securityQuestion
+        case securityQuestions
     }
     
     enum User: StringReturningEnum {
@@ -33,8 +35,4 @@ struct DatabaseKey {
         case securityQuestion
     }
     
-}
-
-class s {
-    let x = DatabaseKey.CompanyAverage.rating
 }

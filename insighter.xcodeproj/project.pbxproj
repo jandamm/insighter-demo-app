@@ -12,12 +12,13 @@
 		138C72581D58B2360049561A /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 138C72571D58B2360049561A /* DataService.swift */; };
 		138C725A1D58B2850049561A /* ConstantService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 138C72591D58B2850049561A /* ConstantService.swift */; };
 		138C725C1D58B3290049561A /* LocalConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 138C725B1D58B3290049561A /* LocalConstant.swift */; };
-		138C725E1D58B3680049561A /* DatabaseKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 138C725D1D58B3680049561A /* DatabaseKey.swift */; };
+		138C725E1D58B3680049561A /* DBValueKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 138C725D1D58B3680049561A /* DBValueKeys.swift */; };
 		138C72601D58B9F10049561A /* StringReturningEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 138C725F1D58B9F10049561A /* StringReturningEnum.swift */; };
+		138C72621D58BE3F0049561A /* DBPathKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 138C72611D58BE3F0049561A /* DBPathKeys.swift */; };
+		138C72641D58C4FA0049561A /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 138C72631D58C4FA0049561A /* UserService.swift */; };
 		13A03D7E1CF1109E00920838 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A03D7D1CF1109E00920838 /* AppDelegate.swift */; };
 		13A03D801CF1109E00920838 /* IntroVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A03D7F1CF1109E00920838 /* IntroVC.swift */; };
 		13A03D831CF1109E00920838 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13A03D811CF1109E00920838 /* Main.storyboard */; };
-		13A03D861CF1109E00920838 /* insighter.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 13A03D841CF1109E00920838 /* insighter.xcdatamodeld */; };
 		13A03D881CF1109E00920838 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13A03D871CF1109E00920838 /* Assets.xcassets */; };
 		13A03D8B1CF1109E00920838 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13A03D891CF1109E00920838 /* LaunchScreen.storyboard */; };
 		13A03D961CF1109E00920838 /* insighterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A03D951CF1109E00920838 /* insighterTests.swift */; };
@@ -50,13 +51,14 @@
 		138C72571D58B2360049561A /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		138C72591D58B2850049561A /* ConstantService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstantService.swift; sourceTree = "<group>"; };
 		138C725B1D58B3290049561A /* LocalConstant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalConstant.swift; sourceTree = "<group>"; };
-		138C725D1D58B3680049561A /* DatabaseKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseKey.swift; sourceTree = "<group>"; };
+		138C725D1D58B3680049561A /* DBValueKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBValueKeys.swift; sourceTree = "<group>"; };
 		138C725F1D58B9F10049561A /* StringReturningEnum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringReturningEnum.swift; sourceTree = "<group>"; };
+		138C72611D58BE3F0049561A /* DBPathKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBPathKeys.swift; sourceTree = "<group>"; };
+		138C72631D58C4FA0049561A /* UserService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		13A03D7A1CF1109E00920838 /* insighter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = insighter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13A03D7D1CF1109E00920838 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		13A03D7F1CF1109E00920838 /* IntroVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroVC.swift; sourceTree = "<group>"; };
 		13A03D821CF1109E00920838 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		13A03D851CF1109E00920838 /* insighter.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = insighter.xcdatamodel; sourceTree = "<group>"; };
 		13A03D871CF1109E00920838 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		13A03D8A1CF1109E00920838 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		13A03D8C1CF1109E00920838 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -110,7 +112,8 @@
 			children = (
 				132A5EB91D58A28400448DAC /* GoogleService-Info.plist */,
 				138C725B1D58B3290049561A /* LocalConstant.swift */,
-				138C725D1D58B3680049561A /* DatabaseKey.swift */,
+				138C725D1D58B3680049561A /* DBValueKeys.swift */,
+				138C72611D58BE3F0049561A /* DBPathKeys.swift */,
 			);
 			name = Misc;
 			sourceTree = "<group>";
@@ -118,8 +121,9 @@
 		132A5EBB1D58A2BF00448DAC /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				138C72571D58B2360049561A /* DataService.swift */,
 				138C72591D58B2850049561A /* ConstantService.swift */,
+				138C72571D58B2360049561A /* DataService.swift */,
+				138C72631D58C4FA0049561A /* UserService.swift */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -157,7 +161,6 @@
 				13A03D871CF1109E00920838 /* Assets.xcassets */,
 				13A03D7D1CF1109E00920838 /* AppDelegate.swift */,
 				13A03D8C1CF1109E00920838 /* Info.plist */,
-				13A03D841CF1109E00920838 /* insighter.xcdatamodeld */,
 			);
 			path = insighter;
 			sourceTree = "<group>";
@@ -493,15 +496,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				13A03D861CF1109E00920838 /* insighter.xcdatamodeld in Sources */,
 				138C72561D58AB260049561A /* LoadingView.swift in Sources */,
 				13A03D801CF1109E00920838 /* IntroVC.swift in Sources */,
 				138C72601D58B9F10049561A /* StringReturningEnum.swift in Sources */,
 				138C725A1D58B2850049561A /* ConstantService.swift in Sources */,
 				13A03D7E1CF1109E00920838 /* AppDelegate.swift in Sources */,
 				138C725C1D58B3290049561A /* LocalConstant.swift in Sources */,
-				138C725E1D58B3680049561A /* DatabaseKey.swift in Sources */,
+				138C72641D58C4FA0049561A /* UserService.swift in Sources */,
+				138C725E1D58B3680049561A /* DBValueKeys.swift in Sources */,
 				138C72581D58B2360049561A /* DataService.swift in Sources */,
+				138C72621D58BE3F0049561A /* DBPathKeys.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -757,19 +761,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		13A03D841CF1109E00920838 /* insighter.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				13A03D851CF1109E00920838 /* insighter.xcdatamodel */,
-			);
-			currentVersion = 13A03D851CF1109E00920838 /* insighter.xcdatamodel */;
-			path = insighter.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 13A03D721CF1109E00920838 /* Project object */;
 }

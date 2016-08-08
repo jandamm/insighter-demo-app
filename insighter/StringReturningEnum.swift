@@ -10,7 +10,7 @@ import Foundation
 
 protocol StringReturningEnum {
     var value: String { get }
-    
+    var error: String { get }
 }
 
 extension StringReturningEnum {
@@ -19,4 +19,8 @@ extension StringReturningEnum {
         return "\(self)"
     }
     
+    var error: String {
+        NSLog("\(self)")
+        return "__\(self)__".uppercaseString
+    }
 }

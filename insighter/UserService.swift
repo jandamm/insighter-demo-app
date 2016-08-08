@@ -1,5 +1,5 @@
 //
-//  DataService.swift
+//  UserService.swift
 //  insighter
 //
 //  Created by Jan Dammshäuser on 08.08.16.
@@ -9,10 +9,10 @@
 import Foundation
 import Firebase
 
-class DataService {
-    static let sharedInstance = DataService()
+class UserService {
+    static let sharedInstance = UserService()
     
-    private let REF = FIRDatabase.database().reference().child(DBPathKeys.company.value)
+    private let REF = FIRDatabase.database().reference().child(DBPathKeys.user.value)
     
     // MARK: - Private Data
     

@@ -22,6 +22,7 @@ class IntroVC: UIViewController {
         super.viewDidLoad()
         
         setupViewBeforeAnimations()
+        getConstants()
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -29,7 +30,7 @@ class IntroVC: UIViewController {
         
         logoVerticalCenterConstraint.constant = -45
         
-        UIView.animateWithDuration(1, animations: {
+        UIView.animateWithDuration(0.5, animations: {
             self.view.layoutIfNeeded()
         })
     }
@@ -38,7 +39,7 @@ class IntroVC: UIViewController {
     // MARK: - Setup
     
     private func getConstants() {
-        ConstantService.sharedInstance.getConstants() { completed in
+        ConstantService.sharedInstance.initiateConstants() { completed in
             self.loadingSpinnerView.animationStop()
         }
     }
