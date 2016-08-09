@@ -2,7 +2,7 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>FirmenMailLabel</key>
+	<key>Firmen_Mail_Label</key>
 	<string>Ihre Firmen E-Mail:</string>
 </dict>
 </plist>

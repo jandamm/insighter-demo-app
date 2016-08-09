@@ -13,5 +13,5 @@ import Foundation
 
 
 enum RemoteConfigKey: StringReturningEnum {
-    case FirmenMailLabel
+    case Firmen_Mail_Label
 }
