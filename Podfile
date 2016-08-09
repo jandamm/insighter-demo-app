@@ -8,6 +8,7 @@ target 'insighter' do
   pod 'Firebase/Core'
   pod 'Firebase/Auth'
   pod 'Firebase/Database'
+  pod 'Firebase/RemoteConfig'
 
   # Pods for insighter
 
