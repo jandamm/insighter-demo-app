@@ -704,7 +704,7 @@
 				INFOPLIST_FILE = insighter/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_SWIFT_FLAGS = "-DDEBUG";
+				OTHER_SWIFT_FLAGS = "-DDEBUG $(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = co.insighter.insighterapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -719,7 +719,7 @@
 				INFOPLIST_FILE = insighter/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_SWIFT_FLAGS = "-DRELEASE";
+				OTHER_SWIFT_FLAGS = "-DRELEASE $(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = co.insighter.insighterapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
