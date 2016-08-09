@@ -10,6 +10,8 @@
 		131C8D041D59DF3900A2EE8C /* RemoteConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 131C8D031D59DF3900A2EE8C /* RemoteConfig.swift */; };
 		131C8D061D59E1D200A2EE8C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 131C8D051D59E1D100A2EE8C /* User.swift */; };
 		132A5EBA1D58A28400448DAC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 132A5EB91D58A28400448DAC /* GoogleService-Info.plist */; };
+		1340AC7C1D5A0E89008499CE /* RemoteConfigDefaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1340AC7B1D5A0E89008499CE /* RemoteConfigDefaults.plist */; };
+		1340AC7E1D5A0EB0008499CE /* RemoteConfigKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1340AC7D1D5A0EB0008499CE /* RemoteConfigKey.swift */; };
 		138C72561D58AB260049561A /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 138C72551D58AB260049561A /* LoadingView.swift */; };
 		138C72581D58B2360049561A /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 138C72571D58B2360049561A /* DataService.swift */; };
 		138C725A1D58B2850049561A /* ConstantService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 138C72591D58B2850049561A /* ConstantService.swift */; };
@@ -59,6 +61,8 @@
 		131C8D031D59DF3900A2EE8C /* RemoteConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteConfig.swift; sourceTree = "<group>"; };
 		131C8D051D59E1D100A2EE8C /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		132A5EB91D58A28400448DAC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		1340AC7B1D5A0E89008499CE /* RemoteConfigDefaults.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = RemoteConfigDefaults.plist; sourceTree = "<group>"; };
+		1340AC7D1D5A0EB0008499CE /* RemoteConfigKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteConfigKey.swift; sourceTree = "<group>"; };
 		138C72551D58AB260049561A /* LoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		138C72571D58B2360049561A /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		138C72591D58B2850049561A /* ConstantService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstantService.swift; sourceTree = "<group>"; };
@@ -131,6 +135,8 @@
 			isa = PBXGroup;
 			children = (
 				132A5EB91D58A28400448DAC /* GoogleService-Info.plist */,
+				1340AC7B1D5A0E89008499CE /* RemoteConfigDefaults.plist */,
+				1340AC7D1D5A0EB0008499CE /* RemoteConfigKey.swift */,
 				138C725B1D58B3290049561A /* LocalConstant.swift */,
 				138C725D1D58B3680049561A /* DBValueKeys.swift */,
 				138C72611D58BE3F0049561A /* DBPathKeys.swift */,
@@ -376,6 +382,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				13A03D8B1CF1109E00920838 /* LaunchScreen.storyboard in Resources */,
+				1340AC7C1D5A0E89008499CE /* RemoteConfigDefaults.plist in Resources */,
 				132A5EBA1D58A28400448DAC /* GoogleService-Info.plist in Resources */,
 				13A03D881CF1109E00920838 /* Assets.xcassets in Resources */,
 				13A03D831CF1109E00920838 /* Main.storyboard in Resources */,
@@ -544,6 +551,7 @@
 				13A5B99B1D59E4F1008EBDF3 /* UserService.swift in Sources */,
 				13A5B99F1D59F250008EBDF3 /* Style.swift in Sources */,
 				138C72581D58B2360049561A /* DataService.swift in Sources */,
+				1340AC7E1D5A0EB0008499CE /* RemoteConfigKey.swift in Sources */,
 				131C8D041D59DF3900A2EE8C /* RemoteConfig.swift in Sources */,
 				138C72621D58BE3F0049561A /* DBPathKeys.swift in Sources */,
 			);
@@ -692,6 +700,7 @@
 				INFOPLIST_FILE = insighter/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_SWIFT_FLAGS = "-DDEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = co.insighter.insighterapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -706,6 +715,7 @@
 				INFOPLIST_FILE = insighter/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_SWIFT_FLAGS = "-DRELEASE";
 				PRODUCT_BUNDLE_IDENTIFIER = co.insighter.insighterapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

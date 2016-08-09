@@ -20,6 +20,7 @@ class IntroVC: UIViewController {
     
     private var _userLoggedIn: Bool?
     private var _checkedConstants = false
+    private var _checkedRemoteConfig = false
     
     
     // MARK: - Startup
@@ -28,6 +29,7 @@ class IntroVC: UIViewController {
         super.viewDidLoad()
         
         getConstants()
+        getRemoteConfig()
         getUser()
     }
     
@@ -46,42 +48,52 @@ class IntroVC: UIViewController {
         if animated {
             UIView.animateWithDuration(0.5, animations: {
                 self.view.layoutIfNeeded()
+                }, completion: { _ in
+                    self.loadingSpinnerView.animationStart()
             })
         } else {
             view.layoutIfNeeded()
+            loadingSpinnerView.animationStart()
         }
     }
     
     // MARK: - Navigation
     
     private func transitionToNextView() {
-        guard let loggedIn = _userLoggedIn where _checkedConstants == true else {
+        guard let loggedIn = _userLoggedIn where _checkedConstants && _checkedRemoteConfig else {
             return
         }
         
-        if loggedIn {
-            performSegueWithIdentifier(Segue.IntroToAuswertung.value, sender: nil)
-        } else {
-            performSegueWithIdentifier(Segue.IntroToOnboarding.value, sender: nil)
-        }
+        loadingSpinnerView.animationStop()
+        
+        let segue: Segue = loggedIn ? .IntroToAuswertung : .IntroToOnboarding
+        
+        performSegueWithIdentifier(segue.value, sender: nil)
     }
     
     
     // MARK: - Initialization
     
-    private func getUser() {
-        UserService.sharedInstance.userIsLoggedIn { loggedIn in
-            self._userLoggedIn = loggedIn
-            NSLog("User is Logged in: \(loggedIn)")
+    private func getConstants() {
+        ConstantService.sharedInstance.initiateConstants() { successful in
+            self._checkedConstants = true
+            NSLog("Got Constants successful: \(successful)")
             self.transitionToNextView()
         }
     }
     
-    private func getConstants() {
-        ConstantService.sharedInstance.initiateConstants() { successful in
-            self.loadingSpinnerView.animationStop()
-            self._checkedConstants = true
-            NSLog("Got Constants successful: \(successful)")
+    private func getRemoteConfig() {
+        RemoteConfig.sharedInstance.getRemoteConfigValues { successful in
+            self._checkedRemoteConfig = true
+            NSLog("Got Remote Config successful: \(successful)")
+            self.transitionToNextView()
+        }
+    }
+    
+    private func getUser() {
+        UserService.sharedInstance.userIsLoggedIn { loggedIn in
+            self._userLoggedIn = loggedIn
+            NSLog("User is Logged in: \(loggedIn)")
             self.transitionToNextView()
         }
     }
