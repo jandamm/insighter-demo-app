@@ -23,7 +23,6 @@ struct DBValueKeys {
 
     enum Constant: StringReturningEnum {
         case _versionDate
-        case iOSStrings
         case ratingQuestion
         case securityQuestions
     }

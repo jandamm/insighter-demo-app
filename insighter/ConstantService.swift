@@ -26,7 +26,6 @@ class ConstantService {
 
     private var _ratingQuestion: String?
     private var _securityQuestions: [String]?
-    private var _stringConstant = [String: String]()
     
     
     // MARK: - External Data
@@ -41,14 +40,6 @@ class ConstantService {
     
     
     // MARK: - Global Methods
-    
-    func getConstant(forKey key: StringConstant) -> String {
-        guard let value = _stringConstant[key.value] else {
-            return key.error
-        }
-        
-        return value
-    }
     
     func initiateConstants(completion: CompletionHandlerBool?) {
         
@@ -84,7 +75,6 @@ class ConstantService {
     
     private func constantsToNSUD() {
         NSUD.setValue(_versionDate, forKey: DBValueKeys.Constant._versionDate.value)
-        NSUD.setValue(_stringConstant, forKey: DBValueKeys.Constant.iOSStrings.value)
         NSUD.setValue(_ratingQuestion, forKey: DBValueKeys.Constant.ratingQuestion.value)
         NSUD.setValue(_securityQuestions, forKey: DBValueKeys.Constant.securityQuestions.value)
         
@@ -94,12 +84,8 @@ class ConstantService {
     }
     
     private func constantsFromNSUD(completion: CompletionHandlerBool?) {
-        var pick = 3
+        var pick = 2
         
-        if let stringConstant = NSUD.objectForKey(DBValueKeys.Constant.iOSStrings.value) as? [String: String] {
-            _stringConstant = stringConstant
-            pick -= 1
-        }
         if let ratingQuestion = NSUD.stringForKey(DBValueKeys.Constant.ratingQuestion.value) {
             _ratingQuestion = ratingQuestion
             pick -= 1
@@ -128,17 +114,13 @@ class ConstantService {
                 return
             }
             
-            var pick = 4
+            var pick = 3
             
             if let version = data[DBValueKeys.Constant._versionDate.value] {
                 self._versionDate = String(version)
                 pick -= 1
             }
             
-            if let stringConstant = data[DBValueKeys.Constant.iOSStrings.value] as? [String: String] {
-                self._stringConstant = stringConstant
-                pick -= 1
-            }
             if let ratingQuestion = data[DBValueKeys.Constant.ratingQuestion.value] as? String {
                 self._ratingQuestion = ratingQuestion
                 pick -= 1
