@@ -40,14 +40,264 @@
                     <connections>
                         <outlet property="loadingSpinnerView" destination="mFs-hu-CHQ" id="jDH-Gr-NFh"/>
                         <outlet property="logoVerticalCenterConstraint" destination="7Pb-JI-hRS" id="JtH-gk-UwO"/>
+                        <segue destination="6Fk-xq-iwQ" kind="show" identifier="IntroToOnboarding" id="80P-sO-EAG"/>
+                        <segue destination="lpM-3k-drX" kind="show" identifier="IntroToAuswertung" id="JCB-AV-3TU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="245" y="350"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="u7g-fv-0ub">
+            <objects>
+                <viewController id="6Fk-xq-iwQ" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="XCy-OJ-bir"/>
+                        <viewControllerLayoutGuide type="bottom" id="Hvi-4p-AT4"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="cjG-rf-qJC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="chw-GW-cVU">
+                                <rect key="frame" x="32" y="80" width="536" height="500"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="JeJ-Am-MBP">
+                                        <rect key="frame" x="0.0" y="0.0" width="536" height="70"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6zi-Pg-DUL" customClass="JDLabel" customModule="insighter" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="536" height="35"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="highlightedColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="fontStyle" value="Heading"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mAE-aX-t27" customClass="JDLabel" customModule="insighter" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="35" width="536" height="35"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="fontStyle" value="HeadingPrimary"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xC3-Eh-nTS" customClass="JDLabel" customModule="insighter" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="162" width="536" height="28"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="xnb-xf-n6j">
+                                        <rect key="frame" x="0.0" y="283" width="536" height="95"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g4y-fH-33k" customClass="JDLabel" customModule="insighter" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="536" height="28"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nmn-EL-xag" customClass="JDLabel" customModule="insighter" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="32" width="536" height="31"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="fontStyle" value="TextBigHighlight"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vuT-FF-rKn" customClass="JDLabel" customModule="insighter" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="67" width="536" height="28"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Q7-mf-DxR" customClass="JDButton" customModule="insighter" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="470" width="536" height="30"/>
+                                        <state key="normal" title="Button"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="fontStyle" value="TextPrimary"/>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <segue destination="GSs-Mu-3kg" kind="show" id="xcc-cG-mCj"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="chw-GW-cVU" firstAttribute="leading" secondItem="cjG-rf-qJC" secondAttribute="leading" constant="32" id="ORx-gs-8ci"/>
+                            <constraint firstItem="Hvi-4p-AT4" firstAttribute="top" secondItem="chw-GW-cVU" secondAttribute="bottom" constant="20" id="aQP-5g-P0x"/>
+                            <constraint firstItem="chw-GW-cVU" firstAttribute="top" secondItem="XCy-OJ-bir" secondAttribute="bottom" constant="60" id="n6O-E4-knb"/>
+                            <constraint firstAttribute="trailing" secondItem="chw-GW-cVU" secondAttribute="trailing" constant="32" id="yye-Wv-zpY"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4wi-4b-cvD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="960" y="165"/>
+        </scene>
+        <!--Onboarding LoginVC-->
+        <scene sceneID="Dpr-8F-aUg">
+            <objects>
+                <viewController id="GSs-Mu-3kg" customClass="OnboardingLoginVC" customModule="insighter" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="VSN-yJ-g04"/>
+                        <viewControllerLayoutGuide type="bottom" id="Nja-SG-mwb"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="4SX-ya-XdQ">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="WyY-P0-i9E">
+                                <rect key="frame" x="32" y="80" width="536" height="500"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jis-GZ-JLz" customClass="JDLabel" customModule="insighter" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="536" height="35"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="fontStyle" value="Heading"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="28" translatesAutoresizingMaskIntoConstraints="NO" id="HoP-Pn-Lhs">
+                                        <rect key="frame" x="0.0" y="180" width="536" height="146"/>
+                                        <subviews>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sX3-ux-Hbj">
+                                                <rect key="frame" x="0.0" y="0.0" width="536" height="30"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Passwort" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ttb-9u-vDk">
+                                                <rect key="frame" x="0.0" y="58" width="536" height="30"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Sicherheitsfrage" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6tK-gG-fkt">
+                                                <rect key="frame" x="0.0" y="116" width="536" height="30"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6wk-yQ-k4V" customClass="JDButton" customModule="insighter" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="470" width="536" height="30"/>
+                                        <state key="normal" title="Button"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="fontStyle" value="TextPrimary"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="WyY-P0-i9E" firstAttribute="leading" secondItem="4SX-ya-XdQ" secondAttribute="leading" constant="32" id="Lnm-yQ-L0A"/>
+                            <constraint firstItem="WyY-P0-i9E" firstAttribute="top" secondItem="VSN-yJ-g04" secondAttribute="bottom" constant="60" id="msD-oe-gWf"/>
+                            <constraint firstAttribute="trailing" secondItem="WyY-P0-i9E" secondAttribute="trailing" constant="32" id="uEk-Q0-dQi"/>
+                            <constraint firstItem="Nja-SG-mwb" firstAttribute="top" secondItem="WyY-P0-i9E" secondAttribute="bottom" constant="20" id="yFC-8L-l2Y"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <segue destination="Fd4-Yp-Y0y" kind="show" identifier="OnboardingLoginToNotification" id="nWn-K8-b4p"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aXE-dK-0LQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1646" y="165"/>
+        </scene>
+        <!--Onboarding NotificationVC-->
+        <scene sceneID="ttV-kP-fII">
+            <objects>
+                <viewController id="Fd4-Yp-Y0y" customClass="OnboardingNotificationVC" customModule="insighter" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ug9-Hw-LrH"/>
+                        <viewControllerLayoutGuide type="bottom" id="hWS-le-lgp"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ePy-VZ-UO9">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="tzm-ee-WiB">
+                                <rect key="frame" x="32" y="80" width="536" height="500"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wj4-l8-hZR" customClass="JDLabel" customModule="insighter" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="536" height="35"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="fontStyle" value="Heading"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sQV-Fg-z27" customClass="JDLabel" customModule="insighter" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="207" width="536" height="28"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="34" translatesAutoresizingMaskIntoConstraints="NO" id="BXR-5Z-Ijk">
+                                        <rect key="frame" x="0.0" y="406" width="536" height="94"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FbI-Ug-Feq" customClass="JDButton" customModule="insighter" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="536" height="30"/>
+                                                <state key="normal" title="Button"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XlI-gi-tlh" customClass="JDButton" customModule="insighter" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="64" width="536" height="30"/>
+                                                <state key="normal" title="Button"/>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="tzm-ee-WiB" firstAttribute="top" secondItem="ug9-Hw-LrH" secondAttribute="bottom" constant="60" id="CDz-ZU-BLh"/>
+                            <constraint firstAttribute="trailing" secondItem="tzm-ee-WiB" secondAttribute="trailing" constant="32" id="JbA-XN-Lux"/>
+                            <constraint firstItem="hWS-le-lgp" firstAttribute="top" secondItem="tzm-ee-WiB" secondAttribute="bottom" constant="20" id="Q7H-pH-lBc"/>
+                            <constraint firstItem="tzm-ee-WiB" firstAttribute="leading" secondItem="ePy-VZ-UO9" secondAttribute="leading" constant="32" id="km9-0P-ync"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <segue destination="lpM-3k-drX" kind="show" identifier="OnboardingNotificationToAuswertung" id="FP9-ut-TX9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="19W-V6-fdF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2295" y="165"/>
+        </scene>
+        <!--AuswertungVC-->
+        <scene sceneID="lCv-Ro-rbq">
+            <objects>
+                <viewController id="lpM-3k-drX" customClass="AuswertungVC" customModule="insighter" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="rG4-pb-Anu"/>
+                        <viewControllerLayoutGuide type="bottom" id="jgy-Hv-xXX"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="1qx-Vq-ujI">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1rG-Ag-6Ny" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="960" y="942"/>
+        </scene>
     </scenes>
     <resources>
         <image name="logo-insighter-intro" width="258" height="90"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="FP9-ut-TX9"/>
+    </inferredMetricsTieBreakers>
 </document>

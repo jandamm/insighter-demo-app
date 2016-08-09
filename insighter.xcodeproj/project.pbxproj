@@ -17,7 +17,6 @@
 		138C725E1D58B3680049561A /* DBValueKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 138C725D1D58B3680049561A /* DBValueKeys.swift */; };
 		138C72601D58B9F10049561A /* StringReturningEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 138C725F1D58B9F10049561A /* StringReturningEnum.swift */; };
 		138C72621D58BE3F0049561A /* DBPathKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 138C72611D58BE3F0049561A /* DBPathKeys.swift */; };
-		138C72641D58C4FA0049561A /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 138C72631D58C4FA0049561A /* UserService.swift */; };
 		13A03D7E1CF1109E00920838 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A03D7D1CF1109E00920838 /* AppDelegate.swift */; };
 		13A03D801CF1109E00920838 /* IntroVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A03D7F1CF1109E00920838 /* IntroVC.swift */; };
 		13A03D831CF1109E00920838 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13A03D811CF1109E00920838 /* Main.storyboard */; };
@@ -25,6 +24,15 @@
 		13A03D8B1CF1109E00920838 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13A03D891CF1109E00920838 /* LaunchScreen.storyboard */; };
 		13A03D961CF1109E00920838 /* insighterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A03D951CF1109E00920838 /* insighterTests.swift */; };
 		13A03DA11CF1109E00920838 /* insighterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A03DA01CF1109E00920838 /* insighterUITests.swift */; };
+		13A5B99B1D59E4F1008EBDF3 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A5B99A1D59E4F1008EBDF3 /* UserService.swift */; };
+		13A5B99D1D59EF8A008EBDF3 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A5B99C1D59EF8A008EBDF3 /* DateExtension.swift */; };
+		13A5B99F1D59F250008EBDF3 /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A5B99E1D59F250008EBDF3 /* Style.swift */; };
+		13A5B9A11D59F2E2008EBDF3 /* TextStylable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A5B9A01D59F2E2008EBDF3 /* TextStylable.swift */; };
+		13A5B9A31D59F71E008EBDF3 /* JDLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A5B9A21D59F71E008EBDF3 /* JDLabel.swift */; };
+		13A5B9A51D59FBE6008EBDF3 /* OnboardingLoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A5B9A41D59FBE6008EBDF3 /* OnboardingLoginVC.swift */; };
+		13A5B9A71D59FDB5008EBDF3 /* JDButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A5B9A61D59FDB5008EBDF3 /* JDButton.swift */; };
+		13A5B9A91D5A01D5008EBDF3 /* OnboardingNotificationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A5B9A81D5A01D5008EBDF3 /* OnboardingNotificationVC.swift */; };
+		13A5B9AB1D5A0275008EBDF3 /* AuswertungVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A5B9AA1D5A0275008EBDF3 /* AuswertungVC.swift */; };
 		56C3D9C7BA732868E00FED91 /* Pods_insighterTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3645D0C096E9AD5555A68EF8 /* Pods_insighterTests.framework */; };
 		70407723F13F34D9E3BCFDCB /* Pods_insighter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1CA16EAB56FD4C11696E893 /* Pods_insighter.framework */; };
 		DE3202D0A70D6B5479502F5C /* Pods_insighterUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F3BC960734ED150A1BA84B2 /* Pods_insighterUITests.framework */; };
@@ -58,7 +66,6 @@
 		138C725D1D58B3680049561A /* DBValueKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBValueKeys.swift; sourceTree = "<group>"; };
 		138C725F1D58B9F10049561A /* StringReturningEnum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringReturningEnum.swift; sourceTree = "<group>"; };
 		138C72611D58BE3F0049561A /* DBPathKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBPathKeys.swift; sourceTree = "<group>"; };
-		138C72631D58C4FA0049561A /* UserService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		13A03D7A1CF1109E00920838 /* insighter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = insighter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13A03D7D1CF1109E00920838 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		13A03D7F1CF1109E00920838 /* IntroVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroVC.swift; sourceTree = "<group>"; };
@@ -72,6 +79,15 @@
 		13A03D9C1CF1109E00920838 /* insighterUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = insighterUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		13A03DA01CF1109E00920838 /* insighterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = insighterUITests.swift; sourceTree = "<group>"; };
 		13A03DA21CF1109E00920838 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		13A5B99A1D59E4F1008EBDF3 /* UserService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
+		13A5B99C1D59EF8A008EBDF3 /* DateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
+		13A5B99E1D59F250008EBDF3 /* Style.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
+		13A5B9A01D59F2E2008EBDF3 /* TextStylable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextStylable.swift; sourceTree = "<group>"; };
+		13A5B9A21D59F71E008EBDF3 /* JDLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JDLabel.swift; sourceTree = "<group>"; };
+		13A5B9A41D59FBE6008EBDF3 /* OnboardingLoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingLoginVC.swift; sourceTree = "<group>"; };
+		13A5B9A61D59FDB5008EBDF3 /* JDButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JDButton.swift; sourceTree = "<group>"; };
+		13A5B9A81D5A01D5008EBDF3 /* OnboardingNotificationVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingNotificationVC.swift; sourceTree = "<group>"; };
+		13A5B9AA1D5A0275008EBDF3 /* AuswertungVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuswertungVC.swift; sourceTree = "<group>"; };
 		2B1A7C62CD2140921EA62CD8 /* Pods-insighter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-insighter.release.xcconfig"; path = "Pods/Target Support Files/Pods-insighter/Pods-insighter.release.xcconfig"; sourceTree = "<group>"; };
 		3645D0C096E9AD5555A68EF8 /* Pods_insighterTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_insighterTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6DF52CA7CBBCD29BD959C9E8 /* Pods-insighter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-insighter.debug.xcconfig"; path = "Pods/Target Support Files/Pods-insighter/Pods-insighter.debug.xcconfig"; sourceTree = "<group>"; };
@@ -127,8 +143,8 @@
 			children = (
 				138C72591D58B2850049561A /* ConstantService.swift */,
 				138C72571D58B2360049561A /* DataService.swift */,
-				138C72631D58C4FA0049561A /* UserService.swift */,
 				131C8D031D59DF3900A2EE8C /* RemoteConfig.swift */,
+				13A5B99A1D59E4F1008EBDF3 /* UserService.swift */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -192,6 +208,9 @@
 			isa = PBXGroup;
 			children = (
 				13A03D7F1CF1109E00920838 /* IntroVC.swift */,
+				13A5B9A41D59FBE6008EBDF3 /* OnboardingLoginVC.swift */,
+				13A5B9A81D5A01D5008EBDF3 /* OnboardingNotificationVC.swift */,
+				13A5B9AA1D5A0275008EBDF3 /* AuswertungVC.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -201,7 +220,11 @@
 			children = (
 				13A03D811CF1109E00920838 /* Main.storyboard */,
 				13A03D891CF1109E00920838 /* LaunchScreen.storyboard */,
+				13A5B9A61D59FDB5008EBDF3 /* JDButton.swift */,
+				13A5B9A21D59F71E008EBDF3 /* JDLabel.swift */,
 				138C72551D58AB260049561A /* LoadingView.swift */,
+				13A5B9A01D59F2E2008EBDF3 /* TextStylable.swift */,
+				13A5B99E1D59F250008EBDF3 /* Style.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -211,6 +234,7 @@
 			children = (
 				138C725F1D58B9F10049561A /* StringReturningEnum.swift */,
 				131C8D051D59E1D100A2EE8C /* User.swift */,
+				13A5B99C1D59EF8A008EBDF3 /* DateExtension.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -507,10 +531,18 @@
 				138C72601D58B9F10049561A /* StringReturningEnum.swift in Sources */,
 				138C725A1D58B2850049561A /* ConstantService.swift in Sources */,
 				13A03D7E1CF1109E00920838 /* AppDelegate.swift in Sources */,
+				13A5B99D1D59EF8A008EBDF3 /* DateExtension.swift in Sources */,
+				13A5B9A31D59F71E008EBDF3 /* JDLabel.swift in Sources */,
+				13A5B9AB1D5A0275008EBDF3 /* AuswertungVC.swift in Sources */,
+				13A5B9A51D59FBE6008EBDF3 /* OnboardingLoginVC.swift in Sources */,
 				138C725C1D58B3290049561A /* LocalConstant.swift in Sources */,
-				138C72641D58C4FA0049561A /* UserService.swift in Sources */,
+				13A5B9A71D59FDB5008EBDF3 /* JDButton.swift in Sources */,
 				138C725E1D58B3680049561A /* DBValueKeys.swift in Sources */,
+				13A5B9A11D59F2E2008EBDF3 /* TextStylable.swift in Sources */,
+				13A5B9A91D5A01D5008EBDF3 /* OnboardingNotificationVC.swift in Sources */,
 				131C8D061D59E1D200A2EE8C /* User.swift in Sources */,
+				13A5B99B1D59E4F1008EBDF3 /* UserService.swift in Sources */,
+				13A5B99F1D59F250008EBDF3 /* Style.swift in Sources */,
 				138C72581D58B2360049561A /* DataService.swift in Sources */,
 				131C8D041D59DF3900A2EE8C /* RemoteConfig.swift in Sources */,
 				138C72621D58BE3F0049561A /* DBPathKeys.swift in Sources */,

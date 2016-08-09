@@ -16,37 +16,74 @@ class IntroVC: UIViewController {
     @IBOutlet weak var loadingSpinnerView: LoadingView!
 
     
+    // MARK: - Private Variables
+    
+    private var _userLoggedIn: Bool?
+    private var _checkedConstants = false
+    
+    
     // MARK: - Startup
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupViewBeforeAnimations()
         getConstants()
+        getUser()
     }
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
-        logoVerticalCenterConstraint.constant = -45
-        
-        UIView.animateWithDuration(0.5, animations: {
-            self.view.layoutIfNeeded()
-        })
+        introAnimationLogo(animated)
     }
 
     
-    // MARK: - Setup
+    // MARK: - Animation
     
-    private func getConstants() {
-        ConstantService.sharedInstance.initiateConstants() { completed in
-            self.loadingSpinnerView.animationStop()
+    private func introAnimationLogo(animated: Bool) {
+        logoVerticalCenterConstraint.constant = -45
+        
+        if animated {
+            UIView.animateWithDuration(0.5, animations: {
+                self.view.layoutIfNeeded()
+            })
+        } else {
+            view.layoutIfNeeded()
         }
     }
     
-    private func setupViewBeforeAnimations() {
-        loadingSpinnerView.animationStart()
+    // MARK: - Navigation
+    
+    private func transitionToNextView() {
+        guard let loggedIn = _userLoggedIn where _checkedConstants == true else {
+            return
+        }
+        
+        if loggedIn {
+            performSegueWithIdentifier(Segue.IntroToAuswertung.value, sender: nil)
+        } else {
+            performSegueWithIdentifier(Segue.IntroToOnboarding.value, sender: nil)
+        }
     }
-
+    
+    
+    // MARK: - Initialization
+    
+    private func getUser() {
+        UserService.sharedInstance.userIsLoggedIn { loggedIn in
+            self._userLoggedIn = loggedIn
+            NSLog("User is Logged in: \(loggedIn)")
+            self.transitionToNextView()
+        }
+    }
+    
+    private func getConstants() {
+        ConstantService.sharedInstance.initiateConstants() { successful in
+            self.loadingSpinnerView.animationStop()
+            self._checkedConstants = true
+            NSLog("Got Constants successful: \(successful)")
+            self.transitionToNextView()
+        }
+    }
 }
 

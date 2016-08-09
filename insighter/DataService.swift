@@ -18,6 +18,15 @@ class DataService {
     
     // MARK: - External Data
     
+    let KW: String
+    
+    // MARK: - Initialization
+    
+    init() {
+        let date = NSDate()
+        KW = date.yearWithWeek
+    }
+    
     // MARK: - Global Methods
     
 }

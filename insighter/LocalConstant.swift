@@ -8,5 +8,15 @@
 
 import Foundation
 
+// Completion Handler
 typealias CompletionHandler = () -> ()
 typealias CompletionHandlerBool = (Bool) -> ()
+
+
+// Segue Identifiers
+enum Segue: StringReturningEnum {
+    case IntroToOnboarding
+    case IntroToAuswertung
+    case OnboardingLoginToNotification
+    case OnboardingNotificationToAuswertung
+}

@@ -17,6 +17,7 @@ class LoadingView: UIView {
     private var _boundsMax: CGRect!
     private var _boundsMin: CGRect!
     
+    
     // MARK: - Startup
     
     override func awakeFromNib() {
@@ -25,6 +26,9 @@ class LoadingView: UIView {
         layoutView()
     }
 
+    
+    // MARK: - Interface Builder
+    
     override func prepareForInterfaceBuilder() {
         super.prepareForInterfaceBuilder()
         

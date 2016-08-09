@@ -38,6 +38,8 @@ class UserService {
     // MARK: - Private Methods
     
     private func addListener(completion: CompletionHandlerBool?) {
+        _addedUserListener = true
+        
         FIRAuth.auth()?.addAuthStateDidChangeListener { auth, user in
             if let user = user {
                 self._userFirebase = user
@@ -53,13 +55,17 @@ class UserService {
         let uid = _userFirebase.uid
         
         REF.child(uid).observeSingleEventOfType(.Value, withBlock: { snapshot in
-            guard snapshot.exists(), let data = snapshot.value else {
+            guard snapshot.exists(), let data = snapshot.value as? [String: AnyObject] else {
                 NSLog("No User data available in Firebase")
                 return
             }
             
-            let company = data[DBValueKeys.User.company] as? String
-            let lastRated = data[DBValueKeys.User.lastRated] as? String
+            let company = data[DBValueKeys.User.company.value] as? String
+            let lastRated = data[DBValueKeys.User.lastRated.value] as? String
+            
+            let user = User(UID: uid, company: company, lastRated: lastRated)
+            
+            self._userData = user
         })
     }
 }
