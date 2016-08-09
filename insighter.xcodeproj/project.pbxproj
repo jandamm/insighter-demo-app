@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		131C8D041D59DF3900A2EE8C /* RemoteConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 131C8D031D59DF3900A2EE8C /* RemoteConfig.swift */; };
+		131C8D061D59E1D200A2EE8C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 131C8D051D59E1D100A2EE8C /* User.swift */; };
 		132A5EBA1D58A28400448DAC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 132A5EB91D58A28400448DAC /* GoogleService-Info.plist */; };
 		138C72561D58AB260049561A /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 138C72551D58AB260049561A /* LoadingView.swift */; };
 		138C72581D58B2360049561A /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 138C72571D58B2360049561A /* DataService.swift */; };
@@ -46,6 +48,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		131C8D031D59DF3900A2EE8C /* RemoteConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteConfig.swift; sourceTree = "<group>"; };
+		131C8D051D59E1D100A2EE8C /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		132A5EB91D58A28400448DAC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		138C72551D58AB260049561A /* LoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		138C72571D58B2360049561A /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
@@ -124,6 +128,7 @@
 				138C72591D58B2850049561A /* ConstantService.swift */,
 				138C72571D58B2360049561A /* DataService.swift */,
 				138C72631D58C4FA0049561A /* UserService.swift */,
+				131C8D031D59DF3900A2EE8C /* RemoteConfig.swift */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -205,6 +210,7 @@
 			isa = PBXGroup;
 			children = (
 				138C725F1D58B9F10049561A /* StringReturningEnum.swift */,
+				131C8D051D59E1D100A2EE8C /* User.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -504,7 +510,9 @@
 				138C725C1D58B3290049561A /* LocalConstant.swift in Sources */,
 				138C72641D58C4FA0049561A /* UserService.swift in Sources */,
 				138C725E1D58B3680049561A /* DBValueKeys.swift in Sources */,
+				131C8D061D59E1D200A2EE8C /* User.swift in Sources */,
 				138C72581D58B2360049561A /* DataService.swift in Sources */,
+				131C8D041D59DF3900A2EE8C /* RemoteConfig.swift in Sources */,
 				138C72621D58BE3F0049561A /* DBPathKeys.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
