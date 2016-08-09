@@ -12,7 +12,7 @@ import Firebase
 class DataService {
     static let sharedInstance = DataService()
     
-    private let REF = FIRDatabase.database().reference().child(DBPathKeys.company.value)
+    private let REF = FIRDatabase.database().reference().child(DBPathKeys.company.rawValue)
     
     // MARK: - Private Data
     

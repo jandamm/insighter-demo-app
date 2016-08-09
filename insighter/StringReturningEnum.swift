@@ -9,13 +9,13 @@
 import Foundation
 
 protocol StringReturningEnum {
-    var value: String { get }
+    var rawValue: String { get }
     var error: String { get }
 }
 
 extension StringReturningEnum {
     
-    var value: String {
+    var rawValue: String {
         return "\(self)"
     }
     

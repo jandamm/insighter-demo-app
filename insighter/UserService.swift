@@ -12,7 +12,7 @@ import Firebase
 class UserService {
     static let sharedInstance = UserService()
     
-    private let REF = FIRDatabase.database().reference().child(DBPathKeys.user.value)
+    private let REF = FIRDatabase.database().reference().child(DBPathKeys.user.rawValue)
     
     // MARK: - Private Data
     
@@ -60,8 +60,8 @@ class UserService {
                 return
             }
             
-            let company = data[DBValueKeys.User.company.value] as? String
-            let lastRated = data[DBValueKeys.User.lastRated.value] as? String
+            let company = data[DBValueKeys.User.company.rawValue] as? String
+            let lastRated = data[DBValueKeys.User.lastRated.rawValue] as? String
             
             let user = User(UID: uid, company: company, lastRated: lastRated)
             

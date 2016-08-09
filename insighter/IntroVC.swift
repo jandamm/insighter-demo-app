@@ -68,7 +68,7 @@ class IntroVC: UIViewController {
         
         let segue: Segue = loggedIn ? .IntroToAuswertung : .IntroToOnboarding
         
-        performSegueWithIdentifier(segue.value, sender: nil)
+        performSegueWithIdentifier(segue.rawValue, sender: nil)
     }
     
     

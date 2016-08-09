@@ -9,14 +9,10 @@
 import Foundation
 import Firebase
 
-enum StringConstant: StringReturningEnum {
-    case companyMailLabel
-}
-
 class ConstantService {
     static let sharedInstance = ConstantService()
     
-    private let FIR_REF = FIRDatabase.database().reference().child(DBPathKeys.constant.value)
+    private let FIR_REF = FIRDatabase.database().reference().child(DBPathKeys.constant.rawValue)
     private let NSUD = NSUserDefaults.standardUserDefaults()
     
     
@@ -45,7 +41,7 @@ class ConstantService {
         
         versionFromNSUD()
         
-        FIR_REF.child(DBValueKeys.Constant._versionDate.value).observeSingleEventOfType(.Value, withBlock: { snapshot in
+        FIR_REF.child(DBValueKeys.Constant._versionDate.rawValue).observeSingleEventOfType(.Value, withBlock: { snapshot in
             guard snapshot.exists(), let data = snapshot.value else {
                 self.noConnectionToFirebase()
                 self.constantsFromNSUD(completion)
@@ -68,15 +64,15 @@ class ConstantService {
     // MARK: - NSUserDefaults
     
     private func versionFromNSUD() {
-        if let versionDate = NSUD.stringForKey(DBValueKeys.Constant._versionDate.value) {
+        if let versionDate = NSUD.stringForKey(DBValueKeys.Constant._versionDate.rawValue) {
             _versionDate = versionDate
         }
     }
     
     private func constantsToNSUD() {
-        NSUD.setValue(_versionDate, forKey: DBValueKeys.Constant._versionDate.value)
-        NSUD.setValue(_ratingQuestion, forKey: DBValueKeys.Constant.ratingQuestion.value)
-        NSUD.setValue(_securityQuestions, forKey: DBValueKeys.Constant.securityQuestions.value)
+        NSUD.setValue(_versionDate, forKey: DBValueKeys.Constant._versionDate.rawValue)
+        NSUD.setValue(_ratingQuestion, forKey: DBValueKeys.Constant.ratingQuestion.rawValue)
+        NSUD.setValue(_securityQuestions, forKey: DBValueKeys.Constant.securityQuestions.rawValue)
         
         let success = NSUD.synchronize()
         
@@ -86,11 +82,11 @@ class ConstantService {
     private func constantsFromNSUD(completion: CompletionHandlerBool?) {
         var pick = 2
         
-        if let ratingQuestion = NSUD.stringForKey(DBValueKeys.Constant.ratingQuestion.value) {
+        if let ratingQuestion = NSUD.stringForKey(DBValueKeys.Constant.ratingQuestion.rawValue) {
             _ratingQuestion = ratingQuestion
             pick -= 1
         }
-        if let securityQuestions = NSUD.objectForKey(DBValueKeys.Constant.securityQuestions.value) as? [String] {
+        if let securityQuestions = NSUD.objectForKey(DBValueKeys.Constant.securityQuestions.rawValue) as? [String] {
             _securityQuestions = securityQuestions
             pick -= 1
         }
@@ -116,16 +112,16 @@ class ConstantService {
             
             var pick = 3
             
-            if let version = data[DBValueKeys.Constant._versionDate.value] {
+            if let version = data[DBValueKeys.Constant._versionDate.rawValue] {
                 self._versionDate = String(version)
                 pick -= 1
             }
             
-            if let ratingQuestion = data[DBValueKeys.Constant.ratingQuestion.value] as? String {
+            if let ratingQuestion = data[DBValueKeys.Constant.ratingQuestion.rawValue] as? String {
                 self._ratingQuestion = ratingQuestion
                 pick -= 1
             }
-            if let securityQuestions = data[DBValueKeys.Constant.securityQuestions.value] as? [String: AnyObject] {
+            if let securityQuestions = data[DBValueKeys.Constant.securityQuestions.rawValue] as? [String: AnyObject] {
                 self._securityQuestions = Array(securityQuestions.keys)
                 pick -= 1
             }

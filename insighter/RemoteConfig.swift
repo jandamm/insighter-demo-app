@@ -50,7 +50,7 @@ class RemoteConfig {
     // MARK: - Get Values
     
     func getString(forKey key: RemoteConfigKey) -> String {
-        guard let value = remoteConfig[key.value].stringValue else {
+        guard let value = remoteConfig[key.rawValue].stringValue else {
             return key.error
         }
         
@@ -66,7 +66,7 @@ class RemoteConfig {
 //    }
     
     private func getNSNumber(forKey key: RemoteConfigKey) -> NSNumber {
-        guard let value = remoteConfig[key.value].numberValue else {
+        guard let value = remoteConfig[key.rawValue].numberValue else {
             return 0
         }
         

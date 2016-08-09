@@ -9,10 +9,11 @@
 import UIKit
 
 @IBDesignable
-class JDLabel: UILabel, TextStylable {
+class JDLabel: UILabel, TextStylable, TextRemoteConfigable {
     
     // MARK: - Design
 
+    @IBInspectable var remoteConfigKey: String!
     @IBInspectable var fontStyle: String!
     @IBInspectable var overrideDefaultSettings: Bool!
     
@@ -23,6 +24,7 @@ class JDLabel: UILabel, TextStylable {
         super.awakeFromNib()
         
         applyStyle()
+        setText()
         applyDefaults()
     }
     

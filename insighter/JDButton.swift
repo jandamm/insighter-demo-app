@@ -9,10 +9,11 @@
 import UIKit
 
 @IBDesignable
-class JDButton: UIButton, TextStylable {
+class JDButton: UIButton, TextStylable, TextRemoteConfigable {
 
     // MARK: - Design
     
+    @IBInspectable var remoteConfigKey: String!
     @IBInspectable var fontStyle: String!
     
     
@@ -22,6 +23,7 @@ class JDButton: UIButton, TextStylable {
         super.awakeFromNib()
         
         applyStyle()
+        setText()
     }
     
     
