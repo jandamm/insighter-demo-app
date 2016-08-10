@@ -1,27 +1,33 @@
 //
-//  JDLabel.swift
+//  JDTextField.swift
 //  insighter
 //
-//  Created by Jan Dammshäuser on 09.08.16.
+//  Created by Jan Dammshäuser on 10.08.16.
 //  Copyright © 2016 Jan Dammshäuser. All rights reserved.
 //
 
 import UIKit
+import NextResponderTextField
 
 @IBDesignable
-class JDLabel: UILabel, TextStylable, TextRemoteConfigable {
+class JDTextField: NextResponderTextField, TextStylable, TextRemoteConfigable {
+    
+    // MARK: - Outlets
+    
+    @IBOutlet weak var NextResponder: UIControl?
+    
     
     // MARK: - Design
-
+    
     @IBInspectable var remoteConfigKey: String!
     @IBInspectable var fontStyle: String!
-    @IBInspectable var overrideDefaultSettings: Bool!
     
     
     // MARK: - Startup
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        super.nextResponderField = NextResponder
         
         valuesInView()
     }
@@ -44,15 +50,30 @@ class JDLabel: UILabel, TextStylable, TextRemoteConfigable {
     
     // MARK: - Appearance
     
-    private func applyDefaults() {
-        if let b = overrideDefaultSettings where b {
-            return
-        }
-        
-        numberOfLines = 3
-        adjustsFontSizeToFitWidth = true
-        minimumScaleFactor = 0.5
+    override func textRectForBounds(bounds: CGRect) -> CGRect {
+        return CGRectMake(bounds.origin.x+12, bounds.origin.y+4, bounds.width-24, bounds.height-4)
     }
+    
+    private func applyDefaults() {
+        minimumFontSize = 14
+        adjustsFontSizeToFitWidth = true
+        borderStyle = .None
+        
+        addLine()
+    }
+    
+    private func addLine() {
+        let line = CALayer()
+        let lineWidth: CGFloat = 1
+        
+        line.borderColor = Colors.primaryColor().CGColor
+        line.frame = CGRect(x: 0, y: bounds.height-lineWidth, width: bounds.width, height: lineWidth)
+        line.borderWidth = lineWidth
+        
+        
+        layer.addSublayer(line)
+    }
+    
     
     // MARK: - Private Methods
     
@@ -64,4 +85,5 @@ class JDLabel: UILabel, TextStylable, TextRemoteConfigable {
     private func valuesInView() {
         setText()
     }
+
 }

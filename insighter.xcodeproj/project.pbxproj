@@ -11,10 +11,11 @@
 		131C8D061D59E1D200A2EE8C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 131C8D051D59E1D100A2EE8C /* User.swift */; };
 		1329B0391D5B12EE004AE52B /* CalendarWeek.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1329B0381D5B12EE004AE52B /* CalendarWeek.swift */; };
 		1329B03B1D5B1BD9004AE52B /* JDScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1329B03A1D5B1BD9004AE52B /* JDScrollView.swift */; };
+		1329B03D1D5B2096004AE52B /* JDTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1329B03C1D5B2096004AE52B /* JDTextField.swift */; };
 		132A5EBA1D58A28400448DAC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 132A5EB91D58A28400448DAC /* GoogleService-Info.plist */; };
 		1340AC7C1D5A0E89008499CE /* RemoteConfigDefaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1340AC7B1D5A0E89008499CE /* RemoteConfigDefaults.plist */; };
 		1340AC7E1D5A0EB0008499CE /* RemoteConfigKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1340AC7D1D5A0EB0008499CE /* RemoteConfigKey.swift */; };
-		1340AC801D5A19E1008499CE /* RemoteConfigable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1340AC7F1D5A19E1008499CE /* RemoteConfigable.swift */; };
+		1340AC801D5A19E1008499CE /* TextRemoteConfigable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1340AC7F1D5A19E1008499CE /* TextRemoteConfigable.swift */; };
 		138C72561D58AB260049561A /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 138C72551D58AB260049561A /* LoadingView.swift */; };
 		138C72581D58B2360049561A /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 138C72571D58B2360049561A /* DataService.swift */; };
 		138C725A1D58B2850049561A /* ConstantService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 138C72591D58B2850049561A /* ConstantService.swift */; };
@@ -64,10 +65,11 @@
 		131C8D051D59E1D100A2EE8C /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		1329B0381D5B12EE004AE52B /* CalendarWeek.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarWeek.swift; sourceTree = "<group>"; };
 		1329B03A1D5B1BD9004AE52B /* JDScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JDScrollView.swift; sourceTree = "<group>"; };
+		1329B03C1D5B2096004AE52B /* JDTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JDTextField.swift; sourceTree = "<group>"; };
 		132A5EB91D58A28400448DAC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1340AC7B1D5A0E89008499CE /* RemoteConfigDefaults.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = RemoteConfigDefaults.plist; sourceTree = "<group>"; };
 		1340AC7D1D5A0EB0008499CE /* RemoteConfigKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteConfigKey.swift; sourceTree = "<group>"; };
-		1340AC7F1D5A19E1008499CE /* RemoteConfigable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteConfigable.swift; sourceTree = "<group>"; };
+		1340AC7F1D5A19E1008499CE /* TextRemoteConfigable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextRemoteConfigable.swift; sourceTree = "<group>"; };
 		138C72551D58AB260049561A /* LoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		138C72571D58B2360049561A /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		138C72591D58B2850049561A /* ConstantService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstantService.swift; sourceTree = "<group>"; };
@@ -138,6 +140,7 @@
 		132A5EB81D58A27700448DAC /* Misc */ = {
 			isa = PBXGroup;
 			children = (
+				13A03D8C1CF1109E00920838 /* Info.plist */,
 				132A5EB91D58A28400448DAC /* GoogleService-Info.plist */,
 				1340AC7B1D5A0E89008499CE /* RemoteConfigDefaults.plist */,
 				1340AC7D1D5A0EB0008499CE /* RemoteConfigKey.swift */,
@@ -191,7 +194,6 @@
 				132A5EB81D58A27700448DAC /* Misc */,
 				13A03D871CF1109E00920838 /* Assets.xcassets */,
 				13A03D7D1CF1109E00920838 /* AppDelegate.swift */,
-				13A03D8C1CF1109E00920838 /* Info.plist */,
 			);
 			path = insighter;
 			sourceTree = "<group>";
@@ -233,8 +235,10 @@
 				13A5B9A61D59FDB5008EBDF3 /* JDButton.swift */,
 				13A5B9A21D59F71E008EBDF3 /* JDLabel.swift */,
 				1329B03A1D5B1BD9004AE52B /* JDScrollView.swift */,
+				1329B03C1D5B2096004AE52B /* JDTextField.swift */,
 				138C72551D58AB260049561A /* LoadingView.swift */,
 				13A5B9A01D59F2E2008EBDF3 /* TextStylable.swift */,
+				1340AC7F1D5A19E1008499CE /* TextRemoteConfigable.swift */,
 				13A5B99E1D59F250008EBDF3 /* Style.swift */,
 			);
 			name = View;
@@ -245,7 +249,6 @@
 			children = (
 				138C725F1D58B9F10049561A /* StringReturningEnum.swift */,
 				131C8D051D59E1D100A2EE8C /* User.swift */,
-				1340AC7F1D5A19E1008499CE /* RemoteConfigable.swift */,
 				1329B0381D5B12EE004AE52B /* CalendarWeek.swift */,
 			);
 			name = Model;
@@ -553,11 +556,12 @@
 				13A5B9A71D59FDB5008EBDF3 /* JDButton.swift in Sources */,
 				138C725E1D58B3680049561A /* DBValueKeys.swift in Sources */,
 				13A5B9A11D59F2E2008EBDF3 /* TextStylable.swift in Sources */,
-				1340AC801D5A19E1008499CE /* RemoteConfigable.swift in Sources */,
+				1340AC801D5A19E1008499CE /* TextRemoteConfigable.swift in Sources */,
 				13A5B9A91D5A01D5008EBDF3 /* OnboardingNotificationVC.swift in Sources */,
 				131C8D061D59E1D200A2EE8C /* User.swift in Sources */,
 				13A5B99B1D59E4F1008EBDF3 /* UserService.swift in Sources */,
 				13A5B99F1D59F250008EBDF3 /* Style.swift in Sources */,
+				1329B03D1D5B2096004AE52B /* JDTextField.swift in Sources */,
 				138C72581D58B2360049561A /* DataService.swift in Sources */,
 				1340AC7E1D5A0EB0008499CE /* RemoteConfigKey.swift in Sources */,
 				131C8D041D59DF3900A2EE8C /* RemoteConfig.swift in Sources */,

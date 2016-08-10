@@ -8,6 +8,8 @@
 
 import UIKit
 
+import Firebase
+
 class IntroVC: UIViewController {
     
     // MARK: - Outlets
@@ -37,6 +39,8 @@ class IntroVC: UIViewController {
         super.viewDidAppear(animated)
         
         introAnimationLogo(animated)
+        
+        print(FIRDatabase.database().reference().child(DBPathKeys.company.rawValue).child("ratingQuestions").childByAutoId().key)
     }
 
     
@@ -46,7 +50,7 @@ class IntroVC: UIViewController {
         logoVerticalCenterConstraint.constant = -45
         
         if animated {
-            UIView.animateWithDuration(0.5, animations: {
+            UIView.animateWithDuration(1, animations: {
                 self.view.layoutIfNeeded()
                 }, completion: { _ in
                     self.loadingSpinnerView.animationStart()

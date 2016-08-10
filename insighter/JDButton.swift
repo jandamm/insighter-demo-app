@@ -22,8 +22,13 @@ class JDButton: UIButton, TextStylable, TextRemoteConfigable {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        applyStyle()
-        setText()
+        valuesInView()
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        styleView()
     }
     
     
@@ -32,7 +37,17 @@ class JDButton: UIButton, TextStylable, TextRemoteConfigable {
     override func prepareForInterfaceBuilder() {
         super.prepareForInterfaceBuilder()
         
+        styleView()
+    }
+    
+    // MARK: - Private Methods
+    
+    private func styleView() {
         applyStyle()
+    }
+    
+    private func valuesInView() {
+        setText()
     }
 
 }

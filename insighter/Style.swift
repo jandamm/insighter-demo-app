@@ -32,9 +32,12 @@ class Colors {
 }
 
 enum TextStyle: String {
-    case Heading, HeadingPrimary, HeadingHighlight
-    case TextBig, TextBigPrimary, TextBigHighlight
-    case Text, TextPrimary, TextHighlight, TextError
+    case Heading, HeadingPrimary
+    case TextBigHighlight
+    case Text
+    case Button, ButtonPrimary, ButtonHighlight, ButtonError
+    case TextField, TextFieldPrimary
+    case TextSubLine
     
     func font() -> UIFont {
         let selfString = self.rawValue
@@ -45,6 +48,10 @@ enum TextStyle: String {
             size = 25
         } else if selfString.containsString("TextBig") {
             size = 22
+        } else if selfString.containsString("TextField") {
+            size = 18
+        } else if selfString.containsString("TextSubLine") {
+            size = 10
         }
         
         if selfString.containsString("Primary") || selfString.containsString("Highlight") {

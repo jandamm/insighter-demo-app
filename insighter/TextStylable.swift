@@ -14,6 +14,17 @@ protocol TextStylable {
     func applyStyle()
 }
 
+extension TextStylable where Self: UIButton {
+    
+    func applyStyle() {
+        let style = getStyle()
+        
+        titleLabel?.font = style.font()
+        setTitleColor(style.color(), forState: UIControlState.Normal)
+    }
+    
+}
+
 extension TextStylable where Self: UILabel {
     
     func applyStyle() {
@@ -25,13 +36,13 @@ extension TextStylable where Self: UILabel {
     
 }
 
-extension TextStylable where Self: UIButton {
+extension TextStylable where Self: UITextField {
     
     func applyStyle() {
         let style = getStyle()
         
-        titleLabel?.font = style.font()
-        setTitleColor(style.color(), forState: UIControlState.Normal)
+        font = style.font()
+        textColor = style.color()
     }
     
 }

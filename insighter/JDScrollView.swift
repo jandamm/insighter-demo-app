@@ -10,8 +10,13 @@ import UIKit
 
 class JDScrollView: UIScrollView {
     
+    // MARK: - Outlets
+    
     @IBOutlet weak var viewController: UIViewController!
 
+    
+    // MARK: - Startup
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -20,7 +25,7 @@ class JDScrollView: UIScrollView {
     }
     
     
-    // MARK: - Textfield - Scrollview Methods
+    // MARK: - Keyboard Actions
     
     func keyboardWillShow(notification: NSNotification) {
         

@@ -10,12 +10,15 @@ import Foundation
 
 
 // The cases of this Enumeration should be RemoteConfigDefaults as well
-// _ERROR_ is used to tell if there is an error
+// _ERROR_ are used to tell if there is an error
 
 
 enum RemoteConfigKey: String, StringReturningEnum {
-    case _ERROR_
+    case _EMPTY_
+    case _ERROR_WRONG_KEY
+    case _ERROR_NO_KEY
     
+    // Basics
     case Our_Company_Name
     
     // Onboarding Willkommen Screen
@@ -28,5 +31,11 @@ enum RemoteConfigKey: String, StringReturningEnum {
     
     // Onboarding Login Screen
     case Onb_Login_Anmeldung_Lbl
+    case Onb_Login_Email_Lbl
+    case Onb_Login_Email_TxtField
+    case Onb_Login_PW_Lbl
+    case Onb_Login_PW_TxtField
+    case Onb_Login_Security_TxtField
+    case Onb_Login_Security_SubLbl
     case Onb_Login_Anmeldung_Btn
 }

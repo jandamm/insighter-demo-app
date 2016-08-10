@@ -14,14 +14,6 @@ protocol TextRemoteConfigable {
     func setText()
 }
 
-extension TextRemoteConfigable where Self: UILabel {
-    
-    func setText(){
-        text = getValue()
-    }
-    
-}
-
 extension TextRemoteConfigable where Self: UIButton {
     
     func setText(){
@@ -31,11 +23,31 @@ extension TextRemoteConfigable where Self: UIButton {
     
 }
 
+extension TextRemoteConfigable where Self: UILabel {
+    
+    func setText(){
+        text = getValue()
+    }
+    
+}
+
+extension TextRemoteConfigable where Self: UITextField {
+    
+    func setText(){
+        placeholder = getValue()
+    }
+    
+}
+
 extension TextRemoteConfigable {
     
     private func getKey() -> RemoteConfigKey {
-        guard let rawKey = remoteConfigKey, let key = RemoteConfigKey(rawValue: rawKey) else {
-            return RemoteConfigKey._ERROR_
+        guard let rawKey = remoteConfigKey else {
+            return RemoteConfigKey._ERROR_NO_KEY
+        }
+        
+        guard let key = RemoteConfigKey(rawValue: rawKey) else {
+            return RemoteConfigKey._ERROR_WRONG_KEY
         }
         
         return key
