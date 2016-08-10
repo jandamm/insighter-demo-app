@@ -13,18 +13,20 @@ class JDLabel: UILabel, TextStylable, TextRemoteConfigable {
     
     // MARK: - Design
 
-    @IBInspectable var remoteConfigKey: String!
-    @IBInspectable var fontStyle: String!
+    @IBInspectable var remoteConfigKey: String!  {
+        didSet {
+            setText()
+        }
+    }
+    @IBInspectable var fontStyle: String!  {
+        didSet {
+            applyTextStyle()
+        }
+    }
     @IBInspectable var overrideDefaultSettings: Bool!
     
     
     // MARK: - Startup
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        
-        valuesInView()
-    }
     
     override func layoutSubviews() {
         super.layoutSubviews()
@@ -38,13 +40,17 @@ class JDLabel: UILabel, TextStylable, TextRemoteConfigable {
     override func prepareForInterfaceBuilder() {
         super.prepareForInterfaceBuilder()
         
-        styleView()
+        applyTextStyle()
     }
     
     
     // MARK: - Appearance
     
-    private func applyDefaults() {
+    private func styleView() {
+        if fontStyle == nil {
+            applyTextStyle()
+        }
+        
         if let b = overrideDefaultSettings where b {
             return
         }
@@ -52,16 +58,5 @@ class JDLabel: UILabel, TextStylable, TextRemoteConfigable {
         numberOfLines = 3
         adjustsFontSizeToFitWidth = true
         minimumScaleFactor = 0.5
-    }
-    
-    // MARK: - Private Methods
-    
-    private func styleView() {
-        applyStyle()
-        applyDefaults()
-    }
-    
-    private func valuesInView() {
-        setText()
     }
 }

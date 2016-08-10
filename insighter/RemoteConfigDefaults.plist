@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>_EMPTY_</key>
+	<string> </string>
 	<key>_ERROR_WRONG_KEY</key>
 	<string>WRONG KEY</string>
 	<key>_ERROR_NO_KEY</key>
@@ -11,7 +13,7 @@
 	<key>Onb_Will_Willkommen_Lbl</key>
 	<string>Herzlich willkommen bei</string>
 	<key>Onb_Will_Wir_Verbessern_Lbl</key>
-	<string>Wir helfen Ihren Arbeitsplatz zu verbessern.</string>
+	<string>Ab sofort helfen Sie aktiv mit, dass sich Ihr Arbeitgeber weiter verbessern kann.</string>
 	<key>Onb_Will_Anonym_Top_Lbl</key>
 	<string>Alle Ihre Antworten sind zu</string>
 	<key>Onb_Will_Anonym_Middle_Lbl</key>
@@ -30,16 +32,22 @@
 	<string>Ihr persönliches Passwort</string>
 	<key>Onb_Login_PW_TxtField</key>
 	<string>••••••</string>
+	<key>Onb_Login_PW_SubLbl</key>
+	<string>Ihr Passwort muss mindestens 6 Zeichen lang sein.</string>
+	<key>Onb_Login_Security_Dropdown</key>
+	<string>Bitte eine Sicherheitsfrage wählen</string>
 	<key>Onb_Login_Security_TxtField</key>
 	<string>Ihre persönliche Antwort</string>
 	<key>Onb_Login_Security_SubLbl</key>
 	<string>Sie benötigen diese Antwort um Ihr Passwort wiederherzustellen.</string>
-	<key>Onb_Login_Anmeldung_Btn</key>
+	<key>Onb_Login_Anmeldung_Btn_Login</key>
 	<string>anmelden</string>
+	<key>Onb_Login_Anmeldung_Btn_Register</key>
+	<string>registrieren</string>
 	<key>Onb_Notif_Erklaerung_Lbl</key>
-	<string>Bitte erlauben Sie uns Sie daran zu erinnern an Umfragen teilzunehmen.</string>
+	<string>Bitte erlauben Sie der App, Sie an neue Kurz-Umfragen zu erinnern.</string>
 	<key>Onb_Notif_Bitte_Bestaetigen_Lbl</key>
-	<string>Bitte bestätigen Sie die Systemmeldung.</string>
+	<string>Bitte bestätigen Sie die kommende Systemmeldung.</string>
 	<key>Onb_Notif_Erlauben_Btn</key>
 	<string>erlauben</string>
 	<key>Onb_Notif_Ueberspringen_Btn</key>

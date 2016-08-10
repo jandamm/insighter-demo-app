@@ -20,8 +20,8 @@ class LoadingView: UIView {
     
     // MARK: - Startup
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
+    override func layoutSubviews() {
+        super.layoutSubviews()
         
         layoutView()
     }

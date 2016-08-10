@@ -35,7 +35,10 @@ enum RemoteConfigKey: String, StringReturningEnum {
     case Onb_Login_Email_TxtField
     case Onb_Login_PW_Lbl
     case Onb_Login_PW_TxtField
+    case Onb_Login_PW_SubLbl
+    case Onb_Login_Security_Dropdown
     case Onb_Login_Security_TxtField
     case Onb_Login_Security_SubLbl
-    case Onb_Login_Anmeldung_Btn
+    case Onb_Login_Anmeldung_Btn_Login
+    case Onb_Login_Anmeldung_Btn_Register
 }

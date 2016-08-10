@@ -10,27 +10,28 @@ import UIKit
 import NextResponderTextField
 
 //@IBDesignable
-class JDTextField: NextResponderTextField, TextStylable, TextRemoteConfigable {
+class JDTextField: NextResponderTextField, TextStylable, TextRemoteConfigable, Shakeable {
     
     // MARK: - Outlets
     
-    @IBOutlet weak var NextResponder: UIControl?
+    @IBOutlet weak var NextResponder: UIControl? {
+        didSet {
+            super.nextResponderField = NextResponder
+        }
+    }
     
     
     // MARK: - Design
     
-    @IBInspectable var remoteConfigKey: String!
-    @IBInspectable var fontStyle: String!
+    @IBInspectable var remoteConfigKey: String! {
+        didSet {
+            setText()
+        }
+    }
+    let fontStyle: String! = TextStyle.TextField.rawValue
     
     
     // MARK: - Startup
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        super.nextResponderField = NextResponder
-        
-        valuesInView()
-    }
     
     override func layoutSubviews() {
         super.layoutSubviews()
@@ -44,7 +45,7 @@ class JDTextField: NextResponderTextField, TextStylable, TextRemoteConfigable {
     override func prepareForInterfaceBuilder() {
         super.prepareForInterfaceBuilder()
         
-        styleView()
+        applyTextStyle()
     }
     
     
@@ -58,7 +59,9 @@ class JDTextField: NextResponderTextField, TextStylable, TextRemoteConfigable {
         return textRectForBounds(bounds)
     }
     
-    private func applyDefaults() {
+    private func styleView() {
+        applyTextStyle()
+        
         minimumFontSize = 14
         adjustsFontSizeToFitWidth = true
         borderStyle = .None
@@ -78,17 +81,4 @@ class JDTextField: NextResponderTextField, TextStylable, TextRemoteConfigable {
         
         layer.addSublayer(line)
     }
-    
-    
-    // MARK: - Private Methods
-    
-    private func styleView() {
-        applyStyle()
-        applyDefaults()
-    }
-    
-    private func valuesInView() {
-        setText()
-    }
-
 }

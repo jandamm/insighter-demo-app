@@ -9,11 +9,20 @@
 import UIKit
 
 //@IBDesignable
-class JDDropdown: UILabel, TextStylable {
+class JDDropdown: UILabel, TextStylable, TextRemoteConfigable {
     
     // MARK: - Design
     
-    @IBInspectable var fontStyle: String!
+    @IBInspectable var fontStyle: String! {
+        didSet {
+            applyTextStyle()
+        }
+    }
+    @IBInspectable var remoteConfigKey: String! {
+        didSet {
+            setText()
+        }
+    }
     
     
     // MARK: - Private Data
@@ -22,11 +31,6 @@ class JDDropdown: UILabel, TextStylable {
     
     
     // MARK: - Startup
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        
-    }
     
     override func layoutSubviews() {
         super.layoutSubviews()
@@ -40,14 +44,16 @@ class JDDropdown: UILabel, TextStylable {
     override func prepareForInterfaceBuilder() {
         super.prepareForInterfaceBuilder()
         
-        styleView()
+        applyTextStyle()
     }
     
     
     // MARK: - Appearance
     
-    private func applyDefaults() {
-        
+    private func styleView() {
+        if fontStyle == nil {
+            applyTextStyle()
+        }
     }
     
     
@@ -56,22 +62,13 @@ class JDDropdown: UILabel, TextStylable {
     func dataSource(source: [String]) {
         _dropdownList = source
         
-        setLabel()
+        if source.count == 1 {
+            text = source.first
+        }
     }
     
     
     // MARK: - Private Methods
     
-    private func setLabel() {
-        guard let data = _dropdownList else {
-            return
-        }
-        
-        text = data.first
-    }
-    
-    private func styleView() {
-        applyStyle()
-        applyDefaults()
-    }
+
 }

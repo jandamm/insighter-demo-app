@@ -11,12 +11,12 @@ import UIKit
 protocol TextStylable {
     var fontStyle: String! { get }
     
-    func applyStyle()
+    func applyTextStyle()
 }
 
 extension TextStylable where Self: UIButton {
     
-    func applyStyle() {
+    func applyTextStyle() {
         let style = getStyle()
         
         titleLabel?.font = style.font()
@@ -27,7 +27,7 @@ extension TextStylable where Self: UIButton {
 
 extension TextStylable where Self: UILabel {
     
-    func applyStyle() {
+    func applyTextStyle() {
         let style = getStyle()
         
         font = style.font()
@@ -38,7 +38,7 @@ extension TextStylable where Self: UILabel {
 
 extension TextStylable where Self: UITextField {
     
-    func applyStyle() {
+    func applyTextStyle() {
         let style = getStyle()
         
         font = style.font()

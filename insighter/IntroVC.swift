@@ -30,6 +30,8 @@ class IntroVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        loadingSpinnerView.hidden = true
+        
         getConstants()
         getRemoteConfig()
         getUser()
@@ -38,25 +40,21 @@ class IntroVC: UIViewController {
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
-        introAnimationLogo(animated)
+        introAnimationLogo()
     }
 
     
     // MARK: - Animation
     
-    private func introAnimationLogo(animated: Bool) {
+    private func introAnimationLogo() {
         logoVerticalCenterConstraint.constant = -45
         
-        if animated {
-            UIView.animateWithDuration(1, animations: {
-                self.view.layoutIfNeeded()
-                }, completion: { _ in
-                    self.loadingSpinnerView.animationStart()
-            })
-        } else {
-            view.layoutIfNeeded()
-            loadingSpinnerView.animationStart()
-        }
+        loadingSpinnerView.animationStart()
+        
+        UIView.animateWithDuration(0.5, animations: {
+            self.view.layoutIfNeeded()
+            self.loadingSpinnerView.hidden = false
+        })
     }
     
     // MARK: - Navigation

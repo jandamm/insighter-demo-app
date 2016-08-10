@@ -43,8 +43,15 @@ class UserService {
         }
     }
     
-    func companyID(forEmailEnding mail: String) -> String? {
-        return _emailEndings[mail]
+    func companyID(forEmail mail: String) -> String? {
+        let mailParts = mail.componentsSeparatedByString("@")
+        let part = mailParts.count - 1
+        let ending = mailParts[part]
+        return companyID(forEmailEnding: ending)
+    }
+    
+    func companyID(forEmailEnding ending: String) -> String? {
+        return _emailEndings[ending]
     }
     
     

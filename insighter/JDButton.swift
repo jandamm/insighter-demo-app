@@ -13,17 +13,19 @@ class JDButton: UIButton, TextStylable, TextRemoteConfigable {
 
     // MARK: - Design
     
-    @IBInspectable var remoteConfigKey: String!
-    @IBInspectable var fontStyle: String!
+    @IBInspectable var remoteConfigKey: String! {
+        didSet {
+            setText()
+        }
+    }
+    @IBInspectable var fontStyle: String! {
+        didSet {
+            applyTextStyle()
+        }
+    }
     
     
     // MARK: - Startup
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        
-        valuesInView()
-    }
     
     override func layoutSubviews() {
         super.layoutSubviews()
@@ -37,17 +39,16 @@ class JDButton: UIButton, TextStylable, TextRemoteConfigable {
     override func prepareForInterfaceBuilder() {
         super.prepareForInterfaceBuilder()
         
-        styleView()
+        applyTextStyle()
     }
     
-    // MARK: - Private Methods
+    
+    // MARK: - Appearance
     
     private func styleView() {
-        applyStyle()
-    }
-    
-    private func valuesInView() {
-        setText()
+        if fontStyle == nil {
+            applyTextStyle()
+        }
     }
 
 }

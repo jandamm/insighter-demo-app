@@ -17,6 +17,7 @@
 		1340AC7C1D5A0E89008499CE /* RemoteConfigDefaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1340AC7B1D5A0E89008499CE /* RemoteConfigDefaults.plist */; };
 		1340AC7E1D5A0EB0008499CE /* RemoteConfigKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1340AC7D1D5A0EB0008499CE /* RemoteConfigKey.swift */; };
 		1340AC801D5A19E1008499CE /* TextRemoteConfigable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1340AC7F1D5A19E1008499CE /* TextRemoteConfigable.swift */; };
+		13517B481D5BAE59002B74AD /* Shakeable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13517B471D5BAE59002B74AD /* Shakeable.swift */; };
 		138744C31D5B5BB300512967 /* JDDropdown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 138744C21D5B5BB300512967 /* JDDropdown.swift */; };
 		138C72561D58AB260049561A /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 138C72551D58AB260049561A /* LoadingView.swift */; };
 		138C72581D58B2360049561A /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 138C72571D58B2360049561A /* DataService.swift */; };
@@ -73,6 +74,7 @@
 		1340AC7B1D5A0E89008499CE /* RemoteConfigDefaults.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = RemoteConfigDefaults.plist; sourceTree = "<group>"; };
 		1340AC7D1D5A0EB0008499CE /* RemoteConfigKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteConfigKey.swift; sourceTree = "<group>"; };
 		1340AC7F1D5A19E1008499CE /* TextRemoteConfigable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextRemoteConfigable.swift; sourceTree = "<group>"; };
+		13517B471D5BAE59002B74AD /* Shakeable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shakeable.swift; sourceTree = "<group>"; };
 		138744C21D5B5BB300512967 /* JDDropdown.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JDDropdown.swift; sourceTree = "<group>"; };
 		138C72551D58AB260049561A /* LoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		138C72571D58B2360049561A /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
@@ -234,6 +236,7 @@
 		13A03DAF1CF1164500920838 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				13A5B99E1D59F250008EBDF3 /* Style.swift */,
 				13A03D811CF1109E00920838 /* Main.storyboard */,
 				13A03D891CF1109E00920838 /* LaunchScreen.storyboard */,
 				13A5B9A61D59FDB5008EBDF3 /* JDButton.swift */,
@@ -244,7 +247,7 @@
 				138C72551D58AB260049561A /* LoadingView.swift */,
 				13A5B9A01D59F2E2008EBDF3 /* TextStylable.swift */,
 				1340AC7F1D5A19E1008499CE /* TextRemoteConfigable.swift */,
-				13A5B99E1D59F250008EBDF3 /* Style.swift */,
+				13517B471D5BAE59002B74AD /* Shakeable.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -555,6 +558,7 @@
 				1329B0391D5B12EE004AE52B /* CalendarWeek.swift in Sources */,
 				138C725A1D58B2850049561A /* ConstantService.swift in Sources */,
 				13A03D7E1CF1109E00920838 /* AppDelegate.swift in Sources */,
+				13517B481D5BAE59002B74AD /* Shakeable.swift in Sources */,
 				13A5B9A31D59F71E008EBDF3 /* JDLabel.swift in Sources */,
 				13A5B9AB1D5A0275008EBDF3 /* AuswertungVC.swift in Sources */,
 				13A5B9A51D59FBE6008EBDF3 /* OnboardingLoginVC.swift in Sources */,
