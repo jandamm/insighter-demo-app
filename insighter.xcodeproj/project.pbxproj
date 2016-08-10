@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		131C8D041D59DF3900A2EE8C /* RemoteConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 131C8D031D59DF3900A2EE8C /* RemoteConfig.swift */; };
 		131C8D061D59E1D200A2EE8C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 131C8D051D59E1D100A2EE8C /* User.swift */; };
+		1329B0391D5B12EE004AE52B /* CalendarWeek.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1329B0381D5B12EE004AE52B /* CalendarWeek.swift */; };
 		132A5EBA1D58A28400448DAC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 132A5EB91D58A28400448DAC /* GoogleService-Info.plist */; };
 		1340AC7C1D5A0E89008499CE /* RemoteConfigDefaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1340AC7B1D5A0E89008499CE /* RemoteConfigDefaults.plist */; };
 		1340AC7E1D5A0EB0008499CE /* RemoteConfigKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1340AC7D1D5A0EB0008499CE /* RemoteConfigKey.swift */; };
@@ -28,7 +29,6 @@
 		13A03D961CF1109E00920838 /* insighterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A03D951CF1109E00920838 /* insighterTests.swift */; };
 		13A03DA11CF1109E00920838 /* insighterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A03DA01CF1109E00920838 /* insighterUITests.swift */; };
 		13A5B99B1D59E4F1008EBDF3 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A5B99A1D59E4F1008EBDF3 /* UserService.swift */; };
-		13A5B99D1D59EF8A008EBDF3 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A5B99C1D59EF8A008EBDF3 /* DateExtension.swift */; };
 		13A5B99F1D59F250008EBDF3 /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A5B99E1D59F250008EBDF3 /* Style.swift */; };
 		13A5B9A11D59F2E2008EBDF3 /* TextStylable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A5B9A01D59F2E2008EBDF3 /* TextStylable.swift */; };
 		13A5B9A31D59F71E008EBDF3 /* JDLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A5B9A21D59F71E008EBDF3 /* JDLabel.swift */; };
@@ -61,6 +61,7 @@
 /* Begin PBXFileReference section */
 		131C8D031D59DF3900A2EE8C /* RemoteConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteConfig.swift; sourceTree = "<group>"; };
 		131C8D051D59E1D100A2EE8C /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		1329B0381D5B12EE004AE52B /* CalendarWeek.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarWeek.swift; sourceTree = "<group>"; };
 		132A5EB91D58A28400448DAC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1340AC7B1D5A0E89008499CE /* RemoteConfigDefaults.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = RemoteConfigDefaults.plist; sourceTree = "<group>"; };
 		1340AC7D1D5A0EB0008499CE /* RemoteConfigKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteConfigKey.swift; sourceTree = "<group>"; };
@@ -86,7 +87,6 @@
 		13A03DA01CF1109E00920838 /* insighterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = insighterUITests.swift; sourceTree = "<group>"; };
 		13A03DA21CF1109E00920838 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		13A5B99A1D59E4F1008EBDF3 /* UserService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
-		13A5B99C1D59EF8A008EBDF3 /* DateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		13A5B99E1D59F250008EBDF3 /* Style.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
 		13A5B9A01D59F2E2008EBDF3 /* TextStylable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextStylable.swift; sourceTree = "<group>"; };
 		13A5B9A21D59F71E008EBDF3 /* JDLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JDLabel.swift; sourceTree = "<group>"; };
@@ -242,8 +242,8 @@
 			children = (
 				138C725F1D58B9F10049561A /* StringReturningEnum.swift */,
 				131C8D051D59E1D100A2EE8C /* User.swift */,
-				13A5B99C1D59EF8A008EBDF3 /* DateExtension.swift */,
 				1340AC7F1D5A19E1008499CE /* RemoteConfigable.swift */,
+				1329B0381D5B12EE004AE52B /* CalendarWeek.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -539,9 +539,9 @@
 				138C72561D58AB260049561A /* LoadingView.swift in Sources */,
 				13A03D801CF1109E00920838 /* IntroVC.swift in Sources */,
 				138C72601D58B9F10049561A /* StringReturningEnum.swift in Sources */,
+				1329B0391D5B12EE004AE52B /* CalendarWeek.swift in Sources */,
 				138C725A1D58B2850049561A /* ConstantService.swift in Sources */,
 				13A03D7E1CF1109E00920838 /* AppDelegate.swift in Sources */,
-				13A5B99D1D59EF8A008EBDF3 /* DateExtension.swift in Sources */,
 				13A5B9A31D59F71E008EBDF3 /* JDLabel.swift in Sources */,
 				13A5B9AB1D5A0275008EBDF3 /* AuswertungVC.swift in Sources */,
 				13A5B9A51D59FBE6008EBDF3 /* OnboardingLoginVC.swift in Sources */,

@@ -14,19 +14,22 @@ class DataService {
     
     private let REF = FIRDatabase.database().reference().child(DBPathKeys.company.rawValue)
     
+    
     // MARK: - Private Data
     
     // MARK: - External Data
     
-    let KW: String
+    let KW: CalendarWeek
+    
     
     // MARK: - Initialization
     
     init() {
-        let date = NSDate()
-        KW = date.yearWithWeek
+        KW = CalendarWeek()
     }
     
     // MARK: - Global Methods
+    
+    // MARK: - Private Methods
     
 }
