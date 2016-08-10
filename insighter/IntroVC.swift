@@ -39,8 +39,6 @@ class IntroVC: UIViewController {
         super.viewDidAppear(animated)
         
         introAnimationLogo(animated)
-        
-        print(FIRDatabase.database().reference().child(DBPathKeys.company.rawValue).child("ratingQuestions").childByAutoId().key)
     }
 
     

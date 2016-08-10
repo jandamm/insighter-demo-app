@@ -20,14 +20,14 @@ class ConstantService {
     
     private var _versionDate = ""
 
-    private var _ratingQuestion: String?
+    private var _ratingQuestions = [String: RatingQuestion]()
     private var _securityQuestions: [String]?
     
     
     // MARK: - External Data
     
-    var ratingQuestion: String {
-        return _ratingQuestion == nil ? DBValueKeys.Constant.ratingQuestion.error : _ratingQuestion!
+    var ratingQuestions: [String: RatingQuestion] {
+        return _ratingQuestions
     }
     
     var securityQuestions: [String] {
@@ -71,7 +71,10 @@ class ConstantService {
     
     private func constantsToNSUD() {
         NSUD.setValue(_versionDate, forKey: DBValueKeys.Constant._versionDate.rawValue)
-        NSUD.setValue(_ratingQuestion, forKey: DBValueKeys.Constant.ratingQuestion.rawValue)
+        
+        let data = NSKeyedArchiver.archivedDataWithRootObject(_ratingQuestions)
+        NSUD.setObject(data, forKey: DBValueKeys.Constant.ratingQuestions.rawValue)
+        
         NSUD.setValue(_securityQuestions, forKey: DBValueKeys.Constant.securityQuestions.rawValue)
         
         let success = NSUD.synchronize()
@@ -82,8 +85,8 @@ class ConstantService {
     private func constantsFromNSUD(completion: CompletionHandlerBool?) {
         var pick = 2
         
-        if let ratingQuestion = NSUD.stringForKey(DBValueKeys.Constant.ratingQuestion.rawValue) {
-            _ratingQuestion = ratingQuestion
+        if let data = NSUD.objectForKey(DBValueKeys.Constant.ratingQuestions.rawValue) as? NSData, let ratingQuestions = NSKeyedUnarchiver.unarchiveObjectWithData(data) as? [String: RatingQuestion] {
+            _ratingQuestions = ratingQuestions
             pick -= 1
         }
         if let securityQuestions = NSUD.objectForKey(DBValueKeys.Constant.securityQuestions.rawValue) as? [String] {
@@ -117,8 +120,15 @@ class ConstantService {
                 pick -= 1
             }
             
-            if let ratingQuestion = data[DBValueKeys.Constant.ratingQuestion.rawValue] as? String {
-                self._ratingQuestion = ratingQuestion
+            if let rawData = data[DBValueKeys.Constant.ratingQuestions.rawValue] as? [String: String] {
+                var ratingQuestions = [String: RatingQuestion]()
+                
+                for (key, value) in rawData {
+                    let q = RatingQuestion(uid: key, question: value)
+                    ratingQuestions[key] = q
+                }
+                
+                self._ratingQuestions = ratingQuestions
                 pick -= 1
             }
             if let securityQuestions = data[DBValueKeys.Constant.securityQuestions.rawValue] as? [String: AnyObject] {

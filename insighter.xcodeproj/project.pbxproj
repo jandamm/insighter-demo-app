@@ -12,6 +12,7 @@
 		1329B0391D5B12EE004AE52B /* CalendarWeek.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1329B0381D5B12EE004AE52B /* CalendarWeek.swift */; };
 		1329B03B1D5B1BD9004AE52B /* JDScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1329B03A1D5B1BD9004AE52B /* JDScrollView.swift */; };
 		1329B03D1D5B2096004AE52B /* JDTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1329B03C1D5B2096004AE52B /* JDTextField.swift */; };
+		1329B0451D5B4901004AE52B /* RatingQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1329B0441D5B4901004AE52B /* RatingQuestion.swift */; };
 		132A5EBA1D58A28400448DAC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 132A5EB91D58A28400448DAC /* GoogleService-Info.plist */; };
 		1340AC7C1D5A0E89008499CE /* RemoteConfigDefaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1340AC7B1D5A0E89008499CE /* RemoteConfigDefaults.plist */; };
 		1340AC7E1D5A0EB0008499CE /* RemoteConfigKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1340AC7D1D5A0EB0008499CE /* RemoteConfigKey.swift */; };
@@ -66,6 +67,7 @@
 		1329B0381D5B12EE004AE52B /* CalendarWeek.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarWeek.swift; sourceTree = "<group>"; };
 		1329B03A1D5B1BD9004AE52B /* JDScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JDScrollView.swift; sourceTree = "<group>"; };
 		1329B03C1D5B2096004AE52B /* JDTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JDTextField.swift; sourceTree = "<group>"; };
+		1329B0441D5B4901004AE52B /* RatingQuestion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingQuestion.swift; sourceTree = "<group>"; };
 		132A5EB91D58A28400448DAC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1340AC7B1D5A0E89008499CE /* RemoteConfigDefaults.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = RemoteConfigDefaults.plist; sourceTree = "<group>"; };
 		1340AC7D1D5A0EB0008499CE /* RemoteConfigKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteConfigKey.swift; sourceTree = "<group>"; };
@@ -250,6 +252,7 @@
 				138C725F1D58B9F10049561A /* StringReturningEnum.swift */,
 				131C8D051D59E1D100A2EE8C /* User.swift */,
 				1329B0381D5B12EE004AE52B /* CalendarWeek.swift */,
+				1329B0441D5B4901004AE52B /* RatingQuestion.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -564,6 +567,7 @@
 				1329B03D1D5B2096004AE52B /* JDTextField.swift in Sources */,
 				138C72581D58B2360049561A /* DataService.swift in Sources */,
 				1340AC7E1D5A0EB0008499CE /* RemoteConfigKey.swift in Sources */,
+				1329B0451D5B4901004AE52B /* RatingQuestion.swift in Sources */,
 				131C8D041D59DF3900A2EE8C /* RemoteConfig.swift in Sources */,
 				138C72621D58BE3F0049561A /* DBPathKeys.swift in Sources */,
 			);
