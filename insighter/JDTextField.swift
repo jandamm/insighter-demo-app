@@ -9,7 +9,7 @@
 import UIKit
 import NextResponderTextField
 
-@IBDesignable
+//@IBDesignable
 class JDTextField: NextResponderTextField, TextStylable, TextRemoteConfigable {
     
     // MARK: - Outlets
@@ -54,10 +54,15 @@ class JDTextField: NextResponderTextField, TextStylable, TextRemoteConfigable {
         return CGRectMake(bounds.origin.x+12, bounds.origin.y+4, bounds.width-24, bounds.height-4)
     }
     
+    override func editingRectForBounds(bounds: CGRect) -> CGRect {
+        return textRectForBounds(bounds)
+    }
+    
     private func applyDefaults() {
         minimumFontSize = 14
         adjustsFontSizeToFitWidth = true
         borderStyle = .None
+        enablesReturnKeyAutomatically = true
         
         addLine()
     }

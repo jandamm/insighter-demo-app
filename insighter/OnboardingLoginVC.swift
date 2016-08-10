@@ -10,20 +10,27 @@ import UIKit
 
 class OnboardingLoginVC: UIViewController {
     
+    private var dropdownData: [String]!
+    
+    
+    // MARK: - Outlets
+    
+    @IBOutlet weak var emailTxt: JDTextField!
+    @IBOutlet weak var passwordTxt: JDTextField!
+    @IBOutlet weak var securitySectionSView: UIStackView!
+    @IBOutlet weak var securityQuestionDropdown: JDDropdown!
+    @IBOutlet weak var securityAnswerTxt: JDTextField!
+    @IBOutlet weak var loginBtn: JDButton!
+    
+    
+    // MARK: - Startup
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        initializeDropdown()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
     
     // MARK: - Actions
     
@@ -31,4 +38,11 @@ class OnboardingLoginVC: UIViewController {
         print("button pressed")
     }
 
+    
+    // MARK: - Private Methods
+    
+    func initializeDropdown() {
+        dropdownData = ConstantService.sharedInstance.securityQuestions
+        securityQuestionDropdown.dataSource(dropdownData)
+    }
 }

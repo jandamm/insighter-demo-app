@@ -27,6 +27,11 @@ struct DBValueKeys {
         case securityQuestions
     }
     
+    enum Email: StringReturningEnum {
+        case company
+        case ending
+    }
+    
     enum User: StringReturningEnum {
         case company
         case lastRated

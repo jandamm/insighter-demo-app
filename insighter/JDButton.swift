@@ -8,7 +8,7 @@
 
 import UIKit
 
-@IBDesignable
+//@IBDesignable
 class JDButton: UIButton, TextStylable, TextRemoteConfigable {
 
     // MARK: - Design

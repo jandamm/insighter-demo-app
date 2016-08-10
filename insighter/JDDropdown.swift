@@ -1,21 +1,24 @@
 //
-//  JDLabel.swift
+//  JDDropdown.swift
 //  insighter
 //
-//  Created by Jan Dammshäuser on 09.08.16.
+//  Created by Jan Dammshäuser on 10.08.16.
 //  Copyright © 2016 Jan Dammshäuser. All rights reserved.
 //
 
 import UIKit
 
 //@IBDesignable
-class JDLabel: UILabel, TextStylable, TextRemoteConfigable {
+class JDDropdown: UILabel, TextStylable {
     
     // MARK: - Design
-
-    @IBInspectable var remoteConfigKey: String!
+    
     @IBInspectable var fontStyle: String!
-    @IBInspectable var overrideDefaultSettings: Bool!
+    
+    
+    // MARK: - Private Data
+    
+    private var _dropdownList: [String]?
     
     
     // MARK: - Startup
@@ -23,7 +26,6 @@ class JDLabel: UILabel, TextStylable, TextRemoteConfigable {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        valuesInView()
     }
     
     override func layoutSubviews() {
@@ -45,23 +47,31 @@ class JDLabel: UILabel, TextStylable, TextRemoteConfigable {
     // MARK: - Appearance
     
     private func applyDefaults() {
-        if let b = overrideDefaultSettings where b {
+        
+    }
+    
+    
+    // MARK: - Global Methods
+    
+    func dataSource(source: [String]) {
+        _dropdownList = source
+        
+        setLabel()
+    }
+    
+    
+    // MARK: - Private Methods
+    
+    private func setLabel() {
+        guard let data = _dropdownList else {
             return
         }
         
-        numberOfLines = 3
-        adjustsFontSizeToFitWidth = true
-        minimumScaleFactor = 0.5
+        text = data.first
     }
-    
-    // MARK: - Private Methods
     
     private func styleView() {
         applyStyle()
         applyDefaults()
-    }
-    
-    private func valuesInView() {
-        setText()
     }
 }

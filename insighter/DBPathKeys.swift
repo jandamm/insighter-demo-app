@@ -11,6 +11,7 @@ import Foundation
 enum DBPathKeys: StringReturningEnum {
     case company
     case constant
+    case email
     case user
     
     enum Company: StringReturningEnum {
