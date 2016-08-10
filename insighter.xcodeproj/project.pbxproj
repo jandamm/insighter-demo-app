@@ -10,6 +10,7 @@
 		131C8D041D59DF3900A2EE8C /* RemoteConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 131C8D031D59DF3900A2EE8C /* RemoteConfig.swift */; };
 		131C8D061D59E1D200A2EE8C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 131C8D051D59E1D100A2EE8C /* User.swift */; };
 		1329B0391D5B12EE004AE52B /* CalendarWeek.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1329B0381D5B12EE004AE52B /* CalendarWeek.swift */; };
+		1329B03B1D5B1BD9004AE52B /* JDScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1329B03A1D5B1BD9004AE52B /* JDScrollView.swift */; };
 		132A5EBA1D58A28400448DAC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 132A5EB91D58A28400448DAC /* GoogleService-Info.plist */; };
 		1340AC7C1D5A0E89008499CE /* RemoteConfigDefaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1340AC7B1D5A0E89008499CE /* RemoteConfigDefaults.plist */; };
 		1340AC7E1D5A0EB0008499CE /* RemoteConfigKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1340AC7D1D5A0EB0008499CE /* RemoteConfigKey.swift */; };
@@ -62,6 +63,7 @@
 		131C8D031D59DF3900A2EE8C /* RemoteConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteConfig.swift; sourceTree = "<group>"; };
 		131C8D051D59E1D100A2EE8C /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		1329B0381D5B12EE004AE52B /* CalendarWeek.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarWeek.swift; sourceTree = "<group>"; };
+		1329B03A1D5B1BD9004AE52B /* JDScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JDScrollView.swift; sourceTree = "<group>"; };
 		132A5EB91D58A28400448DAC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1340AC7B1D5A0E89008499CE /* RemoteConfigDefaults.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = RemoteConfigDefaults.plist; sourceTree = "<group>"; };
 		1340AC7D1D5A0EB0008499CE /* RemoteConfigKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteConfigKey.swift; sourceTree = "<group>"; };
@@ -230,6 +232,7 @@
 				13A03D891CF1109E00920838 /* LaunchScreen.storyboard */,
 				13A5B9A61D59FDB5008EBDF3 /* JDButton.swift */,
 				13A5B9A21D59F71E008EBDF3 /* JDLabel.swift */,
+				1329B03A1D5B1BD9004AE52B /* JDScrollView.swift */,
 				138C72551D58AB260049561A /* LoadingView.swift */,
 				13A5B9A01D59F2E2008EBDF3 /* TextStylable.swift */,
 				13A5B99E1D59F250008EBDF3 /* Style.swift */,
@@ -539,6 +542,7 @@
 				138C72561D58AB260049561A /* LoadingView.swift in Sources */,
 				13A03D801CF1109E00920838 /* IntroVC.swift in Sources */,
 				138C72601D58B9F10049561A /* StringReturningEnum.swift in Sources */,
+				1329B03B1D5B1BD9004AE52B /* JDScrollView.swift in Sources */,
 				1329B0391D5B12EE004AE52B /* CalendarWeek.swift in Sources */,
 				138C725A1D58B2850049561A /* ConstantService.swift in Sources */,
 				13A03D7E1CF1109E00920838 /* AppDelegate.swift in Sources */,
