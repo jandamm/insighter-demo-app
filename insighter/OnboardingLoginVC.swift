@@ -42,8 +42,7 @@ class OnboardingLoginVC: UIViewController {
     
     // MARK: - Actions
     
-    @IBAction func loginPressed(sender: AnyObject) {
-        emailSubLbl.text = "haha"
+    @IBAction func loginPressed(sender: UIButton) {
         
         guard let email = emailTxt.text where email != "" else {
             emailTxt.shake()

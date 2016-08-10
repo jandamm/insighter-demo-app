@@ -9,7 +9,7 @@
 import UIKit
 
 protocol TextRemoteConfigable {
-    var remoteConfigKey: String! { get }
+    var remoteConfigKey: String! { get set }
     
     func setText()
 }

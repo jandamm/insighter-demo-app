@@ -9,12 +9,15 @@
 import UIKit
 
 //@IBDesignable
-class JDLabel: UILabel, TextStylable, TextRemoteConfigable {
+class JDLabel: UILabel, TextStylable, TextResettable {
     
     // MARK: - Design
 
     @IBInspectable var remoteConfigKey: String!  {
         didSet {
+            if _remoteConfigKeyDefault == nil {
+                _remoteConfigKeyDefault = remoteConfigKey
+            }
             setText()
         }
     }
@@ -24,6 +27,18 @@ class JDLabel: UILabel, TextStylable, TextRemoteConfigable {
         }
     }
     @IBInspectable var overrideDefaultSettings: Bool!
+    
+    
+    // MARK: - Private Data
+    
+    private var _remoteConfigKeyDefault: String!
+    
+    
+    // MARK: - Global Data
+    
+    var remoteConfigKeyDefault: String! {
+        return _remoteConfigKeyDefault
+    }
     
     
     // MARK: - Startup
