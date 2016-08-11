@@ -10,9 +10,9 @@ target 'insighter' do
   pod 'Firebase/Database'
   pod 'Firebase/RemoteConfig'
   
-  pod 'NextResponderTextField'
-  
   pod 'DropDown'
+  pod 'JGProgressHUD'
+  pod 'NextResponderTextField'
 
   # Pods for insighter
 
