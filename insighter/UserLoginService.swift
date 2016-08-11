@@ -1,5 +1,5 @@
 //
-//  UserService.swift
+//  UserLoginService.swift
 //  insighter
 //
 //  Created by Jan Dammshäuser on 08.08.16.
@@ -9,8 +9,8 @@
 import Foundation
 import Firebase
 
-class UserService {
-    static let sharedInstance = UserService()
+class UserLoginService {
+    static let sharedInstance = UserLoginService()
     
     private let REF_USER = FIRDatabase.database().reference().child(DBPathKeys.user.rawValue)
     private let REF_MAIL = FIRDatabase.database().reference().child(DBPathKeys.email.rawValue)
@@ -23,22 +23,13 @@ class UserService {
     private var _addedUserListener = false
     
     
-    // MARK: - External Data
-    
-    
     // MARK: - Global Methods
     
     func userIsLoggedIn(completion: CompletionHandlerBool?) {
         if !_addedUserListener {
             addListener(completion)
         } else {
-            let loggedIn = _userFirebase != nil
-            
-            if !loggedIn {
-                getEmailEndings()
-            }
-            
-            completion?(loggedIn)
+            getNeededData(completion)
         }
     }
     
@@ -53,28 +44,42 @@ class UserService {
         return _emailEndings[ending]
     }
     
+    func setUserData(userData: UserData, andUpload upload: Bool = false) {
+        _userData = userData
+        
+        if upload {
+            userData.upload()
+        }
+    }
+    
     
     // MARK: - Private Methods
+    
+    private func getNeededData(completion: CompletionHandlerBool?) {
+        let loggedIn = _userFirebase != nil
+        
+        if loggedIn {
+            getUserData(completion)
+        } else {
+            getEmailEndings(completion)
+        }
+    }
     
     private func addListener(completion: CompletionHandlerBool?) {
         _addedUserListener = true
         
         FIRAuth.auth()?.addAuthStateDidChangeListener { auth, user in
-            if let user = user {
-                self._userFirebase = user
-                self.getUserData()
-                completion?(true)
-            } else {
-                self.getEmailEndings()
-                completion?(false)
-            }
+            self._userFirebase = user
+            self.getNeededData(completion)
         }
     }
     
-    private func getUserData() {
+    private func getUserData(completion: CompletionHandlerBool?) {
+        let completionValue = true
         let uid = _userFirebase.uid
         
         if let user = _userData where user.UID == uid {
+            completion?(completionValue)
             return
         }
         
@@ -83,21 +88,29 @@ class UserService {
         REF_USER.child(uid).observeSingleEventOfType(.Value, withBlock: { snapshot in
             guard snapshot.exists(), let data = snapshot.value as? [String: AnyObject] else {
                 NSLog("No User data available in Firebase")
+                completion?(completionValue)
                 return
             }
             
             let company = data[DBValueKeys.User.company.rawValue] as? String
             let lastRated = data[DBValueKeys.User.lastRated.rawValue] as? Double
+            let securityQuestion = data[DBValueKeys.User.securityQuestion.rawValue] as? String
+            let securityAnswer = data[DBValueKeys.User.securityAnswer.rawValue] as? String
             
-            let user = UserData(UID: uid, company: company, lastRated: lastRated)
+            let user = UserData(UID: uid, company: company, lastRated: lastRated, securityQuestion: securityQuestion, securityAnswer: securityAnswer)
             
             self._userData = user
             NSLog("Got User data from Firebase")
+            
+            completion?(completionValue)
         })
     }
     
-    private func getEmailEndings() {
+    private func getEmailEndings(completion: CompletionHandlerBool?) {
+        let completionValue = false
+        
         guard _userFirebase == nil && _emailEndings.count == 0 else {
+            completion?(completionValue)
             return
         }
         
@@ -106,6 +119,7 @@ class UserService {
         REF_MAIL.observeSingleEventOfType(.Value, withBlock: { snapshot in
             guard snapshot.exists(), let data = snapshot.value as? [String: [String: String]] else {
                 NSLog("No Email data available in Firebase")
+                completion?(completionValue)
                 return
             }
             
@@ -119,6 +133,8 @@ class UserService {
             
             self._emailEndings = mails
             NSLog("Got Email Endings from Firebase")
+            
+            completion?(completionValue)
         })
     }
 }

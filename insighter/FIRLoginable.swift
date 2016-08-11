@@ -19,7 +19,9 @@ extension FIRLoginable {
             if user?.uid != nil {
                 NSLog("Logged in with Firebase")
             }
-            completion(user?.uid, error?.userInfo[FIRAuthErrorNameKey], false)
+            let errorKey = error?.userInfo[FIRAuthErrorNameKey]
+            
+            completion(user?.uid, errorKey, true)
         }
     }
     
@@ -29,7 +31,9 @@ extension FIRLoginable {
             if user?.uid != nil {
                 NSLog("Registered at Firebase")
             }
-            completion(user?.uid, error?.userInfo[FIRAuthErrorNameKey], true)
+            let errorKey = error?.userInfo[FIRAuthErrorNameKey]
+            
+            completion(user?.uid, errorKey, true)
         }
     }
     

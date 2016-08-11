@@ -28,6 +28,14 @@ class JDDropdown: UILabel, TextStylable, TextRemoteConfigable {
     // MARK: - Private Data
     
     private var _dropdownList: [String]?
+    private var _selection: String?
+    
+    
+    // MARK: - External Data
+    
+    var selection: String? {
+        return _selection
+    }
     
     
     // MARK: - Startup

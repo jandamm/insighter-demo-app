@@ -21,6 +21,7 @@
 		13517B4A1D5BBF7D002B74AD /* TextResettable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13517B491D5BBF7D002B74AD /* TextResettable.swift */; };
 		13517B4C1D5CD97E002B74AD /* FIRLoginable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13517B4B1D5CD97E002B74AD /* FIRLoginable.swift */; };
 		13517B4E1D5CEA5B002B74AD /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13517B4D1D5CEA5B002B74AD /* StringExtension.swift */; };
+		13517B501D5D06B9002B74AD /* FIRUploadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13517B4F1D5D06B9002B74AD /* FIRUploadable.swift */; };
 		138744C31D5B5BB300512967 /* JDDropdown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 138744C21D5B5BB300512967 /* JDDropdown.swift */; };
 		138C72561D58AB260049561A /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 138C72551D58AB260049561A /* LoadingView.swift */; };
 		138C72581D58B2360049561A /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 138C72571D58B2360049561A /* DataService.swift */; };
@@ -36,7 +37,7 @@
 		13A03D8B1CF1109E00920838 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13A03D891CF1109E00920838 /* LaunchScreen.storyboard */; };
 		13A03D961CF1109E00920838 /* insighterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A03D951CF1109E00920838 /* insighterTests.swift */; };
 		13A03DA11CF1109E00920838 /* insighterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A03DA01CF1109E00920838 /* insighterUITests.swift */; };
-		13A5B99B1D59E4F1008EBDF3 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A5B99A1D59E4F1008EBDF3 /* UserService.swift */; };
+		13A5B99B1D59E4F1008EBDF3 /* UserLoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A5B99A1D59E4F1008EBDF3 /* UserLoginService.swift */; };
 		13A5B99F1D59F250008EBDF3 /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A5B99E1D59F250008EBDF3 /* Style.swift */; };
 		13A5B9A11D59F2E2008EBDF3 /* TextStylable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A5B9A01D59F2E2008EBDF3 /* TextStylable.swift */; };
 		13A5B9A31D59F71E008EBDF3 /* JDLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A5B9A21D59F71E008EBDF3 /* JDLabel.swift */; };
@@ -81,6 +82,7 @@
 		13517B491D5BBF7D002B74AD /* TextResettable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextResettable.swift; sourceTree = "<group>"; };
 		13517B4B1D5CD97E002B74AD /* FIRLoginable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FIRLoginable.swift; sourceTree = "<group>"; };
 		13517B4D1D5CEA5B002B74AD /* StringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		13517B4F1D5D06B9002B74AD /* FIRUploadable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FIRUploadable.swift; sourceTree = "<group>"; };
 		138744C21D5B5BB300512967 /* JDDropdown.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JDDropdown.swift; sourceTree = "<group>"; };
 		138C72551D58AB260049561A /* LoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		138C72571D58B2360049561A /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
@@ -102,7 +104,7 @@
 		13A03D9C1CF1109E00920838 /* insighterUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = insighterUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		13A03DA01CF1109E00920838 /* insighterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = insighterUITests.swift; sourceTree = "<group>"; };
 		13A03DA21CF1109E00920838 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		13A5B99A1D59E4F1008EBDF3 /* UserService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
+		13A5B99A1D59E4F1008EBDF3 /* UserLoginService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserLoginService.swift; sourceTree = "<group>"; };
 		13A5B99E1D59F250008EBDF3 /* Style.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
 		13A5B9A01D59F2E2008EBDF3 /* TextStylable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextStylable.swift; sourceTree = "<group>"; };
 		13A5B9A21D59F71E008EBDF3 /* JDLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JDLabel.swift; sourceTree = "<group>"; };
@@ -169,7 +171,7 @@
 				138C72591D58B2850049561A /* ConstantService.swift */,
 				138C72571D58B2360049561A /* DataService.swift */,
 				131C8D031D59DF3900A2EE8C /* RemoteConfig.swift */,
-				13A5B99A1D59E4F1008EBDF3 /* UserService.swift */,
+				13A5B99A1D59E4F1008EBDF3 /* UserLoginService.swift */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -266,8 +268,9 @@
 				131C8D051D59E1D100A2EE8C /* UserData.swift */,
 				1329B0381D5B12EE004AE52B /* CalendarWeek.swift */,
 				1329B0441D5B4901004AE52B /* RatingQuestion.swift */,
-				13517B4B1D5CD97E002B74AD /* FIRLoginable.swift */,
 				13517B4D1D5CEA5B002B74AD /* StringExtension.swift */,
+				13517B4B1D5CD97E002B74AD /* FIRLoginable.swift */,
+				13517B4F1D5D06B9002B74AD /* FIRUploadable.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -573,6 +576,7 @@
 				13A5B9A31D59F71E008EBDF3 /* JDLabel.swift in Sources */,
 				13A5B9AB1D5A0275008EBDF3 /* AuswertungVC.swift in Sources */,
 				13A5B9A51D59FBE6008EBDF3 /* OnboardingLoginVC.swift in Sources */,
+				13517B501D5D06B9002B74AD /* FIRUploadable.swift in Sources */,
 				138C725C1D58B3290049561A /* LocalConstant.swift in Sources */,
 				13517B4C1D5CD97E002B74AD /* FIRLoginable.swift in Sources */,
 				13A5B9A71D59FDB5008EBDF3 /* JDButton.swift in Sources */,
@@ -581,7 +585,7 @@
 				1340AC801D5A19E1008499CE /* TextRemoteConfigable.swift in Sources */,
 				13A5B9A91D5A01D5008EBDF3 /* OnboardingNotificationVC.swift in Sources */,
 				131C8D061D59E1D200A2EE8C /* UserData.swift in Sources */,
-				13A5B99B1D59E4F1008EBDF3 /* UserService.swift in Sources */,
+				13A5B99B1D59E4F1008EBDF3 /* UserLoginService.swift in Sources */,
 				13A5B99F1D59F250008EBDF3 /* Style.swift in Sources */,
 				1329B03D1D5B2096004AE52B /* JDTextField.swift in Sources */,
 				138C72581D58B2360049561A /* DataService.swift in Sources */,

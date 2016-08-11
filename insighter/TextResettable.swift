@@ -15,7 +15,9 @@ protocol TextResettable: TextRemoteConfigable {
 extension TextResettable {
     
     mutating func resetRemoteConfigText() {
-        remoteConfigKey = remoteConfigKeyDefault
+        if remoteConfigKey != remoteConfigKeyDefault {
+            remoteConfigKey = remoteConfigKeyDefault
+        }
     }
     
 }

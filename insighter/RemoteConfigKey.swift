@@ -24,7 +24,7 @@ enum RemoteConfigKey: String, StringReturningEnum {
     case ERROR_WEAK_PASSWORD
     case ERROR_WRONG_PASSWORD
     case ERROR_QUESTION_NOT_CHOSEN
-    case ERROR_QUESTION_NOT_ANSWERED
+    case ERROR_QUESTION_ANSWER_TOO_SHORT
     case ERROR_COMPANY_UNKNOWN
     
     // Basics

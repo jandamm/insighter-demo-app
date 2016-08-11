@@ -13,21 +13,43 @@ class OnboardingLoginVC: UIViewController, FIRLoginable {
     
     // MARK: - State
     
-    enum State {
+    private enum State {
         case Login, Register
     }
-    private let stateSwitchValue = "ERROR_USER_NOT_FOUND"
     private var state: State = .Login {
         didSet {
             applyState()
         }
     }
     
+    // MARK: - ErrorType
+    
+    private enum ErrorType {
+        case Email, Password, Security, SwitchState
+        
+        static private var email: Set = ["ERROR_INVALID_EMAIL", "ERROR_EMAIL_ALREADY_IN_USE"]
+        static private var password: Set = ["ERROR_WEAK_PASSWORD", "ERROR_WRONG_PASSWORD"]
+        static private var switchState : Set = ["ERROR_USER_NOT_FOUND"]
+        
+        static func errorType(forString s: String) -> ErrorType? {
+            if email.contains(s) {
+                return .Email
+            } else if password.contains(s) {
+                return .Password
+            } else if switchState.contains(s) {
+                return .SwitchState
+            }
+            
+            return nil
+        }
+    }
     
     // MARK: - Private Data
     
     private var dropdownData: [String]!
     private var company: String?
+    private var securityQuestion: String?
+    private var securityAnswer: String?
     
     
     // MARK: - Outlets
@@ -66,17 +88,16 @@ class OnboardingLoginVC: UIViewController, FIRLoginable {
     // MARK: - Login
     
     private func loginManager() {
+        resetSubLbls()
+        
         guard let email = emailTxt.text where email.isValidEmail else {
-            errorHandling(forType: .Email, withRemoteConfig: .ERROR_INVALID_EMAIL)
-            return
+            return errorHandling(forType: .Email, withRemoteConfig: .ERROR_INVALID_EMAIL)
         }
         guard let password = passwordTxt.text where password.characters.count >= 6 else {
-            errorHandling(forType: .Password, withRemoteConfig: .ERROR_WEAK_PASSWORD)
-            return
+            return errorHandling(forType: .Password, withRemoteConfig: .ERROR_WEAK_PASSWORD)
         }
-        guard let company = UserService.sharedInstance.companyID(forEmail: email) else {
-            errorHandling(forType: .Email, withRemoteConfig: .ERROR_COMPANY_UNKNOWN)
-            return
+        guard let company = UserLoginService.sharedInstance.companyID(forEmail: email) else {
+            return errorHandling(forType: .Email, withRemoteConfig: .ERROR_COMPANY_UNKNOWN)
         }
         
         self.company = company
@@ -85,9 +106,15 @@ class OnboardingLoginVC: UIViewController, FIRLoginable {
         case .Login:
             loginUser(withEmail: email, andPassword: password, completion: loginResponseHandler)
         case .Register:
-            //TODO
-            print("checking question")
+            guard let question = securityQuestionDropdown.selection else {
+                return errorHandling(forType: .Security, withRemoteConfig: .ERROR_QUESTION_NOT_CHOSEN)
+            }
+            guard let answer = securityAnswerTxt.text where answer.characters.count >= 3 else {
+                return errorHandling(forType: .Security, withRemoteConfig: .ERROR_QUESTION_ANSWER_TOO_SHORT)
+            }
             
+            self.securityQuestion = question
+            self.securityAnswer = answer
             
             createUser(forEmail: email, andPassword: password, completion: loginResponseHandler)
         }
@@ -99,35 +126,45 @@ class OnboardingLoginVC: UIViewController, FIRLoginable {
             if created {
                 createUserData(withID: uid)
             }
-        } else if let error = error where String(error) == stateSwitchValue {
-            //TODO
         } else if let error = error {
-            errorHandling(forType: .Email, withString: String(error))
+            let errorString = String(error)
+            errorHandling(withString: errorString)
         } else {
             errorUndefined()
         }
     }
     
     private func createUserData(withID uid: String) {
-        //TODO
-        print(uid)
-        print("set in userservice")
-        print("upload")
+        let userData = UserData(UID: uid, company: company, lastRated: nil, securityQuestion: securityQuestion, securityAnswer: securityAnswer)
+        
+        UserLoginService.sharedInstance.setUserData(userData, andUpload: true)
     }
+    
     
     // MARK: - Error Handling
     
-    enum ErrorType {
-        case Email, Password, Security
-    }
-    
     private func errorHandling(forType type: ErrorType, withRemoteConfig remoteConfigKey: RemoteConfigKey) {
-        //TODO
-        print(remoteConfigKey)
+        switch type {
+        case .SwitchState:
+            state = .Register
+        case .Email:
+            emailSubLbl.remoteConfigKey = remoteConfigKey.rawValue
+            emailTxt.shake()
+        case .Password:
+            passwordSubLbl.remoteConfigKey = remoteConfigKey.rawValue
+            passwordTxt.shake()
+        case .Security:
+            securitySubLbl.remoteConfigKey = remoteConfigKey.rawValue
+            securityAnswerTxt.shake()
+        }
     }
     
-    private func errorHandling(forType type: ErrorType, withString remoteConfig: String) {
+    private func errorHandling(withString remoteConfig: String) {
         guard let remoteConfigKey = RemoteConfigKey(rawValue: remoteConfig) else {
+            errorUndefined()
+            return
+        }
+        guard let type = ErrorType.errorType(forString: remoteConfigKey.rawValue) else {
             errorUndefined()
             return
         }
@@ -177,7 +214,13 @@ class OnboardingLoginVC: UIViewController, FIRLoginable {
     
     // MARK: - Private Methods
     
-    func initializeDropdown() {
+    private func resetSubLbls() {
+        emailSubLbl.resetRemoteConfigText()
+        passwordSubLbl.resetRemoteConfigText()
+        securitySubLbl.resetRemoteConfigText()
+    }
+    
+    private func initializeDropdown() {
         dropdownData = ConstantService.sharedInstance.securityQuestions
         securityQuestionDropdown.dataSource(dropdownData)
     }

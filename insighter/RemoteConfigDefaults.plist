@@ -18,8 +18,8 @@
 	<string>passwort falsch</string>
 	<key>ERROR_QUESTION_NOT_CHOSEN</key>
 	<string>frage nicht gewählt</string>
-	<key>ERROR_QUESTION_NOT_ANSWERED</key>
-	<string>frage nicht beantwortet</string>
+	<key>ERROR_QUESTION_ANSWER_TOO_SHORT</key>
+	<string>frage zu kurz beantwortet</string>
 	<key>ERROR_COMPANY_UNKNOWN</key>
 	<string>firma unbekannt</string>
 	<key>Our_Company_Name</key>

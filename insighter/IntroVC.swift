@@ -91,7 +91,7 @@ class IntroVC: UIViewController {
     }
     
     private func getUser() {
-        UserService.sharedInstance.userIsLoggedIn { loggedIn in
+        UserLoginService.sharedInstance.userIsLoggedIn { loggedIn in
             self._userLoggedIn = loggedIn
             NSLog("User is Logged in: \(loggedIn)")
             self.transitionToNextView()
