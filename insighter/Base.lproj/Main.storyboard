@@ -348,10 +348,12 @@
                         <outlet property="emailSubLbl" destination="DwN-XU-gqM" id="Rxi-wt-JFm"/>
                         <outlet property="emailTxt" destination="sX3-ux-Hbj" id="5AS-f4-gvz"/>
                         <outlet property="loginBtn" destination="6wk-yQ-k4V" id="QpS-FI-hQ5"/>
+                        <outlet property="passwordSubLbl" destination="tcV-sk-3Lc" id="ABc-bq-aJn"/>
                         <outlet property="passwordTxt" destination="ttb-9u-vDk" id="NeM-RM-i3m"/>
                         <outlet property="securityAnswerTxt" destination="6tK-gG-fkt" id="OHm-D9-CZ2"/>
                         <outlet property="securityQuestionDropdown" destination="Hbc-tc-8YQ" id="ZBN-TL-FtQ"/>
                         <outlet property="securitySectionSView" destination="kjf-UW-Fag" id="8VA-sF-6l7"/>
+                        <outlet property="securitySubLbl" destination="sNC-nH-jJH" id="27h-N8-dqo"/>
                         <segue destination="Fd4-Yp-Y0y" kind="show" identifier="OnboardingLoginToNotification" id="nWn-K8-b4p"/>
                     </connections>
                 </viewController>

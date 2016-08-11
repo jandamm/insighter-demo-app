@@ -10,13 +10,22 @@ import Foundation
 
 
 // The cases of this Enumeration should be RemoteConfigDefaults as well
-// _ERROR_ are used to tell if there is an error
+// _ERROR_ are used to tell if there is an invalid/no key
 
 
 enum RemoteConfigKey: String, StringReturningEnum {
     case _EMPTY_
     case _ERROR_WRONG_KEY
     case _ERROR_NO_KEY
+    
+    // Login Errors
+    case ERROR_INVALID_EMAIL
+    case ERROR_EMAIL_ALREADY_IN_USE
+    case ERROR_WEAK_PASSWORD
+    case ERROR_WRONG_PASSWORD
+    case ERROR_QUESTION_NOT_CHOSEN
+    case ERROR_QUESTION_NOT_ANSWERED
+    case ERROR_COMPANY_UNKNOWN
     
     // Basics
     case Our_Company_Name

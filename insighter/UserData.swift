@@ -1,5 +1,5 @@
 //
-//  User.swift
+//  UserData.swift
 //  insighter
 //
 //  Created by Jan Dammshäuser on 09.08.16.
@@ -8,12 +8,12 @@
 
 import Foundation
 
-struct User {
+struct UserData {
     let UID: String
     private let company: String?
-    private let lastRated: String?
+    private let lastRated: Double?
     
-    init(UID: String, company: String?, lastRated: String?) {
+    init(UID: String, company: String?, lastRated: Double?) {
         self.UID = UID
         self.company = company
         self.lastRated = lastRated

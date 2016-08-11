@@ -18,10 +18,9 @@ class UserService {
     // MARK: - Private Data
     
     private var _userFirebase: FIRUser!
-    private var _userData: User?
+    private var _userData: UserData?
     private var _emailEndings = [String: String]()
     private var _addedUserListener = false
-    private var _gotEmailEndings = false
     
     
     // MARK: - External Data
@@ -88,9 +87,9 @@ class UserService {
             }
             
             let company = data[DBValueKeys.User.company.rawValue] as? String
-            let lastRated = data[DBValueKeys.User.lastRated.rawValue] as? String
+            let lastRated = data[DBValueKeys.User.lastRated.rawValue] as? Double
             
-            let user = User(UID: uid, company: company, lastRated: lastRated)
+            let user = UserData(UID: uid, company: company, lastRated: lastRated)
             
             self._userData = user
             NSLog("Got User data from Firebase")

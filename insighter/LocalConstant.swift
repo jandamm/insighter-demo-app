@@ -11,6 +11,7 @@ import Foundation
 // Completion Handler
 typealias CompletionHandler = () -> ()
 typealias CompletionHandlerBool = (Bool) -> ()
+typealias CompletionHandlerFirebaseLogin = (String?, AnyObject?, Bool) -> ()
 
 
 // Segue Identifiers
