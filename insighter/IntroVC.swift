@@ -30,6 +30,9 @@ class IntroVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //TEST
+        UserLoginService.sharedInstance.signOut()
+        
         loadingSpinnerView.hidden = true
         
         getConstants()

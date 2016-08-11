@@ -28,7 +28,11 @@ class JDDropdown: UILabel, TextStylable, TextRemoteConfigable {
     // MARK: - Private Data
     
     private var _dropdownList: [String]?
-    private var _selection: String?
+    private var _selection: String?  {
+        didSet {
+            text = _selection
+        }
+    }
     
     
     // MARK: - External Data
@@ -70,8 +74,11 @@ class JDDropdown: UILabel, TextStylable, TextRemoteConfigable {
     func dataSource(source: [String]) {
         _dropdownList = source
         
+        //TEST
+        _selection = source.first
+        
         if source.count == 1 {
-            text = source.first
+            _selection = source.first
         }
     }
     

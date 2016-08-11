@@ -144,7 +144,7 @@ class OnboardingLoginVC: UIViewController, FIRLoginable {
     
     // MARK: - Error Handling
     
-    private func errorHandling(forType type: ErrorType, withRemoteConfig remoteConfigKey: RemoteConfigKey) {
+    private func errorHandling(forType type: ErrorType, withRemoteConfig remoteConfigKey: RemoteConfigKey!) {
         switch type {
         case .SwitchState:
             state = .Register
@@ -161,16 +161,18 @@ class OnboardingLoginVC: UIViewController, FIRLoginable {
     }
     
     private func errorHandling(withString remoteConfig: String) {
-        guard let remoteConfigKey = RemoteConfigKey(rawValue: remoteConfig) else {
-            errorUndefined()
-            return
-        }
-        guard let type = ErrorType.errorType(forString: remoteConfigKey.rawValue) else {
-            errorUndefined()
-            return
+        guard let type = ErrorType.errorType(forString: remoteConfig) else {
+            NSLog("Unknown Firebase Error occurred: \(remoteConfig)")
+            return errorUndefined()
         }
         
-        errorHandling(forType: type, withRemoteConfig: remoteConfigKey)
+        let remoteConfigKey = RemoteConfigKey(rawValue: remoteConfig)
+        
+        if remoteConfigKey != nil || type == .SwitchState {
+            errorHandling(forType: type, withRemoteConfig: remoteConfigKey)
+        } else {
+            errorUndefined()
+        }
     }
 
     private func errorUndefined() {
@@ -197,6 +199,7 @@ class OnboardingLoginVC: UIViewController, FIRLoginable {
         
         securitySectionSView.hidden = true
         passwordTxt.NextResponder = loginBtn
+        passwordTxt.returnKeyType = .Done
         loginBtn.remoteConfigKey = RemoteConfigKey.Onb_Login_Anmeldung_Btn_Login.rawValue
     }
     
@@ -206,6 +209,7 @@ class OnboardingLoginVC: UIViewController, FIRLoginable {
         }
         
         passwordTxt.NextResponder = securityAnswerTxt
+        passwordTxt.returnKeyType = .Next
         loginBtn.remoteConfigKey = RemoteConfigKey.Onb_Login_Anmeldung_Btn_Register.rawValue
         
         UIView.animateWithDuration(0.5) { 

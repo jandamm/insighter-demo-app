@@ -25,6 +25,11 @@ class UserLoginService {
     
     // MARK: - Global Methods
     
+    func signOut() {
+        try! FIRAuth.auth()!.signOut()
+        NSLog("User logged out")
+    }
+    
     func userIsLoggedIn(completion: CompletionHandlerBool?) {
         if !_addedUserListener {
             addListener(completion)
