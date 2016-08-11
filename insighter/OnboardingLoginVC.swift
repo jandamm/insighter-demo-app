@@ -122,14 +122,18 @@ class OnboardingLoginVC: UIViewController, FIRLoginable {
     }
     
     private func loginResponseHandler(uid: String?, error: AnyObject?, created: Bool) {
+        
         if let uid = uid {
-            NSLog("User is logged in")
+            
             if created {
                 createUserData(withID: uid)
             }
+            
+            NSLog("User is logged in")
+            transitionToNextView()
+            
         } else if let error = error {
-            let errorString = String(error)
-            errorHandling(withString: errorString)
+            errorHandling(withString: String(error))
         } else {
             errorUndefined()
         }
@@ -200,7 +204,7 @@ class OnboardingLoginVC: UIViewController, FIRLoginable {
         securitySectionSView.hidden = true
         passwordTxt.NextResponder = loginBtn
         passwordTxt.returnKeyType = .Done
-        loginBtn.remoteConfigKey = RemoteConfigKey.Onb_Login_Anmeldung_Btn_Login.rawValue
+        loginBtn.remoteConfigKey = RemoteConfigKey.Onb_Login_Anmeldung_Btn_Log.rawValue
     }
     
     private func registerState() {
@@ -210,7 +214,7 @@ class OnboardingLoginVC: UIViewController, FIRLoginable {
         
         passwordTxt.NextResponder = securityAnswerTxt
         passwordTxt.returnKeyType = .Next
-        loginBtn.remoteConfigKey = RemoteConfigKey.Onb_Login_Anmeldung_Btn_Register.rawValue
+        loginBtn.remoteConfigKey = RemoteConfigKey.Onb_Login_Anmeldung_Btn_Reg.rawValue
         
         UIView.animateWithDuration(0.5) { 
             self.securitySectionSView.hidden = false
@@ -219,6 +223,10 @@ class OnboardingLoginVC: UIViewController, FIRLoginable {
     
     
     // MARK: - Private Methods
+    
+    private func transitionToNextView() {
+        performSegueWithIdentifier(Segue.OnboardingLoginToAuswertung.rawValue, sender: nil)
+    }
     
     private func resetSubLbls() {
         emailSubLbl.resetRemoteConfigText()

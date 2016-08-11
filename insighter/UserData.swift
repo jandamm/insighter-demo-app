@@ -9,25 +9,18 @@
 import Foundation
 
 struct UserData: Equatable, FIRUploadable {
-    let FIR_PATH: String
     let UID: String
-    private let company: String?
-    private let lastRated: Double?
-    private let securityQuestion: String?
-    private let securityAnswer: String?
-    
-    init(UID: String, company: String?, lastRated: Double?, securityQuestion: String?, securityAnswer: String?) {
-        self.UID = UID
-        self.company = company
-        self.lastRated = lastRated
-        self.securityQuestion = securityQuestion
-        self.securityAnswer = securityAnswer
-        
-        FIR_PATH = "\(DBPathKeys.user.rawValue)/\(UID)"
-    }
+    let company: String?
+    let lastRated: Double?
+    let securityQuestion: String?
+    let securityAnswer: String?
     
     
     // MARK: - FIRUploadable
+    
+    var FIR_PATH: String {
+        return "\(DBPathKeys.user.rawValue)/\(UID)"
+    }
     
     var uploadData: [String : AnyObject] {
         let key = DBValueKeys.User.self

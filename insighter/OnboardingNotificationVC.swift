@@ -9,20 +9,29 @@
 import UIKit
 
 class OnboardingNotificationVC: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    
+    // MARK: - Actions
+    
+    @IBAction func allowPressed(sender: UIButton) {
+        //TODO
+        
+        UIApplication.sharedApplication().registerUserNotificationSettings(UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound], categories: nil))
+        
+        print("check if notification allowed?")
+        
+        print("setup notifications")
+        print("transition")
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func forbidPressed(sender: UIButton) {
+        transitionToNextView()
     }
-    */
+    
+    
+    // MARK: - Private Methods
+    
+    private func transitionToNextView() {
+        performSegueWithIdentifier(Segue.OnboardingNotificationToLogin.rawValue, sender: nil)
+    }
 
 }

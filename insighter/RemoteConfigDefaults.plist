@@ -26,7 +26,7 @@
 	<string>Fehler!</string>
 	<key>ERROR_UNKNOWN_EXPLANATION</key>
 	<string>Irgendetwas lief schief.
-Bitte versuchen Sie es erneut!</string>
+        Bitte versuchen Sie es erneut!</string>
 	<key>Our_Company_Name</key>
 	<string>insighter</string>
 	<key>Onb_Will_Willkommen_Lbl</key>
@@ -41,6 +41,14 @@ Bitte versuchen Sie es erneut!</string>
 	<string> und werden niemals personenbezogen an Ihren Arbeitgeber weitergegeben.</string>
 	<key>Onb_Will_Next_Btn</key>
 	<string>weiter</string>
+	<key>Onb_Notif_Erklaerung_Lbl</key>
+	<string>Bitte erlauben Sie der App, Sie an neue Kurz-Umfragen zu erinnern.</string>
+	<key>Onb_Notif_Systemmeldung_Lbl</key>
+	<string>Bitte bestätigen Sie die kommende Systemmeldung.</string>
+	<key>Onb_Notif_Erlauben_Btn</key>
+	<string>erlauben</string>
+	<key>Onb_Notif_Ueberspringen_Btn</key>
+	<string>nicht erlauben</string>
 	<key>Onb_Login_Anmeldung_Lbl</key>
 	<string>Bitte melden Sie sich an.</string>
 	<key>Onb_Login_Email_Lbl</key>
@@ -59,17 +67,9 @@ Bitte versuchen Sie es erneut!</string>
 	<string>Ihre persönliche Antwort</string>
 	<key>Onb_Login_Security_SubLbl</key>
 	<string>Sie benötigen diese Antwort um Ihr Passwort wiederherzustellen.</string>
-	<key>Onb_Login_Anmeldung_Btn_Login</key>
+	<key>Onb_Login_Anmeldung_Btn_Log</key>
 	<string>anmelden</string>
-	<key>Onb_Login_Anmeldung_Btn_Register</key>
+	<key>Onb_Login_Anmeldung_Btn_Reg</key>
 	<string>registrieren</string>
-	<key>Onb_Notif_Erklaerung_Lbl</key>
-	<string>Bitte erlauben Sie der App, Sie an neue Kurz-Umfragen zu erinnern.</string>
-	<key>Onb_Notif_Bitte_Bestaetigen_Lbl</key>
-	<string>Bitte bestätigen Sie die kommende Systemmeldung.</string>
-	<key>Onb_Notif_Erlauben_Btn</key>
-	<string>erlauben</string>
-	<key>Onb_Notif_Ueberspringen_Btn</key>
-	<string>nicht erlauben</string>
 </dict>
 </plist>

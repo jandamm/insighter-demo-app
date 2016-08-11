@@ -236,8 +236,8 @@
 			isa = PBXGroup;
 			children = (
 				13A03D7F1CF1109E00920838 /* IntroVC.swift */,
-				13A5B9A41D59FBE6008EBDF3 /* OnboardingLoginVC.swift */,
 				13A5B9A81D5A01D5008EBDF3 /* OnboardingNotificationVC.swift */,
+				13A5B9A41D59FBE6008EBDF3 /* OnboardingLoginVC.swift */,
 				13A5B9AA1D5A0275008EBDF3 /* AuswertungVC.swift */,
 			);
 			name = Controller;

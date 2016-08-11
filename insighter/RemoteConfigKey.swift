@@ -41,6 +41,12 @@ enum RemoteConfigKey: String, StringReturningEnum {
     case Onb_Will_Next_Btn
     
     // Onboarding Login Screen
+    case Onb_Notif_Erklaerung_Lbl
+    case Onb_Notif_Systemmeldung_Lbl
+    case Onb_Notif_Erlauben_Btn
+    case Onb_Notif_Ueberspringen_Btn
+    
+    // Onboarding Login Screen
     case Onb_Login_Anmeldung_Lbl
     case Onb_Login_Email_Lbl
     case Onb_Login_Email_TxtField
@@ -50,6 +56,7 @@ enum RemoteConfigKey: String, StringReturningEnum {
     case Onb_Login_Security_Dropdown
     case Onb_Login_Security_TxtField
     case Onb_Login_Security_SubLbl
-    case Onb_Login_Anmeldung_Btn_Login
-    case Onb_Login_Anmeldung_Btn_Register
+    case Onb_Login_Anmeldung_Btn_Log
+    case Onb_Login_Anmeldung_Btn_Reg
+    
 }

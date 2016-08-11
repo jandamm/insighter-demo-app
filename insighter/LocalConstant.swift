@@ -18,6 +18,6 @@ typealias CompletionHandlerFirebaseLogin = (String?, AnyObject?, Bool) -> ()
 enum Segue: StringReturningEnum {
     case IntroToOnboarding
     case IntroToAuswertung
-    case OnboardingLoginToNotification
-    case OnboardingNotificationToAuswertung
+    case OnboardingNotificationToLogin
+    case OnboardingLoginToAuswertung
 }
