@@ -17,7 +17,14 @@ class OnboardingNotificationVC: UIViewController {
         
         UIApplication.sharedApplication().registerUserNotificationSettings(UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound], categories: nil))
         
-        print("check if notification allowed?")
+        let notificationType = UIApplication.sharedApplication().currentUserNotificationSettings()!.types
+        
+        if notificationType == UIUserNotificationType.None {
+            print("disabled")
+        } else {
+            print("enabled")
+            
+        }
         
         print("setup notifications")
         print("transition")
