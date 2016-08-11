@@ -26,6 +26,8 @@ enum RemoteConfigKey: String, StringReturningEnum {
     case ERROR_QUESTION_NOT_CHOSEN
     case ERROR_QUESTION_ANSWER_TOO_SHORT
     case ERROR_COMPANY_UNKNOWN
+    case ERROR_UNKNOWN_TITLE
+    case ERROR_UNKNOWN_EXPLANATION
     
     // Basics
     case Our_Company_Name

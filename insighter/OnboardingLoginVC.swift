@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Firebase
 
 class OnboardingLoginVC: UIViewController, FIRLoginable {
     
@@ -16,6 +15,7 @@ class OnboardingLoginVC: UIViewController, FIRLoginable {
     private enum State {
         case Login, Register
     }
+    
     private var state: State = .Login {
         didSet {
             applyState()
@@ -43,6 +43,7 @@ class OnboardingLoginVC: UIViewController, FIRLoginable {
             return nil
         }
     }
+    
     
     // MARK: - Private Data
     
@@ -173,9 +174,10 @@ class OnboardingLoginVC: UIViewController, FIRLoginable {
     }
 
     private func errorUndefined() {
-        //TODO
-        print("Something went badly wrong -> implement alert")
+        let HUD = JDPopup(titleKey: .ERROR_UNKNOWN_TITLE, subTitleKey: .ERROR_UNKNOWN_EXPLANATION, imageStyle: .Error)
+        HUD.showInView(view)
     }
+    
     
     // MARK: - State Change
     
