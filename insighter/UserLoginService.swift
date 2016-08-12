@@ -23,23 +23,10 @@ class UserLoginService {
     private var _userData: UserData?
     private var _company: Company?
     private var _emailEndings = [String: String]()
-    private var _addedUserListener = false
+    private var _userListener: FIRAuthStateDidChangeListenerHandle?
     
     
-    // MARK: - Global Methods
-    
-    func signOut() {
-        try! FIRAuth.auth()!.signOut()
-        NSLog("User logged out")
-    }
-    
-    func userIsLoggedIn(completion: CompletionHandlerBool?) {
-        if !_addedUserListener {
-            addListener(completion)
-        } else {
-            getNeededData(completion)
-        }
-    }
+    // MARK: - External Data
     
     func companyID(forEmail mail: String) -> String? {
         let mailParts = mail.componentsSeparatedByString("@")
@@ -52,7 +39,19 @@ class UserLoginService {
         return _emailEndings[ending]
     }
     
-    func setUserData(userData: UserData, andUpload upload: Bool = false) {
+    
+    // MARK: - Global Methods
+    
+    func signOutUser() {
+        try! FIRAuth.auth()!.signOut()
+        NSLog("User logged out")
+    }
+    
+    func checkUserIsLoggedInAndGetData(completion: CompletionHandlerBool?) {
+        getFIRUser(completion)
+    }
+    
+    func updateUserData(userData: UserData, andUploadToFirebase upload: Bool = false) {
         _userData = userData
         
         if upload {
@@ -60,29 +59,68 @@ class UserLoginService {
         }
     }
     
+    func registerUser(withUserData userData: UserData, userGotCreated created: Bool) {
+        if created {
+            userData.upload()
+        }
+        
+        getFIRUser { _ in
+            if created {
+                self.addUserToCompanyUserCount()
+            }
+        }
+    }
+    
     
     // MARK: - Private Methods
     
-    private func getNeededData(completion: CompletionHandlerBool?) {
+    private func addUserToCompanyUserCount() {
+        guard let company = _company else {
+            NSLog("No Company found")
+            return
+        }
+        
+        let child = "\(company.UID)/\(DBPathKeys.Company.value.rawValue)/\(DBValueKeys.CompanyValue.users.rawValue)"
+        
+        REF_COMP.child(child).observeSingleEventOfType(.Value, withBlock: { snapshot in
+            var users = 1
+            
+            if snapshot.exists(), let count = snapshot.value as? Int {
+                users += count
+            }
+            
+            let comp = Company(UID: company.UID, name: company.name, users: users, userNickName: company.userNickName)
+            
+            self._company = comp
+            self.REF_COMP.child(child).setValue(users)
+            NSLog("Added User to company count")
+        })
+    }
+    
+    private func getUserDataOrEmailEndings(completion: CompletionHandlerBool?) {
         let loggedIn = _userFirebase != nil
         
         if loggedIn {
-            getUserData(completion)
+            getUserDataFromFirebase(completion)
         } else {
-            getEmailEndings(completion)
+            getEmailEndingsFromFirebase(completion)
         }
     }
     
-    private func addListener(completion: CompletionHandlerBool?) {
-        _addedUserListener = true
-        
-        FIRAuth.auth()?.addAuthStateDidChangeListener { auth, user in
+    private func getFIRUser(completion: CompletionHandlerBool?) {
+        _userListener = FIRAuth.auth()?.addAuthStateDidChangeListener { auth, user in
+            
             self._userFirebase = user
-            self.getNeededData(completion)
+            self.getUserDataOrEmailEndings(completion)
+            
+            if let listener = self._userListener {
+                FIRAuth.auth()?.removeAuthStateDidChangeListener(listener)
+                self._userListener = nil
+            }
         }
     }
     
-    private func getUserData(completion: CompletionHandlerBool?) {
+    private func getUserDataFromFirebase(completion: CompletionHandlerBool?) {
         let completionValue = true
         let uid = _userFirebase.uid
         
@@ -110,11 +148,11 @@ class UserLoginService {
             self._userData = user
             NSLog("Got User data from Firebase")
             
-            self.getCompany(completion)
+            self.getCompanyFromFirebase(completion)
         })
     }
     
-    private func getCompany(completion: CompletionHandlerBool?) {
+    private func getCompanyFromFirebase(completion: CompletionHandlerBool?) {
         let completionValue = true
         
         guard let user = _userData, let uid = user.company else {
@@ -145,7 +183,7 @@ class UserLoginService {
         })
     }
     
-    private func getEmailEndings(completion: CompletionHandlerBool?) {
+    private func getEmailEndingsFromFirebase(completion: CompletionHandlerBool?) {
         let completionValue = false
         
         guard _userFirebase == nil && _emailEndings.count == 0 else {

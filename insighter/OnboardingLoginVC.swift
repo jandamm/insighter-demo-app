@@ -124,10 +124,7 @@ class OnboardingLoginVC: UIViewController, FIRLoginable {
     private func loginResponseHandler(uid: String?, error: AnyObject?, created: Bool) {
         
         if let uid = uid {
-            
-            if created {
-                createUserData(withID: uid)
-            }
+            registerUser(withID: uid, isCreated: created)
             
             NSLog("User is logged in")
             transitionToNextView()
@@ -139,10 +136,10 @@ class OnboardingLoginVC: UIViewController, FIRLoginable {
         }
     }
     
-    private func createUserData(withID uid: String) {
+    private func registerUser(withID uid: String, isCreated created: Bool) {
         let userData = UserData(UID: uid, company: company, lastRated: nil, securityQuestion: securityQuestion, securityAnswer: securityAnswer)
         
-        UserLoginService.sharedInstance.setUserData(userData, andUpload: true)
+        UserLoginService.sharedInstance.registerUser(withUserData: userData, userGotCreated: created)
     }
     
     

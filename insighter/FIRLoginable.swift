@@ -21,7 +21,7 @@ extension FIRLoginable {
             }
             let errorKey = error?.userInfo[FIRAuthErrorNameKey]
             
-            completion(user?.uid, errorKey, true)
+            completion(user?.uid, errorKey, false)
         }
     }
     
