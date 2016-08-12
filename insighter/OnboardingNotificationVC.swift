@@ -12,25 +12,9 @@ class OnboardingNotificationVC: UIViewController {
     
     // MARK: - Actions
     
-    @IBAction func allowPressed(sender: UIButton) {
-        //TODO
-        
-        UIApplication.sharedApplication().registerUserNotificationSettings(UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound], categories: nil))
-        
-        let notificationType = UIApplication.sharedApplication().currentUserNotificationSettings()!.types
-        
-        if notificationType == UIUserNotificationType.None {
-            print("disabled")
-        } else {
-            print("enabled")
-            
-        }
-        
-        print("setup notifications")
-        print("transition")
-    }
-    
-    @IBAction func forbidPressed(sender: UIButton) {
+    @IBAction func nextPressed(sender: UIButton) {
+        NotificationService.sharedInstance.askForAllowance()
+
         transitionToNextView()
     }
     

@@ -43,8 +43,7 @@ enum RemoteConfigKey: String, StringReturningEnum {
     // Onboarding Login Screen
     case Onb_Notif_Erklaerung_Lbl
     case Onb_Notif_Systemmeldung_Lbl
-    case Onb_Notif_Erlauben_Btn
-    case Onb_Notif_Ueberspringen_Btn
+    case Onb_Notif_Btn
     
     // Onboarding Login Screen
     case Onb_Login_Anmeldung_Lbl
