@@ -16,7 +16,7 @@ struct DBValueKeys {
     }
     
     enum CompanyValue: StringReturningEnum {
-        case formlicheAnsprache
+        case userNickName
         case name
         case users
     }

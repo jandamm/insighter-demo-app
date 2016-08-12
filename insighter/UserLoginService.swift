@@ -12,13 +12,16 @@ import Firebase
 class UserLoginService {
     static let sharedInstance = UserLoginService()
     
-    private let REF_USER = FIRDatabase.database().reference().child(DBPathKeys.user.rawValue)
+    private let REF_COMP = FIRDatabase.database().reference().child(DBPathKeys.company.rawValue)
     private let REF_MAIL = FIRDatabase.database().reference().child(DBPathKeys.email.rawValue)
+    private let REF_USER = FIRDatabase.database().reference().child(DBPathKeys.user.rawValue)
+    
     
     // MARK: - Private Data
     
     private var _userFirebase: FIRUser!
     private var _userData: UserData?
+    private var _company: Company?
     private var _emailEndings = [String: String]()
     private var _addedUserListener = false
     
@@ -106,6 +109,37 @@ class UserLoginService {
             
             self._userData = user
             NSLog("Got User data from Firebase")
+            
+            self.getCompany(completion)
+        })
+    }
+    
+    private func getCompany(completion: CompletionHandlerBool?) {
+        let completionValue = true
+        
+        guard let user = _userData, let uid = user.company else {
+            NSLog("No User or Company found")
+            completion?(completionValue)
+            return
+        }
+        
+        let child = "\(uid)/\(DBPathKeys.Company.value.rawValue)"
+        
+        REF_COMP.child(child).observeSingleEventOfType(.Value, withBlock: { snapshot in
+            guard snapshot.exists(), let data = snapshot.value as? [String: AnyObject] else {
+                NSLog("No Company data available in Firebase")
+                completion?(completionValue)
+                return
+            }
+            
+            let name = data[DBValueKeys.CompanyValue.name.rawValue] as? String
+            let users = data[DBValueKeys.CompanyValue.users.rawValue] as? Int
+            let userNickName = data[DBValueKeys.CompanyValue.userNickName.rawValue] as? String
+            
+            let company = Company(UID: uid, name: name, users: users, userNickName: userNickName)
+            
+            self._company = company
+            NSLog("Got Company data from Firebase")
             
             completion?(completionValue)
         })
