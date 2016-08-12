@@ -1,5 +1,5 @@
 //
-//  RemoteConfigKeys.swift
+//  RemoteStringKey.swift
 //  insighter
 //
 //  Created by Jan Dammshäuser on 09.08.16.
@@ -13,7 +13,7 @@ import Foundation
 // _ERROR_ are used to tell if there is an invalid/no key
 
 
-enum RemoteConfigKey: String, StringReturningEnum {
+enum RemoteStringKey: String, StringReturningEnum {
     case _EMPTY_
     case _ERROR_WRONG_KEY
     case _ERROR_NO_KEY

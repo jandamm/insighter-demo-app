@@ -145,7 +145,7 @@ class OnboardingLoginVC: UIViewController, FIRLoginable {
     
     // MARK: - Error Handling
     
-    private func errorHandling(forType type: ErrorType, withRemoteConfig remoteConfigKey: RemoteConfigKey!) {
+    private func errorHandling(forType type: ErrorType, withRemoteConfig remoteConfigKey: RemoteStringKey!) {
         switch type {
         case .SwitchState:
             state = .Register
@@ -167,7 +167,7 @@ class OnboardingLoginVC: UIViewController, FIRLoginable {
             return errorUndefined()
         }
         
-        let remoteConfigKey = RemoteConfigKey(rawValue: remoteConfig)
+        let remoteConfigKey = RemoteStringKey(rawValue: remoteConfig)
         
         if remoteConfigKey != nil || type == .SwitchState {
             errorHandling(forType: type, withRemoteConfig: remoteConfigKey)
@@ -201,7 +201,7 @@ class OnboardingLoginVC: UIViewController, FIRLoginable {
         securitySectionSView.hidden = true
         passwordTxt.NextResponder = loginBtn
         passwordTxt.returnKeyType = .Done
-        loginBtn.remoteConfigKey = RemoteConfigKey.Onb_Login_Anmeldung_Btn_Log.rawValue
+        loginBtn.remoteConfigKey = RemoteStringKey.Onb_Login_Anmeldung_Btn_Log.rawValue
     }
     
     private func registerState() {
@@ -211,7 +211,7 @@ class OnboardingLoginVC: UIViewController, FIRLoginable {
         
         passwordTxt.NextResponder = securityAnswerTxt
         passwordTxt.returnKeyType = .Next
-        loginBtn.remoteConfigKey = RemoteConfigKey.Onb_Login_Anmeldung_Btn_Reg.rawValue
+        loginBtn.remoteConfigKey = RemoteStringKey.Onb_Login_Anmeldung_Btn_Reg.rawValue
         
         UIView.animateWithDuration(0.5) { 
             self.securitySectionSView.hidden = false

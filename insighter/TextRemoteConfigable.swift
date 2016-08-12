@@ -41,13 +41,13 @@ extension TextRemoteConfigable where Self: UITextField {
 
 extension TextRemoteConfigable {
     
-    private func getKey() -> RemoteConfigKey {
+    private func getKey() -> RemoteStringKey {
         guard let rawKey = remoteConfigKey else {
-            return RemoteConfigKey._ERROR_NO_KEY
+            return RemoteStringKey._ERROR_NO_KEY
         }
         
-        guard let key = RemoteConfigKey(rawValue: rawKey) else {
-            return RemoteConfigKey._ERROR_WRONG_KEY
+        guard let key = RemoteStringKey(rawValue: rawKey) else {
+            return RemoteStringKey._ERROR_WRONG_KEY
         }
         
         return key
