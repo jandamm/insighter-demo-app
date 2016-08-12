@@ -20,4 +20,5 @@ enum Segue: StringReturningEnum {
     case IntroToAuswertung
     case OnboardingNotificationToLogin
     case OnboardingLoginToAuswertung
+    case AuswertungToOnboarding
 }

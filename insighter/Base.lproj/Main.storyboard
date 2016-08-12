@@ -464,8 +464,45 @@
                     <view key="view" contentMode="scaleToFill" id="1qx-Vq-ujI">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="aqO-VF-ZYc">
+                                <rect key="frame" x="32" y="52" width="536" height="516"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rzv-IO-ucS">
+                                        <rect key="frame" x="0.0" y="0.0" width="536" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YbG-cD-2jZ">
+                                        <rect key="frame" x="0.0" y="239" width="536" height="30"/>
+                                        <state key="normal" title="Check Data"/>
+                                        <connections>
+                                            <action selector="dataCheck:" destination="lpM-3k-drX" eventType="touchUpInside" id="F7K-VK-hW8"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lfM-yE-pQJ">
+                                        <rect key="frame" x="0.0" y="486" width="536" height="30"/>
+                                        <state key="normal" title="Sign out"/>
+                                        <connections>
+                                            <action selector="signOut:" destination="lpM-3k-drX" eventType="touchUpInside" id="UUm-3M-885"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="jgy-Hv-xXX" firstAttribute="top" secondItem="aqO-VF-ZYc" secondAttribute="bottom" constant="32" id="5Ej-X1-62O"/>
+                            <constraint firstAttribute="trailing" secondItem="aqO-VF-ZYc" secondAttribute="trailing" constant="32" id="NQF-Ar-VKl"/>
+                            <constraint firstItem="aqO-VF-ZYc" firstAttribute="leading" secondItem="1qx-Vq-ujI" secondAttribute="leading" constant="32" id="ShJ-Il-MUP"/>
+                            <constraint firstItem="aqO-VF-ZYc" firstAttribute="top" secondItem="rG4-pb-Anu" secondAttribute="bottom" constant="32" id="W8Y-YA-TTb"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="dataLbl" destination="rzv-IO-ucS" id="jQF-Aq-DzS"/>
+                        <segue destination="6Fk-xq-iwQ" kind="show" identifier="AuswertungToOnboarding" id="awT-eg-dkg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1rG-Ag-6Ny" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -476,6 +513,7 @@
         <image name="logo-insighter-intro" width="258" height="90"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="awT-eg-dkg"/>
         <segue reference="gBh-J9-cew"/>
     </inferredMetricsTieBreakers>
 </document>
