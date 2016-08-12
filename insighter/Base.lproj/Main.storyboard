@@ -257,7 +257,7 @@
                                                                         <nil key="highlightedColor"/>
                                                                         <userDefinedRuntimeAttributes>
                                                                             <userDefinedRuntimeAttribute type="string" keyPath="fontStyle" value="TextSubLine"/>
-                                                                            <userDefinedRuntimeAttribute type="string" keyPath="remoteConfigKey" value="Onb_Login_PW_SubLbl"/>
+                                                                            <userDefinedRuntimeAttribute type="string" keyPath="remoteConfigKey" value="_EMPTY_"/>
                                                                         </userDefinedRuntimeAttributes>
                                                                     </label>
                                                                 </subviews>

@@ -13,7 +13,7 @@
 	<key>ERROR_EMAIL_ALREADY_IN_USE</key>
 	<string>email in benutzung</string>
 	<key>ERROR_WEAK_PASSWORD</key>
-	<string>passwort schwach</string>
+	<string>Ihr Passwort muss mindestens 6 Zeichen lang sein.</string>
 	<key>ERROR_WRONG_PASSWORD</key>
 	<string>passwort falsch</string>
 	<key>ERROR_QUESTION_NOT_CHOSEN</key>
@@ -57,8 +57,6 @@
 	<string>Ihr persönliches Passwort</string>
 	<key>Onb_Login_PW_TxtField</key>
 	<string>••••••</string>
-	<key>Onb_Login_PW_SubLbl</key>
-	<string>Ihr Passwort muss mindestens 6 Zeichen lang sein.</string>
 	<key>Onb_Login_Security_Dropdown</key>
 	<string>Bitte eine Sicherheitsfrage wählen</string>
 	<key>Onb_Login_Security_TxtField</key>
