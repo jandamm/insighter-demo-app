@@ -41,7 +41,7 @@
                         <outlet property="loadingSpinnerView" destination="mFs-hu-CHQ" id="jDH-Gr-NFh"/>
                         <outlet property="logoVerticalCenterConstraint" destination="7Pb-JI-hRS" id="JtH-gk-UwO"/>
                         <segue destination="6Fk-xq-iwQ" kind="show" identifier="IntroToOnboarding" id="80P-sO-EAG"/>
-                        <segue destination="lpM-3k-drX" kind="show" identifier="IntroToAuswertung" id="JCB-AV-3TU"/>
+                        <segue destination="lpM-3k-drX" kind="show" identifier="IntroToEvaluation" id="JCB-AV-3TU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -354,7 +354,7 @@
                         <outlet property="securityQuestionDropdown" destination="Hbc-tc-8YQ" id="ZBN-TL-FtQ"/>
                         <outlet property="securitySectionSView" destination="kjf-UW-Fag" id="8VA-sF-6l7"/>
                         <outlet property="securitySubLbl" destination="sNC-nH-jJH" id="27h-N8-dqo"/>
-                        <segue destination="lpM-3k-drX" kind="show" identifier="OnboardingLoginToAuswertung" id="gBh-J9-cew"/>
+                        <segue destination="lpM-3k-drX" kind="show" identifier="OnboardingLoginToEvaluation" id="gBh-J9-cew"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aXE-dK-0LQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -453,10 +453,10 @@
             </objects>
             <point key="canvasLocation" x="1641" y="165"/>
         </scene>
-        <!--AuswertungVC-->
+        <!--EvaluationVC-->
         <scene sceneID="lCv-Ro-rbq">
             <objects>
-                <viewController id="lpM-3k-drX" customClass="AuswertungVC" customModule="insighter" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="lpM-3k-drX" customClass="EvaluationVC" customModule="insighter" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="rG4-pb-Anu"/>
                         <viewControllerLayoutGuide type="bottom" id="jgy-Hv-xXX"/>
@@ -474,13 +474,6 @@
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YbG-cD-2jZ">
-                                        <rect key="frame" x="0.0" y="239" width="536" height="30"/>
-                                        <state key="normal" title="Check Data"/>
-                                        <connections>
-                                            <action selector="dataCheck:" destination="lpM-3k-drX" eventType="touchUpInside" id="F7K-VK-hW8"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lfM-yE-pQJ">
                                         <rect key="frame" x="0.0" y="486" width="536" height="30"/>
                                         <state key="normal" title="Sign out"/>
@@ -501,7 +494,7 @@
                     </view>
                     <connections>
                         <outlet property="dataLbl" destination="rzv-IO-ucS" id="jQF-Aq-DzS"/>
-                        <segue destination="6Fk-xq-iwQ" kind="show" identifier="AuswertungToOnboarding" id="awT-eg-dkg"/>
+                        <segue destination="6Fk-xq-iwQ" kind="show" identifier="EvaluationToOnboarding" id="awT-eg-dkg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1rG-Ag-6Ny" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -514,6 +507,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="awT-eg-dkg"/>
-        <segue reference="gBh-J9-cew"/>
+        <segue reference="JCB-AV-3TU"/>
     </inferredMetricsTieBreakers>
 </document>

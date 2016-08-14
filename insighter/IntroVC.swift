@@ -66,7 +66,7 @@ class IntroVC: UIViewController {
         
         loadingSpinnerView.animationStop()
         
-        let segue: Segue = loggedIn ? .IntroToAuswertung : .IntroToOnboarding
+        let segue: Segue = loggedIn ? .IntroToEvaluation : .IntroToOnboarding
         
         performSegueWithIdentifier(segue.rawValue, sender: nil)
     }

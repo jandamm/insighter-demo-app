@@ -11,7 +11,7 @@ import Firebase
 
 class UserLoginService {
     
-    //TEST
+    //TEST for beta
     var data: String {
         return "Got data:\nUser: \(_userFirebase != nil)\nUserData: \(_userData != nil)\nCompanyData: \(_company != nil)"
     }
@@ -67,15 +67,17 @@ class UserLoginService {
         }
     }
     
-    func registerUser(withUserData userData: UserData, userGotCreated created: Bool) {
+    func registerUser(withUserData userData: UserData, userGotCreated created: Bool, completion: CompletionHandlerBool?) {
         if created {
             userData.upload()
         }
         
-        getFIRUser { _ in
+        getFIRUser { loggedIn in
             if created {
                 self.addUserToCompanyUserCount()
             }
+            
+            completion?(loggedIn)
         }
     }
     
@@ -109,9 +111,9 @@ class UserLoginService {
         let loggedIn = _userFirebase != nil
         
         if loggedIn {
-            getUserDataFromFirebase(completion)
+            getUserDataFromFirebase(completion, forcedCompletionValue: loggedIn)
         } else {
-            getEmailEndingsFromFirebase(completion)
+            getEmailEndingsFromFirebase(completion, forcedCompletionValue: loggedIn)
         }
     }
     
@@ -128,12 +130,11 @@ class UserLoginService {
         }
     }
     
-    private func getUserDataFromFirebase(completion: CompletionHandlerBool?) {
-        let completionValue = true
+    private func getUserDataFromFirebase(completion: CompletionHandlerBool?, forcedCompletionValue: Bool?) {
         let uid = _userFirebase.uid
         
         if let user = _userData where user.UID == uid {
-            completion?(completionValue)
+            self.complete(completion, withForcedValue: forcedCompletionValue, andRealValue: false)
             return
         }
         
@@ -142,7 +143,7 @@ class UserLoginService {
         REF_USER.child(uid).observeSingleEventOfType(.Value, withBlock: { snapshot in
             guard snapshot.exists(), let data = snapshot.value as? [String: AnyObject] else {
                 NSLog("No User data available in Firebase")
-                completion?(completionValue)
+                self.complete(completion, withForcedValue: forcedCompletionValue, andRealValue: false)
                 return
             }
             
@@ -156,16 +157,14 @@ class UserLoginService {
             self._userData = user
             NSLog("Got User data from Firebase")
             
-            self.getCompanyFromFirebase(completion)
+            self.getCompanyFromFirebase(completion, forcedCompletionValue: nil)
         })
     }
     
-    private func getCompanyFromFirebase(completion: CompletionHandlerBool?) {
-        let completionValue = true
-        
+    private func getCompanyFromFirebase(completion: CompletionHandlerBool?, forcedCompletionValue: Bool?) {
         guard let user = _userData, let uid = user.company else {
             NSLog("No User or Company found")
-            completion?(completionValue)
+            self.complete(completion, withForcedValue: forcedCompletionValue, andRealValue: false)
             return
         }
         
@@ -174,7 +173,7 @@ class UserLoginService {
         REF_COMP.child(child).observeSingleEventOfType(.Value, withBlock: { snapshot in
             guard snapshot.exists(), let data = snapshot.value as? [String: AnyObject] else {
                 NSLog("No Company data available in Firebase")
-                completion?(completionValue)
+                self.complete(completion, withForcedValue: forcedCompletionValue, andRealValue: false)
                 return
             }
             
@@ -187,15 +186,13 @@ class UserLoginService {
             self._company = company
             NSLog("Got Company data from Firebase")
             
-            completion?(completionValue)
+            self.complete(completion, withForcedValue: forcedCompletionValue, andRealValue: true)
         })
     }
     
-    private func getEmailEndingsFromFirebase(completion: CompletionHandlerBool?) {
-        let completionValue = false
-        
+    private func getEmailEndingsFromFirebase(completion: CompletionHandlerBool?, forcedCompletionValue: Bool?) {
         guard _userFirebase == nil && _emailEndings.count == 0 else {
-            completion?(completionValue)
+            complete(completion, withForcedValue: forcedCompletionValue, andRealValue: false)
             return
         }
         
@@ -204,7 +201,7 @@ class UserLoginService {
         REF_MAIL.observeSingleEventOfType(.Value, withBlock: { snapshot in
             guard snapshot.exists(), let data = snapshot.value as? [String: [String: String]] else {
                 NSLog("No Email data available in Firebase")
-                completion?(completionValue)
+                self.complete(completion, withForcedValue: forcedCompletionValue, andRealValue: false)
                 return
             }
             
@@ -219,7 +216,15 @@ class UserLoginService {
             self._emailEndings = mails
             NSLog("Got Email Endings from Firebase")
             
-            completion?(completionValue)
+            self.complete(completion, withForcedValue: forcedCompletionValue, andRealValue: true)
         })
+    }
+    
+    private func complete(completion : CompletionHandlerBool?, withForcedValue forced: Bool?, andRealValue value: Bool) {
+        if let forced = forced {
+            completion?(forced)
+        } else {
+            completion?(value)
+        }
     }
 }

@@ -1,5 +1,5 @@
 //
-//  AuswertungVC.swift
+//  EvaluationVC.swift
 //  insighter
 //
 //  Created by Jan Dammshäuser on 09.08.16.
@@ -8,15 +8,13 @@
 
 import UIKit
 
-class AuswertungVC: UIViewController {
-    //TEST
+class EvaluationVC: UIViewController {
+    //TEST for beta
     @IBOutlet weak var dataLbl: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-    }
-    
-    @IBAction func dataCheck(sender: UIButton) {
+        
         dataLbl.text = UserLoginService.sharedInstance.data
     }
     
@@ -24,7 +22,7 @@ class AuswertungVC: UIViewController {
     @IBAction func signOut(sender: UIButton) {
         UserLoginService.sharedInstance.signOutUser()
         
-        performSegueWithIdentifier(Segue.AuswertungToOnboarding.rawValue, sender: nil)
+        performSegueWithIdentifier(Segue.EvaluationToOnboarding.rawValue, sender: nil)
     }
     
 

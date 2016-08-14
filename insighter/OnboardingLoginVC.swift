@@ -125,10 +125,6 @@ class OnboardingLoginVC: UIViewController, FIRLoginable {
         
         if let uid = uid {
             registerUser(withID: uid, isCreated: created)
-            
-            NSLog("User is logged in")
-            transitionToNextView()
-            
         } else if let error = error {
             errorHandling(withString: String(error))
         } else {
@@ -139,7 +135,14 @@ class OnboardingLoginVC: UIViewController, FIRLoginable {
     private func registerUser(withID uid: String, isCreated created: Bool) {
         let userData = UserData(UID: uid, company: company, lastRated: nil, securityQuestion: securityQuestion, securityAnswer: securityAnswer)
         
-        UserLoginService.sharedInstance.registerUser(withUserData: userData, userGotCreated: created)
+        UserLoginService.sharedInstance.registerUser(withUserData: userData, userGotCreated: created) { loggedIn in
+            if loggedIn {
+                NSLog("User is logged in")
+                self.transitionToNextView()
+            } else {
+                self.errorUndefined()
+            }
+        }
     }
     
     
@@ -181,7 +184,6 @@ class OnboardingLoginVC: UIViewController, FIRLoginable {
         HUD.showInView(view)
     }
     
-    
     // MARK: - State Change
     
     private func applyState() {
@@ -222,7 +224,7 @@ class OnboardingLoginVC: UIViewController, FIRLoginable {
     // MARK: - Private Methods
     
     private func transitionToNextView() {
-        performSegueWithIdentifier(Segue.OnboardingLoginToAuswertung.rawValue, sender: nil)
+        performSegueWithIdentifier(Segue.OnboardingLoginToEvaluation.rawValue, sender: nil)
     }
     
     private func resetSubLbls() {
