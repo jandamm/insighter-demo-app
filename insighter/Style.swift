@@ -32,9 +32,9 @@ class Colors {
 }
 
 enum TextStyle: String {
-    case Heading, HeadingPrimary
+    case Heading, HeadingPrimary, HeadingHighlight
     case TextBigHighlight
-    case Text
+    case Text, TextPrimary
     case Button, ButtonPrimary, ButtonHighlight, ButtonError
     case TextField, TextFieldPrimary
     case TextSubLine

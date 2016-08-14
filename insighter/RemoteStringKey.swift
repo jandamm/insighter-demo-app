@@ -58,4 +58,10 @@ enum RemoteStringKey: String, StringReturningEnum {
     case Onb_Login_Anmeldung_Btn_Log
     case Onb_Login_Anmeldung_Btn_Reg
     
+    // Evaluation User Screen
+    case Eva_User_Title_Lbl
+    case Eva_User_Rating_Title_Lbl
+    case Eva_User_Feedback_Title_Lbl
+    case Eva_User_Feedback_Erklaerung_Lbl
+    case Eva_User_Punkte_Title_Lbl
 }

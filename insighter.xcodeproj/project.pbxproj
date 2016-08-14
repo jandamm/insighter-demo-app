@@ -50,6 +50,12 @@
 		13ED7E921D5DD32E0017CF8A /* Company.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13ED7E911D5DD32E0017CF8A /* Company.swift */; };
 		13ED7E941D5E17D10017CF8A /* RemoteIntKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13ED7E931D5E17D10017CF8A /* RemoteIntKey.swift */; };
 		13ED7E961D5E17E70017CF8A /* RemoteDoubleKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13ED7E951D5E17E70017CF8A /* RemoteDoubleKey.swift */; };
+		13ED7E991D60985B0017CF8A /* EvaluationUserVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13ED7E971D60985B0017CF8A /* EvaluationUserVC.swift */; };
+		13ED7E9A1D60985B0017CF8A /* EvaluationUserVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13ED7E981D60985B0017CF8A /* EvaluationUserVC.xib */; };
+		13ED7E9D1D6098740017CF8A /* EvaluationCompanyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13ED7E9B1D6098740017CF8A /* EvaluationCompanyVC.swift */; };
+		13ED7E9E1D6098740017CF8A /* EvaluationCompanyVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13ED7E9C1D6098740017CF8A /* EvaluationCompanyVC.xib */; };
+		13ED7EA41D6098BE0017CF8A /* QuestionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13ED7EA21D6098BE0017CF8A /* QuestionVC.swift */; };
+		13ED7EA51D6098BE0017CF8A /* QuestionVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13ED7EA31D6098BE0017CF8A /* QuestionVC.xib */; };
 		56C3D9C7BA732868E00FED91 /* Pods_insighterTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3645D0C096E9AD5555A68EF8 /* Pods_insighterTests.framework */; };
 		70407723F13F34D9E3BCFDCB /* Pods_insighter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1CA16EAB56FD4C11696E893 /* Pods_insighter.framework */; };
 		DE3202D0A70D6B5479502F5C /* Pods_insighterUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F3BC960734ED150A1BA84B2 /* Pods_insighterUITests.framework */; };
@@ -122,6 +128,12 @@
 		13ED7E911D5DD32E0017CF8A /* Company.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Company.swift; sourceTree = "<group>"; };
 		13ED7E931D5E17D10017CF8A /* RemoteIntKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteIntKey.swift; sourceTree = "<group>"; };
 		13ED7E951D5E17E70017CF8A /* RemoteDoubleKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteDoubleKey.swift; sourceTree = "<group>"; };
+		13ED7E971D60985B0017CF8A /* EvaluationUserVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EvaluationUserVC.swift; sourceTree = "<group>"; };
+		13ED7E981D60985B0017CF8A /* EvaluationUserVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EvaluationUserVC.xib; sourceTree = "<group>"; };
+		13ED7E9B1D6098740017CF8A /* EvaluationCompanyVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EvaluationCompanyVC.swift; sourceTree = "<group>"; };
+		13ED7E9C1D6098740017CF8A /* EvaluationCompanyVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EvaluationCompanyVC.xib; sourceTree = "<group>"; };
+		13ED7EA21D6098BE0017CF8A /* QuestionVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionVC.swift; sourceTree = "<group>"; };
+		13ED7EA31D6098BE0017CF8A /* QuestionVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuestionVC.xib; sourceTree = "<group>"; };
 		2B1A7C62CD2140921EA62CD8 /* Pods-insighter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-insighter.release.xcconfig"; path = "Pods/Target Support Files/Pods-insighter/Pods-insighter.release.xcconfig"; sourceTree = "<group>"; };
 		3645D0C096E9AD5555A68EF8 /* Pods_insighterTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_insighterTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6DF52CA7CBBCD29BD959C9E8 /* Pods-insighter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-insighter.debug.xcconfig"; path = "Pods/Target Support Files/Pods-insighter/Pods-insighter.debug.xcconfig"; sourceTree = "<group>"; };
@@ -247,9 +259,9 @@
 			isa = PBXGroup;
 			children = (
 				13A03D7F1CF1109E00920838 /* IntroVC.swift */,
-				13A5B9A81D5A01D5008EBDF3 /* OnboardingNotificationVC.swift */,
-				13A5B9A41D59FBE6008EBDF3 /* OnboardingLoginVC.swift */,
-				13A5B9AA1D5A0275008EBDF3 /* EvaluationVC.swift */,
+				13ED7EA11D6098A40017CF8A /* Onboarding */,
+				13ED7EA21D6098BE0017CF8A /* QuestionVC.swift */,
+				13ED7EA01D60989D0017CF8A /* Evaluation */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -271,6 +283,9 @@
 				1340AC7F1D5A19E1008499CE /* TextRemoteConfigable.swift */,
 				13517B491D5BBF7D002B74AD /* TextResettable.swift */,
 				13517B471D5BAE59002B74AD /* Shakeable.swift */,
+				13ED7E981D60985B0017CF8A /* EvaluationUserVC.xib */,
+				13ED7E9C1D6098740017CF8A /* EvaluationCompanyVC.xib */,
+				13ED7EA31D6098BE0017CF8A /* QuestionVC.xib */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -288,6 +303,25 @@
 				13517B4F1D5D06B9002B74AD /* FIRUploadable.swift */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		13ED7EA01D60989D0017CF8A /* Evaluation */ = {
+			isa = PBXGroup;
+			children = (
+				13A5B9AA1D5A0275008EBDF3 /* EvaluationVC.swift */,
+				13ED7E971D60985B0017CF8A /* EvaluationUserVC.swift */,
+				13ED7E9B1D6098740017CF8A /* EvaluationCompanyVC.swift */,
+			);
+			name = Evaluation;
+			sourceTree = "<group>";
+		};
+		13ED7EA11D6098A40017CF8A /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				13A5B9A81D5A01D5008EBDF3 /* OnboardingNotificationVC.swift */,
+				13A5B9A41D59FBE6008EBDF3 /* OnboardingLoginVC.swift */,
+			);
+			name = Onboarding;
 			sourceTree = "<group>";
 		};
 		B4EA92E197AF8E6238345147 /* Pods */ = {
@@ -426,11 +460,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				13ED7EA51D6098BE0017CF8A /* QuestionVC.xib in Resources */,
 				13A03D8B1CF1109E00920838 /* LaunchScreen.storyboard in Resources */,
 				1340AC7C1D5A0E89008499CE /* RemoteConfigDefaults.plist in Resources */,
 				132A5EBA1D58A28400448DAC /* GoogleService-Info.plist in Resources */,
 				13A03D881CF1109E00920838 /* Assets.xcassets in Resources */,
 				13A03D831CF1109E00920838 /* Main.storyboard in Resources */,
+				13ED7E9A1D60985B0017CF8A /* EvaluationUserVC.xib in Resources */,
+				13ED7E9E1D6098740017CF8A /* EvaluationCompanyVC.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -591,6 +628,7 @@
 				13517B481D5BAE59002B74AD /* Shakeable.swift in Sources */,
 				13ED7E8E1D5D1DB70017CF8A /* JDPopup.swift in Sources */,
 				13A5B9A31D59F71E008EBDF3 /* JDLabel.swift in Sources */,
+				13ED7E991D60985B0017CF8A /* EvaluationUserVC.swift in Sources */,
 				13A5B9AB1D5A0275008EBDF3 /* EvaluationVC.swift in Sources */,
 				13A5B9A51D59FBE6008EBDF3 /* OnboardingLoginVC.swift in Sources */,
 				13517B501D5D06B9002B74AD /* FIRUploadable.swift in Sources */,
@@ -603,6 +641,7 @@
 				13A5B9A91D5A01D5008EBDF3 /* OnboardingNotificationVC.swift in Sources */,
 				131C8D061D59E1D200A2EE8C /* UserData.swift in Sources */,
 				13A5B99B1D59E4F1008EBDF3 /* UserLoginService.swift in Sources */,
+				13ED7E9D1D6098740017CF8A /* EvaluationCompanyVC.swift in Sources */,
 				13A5B99F1D59F250008EBDF3 /* Style.swift in Sources */,
 				1329B03D1D5B2096004AE52B /* JDTextField.swift in Sources */,
 				138C72581D58B2360049561A /* DataService.swift in Sources */,
@@ -610,6 +649,7 @@
 				13ED7E921D5DD32E0017CF8A /* Company.swift in Sources */,
 				13ED7E941D5E17D10017CF8A /* RemoteIntKey.swift in Sources */,
 				1329B0451D5B4901004AE52B /* RatingQuestion.swift in Sources */,
+				13ED7EA41D6098BE0017CF8A /* QuestionVC.swift in Sources */,
 				13ED7E961D5E17E70017CF8A /* RemoteDoubleKey.swift in Sources */,
 				131C8D041D59DF3900A2EE8C /* RemoteConfig.swift in Sources */,
 				138744C31D5B5BB300512967 /* JDDropdown.swift in Sources */,

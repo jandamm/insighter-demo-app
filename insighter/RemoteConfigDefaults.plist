@@ -67,5 +67,23 @@
 	<string>anmelden</string>
 	<key>Onb_Login_Anmeldung_Btn_Reg</key>
 	<string>registrieren</string>
+	<key>Eva_User_Title_Lbl</key>
+	<string>Ihre Woche</string>
+	<key>Eva_User_Rating_Title_Lbl</key>
+	<string>Ihre Abstimmung diese Woche:</string>
+	<key>Eva_User_Feedback_Title_Lbl</key>
+	<string>Ihre Feedback-Score:</string>
+	<key>Eva_User_Feedback_Erklaerung_Lbl</key>
+	<string>Der Mitarbeiter mit dem höchsten Feedback-Score am Ende eines Quartals bekommt ein Spa-Wochenende geschenkt.</string>
+	<key>Eva_User_Punkte_Title_Lbl</key>
+	<string>Ihre Punkte diese Woche:</string>
+	<key>Eva_User_Punkte_Top_Lbl</key>
+	<string>Frage beantwortet:</string>
+	<key>Eva_User_Punkte_Middle_Lbl</key>
+	<string>Kontinuität letzte Woche:</string>
+	<key>Eva_User_Punkte_Bottom_Lbl</key>
+	<string>Kontinuität vorletzte Woche:</string>
+	<key>Eva_User_Punkte_Sum_Lbl</key>
+	<string>Summe diese Woche:</string>
 </dict>
 </plist>
