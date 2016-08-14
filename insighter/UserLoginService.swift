@@ -36,6 +36,17 @@ class UserLoginService {
     
     // MARK: - External Data
     
+    func ratedWeeksRelation(withDate date: NSDate) -> Set<CalendarWeek.Relation> {
+        guard let userData = _userData else {
+            return [.None]
+        }
+        
+        let relationLast = userData.lastRated.calenderWeekRelation(forDate: date)
+        let relationPrevious = userData.previousRated.calenderWeekRelation(forDate: date)
+        
+        return [relationLast, relationPrevious]
+    }
+    
     func companyID(forEmail mail: String) -> String? {
         let mailParts = mail.componentsSeparatedByString("@")
         let part = mailParts.count - 1
@@ -152,10 +163,11 @@ class UserLoginService {
             
             let company = data[DBValueKeys.User.company.rawValue] as? String
             let lastRated = data[DBValueKeys.User.lastRated.rawValue] as? Double
+            let previousRated = data[DBValueKeys.User.previousRated.rawValue] as? Double
             let securityQuestion = data[DBValueKeys.User.securityQuestion.rawValue] as? String
             let securityAnswer = data[DBValueKeys.User.securityAnswer.rawValue] as? String
             
-            let user = UserData(UID: uid, company: company, lastRated: lastRated, securityQuestion: securityQuestion, securityAnswer: securityAnswer)
+            let user = UserData(UID: uid, company: company, lastRated: lastRated, previousRated: previousRated, securityQuestion: securityQuestion, securityAnswer: securityAnswer)
             
             self._userData = user
             NSLog("Got User data from Firebase")

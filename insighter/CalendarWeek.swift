@@ -9,10 +9,20 @@
 import Foundation
 
 struct CalendarWeek: Equatable {
+    
+    enum Relation {
+        case This, Last, Previous, None
+    }
+    
+    
     // MARK: - Data
     
     var stringValue: String {
         return calWeek(date)
+    }
+    
+    var timeInterval: NSTimeInterval {
+        return date.timeIntervalSince1970
     }
     
     private let date: NSDate
@@ -31,6 +41,19 @@ struct CalendarWeek: Equatable {
     
     // MARK: - Global Methods
     
+    func calenderWeekRelation(forDate inputDate: NSDate) -> Relation {
+        
+        switch calWeek(inputDate) {
+        case stringValue:
+            return .This
+        case calendarWeek(beforeWeeks: 1):
+            return .Last
+        case calendarWeek(beforeWeeks: 2):
+            return .Previous
+        default:
+            return .None
+        }
+    }
     
     func calendarWeek(beforeWeeks weeks: Double) -> String {
         return calendarWeek(inWeeks: -weeks)
@@ -53,16 +76,11 @@ struct CalendarWeek: Equatable {
     }
 
     private func getWeek(date: NSDate) -> Int {
-        let calendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierISO8601)!
-        let components = calendar.components(.WeekOfYear, fromDate: date)
-        let weekNumber = components.weekOfYear
-        return weekNumber
+        return CALENDAR.components(.Weekday, fromDate: date).weekday
     }
     
-    private func getYear(date: NSDate) -> String {
-        let formatter = NSDateFormatter()
-        formatter.dateFormat = "yyyy"
-        return formatter.stringFromDate(date)
+    private func getYear(date: NSDate) -> Int {
+        return CALENDAR.components(.Year, fromDate: date).year
     }
 }
 

@@ -8,6 +8,8 @@
 
 import Foundation
 
+let CALENDAR = NSCalendar(calendarIdentifier: NSCalendarIdentifierISO8601)!
+
 // Completion Handler
 typealias CompletionHandler = () -> ()
 typealias CompletionHandlerBool = (Bool) -> ()

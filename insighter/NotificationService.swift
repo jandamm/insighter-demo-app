@@ -22,28 +22,51 @@ class NotificationService {
     
     func setupNotifications() {
         APP.cancelAllLocalNotifications()
-        addNotification()
+        APP.applicationIconBadgeNumber = 0
+        
+        let firstWeekDay = RemoteConfig.sharedInstance.getInt(forKey: .Notif_Trigger_Weekday)
+        let firstHour = RemoteConfig.sharedInstance.getInt(forKey: .Notif_Trigger_Hour)
+        
+        addNotification(onWeekDay: firstWeekDay, atHour: firstHour)
+        NSLog("Added Notification")
     }
     
     
     // MARK: - Private Methods
     
-    private func addNotification() {
+    private func addNotification(onWeekDay weekDay: Int, atHour hour: Int) {
         let notification = UILocalNotification()
         
+        let title = RemoteConfig.sharedInstance.getString(forKey: .Notif_Reminder_Title)
+        let body = RemoteConfig.sharedInstance.getString(forKey: .Notif_Reminder_Body)
+        let action = RemoteConfig.sharedInstance.getString(forKey: .Notif_Reminder_Action)
+        let date = getDate(forWeekDay: weekDay, atHour: hour)
         
-        
-        notification.alertBody = "Body"
-        notification.alertAction = "Öffnen"
-        notification.fireDate = NSDate().dateByAddingTimeInterval(5)
-        
-        
-        
-        
-        notification.alertTitle = "Title"
+        notification.alertTitle = title
+        notification.alertBody = body
+        notification.alertAction = action
+        notification.fireDate = date
+        notification.repeatInterval = .Weekday
         notification.soundName = UILocalNotificationDefaultSoundName
         notification.applicationIconBadgeNumber = 1
         
-        UIApplication.sharedApplication().scheduleLocalNotification(notification)
+        APP.scheduleLocalNotification(notification)
+    }
+    
+    private func getDate(forWeekDay weekDay: Int, atHour hour: Int) -> NSDate {
+        let date = NSDate()
+        let today = CALENDAR.components([.Weekday, .Hour], fromDate: date)
+        
+        let offset = (weekDay - today.weekday) * 24 + hour - today.hour
+        
+        let destDate = date.dateByAddingTimeInterval(Double(offset) * 60 * 60)
+        
+        let ratedRelation = UserLoginService.sharedInstance.ratedWeeksRelation(withDate: destDate)
+        
+        if destDate.timeIntervalSinceNow < 0 || ratedRelation.contains(.This) {
+            return destDate.dateByAddingTimeInterval(7 * 24 * 60 * 60)
+        }
+        
+        return destDate
     }
 }

@@ -31,6 +31,9 @@ enum RemoteStringKey: String, StringReturningEnum {
     
     // Basics
     case Our_Company_Name
+    case Notif_Reminder_Title
+    case Notif_Reminder_Body
+    case Notif_Reminder_Action
     
     // Onboarding Willkommen Screen
     case Onb_Will_Willkommen_Lbl

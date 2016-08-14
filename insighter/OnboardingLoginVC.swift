@@ -133,7 +133,7 @@ class OnboardingLoginVC: UIViewController, FIRLoginable {
     }
     
     private func registerUser(withID uid: String, isCreated created: Bool) {
-        let userData = UserData(UID: uid, company: company, lastRated: nil, securityQuestion: securityQuestion, securityAnswer: securityAnswer)
+        let userData = UserData(UID: uid, company: company, lastRated: nil, previousRated: nil, securityQuestion: securityQuestion, securityAnswer: securityAnswer)
         
         UserLoginService.sharedInstance.registerUser(withUserData: userData, userGotCreated: created) { loggedIn in
             if loggedIn {

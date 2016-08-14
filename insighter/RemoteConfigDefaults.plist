@@ -29,8 +29,16 @@
         Bitte versuchen Sie es erneut!</string>
 	<key>Our_Company_Name</key>
 	<string>insighter</string>
-	<key>Notif_</key>
-	<string></string>
+	<key>Notif_Reminder_Title</key>
+	<string>Neue Umfrage</string>
+	<key>Notif_Reminder_Body</key>
+	<string>Es gibt eine neue Umfrage. Bitte öffnen Sie insighter.</string>
+	<key>Notif_Reminder_Action</key>
+	<string>Öffnen</string>
+	<key>Notif_Trigger_Weekday</key>
+	<integer>6</integer>
+	<key>Notif_Trigger_Hour</key>
+	<integer>13</integer>
 	<key>Onb_Will_Willkommen_Lbl</key>
 	<string>Herzlich willkommen bei</string>
 	<key>Onb_Will_Wir_Verbessern_Lbl</key>

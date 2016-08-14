@@ -57,16 +57,16 @@ class RemoteConfig {
         return value
     }
     
-//    func getDouble(forKey key: RemoteConfigKey) -> Double {
-//        return getNSNumber(forKey: key).doubleValue
-//    }
-//    
-//    func getInt(forKey key: RemoteConfigKey) -> Int {
-//        return getNSNumber(forKey: key).integerValue
-//    }
+    func getDouble(forKey key: RemoteDoubleKey) -> Double {
+        return getNSNumber(forValue: key.rawValue).doubleValue
+    }
     
-    private func getNSNumber(forKey key: RemoteStringKey) -> NSNumber {
-        guard let value = remoteConfig[key.rawValue].numberValue else {
+    func getInt(forKey key: RemoteIntKey) -> Int {
+        return getNSNumber(forValue: key.rawValue).integerValue
+    }
+    
+    private func getNSNumber(forValue key: String) -> NSNumber {
+        guard let value = remoteConfig[key].numberValue else {
             return 0
         }
         
