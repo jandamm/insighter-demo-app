@@ -119,6 +119,9 @@ class UserLoginService {
     
     private func getFIRUser(completion: CompletionHandlerBool?) {
         _userListener = FIRAuth.auth()?.addAuthStateDidChangeListener { auth, user in
+            guard self._userFirebase == nil else {
+                return
+            }
             
             self._userFirebase = user
             self.getUserDataOrEmailEndings(completion)

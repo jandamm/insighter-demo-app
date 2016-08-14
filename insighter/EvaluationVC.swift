@@ -19,6 +19,10 @@ class EvaluationVC: UIViewController {
     }
     
     
+    @IBAction func notif(sender: UIButton) {
+        NotificationService.sharedInstance.setupNotifications()
+    }
+    
     @IBAction func signOut(sender: UIButton) {
         UserLoginService.sharedInstance.signOutUser()
         

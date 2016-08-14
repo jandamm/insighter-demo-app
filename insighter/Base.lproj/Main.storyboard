@@ -474,6 +474,13 @@
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3rW-6S-r0W">
+                                        <rect key="frame" x="0.0" y="239" width="536" height="30"/>
+                                        <state key="normal" title="Notification"/>
+                                        <connections>
+                                            <action selector="notif:" destination="lpM-3k-drX" eventType="touchUpInside" id="cld-bF-srk"/>
+                                        </connections>
+                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lfM-yE-pQJ">
                                         <rect key="frame" x="0.0" y="486" width="536" height="30"/>
                                         <state key="normal" title="Sign out"/>

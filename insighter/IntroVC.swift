@@ -64,6 +64,8 @@ class IntroVC: UIViewController {
             return
         }
         
+        print("transition")
+        
         loadingSpinnerView.animationStop()
         
         let segue: Segue = loggedIn ? .IntroToEvaluation : .IntroToOnboarding
@@ -93,8 +95,11 @@ class IntroVC: UIViewController {
     private func getUser() {
         UserLoginService.sharedInstance.checkUserIsLoggedInAndGetData { loggedIn in
             self._userLoggedIn = loggedIn
-            NSLog("User is Logged in: \(loggedIn)")
-            self.transitionToNextView()
+            
+            if loggedIn {
+                NSLog("User is Logged in: \(loggedIn)")
+                self.transitionToNextView()
+            }
         }
     }
 }
