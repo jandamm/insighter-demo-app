@@ -8,15 +8,21 @@
 
 import UIKit
 
-class QuestionVC: UIViewController {
+class QuestionVC: UIViewController, Flashable {
     
     private var _questions = [RatingQuestion]()
+    
     private var _activeQuestionIndex = 0 {
         didSet {
             _activeQuestion = _questions[_activeQuestionIndex]
         }
     }
-    private var _activeQuestion: RatingQuestion!
+    
+    private var _activeQuestion: RatingQuestion! {
+        didSet {
+            setQuestion()
+        }
+    }
     
     private var state: State = .Rating {
         didSet {
@@ -57,8 +63,9 @@ class QuestionVC: UIViewController {
         super.viewDidLoad()
         
         setupStackView()
+        applyState()
         
-        setQuestion()
+        _activeQuestionIndex = 0
     }
 
     
@@ -66,7 +73,6 @@ class QuestionVC: UIViewController {
     
     func initiate(withQuestions questions: [RatingQuestion]) {
         _questions = questions
-        _activeQuestionIndex = 0
     }
     
     
@@ -77,9 +83,6 @@ class QuestionVC: UIViewController {
         case .Rating:
             state = .Comment
         case .Comment:
-            if let text = commentTxtView.text where text.trimmed == "" {
-                commentTxtView.text = nil
-            }
             dismissKeyboard()
             
             state = .Rating
@@ -91,7 +94,7 @@ class QuestionVC: UIViewController {
         case .Rating:
             saveAnswer()
         case .Comment:
-            commentTxtView.text = nil
+            commentTxtView.text = ""
             dismissKeyboard()
             
             state = .Rating
@@ -118,6 +121,15 @@ class QuestionVC: UIViewController {
     
     // MARK: - State
     
+    func applyButtonState() {
+        switch state {
+        case .Rating:
+            lowerBtn.enabled = ratingVC.ratingSlider.rating.slided
+        case .Comment:
+            lowerBtn.enabled = true
+        }
+    }
+    
     private func applyState() {
         switch state {
         case .Rating:
@@ -134,6 +146,8 @@ class QuestionVC: UIViewController {
             lowerBtn.fontStyle = TextStyle.ButtonError.rawValue
         }
         
+        applyButtonState()
+        
         UIView.animateWithDuration(0.5, animations: {
             self.showFields()
         })
@@ -149,11 +163,7 @@ class QuestionVC: UIViewController {
     }
     
     private func setQuestion() {
-        questionNumberLbl.resetRemoteConfigText()
-        
-        guard var text = questionNumberLbl.text else {
-            return
-        }
+        var text = RemoteConfig.sharedInstance.getString(forKey: .Que_Number_Of_Number)
         
         text = text.stringByReplacingOccurrencesOfString("[first]", withString: "\(_activeQuestionIndex + 1)")
         text = text.stringByReplacingOccurrencesOfString("[second]", withString: "\(_questions.count)")
@@ -170,7 +180,32 @@ class QuestionVC: UIViewController {
     }
     
     private func saveAnswer() {
-        //TODO
-        print("save shit")
+        let UID = _activeQuestion.uid
+        let rating = ratingVC.ratingSlider.rating.ratingInt
+        var comment: String? = nil
+        
+        if let c = commentTxtView.text where c.trimmed != "" {
+            comment = c
+        }
+        
+        let ratingAnswer = RatingAnswer(UID: UID, rating: rating, comment: comment)
+        
+        DataService.sharedInstance.addRating(ratingAnswer)
+        
+        if _activeQuestionIndex == _questions.count-1 {
+            dismissViewControllerAnimated(true, completion: nil)
+        } else {
+            flash(.In, speed: 0.3, completion: { _ in
+                self.resetView()
+                self._activeQuestionIndex += 1
+                self.flash(.Out, speed: 0.3, completion: nil)
+            })
+        }
+    }
+    
+    private func resetView() {
+        commentTxtView.text = ""
+        ratingVC.ratingSlider.reset()
+        state = .Rating
     }
 }

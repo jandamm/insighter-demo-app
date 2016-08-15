@@ -9,22 +9,22 @@
 import UIKit
 
 struct Rating {
-    let rating: Int
+    let ratingInt: Int
     let color: UIColor
     let slided: Bool
     
     var ratingString: String {
-        return "\(rating)"
+        return "\(ratingInt)"
     }
     
     init(rating: Int?) {
         self.color = RatingColors.color(forRating: rating)
         
         if let rating = rating {
-            self.rating = rating
+            self.ratingInt = rating
             self.slided = true
         } else {
-            self.rating = 0
+            self.ratingInt = 0
             self.slided = false
         }
     }

@@ -41,6 +41,7 @@ class RatingSlider: UIView {
 
     override func drawRect(rect: CGRect) {
         //TODO: PaintCode Slider
+        // nil -> 5
     }
     
     
@@ -48,6 +49,13 @@ class RatingSlider: UIView {
     
     var rating: Rating {
         return _rating
+    }
+    
+    
+    // MARK: - External Methods
+    
+    func reset() {
+        _ratingValue = nil
     }
     
     

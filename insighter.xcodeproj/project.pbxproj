@@ -28,6 +28,8 @@
 		137EB8931D61D77E00ACC8F9 /* RatingSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137EB8921D61D77E00ACC8F9 /* RatingSlider.swift */; };
 		137EB8951D61E67900ACC8F9 /* Rating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137EB8941D61E67900ACC8F9 /* Rating.swift */; };
 		137EB8971D61EA1500ACC8F9 /* RatingColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137EB8961D61EA1500ACC8F9 /* RatingColors.swift */; };
+		137EB8991D61FECD00ACC8F9 /* RatingAnswer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137EB8981D61FECD00ACC8F9 /* RatingAnswer.swift */; };
+		137EB89B1D620D7500ACC8F9 /* Flashable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137EB89A1D620D7500ACC8F9 /* Flashable.swift */; };
 		138744C31D5B5BB300512967 /* JDDropdown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 138744C21D5B5BB300512967 /* JDDropdown.swift */; };
 		138C72561D58AB260049561A /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 138C72551D58AB260049561A /* LoadingView.swift */; };
 		138C72581D58B2360049561A /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 138C72571D58B2360049561A /* DataService.swift */; };
@@ -106,6 +108,8 @@
 		137EB8921D61D77E00ACC8F9 /* RatingSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingSlider.swift; sourceTree = "<group>"; };
 		137EB8941D61E67900ACC8F9 /* Rating.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rating.swift; sourceTree = "<group>"; };
 		137EB8961D61EA1500ACC8F9 /* RatingColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingColors.swift; sourceTree = "<group>"; };
+		137EB8981D61FECD00ACC8F9 /* RatingAnswer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingAnswer.swift; sourceTree = "<group>"; };
+		137EB89A1D620D7500ACC8F9 /* Flashable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Flashable.swift; sourceTree = "<group>"; };
 		138744C21D5B5BB300512967 /* JDDropdown.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JDDropdown.swift; sourceTree = "<group>"; };
 		138C72551D58AB260049561A /* LoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		138C72571D58B2360049561A /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
@@ -311,6 +315,7 @@
 				13517B491D5BBF7D002B74AD /* TextResettable.swift */,
 				13517B471D5BAE59002B74AD /* Shakeable.swift */,
 				137EB8921D61D77E00ACC8F9 /* RatingSlider.swift */,
+				137EB89A1D620D7500ACC8F9 /* Flashable.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -323,6 +328,7 @@
 				131C8D051D59E1D100A2EE8C /* UserData.swift */,
 				1329B0381D5B12EE004AE52B /* CalendarWeek.swift */,
 				1329B0441D5B4901004AE52B /* RatingQuestion.swift */,
+				137EB8981D61FECD00ACC8F9 /* RatingAnswer.swift */,
 				13517B4D1D5CEA5B002B74AD /* StringExtension.swift */,
 				13517B4B1D5CD97E002B74AD /* FIRLoginable.swift */,
 				13517B4F1D5D06B9002B74AD /* FIRUploadable.swift */,
@@ -678,6 +684,7 @@
 				1340AC7E1D5A0EB0008499CE /* RemoteStringKey.swift in Sources */,
 				13ED7E921D5DD32E0017CF8A /* Company.swift in Sources */,
 				13ED7E941D5E17D10017CF8A /* RemoteIntKey.swift in Sources */,
+				137EB89B1D620D7500ACC8F9 /* Flashable.swift in Sources */,
 				1329B0451D5B4901004AE52B /* RatingQuestion.swift in Sources */,
 				137EB8951D61E67900ACC8F9 /* Rating.swift in Sources */,
 				13ED7EA41D6098BE0017CF8A /* QuestionVC.swift in Sources */,
@@ -685,6 +692,7 @@
 				131C8D041D59DF3900A2EE8C /* RemoteConfig.swift in Sources */,
 				137EB8911D61C76C00ACC8F9 /* JDTextView.swift in Sources */,
 				138744C31D5B5BB300512967 /* JDDropdown.swift in Sources */,
+				137EB8991D61FECD00ACC8F9 /* RatingAnswer.swift in Sources */,
 				138C72621D58BE3F0049561A /* DBPathKeys.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

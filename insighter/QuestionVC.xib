@@ -39,7 +39,7 @@
                                             </userDefinedRuntimeAttributes>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HE3-fr-chq" customClass="JDLabel" customModule="insighter" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="180" width="536" height="21"/>
+                                            <rect key="frame" x="0.0" y="142" width="536" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
@@ -48,10 +48,10 @@
                                             </userDefinedRuntimeAttributes>
                                         </label>
                                         <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="Ied-A1-3ik">
-                                            <rect key="frame" x="0.0" y="360" width="536" height="180"/>
+                                            <rect key="frame" x="0.0" y="284" width="536" height="256"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" distribution="fillProportionally" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="fDJ-Sb-UWK">
-                                                    <rect key="frame" x="0.0" y="0.0" width="536" height="72"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="536" height="148"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HxB-n7-73m">
                                                             <rect key="frame" x="0.0" y="0.0" width="536" height="50"/>
@@ -60,12 +60,12 @@
                                                             </constraints>
                                                         </stackView>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="anonymity-lock-disclaimer" translatesAutoresizingMaskIntoConstraints="NO" id="ICW-NJ-q5S">
-                                                            <rect key="frame" x="0.0" y="58" width="536" height="14"/>
+                                                            <rect key="frame" x="0.0" y="58" width="536" height="90"/>
                                                         </imageView>
                                                     </subviews>
                                                 </stackView>
                                                 <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gl8-04-xRi" customClass="JDButton" customModule="insighter" customModuleProvider="target">
-                                                    <rect key="frame" x="0.0" y="96" width="536" height="30"/>
+                                                    <rect key="frame" x="0.0" y="172" width="536" height="30"/>
                                                     <state key="normal" title="Button"/>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="string" keyPath="fontStyle" value="Button"/>
@@ -76,7 +76,7 @@
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1pG-Lc-eq3" customClass="JDButton" customModule="insighter" customModuleProvider="target">
-                                                    <rect key="frame" x="0.0" y="150" width="536" height="30"/>
+                                                    <rect key="frame" x="0.0" y="226" width="536" height="30"/>
                                                     <state key="normal" title="Button"/>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="string" keyPath="fontStyle" value="ButtonPrimary"/>

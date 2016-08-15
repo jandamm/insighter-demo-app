@@ -28,7 +28,14 @@ class DataService {
         KW = CalendarWeek()
     }
     
+    
     // MARK: - Global Methods
+    
+    func addRating(rating: RatingAnswer) {
+        //TODO
+        print("save shit: \(rating)")
+    }
+    
     
     // MARK: - Private Methods
     

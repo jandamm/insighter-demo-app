@@ -21,6 +21,7 @@ extension TextStylable where Self: UIButton {
         
         titleLabel?.font = style.font()
         setTitleColor(style.color(), forState: UIControlState.Normal)
+        setTitleColor(style.color().colorWithAlphaComponent(0.45), forState: UIControlState.Disabled)
     }
     
 }

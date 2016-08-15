@@ -53,6 +53,10 @@ class RatingVC: UIViewController, RatingSliderDelegate {
         let rating = ratingSlider.rating
         ratingLbl.text = rating.ratingString
         ratingLbl.textColor = rating.color
+        
+        if let questionVC = parentViewController as? QuestionVC {
+            questionVC.applyButtonState()
+        }
     }
     
     
@@ -60,11 +64,9 @@ class RatingVC: UIViewController, RatingSliderDelegate {
     
     private func animateExplanation(hidden: Bool) {
         let alpha: CGFloat = hidden ? 0 : 1
-        UIView.animateWithDuration(0.5) {
-            self.explanationLeft.hidden = hidden
+        UIView.animateWithDuration(0.2, delay: 0, options: .CurveEaseOut, animations: {
             self.explanationLeft.alpha = alpha
-            self.explanationRight.hidden = hidden
-            self.explanationLeft.alpha = alpha
-        }
+            self.explanationRight.alpha = alpha
+            }, completion: nil)
     }
 }
