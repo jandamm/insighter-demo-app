@@ -26,8 +26,8 @@ class ConstantService {
     
     // MARK: - External Data
     
-    var ratingQuestions: [String: RatingQuestion] {
-        return _ratingQuestions
+    var ratingQuestions: [RatingQuestion] {
+        return Array(_ratingQuestions.values)
     }
     
     var securityQuestions: [String] {

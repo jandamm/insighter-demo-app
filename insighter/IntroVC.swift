@@ -64,8 +64,6 @@ class IntroVC: UIViewController {
             return
         }
         
-        print("transition")
-        
         loadingSpinnerView.animationStop()
         
         let segue: Segue = loggedIn ? .IntroToEvaluation : .IntroToOnboarding

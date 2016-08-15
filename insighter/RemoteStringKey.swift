@@ -31,6 +31,7 @@ enum RemoteStringKey: String, StringReturningEnum {
     
     // Basics
     case Our_Company_Name
+    case Per_Max_Points
     case Notif_Reminder_Title
     case Notif_Reminder_Body
     case Notif_Reminder_Action
@@ -60,6 +61,16 @@ enum RemoteStringKey: String, StringReturningEnum {
     case Onb_Login_Security_SubLbl
     case Onb_Login_Anmeldung_Btn_Log
     case Onb_Login_Anmeldung_Btn_Reg
+    
+    // Question Rating Screen
+    case Que_Number_Of_Number
+    case Que_Rating_Slider_Left_Lbl
+    case Que_Rating_Slider_Right_Lbl
+    case Que_Rating_Comment_Btn
+    case Que_Rating_Save_Btn
+    // Question Comment Screen
+    case Que_Comment_Save_Btn
+    case Que_Comment_Discard_Btn
     
     // Evaluation User Screen
     case Eva_User_Title_Lbl

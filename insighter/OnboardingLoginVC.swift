@@ -201,6 +201,7 @@ class OnboardingLoginVC: UIViewController, FIRLoginable {
         }
         
         securitySectionSView.hidden = true
+        securitySectionSView.alpha = 0
         passwordTxt.NextResponder = loginBtn
         passwordTxt.returnKeyType = .Done
         loginBtn.remoteConfigKey = RemoteStringKey.Onb_Login_Anmeldung_Btn_Log.rawValue
@@ -217,6 +218,7 @@ class OnboardingLoginVC: UIViewController, FIRLoginable {
         
         UIView.animateWithDuration(0.5) { 
             self.securitySectionSView.hidden = false
+            self.securitySectionSView.alpha = 1
         }
     }
     

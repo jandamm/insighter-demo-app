@@ -513,7 +513,7 @@
         <image name="logo-insighter-intro" width="258" height="90"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="gBh-J9-cew"/>
         <segue reference="awT-eg-dkg"/>
-        <segue reference="JCB-AV-3TU"/>
     </inferredMetricsTieBreakers>
 </document>

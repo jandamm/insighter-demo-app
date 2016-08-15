@@ -9,19 +9,35 @@
 import UIKit
 
 //@IBDesignable
-class JDButton: UIButton, TextStylable, TextRemoteConfigable {
+class JDButton: UIButton, TextStylable, TextResettable {
 
     // MARK: - Design
     
-    @IBInspectable var remoteConfigKey: String! {
+    @IBInspectable var remoteConfigKey: String!  {
         didSet {
+            if _remoteConfigKeyDefault == nil {
+                _remoteConfigKeyDefault = remoteConfigKey
+            }
             setText()
         }
     }
-    @IBInspectable var fontStyle: String! {
+    @IBInspectable var fontStyle: String!  {
         didSet {
             applyTextStyle()
         }
+    }
+    @IBInspectable var overrideDefaultSettings: Bool!
+    
+    
+    // MARK: - Private Data
+    
+    private var _remoteConfigKeyDefault: String!
+    
+    
+    // MARK: - Global Data
+    
+    var remoteConfigKeyDefault: String! {
+        return _remoteConfigKeyDefault
     }
     
     

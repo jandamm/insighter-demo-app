@@ -16,12 +16,16 @@ class EvaluationVC: UIViewController {
         super.viewDidLoad()
         
         dataLbl.text = UserLoginService.sharedInstance.data
+        
+        //TEST
+        let yourTimeInSeconds : Double = 1
+        
+        let dispatchTime: dispatch_time_t = dispatch_time(DISPATCH_TIME_NOW, Int64(yourTimeInSeconds * Double(NSEC_PER_SEC)))
+        dispatch_after(dispatchTime, dispatch_get_main_queue(), {
+            self.askQuestions()
+        })
     }
     
-    
-    @IBAction func notif(sender: UIButton) {
-        NotificationService.sharedInstance.setupNotifications()
-    }
     
     @IBAction func signOut(sender: UIButton) {
         UserLoginService.sharedInstance.signOutUser()
@@ -29,5 +33,20 @@ class EvaluationVC: UIViewController {
         performSegueWithIdentifier(Segue.EvaluationToOnboarding.rawValue, sender: nil)
     }
     
-
+    
+    // MARK: - Private Methods
+    
+    private func askQuestions() {
+        guard UserLoginService.sharedInstance.ratedWeeksRelation(withDate: NSDate()).isDisjointWith([.This]) else {
+            return NSLog("No question needs to be asked")
+        }
+        let questions = ConstantService.sharedInstance.ratingQuestions
+        guard questions.count > 0 else {
+            return NSLog("No questions available")
+        }
+        
+        let vc = QuestionVC()
+        vc.initiate(withQuestions: questions)
+        self.presentViewController(vc, animated: true, completion: nil)
+    }
 }

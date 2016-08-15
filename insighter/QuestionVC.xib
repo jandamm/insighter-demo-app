@@ -6,6 +6,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="QuestionVC" customModule="insighter" customModuleProvider="target">
             <connections>
+                <outlet property="lowerBtn" destination="1pG-Lc-eq3" id="ern-lS-5WV"/>
+                <outlet property="questionLbl" destination="HE3-fr-chq" id="5aB-DU-Xws"/>
+                <outlet property="questionNumberLbl" destination="pNg-u5-nTx" id="FmW-ez-TIz"/>
+                <outlet property="ratingStackView" destination="HxB-n7-73m" id="GFx-yh-Qay"/>
+                <outlet property="upperBtn" destination="gl8-04-xRi" id="8zE-hb-AB5"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -13,7 +18,84 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="eaA-9L-JFR">
+                    <rect key="frame" x="32" y="40" width="536" height="540"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pNg-u5-nTx" customClass="JDLabel" customModule="insighter" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="536" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <nil key="highlightedColor"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="fontStyle" value="TextSmall"/>
+                                <userDefinedRuntimeAttribute type="string" keyPath="remoteConfigKey" value="Que_Number_Of_Number"/>
+                            </userDefinedRuntimeAttributes>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HE3-fr-chq" customClass="JDLabel" customModule="insighter" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="180" width="536" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <nil key="highlightedColor"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="fontStyle" value="Heading"/>
+                            </userDefinedRuntimeAttributes>
+                        </label>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="Ied-A1-3ik">
+                            <rect key="frame" x="0.0" y="360" width="536" height="180"/>
+                            <subviews>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="fDJ-Sb-UWK">
+                                    <rect key="frame" x="0.0" y="0.0" width="536" height="72"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HxB-n7-73m">
+                                            <rect key="frame" x="0.0" y="0.0" width="536" height="50"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="215" id="MsN-zU-vqV"/>
+                                            </constraints>
+                                        </stackView>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="anonymity-lock-disclaimer" translatesAutoresizingMaskIntoConstraints="NO" id="ICW-NJ-q5S">
+                                            <rect key="frame" x="0.0" y="58" width="536" height="14"/>
+                                        </imageView>
+                                    </subviews>
+                                </stackView>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gl8-04-xRi" customClass="JDButton" customModule="insighter" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="96" width="536" height="30"/>
+                                    <state key="normal" title="Button"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="fontStyle" value="Button"/>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="remoteConfigKey" value="Que_Rating_Comment_Btn"/>
+                                    </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <action selector="upperBtnPressed:" destination="-1" eventType="touchUpInside" id="FiY-0B-1BZ"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1pG-Lc-eq3" customClass="JDButton" customModule="insighter" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="150" width="536" height="30"/>
+                                    <state key="normal" title="Button"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="fontStyle" value="ButtonPrimary"/>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="remoteConfigKey" value="Que_Rating_Save_Btn"/>
+                                    </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <action selector="lowerBtnPressed:" destination="-1" eventType="touchUpInside" id="WJg-Ur-8sv"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                </stackView>
+            </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="eaA-9L-JFR" secondAttribute="trailing" constant="32" id="8EF-aW-mB9"/>
+                <constraint firstItem="eaA-9L-JFR" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="40" id="EKi-o7-6dX"/>
+                <constraint firstAttribute="bottom" secondItem="eaA-9L-JFR" secondAttribute="bottom" constant="20" id="ZVd-AD-79B"/>
+                <constraint firstItem="eaA-9L-JFR" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="32" id="ekG-ac-UHK"/>
+            </constraints>
+            <point key="canvasLocation" x="339" y="319"/>
         </view>
     </objects>
+    <resources>
+        <image name="anonymity-lock-disclaimer" width="79" height="14"/>
+    </resources>
 </document>
