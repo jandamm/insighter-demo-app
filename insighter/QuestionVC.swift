@@ -175,6 +175,11 @@ class QuestionVC: UIViewController, Flashable {
     
     // MARK: - Private Methods
     
+    private func unknownError() {
+        let HUD = JDPopup(titleKey: .ERROR_UNKNOWN_TITLE, subTitleKey: .ERROR_UNKNOWN_EXPLANATION, imageStyle: .Error)
+        HUD.showInView(view)
+    }
+    
     private func dismissKeyboard() {
         UIApplication.sharedApplication().sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, forEvent: nil)
     }
@@ -182,6 +187,7 @@ class QuestionVC: UIViewController, Flashable {
     private func saveAnswer() {
         let UID = _activeQuestion.uid
         let rating = ratingVC.ratingSlider.rating.ratingInt
+        let lastQuestion = _activeQuestionIndex == _questions.count-1
         var comment: String? = nil
         
         if let c = commentTxtView.text where c.trimmed != "" {
@@ -190,9 +196,13 @@ class QuestionVC: UIViewController, Flashable {
         
         let ratingAnswer = RatingAnswer(UID: UID, rating: rating, comment: comment)
         
-        DataService.sharedInstance.addRating(ratingAnswer)
+        guard DataService.sharedInstance.addRating(ratingAnswer, lastQuestion: lastQuestion) else {
+            return unknownError()
+        }
         
-        if _activeQuestionIndex == _questions.count-1 {
+        if lastQuestion {
+            NotificationService.sharedInstance.setupNotifications()
+            
             dismissViewControllerAnimated(true, completion: nil)
         } else {
             flash(.In, speed: 0.3, completion: { _ in

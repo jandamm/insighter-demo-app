@@ -138,6 +138,7 @@ class OnboardingLoginVC: UIViewController, FIRLoginable {
         UserLoginService.sharedInstance.registerUser(withUserData: userData, userGotCreated: created) { loggedIn in
             if loggedIn {
                 NSLog("User is logged in")
+                NotificationService.sharedInstance.setupNotifications()
                 self.transitionToNextView()
             } else {
                 self.errorUndefined()

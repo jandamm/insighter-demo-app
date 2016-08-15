@@ -28,13 +28,21 @@ class UserLoginService {
     // MARK: - Private Data
     
     private var _userFirebase: FIRUser!
-    private var _userData: UserData?
-    private var _company: Company?
+    private var _userData: UserData!
+    private var _company: Company!
     private var _emailEndings = [String: String]()
     private var _userListener: FIRAuthStateDidChangeListenerHandle?
     
     
     // MARK: - External Data
+    
+    var userID: String! {
+        return _userData.UID
+    }
+    
+    var companyID: String! {
+        return _company.UID
+    }
     
     func ratedWeeksRelation(withDate date: NSDate) -> Set<CalendarWeek.Relation> {
         guard let userData = _userData else {
@@ -63,6 +71,11 @@ class UserLoginService {
     
     func signOutUser(completion: CompletionHandlerBool? = nil) {
         try! FIRAuth.auth()!.signOut()
+        
+        _userFirebase = nil
+        _userData = nil
+        _company = nil
+        
         NSLog("User logged out")
         getEmailEndingsFromFirebase(completion, forcedCompletionValue: nil)
     }
