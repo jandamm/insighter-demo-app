@@ -25,6 +25,9 @@
 		137EB8881D6101C200ACC8F9 /* RatingVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 137EB8871D6101C200ACC8F9 /* RatingVC.xib */; };
 		137EB88A1D6101D100ACC8F9 /* RatingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137EB8891D6101D100ACC8F9 /* RatingVC.swift */; };
 		137EB8911D61C76C00ACC8F9 /* JDTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137EB8901D61C76C00ACC8F9 /* JDTextView.swift */; };
+		137EB8931D61D77E00ACC8F9 /* RatingSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137EB8921D61D77E00ACC8F9 /* RatingSlider.swift */; };
+		137EB8951D61E67900ACC8F9 /* Rating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137EB8941D61E67900ACC8F9 /* Rating.swift */; };
+		137EB8971D61EA1500ACC8F9 /* RatingColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137EB8961D61EA1500ACC8F9 /* RatingColors.swift */; };
 		138744C31D5B5BB300512967 /* JDDropdown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 138744C21D5B5BB300512967 /* JDDropdown.swift */; };
 		138C72561D58AB260049561A /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 138C72551D58AB260049561A /* LoadingView.swift */; };
 		138C72581D58B2360049561A /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 138C72571D58B2360049561A /* DataService.swift */; };
@@ -100,6 +103,9 @@
 		137EB8871D6101C200ACC8F9 /* RatingVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RatingVC.xib; sourceTree = "<group>"; };
 		137EB8891D6101D100ACC8F9 /* RatingVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingVC.swift; sourceTree = "<group>"; };
 		137EB8901D61C76C00ACC8F9 /* JDTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JDTextView.swift; sourceTree = "<group>"; };
+		137EB8921D61D77E00ACC8F9 /* RatingSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingSlider.swift; sourceTree = "<group>"; };
+		137EB8941D61E67900ACC8F9 /* Rating.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rating.swift; sourceTree = "<group>"; };
+		137EB8961D61EA1500ACC8F9 /* RatingColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingColors.swift; sourceTree = "<group>"; };
 		138744C21D5B5BB300512967 /* JDDropdown.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JDDropdown.swift; sourceTree = "<group>"; };
 		138C72551D58AB260049561A /* LoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		138C72571D58B2360049561A /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
@@ -285,6 +291,7 @@
 			isa = PBXGroup;
 			children = (
 				13A5B99E1D59F250008EBDF3 /* Style.swift */,
+				137EB8961D61EA1500ACC8F9 /* RatingColors.swift */,
 				13A03D811CF1109E00920838 /* Main.storyboard */,
 				13ED7E981D60985B0017CF8A /* EvaluationUserVC.xib */,
 				13ED7E9C1D6098740017CF8A /* EvaluationCompanyVC.xib */,
@@ -303,6 +310,7 @@
 				1340AC7F1D5A19E1008499CE /* TextRemoteConfigable.swift */,
 				13517B491D5BBF7D002B74AD /* TextResettable.swift */,
 				13517B471D5BAE59002B74AD /* Shakeable.swift */,
+				137EB8921D61D77E00ACC8F9 /* RatingSlider.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -318,6 +326,7 @@
 				13517B4D1D5CEA5B002B74AD /* StringExtension.swift */,
 				13517B4B1D5CD97E002B74AD /* FIRLoginable.swift */,
 				13517B4F1D5D06B9002B74AD /* FIRUploadable.swift */,
+				137EB8941D61E67900ACC8F9 /* Rating.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -645,6 +654,7 @@
 				138C725A1D58B2850049561A /* ConstantService.swift in Sources */,
 				13A03D7E1CF1109E00920838 /* AppDelegate.swift in Sources */,
 				13517B481D5BAE59002B74AD /* Shakeable.swift in Sources */,
+				137EB8971D61EA1500ACC8F9 /* RatingColors.swift in Sources */,
 				13ED7E8E1D5D1DB70017CF8A /* JDPopup.swift in Sources */,
 				13A5B9A31D59F71E008EBDF3 /* JDLabel.swift in Sources */,
 				13ED7E991D60985B0017CF8A /* EvaluationUserVC.swift in Sources */,
@@ -654,6 +664,7 @@
 				138C725C1D58B3290049561A /* LocalConstant.swift in Sources */,
 				13517B4C1D5CD97E002B74AD /* FIRLoginable.swift in Sources */,
 				13A5B9A71D59FDB5008EBDF3 /* JDButton.swift in Sources */,
+				137EB8931D61D77E00ACC8F9 /* RatingSlider.swift in Sources */,
 				138C725E1D58B3680049561A /* DBValueKeys.swift in Sources */,
 				13A5B9A11D59F2E2008EBDF3 /* TextStylable.swift in Sources */,
 				1340AC801D5A19E1008499CE /* TextRemoteConfigable.swift in Sources */,
@@ -668,6 +679,7 @@
 				13ED7E921D5DD32E0017CF8A /* Company.swift in Sources */,
 				13ED7E941D5E17D10017CF8A /* RemoteIntKey.swift in Sources */,
 				1329B0451D5B4901004AE52B /* RatingQuestion.swift in Sources */,
+				137EB8951D61E67900ACC8F9 /* Rating.swift in Sources */,
 				13ED7EA41D6098BE0017CF8A /* QuestionVC.swift in Sources */,
 				13ED7E961D5E17E70017CF8A /* RemoteDoubleKey.swift in Sources */,
 				131C8D041D59DF3900A2EE8C /* RemoteConfig.swift in Sources */,

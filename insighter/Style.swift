@@ -8,7 +8,14 @@
 
 import UIKit
 
-class Colors {
+protocol ColorScheme {}
+extension ColorScheme {
+    static func rgba(r: CGFloat, _ g: CGFloat, _ b: CGFloat, _ a: CGFloat) -> UIColor {
+        return UIColor(red: r/255, green: g/255, blue: b/255, alpha: a)
+    }
+}
+
+class Colors: ColorScheme {
     
     class func textColor() -> UIColor {
         return rgba(33, 33, 33, 1)
@@ -26,8 +33,12 @@ class Colors {
         return rgba(244, 81, 83, 1)
     }
     
-    static private func rgba(r: CGFloat, _ g: CGFloat, _ b: CGFloat, _ a: CGFloat) -> UIColor {
-        return UIColor(red: r/255, green: g/255, blue: b/255, alpha: a)
+    class func successColor() -> UIColor {
+        return rgba(92, 187, 115, 1)
+    }
+    
+    class func lightContrastColor() -> UIColor {
+        return rgba(224, 224, 224, 1)
     }
 }
 
@@ -65,7 +76,7 @@ enum TextStyle: String {
             size = 10
         }
         
-        if selfString.containsString("Primary") || selfString.containsString("Highlight") || selfString.containsString("Medium") {
+        if selfString.containsString("Primary") || selfString.containsString("Highlight") || selfString.containsString("Medium") || selfString.containsString("Error") {
             name = "AvenirNext-Medium"
         }
         
