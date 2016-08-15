@@ -26,7 +26,6 @@ class JDLabel: UILabel, TextStylable, TextResettable {
             applyTextStyle()
         }
     }
-    @IBInspectable var overrideDefaultSettings: Bool!
     
     
     // MARK: - Private Data
@@ -66,11 +65,6 @@ class JDLabel: UILabel, TextStylable, TextResettable {
             applyTextStyle()
         }
         
-        if let b = overrideDefaultSettings where b {
-            return
-        }
-        
-        numberOfLines = 3
         adjustsFontSizeToFitWidth = true
         minimumScaleFactor = 0.5
     }

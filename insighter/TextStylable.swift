@@ -47,6 +47,17 @@ extension TextStylable where Self: UITextField {
     
 }
 
+extension TextStylable where Self: UITextView {
+    
+    func applyTextStyle() {
+        let style = getStyle()
+        
+        font = style.font()
+        textColor = style.color()
+    }
+    
+}
+
 extension TextStylable {
     
     private func getStyle() -> TextStyle {

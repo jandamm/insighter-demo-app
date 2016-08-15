@@ -78,7 +78,6 @@ class JDTextField: NextResponderTextField, TextStylable, TextRemoteConfigable, S
         line.frame = CGRect(x: 0, y: bounds.height-lineWidth, width: bounds.width, height: lineWidth)
         line.borderWidth = lineWidth
         
-        
         layer.addSublayer(line)
     }
 }

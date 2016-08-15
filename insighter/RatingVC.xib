@@ -26,7 +26,6 @@
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                     <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="boolean" keyPath="overrideDefaultSettings" value="NO"/>
                         <userDefinedRuntimeAttribute type="string" keyPath="fontStyle" value="RatingBigHighlight"/>
                     </userDefinedRuntimeAttributes>
                 </label>
@@ -47,7 +46,6 @@
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                     <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="boolean" keyPath="overrideDefaultSettings" value="NO"/>
                         <userDefinedRuntimeAttribute type="string" keyPath="fontStyle" value="TextSubLine"/>
                         <userDefinedRuntimeAttribute type="string" keyPath="remoteConfigKey" value="Que_Rating_Slider_Left_Lbl"/>
                     </userDefinedRuntimeAttributes>
@@ -62,7 +60,6 @@
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                     <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="boolean" keyPath="overrideDefaultSettings" value="NO"/>
                         <userDefinedRuntimeAttribute type="string" keyPath="fontStyle" value="TextSubLine"/>
                         <userDefinedRuntimeAttribute type="string" keyPath="remoteConfigKey" value="Que_Rating_Slider_Right_Lbl"/>
                     </userDefinedRuntimeAttributes>
@@ -76,7 +73,6 @@
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                     <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="boolean" keyPath="overrideDefaultSettings" value="NO"/>
                         <userDefinedRuntimeAttribute type="string" keyPath="remoteConfigKey" value="Per_Max_Points"/>
                         <userDefinedRuntimeAttribute type="string" keyPath="fontStyle" value="RatingBigText"/>
                     </userDefinedRuntimeAttributes>

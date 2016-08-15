@@ -24,6 +24,7 @@
 		13517B501D5D06B9002B74AD /* FIRUploadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13517B4F1D5D06B9002B74AD /* FIRUploadable.swift */; };
 		137EB8881D6101C200ACC8F9 /* RatingVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 137EB8871D6101C200ACC8F9 /* RatingVC.xib */; };
 		137EB88A1D6101D100ACC8F9 /* RatingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137EB8891D6101D100ACC8F9 /* RatingVC.swift */; };
+		137EB8911D61C76C00ACC8F9 /* JDTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137EB8901D61C76C00ACC8F9 /* JDTextView.swift */; };
 		138744C31D5B5BB300512967 /* JDDropdown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 138744C21D5B5BB300512967 /* JDDropdown.swift */; };
 		138C72561D58AB260049561A /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 138C72551D58AB260049561A /* LoadingView.swift */; };
 		138C72581D58B2360049561A /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 138C72571D58B2360049561A /* DataService.swift */; };
@@ -98,6 +99,7 @@
 		13517B4F1D5D06B9002B74AD /* FIRUploadable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FIRUploadable.swift; sourceTree = "<group>"; };
 		137EB8871D6101C200ACC8F9 /* RatingVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RatingVC.xib; sourceTree = "<group>"; };
 		137EB8891D6101D100ACC8F9 /* RatingVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingVC.swift; sourceTree = "<group>"; };
+		137EB8901D61C76C00ACC8F9 /* JDTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JDTextView.swift; sourceTree = "<group>"; };
 		138744C21D5B5BB300512967 /* JDDropdown.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JDDropdown.swift; sourceTree = "<group>"; };
 		138C72551D58AB260049561A /* LoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		138C72571D58B2360049561A /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
@@ -295,6 +297,7 @@
 				13ED7E8D1D5D1DB70017CF8A /* JDPopup.swift */,
 				1329B03A1D5B1BD9004AE52B /* JDScrollView.swift */,
 				1329B03C1D5B2096004AE52B /* JDTextField.swift */,
+				137EB8901D61C76C00ACC8F9 /* JDTextView.swift */,
 				138C72551D58AB260049561A /* LoadingView.swift */,
 				13A5B9A01D59F2E2008EBDF3 /* TextStylable.swift */,
 				1340AC7F1D5A19E1008499CE /* TextRemoteConfigable.swift */,
@@ -668,6 +671,7 @@
 				13ED7EA41D6098BE0017CF8A /* QuestionVC.swift in Sources */,
 				13ED7E961D5E17E70017CF8A /* RemoteDoubleKey.swift in Sources */,
 				131C8D041D59DF3900A2EE8C /* RemoteConfig.swift in Sources */,
+				137EB8911D61C76C00ACC8F9 /* JDTextView.swift in Sources */,
 				138744C31D5B5BB300512967 /* JDDropdown.swift in Sources */,
 				138C72621D58BE3F0049561A /* DBPathKeys.swift in Sources */,
 			);

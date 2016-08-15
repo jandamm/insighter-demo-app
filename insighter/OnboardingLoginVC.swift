@@ -115,7 +115,7 @@ class OnboardingLoginVC: UIViewController, FIRLoginable {
             }
             
             self.securityQuestion = question
-            self.securityAnswer = answer
+            self.securityAnswer = answer.trimmed
             
             createUser(forEmail: email, andPassword: password, completion: loginResponseHandler)
         }

@@ -36,7 +36,7 @@ class QuestionVC: UIViewController {
     @IBOutlet weak var lowerBtn: JDButton!
     
     private var ratingVC: RatingVC!
-    private var commentTxtView: UITextView!
+    private var commentTxtView: JDTextView!
     
     
     // MARK: - Startup
@@ -77,6 +77,11 @@ class QuestionVC: UIViewController {
         case .Rating:
             state = .Comment
         case .Comment:
+            if let text = commentTxtView.text where text.trimmed == "" {
+                commentTxtView.text = nil
+            }
+            dismissKeyboard()
+            
             state = .Rating
         }
     }
@@ -84,12 +89,12 @@ class QuestionVC: UIViewController {
     @IBAction func lowerBtnPressed(sender: UIButton) {
         switch state {
         case .Rating:
-            //TODO
-            print("save shit")
+            saveAnswer()
         case .Comment:
+            commentTxtView.text = nil
+            dismissKeyboard()
+            
             state = .Rating
-            //TODO 
-            print("clear textfield")
         }
     }
     
@@ -98,10 +103,7 @@ class QuestionVC: UIViewController {
     
     private func setupStackView() {
         ratingVC = RatingVC()
-        commentTxtView = UITextView()
-        
-        //TEST
-        commentTxtView.backgroundColor = UIColor.redColor()
+        commentTxtView = JDTextView()
         
         addChildViewController(ratingVC)
         
@@ -160,4 +162,15 @@ class QuestionVC: UIViewController {
         questionLbl.text = _activeQuestion.question
     }
 
+    
+    // MARK: - Private Methods
+    
+    private func dismissKeyboard() {
+        UIApplication.sharedApplication().sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, forEvent: nil)
+    }
+    
+    private func saveAnswer() {
+        //TODO
+        print("save shit")
+    }
 }

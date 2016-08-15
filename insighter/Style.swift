@@ -39,6 +39,7 @@ enum TextStyle: String {
     case TextSmall
     case Button, ButtonPrimary, ButtonHighlight, ButtonError
     case TextField, TextFieldPrimary
+    case TextView
     case TextSubLine, TextSubLineMedium
     
     func font() -> UIFont {
@@ -58,11 +59,13 @@ enum TextStyle: String {
             size = 18
         } else if selfString.containsString("TextSmall") {
             size = 16
+        } else if selfString.containsString("TextView") {
+            size = 14
         } else if selfString.containsString("TextSubLine") {
             size = 10
         }
         
-        if selfString.containsString("Primary") || selfString.containsString("Highlight") || selfString.containsString("Medium"){
+        if selfString.containsString("Primary") || selfString.containsString("Highlight") || selfString.containsString("Medium") {
             name = "AvenirNext-Medium"
         }
         

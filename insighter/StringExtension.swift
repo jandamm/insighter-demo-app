@@ -17,4 +17,9 @@ extension String {
         return emailTest.evaluateWithObject(self)
     }
     
+    var trimmed: String {
+        return self.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet()
+        )
+    }
+    
 }

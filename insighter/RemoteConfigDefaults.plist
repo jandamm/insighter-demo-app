@@ -85,10 +85,10 @@
 	<string>Frage [first] von [second]</string>
 	<key>Que_Rating_Slider_Left_Lbl</key>
 	<string>trifft überhaupt
-        nicht zu</string>
+nicht zu</string>
 	<key>Que_Rating_Slider_Right_Lbl</key>
 	<string>trifft
-        voll zu</string>
+voll zu</string>
 	<key>Que_Rating_Comment_Btn</key>
 	<string>Begründung hinzufügen</string>
 	<key>Que_Rating_Save_Btn</key>
