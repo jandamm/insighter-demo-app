@@ -48,11 +48,11 @@ struct UserData: Equatable, FIRUploadable {
         if let company = company {
             out[key.company.rawValue] = company
         }
-        if lastRated.timeInterval > 0 {
-            out[key.lastRated.rawValue] = lastRated.timeInterval
+        if lastRated.timeIntervalSince1970 > 0 {
+            out[key.lastRated.rawValue] = lastRated.timeIntervalSince1970
         }
-        if previousRated.timeInterval > 0 {
-            out[key.previousRated.rawValue] = previousRated.timeInterval
+        if previousRated.timeIntervalSince1970 > 0 {
+            out[key.previousRated.rawValue] = previousRated.timeIntervalSince1970
         }
         if let securityQuestion = securityQuestion {
             out[key.securityQuestion.rawValue] = securityQuestion

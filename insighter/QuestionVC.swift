@@ -94,7 +94,7 @@ class QuestionVC: UIViewController, Flashable {
         case .Rating:
             saveAnswer()
         case .Comment:
-            commentTxtView.text = ""
+            commentTxtView.text = nil
             dismissKeyboard()
             
             state = .Rating
@@ -206,16 +206,19 @@ class QuestionVC: UIViewController, Flashable {
             dismissViewControllerAnimated(true, completion: nil)
         } else {
             flash(.In, speed: 0.3, completion: { _ in
-                self.resetView()
-                self._activeQuestionIndex += 1
+                self.resetView(andNextQuestion: true)
                 self.flash(.Out, speed: 0.3, completion: nil)
             })
         }
     }
     
-    private func resetView() {
-        commentTxtView.text = ""
+    private func resetView(andNextQuestion nextQuestion: Bool = false) {
+        commentTxtView.text = nil
         ratingVC.ratingSlider.reset()
         state = .Rating
+        
+        if nextQuestion {
+            _activeQuestionIndex += 1
+        }
     }
 }

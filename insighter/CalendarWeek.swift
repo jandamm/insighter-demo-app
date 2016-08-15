@@ -21,7 +21,7 @@ struct CalendarWeek: Equatable {
         return calWeek(date)
     }
     
-    var timeInterval: NSTimeInterval {
+    var timeIntervalSince1970: NSTimeInterval {
         return date.timeIntervalSince1970
     }
     
@@ -76,7 +76,7 @@ struct CalendarWeek: Equatable {
     }
 
     private func getWeek(date: NSDate) -> Int {
-        return CALENDAR.components(.Weekday, fromDate: date).weekday
+        return CALENDAR.components(.WeekOfYear, fromDate: date).weekOfYear
     }
     
     private func getYear(date: NSDate) -> Int {

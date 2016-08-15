@@ -84,12 +84,23 @@ class UserLoginService {
         getFIRUser(completion)
     }
     
-    func updateUserData(userData: UserData, andUploadToFirebase upload: Bool = false) {
-        _userData = userData
-        
-        if upload {
-            userData.upload()
+    func updateLastRated(withDate date: NSDate = NSDate()) -> Bool {
+        guard let old = _userData else {
+            return false
         }
+        
+        var dates = [date.timeIntervalSince1970, old.lastRated.timeIntervalSince1970, old.previousRated.timeIntervalSince1970].sort()
+        
+        let lastRated = dates.last
+        dates.removeLast()
+        let previousRated = dates.last
+        
+        let user = UserData(UID: old.UID, company: old.company, lastRated: lastRated, previousRated: previousRated, securityQuestion: old.securityQuestion, securityAnswer: old.securityAnswer)
+        
+        _userData = user
+        
+        user.upload()
+        return true
     }
     
     func registerUser(withUserData userData: UserData, userGotCreated created: Bool, completion: CompletionHandlerBool?) {
