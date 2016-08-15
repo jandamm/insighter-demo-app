@@ -100,6 +100,7 @@ class UserLoginService {
         _userData = user
         
         user.upload()
+        NSLog("Updated lastRated")
         return true
     }
     

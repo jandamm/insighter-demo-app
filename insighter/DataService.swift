@@ -44,6 +44,8 @@ class DataService {
             uploadData(data, toPath: .comment, forUser: userID, atCompany: companyID)
         }
         
+        NSLog("Uploaded rating data for question: \(rating.UID)")
+        
         if lastQuestion {
             return UserLoginService.sharedInstance.updateLastRated()
         } else {

@@ -51,7 +51,7 @@ class RatingVC: UIViewController, RatingSliderDelegate {
     
     func ratingSliderDidChange() {
         let rating = ratingSlider.rating
-        ratingLbl.text = rating.ratingString
+        ratingLbl.text = rating.valueString
         ratingLbl.textColor = rating.color
         
         if let questionVC = parentViewController as? QuestionVC {

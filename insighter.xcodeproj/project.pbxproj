@@ -14,6 +14,7 @@
 		1329B03D1D5B2096004AE52B /* JDTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1329B03C1D5B2096004AE52B /* JDTextField.swift */; };
 		1329B0451D5B4901004AE52B /* RatingQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1329B0441D5B4901004AE52B /* RatingQuestion.swift */; };
 		132A5EBA1D58A28400448DAC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 132A5EB91D58A28400448DAC /* GoogleService-Info.plist */; };
+		1338777B1D62529D00FAF762 /* InsighterKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1338777A1D62529D00FAF762 /* InsighterKit.swift */; };
 		1340AC7C1D5A0E89008499CE /* RemoteConfigDefaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1340AC7B1D5A0E89008499CE /* RemoteConfigDefaults.plist */; };
 		1340AC7E1D5A0EB0008499CE /* RemoteStringKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1340AC7D1D5A0EB0008499CE /* RemoteStringKey.swift */; };
 		1340AC801D5A19E1008499CE /* TextRemoteConfigable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1340AC7F1D5A19E1008499CE /* TextRemoteConfigable.swift */; };
@@ -94,6 +95,7 @@
 		1329B03C1D5B2096004AE52B /* JDTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JDTextField.swift; sourceTree = "<group>"; };
 		1329B0441D5B4901004AE52B /* RatingQuestion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingQuestion.swift; sourceTree = "<group>"; };
 		132A5EB91D58A28400448DAC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		1338777A1D62529D00FAF762 /* InsighterKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InsighterKit.swift; sourceTree = "<group>"; };
 		1340AC7B1D5A0E89008499CE /* RemoteConfigDefaults.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = RemoteConfigDefaults.plist; sourceTree = "<group>"; };
 		1340AC7D1D5A0EB0008499CE /* RemoteStringKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteStringKey.swift; sourceTree = "<group>"; };
 		1340AC7F1D5A19E1008499CE /* TextRemoteConfigable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextRemoteConfigable.swift; sourceTree = "<group>"; };
@@ -294,6 +296,7 @@
 		13A03DAF1CF1164500920838 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				1338777A1D62529D00FAF762 /* InsighterKit.swift */,
 				13A5B99E1D59F250008EBDF3 /* Style.swift */,
 				137EB8961D61EA1500ACC8F9 /* RatingColors.swift */,
 				13A03D811CF1109E00920838 /* Main.storyboard */,
@@ -663,6 +666,7 @@
 				137EB8971D61EA1500ACC8F9 /* RatingColors.swift in Sources */,
 				13ED7E8E1D5D1DB70017CF8A /* JDPopup.swift in Sources */,
 				13A5B9A31D59F71E008EBDF3 /* JDLabel.swift in Sources */,
+				1338777B1D62529D00FAF762 /* InsighterKit.swift in Sources */,
 				13ED7E991D60985B0017CF8A /* EvaluationUserVC.swift in Sources */,
 				13A5B9AB1D5A0275008EBDF3 /* EvaluationVC.swift in Sources */,
 				13A5B9A51D59FBE6008EBDF3 /* OnboardingLoginVC.swift in Sources */,

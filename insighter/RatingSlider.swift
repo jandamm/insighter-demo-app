@@ -21,13 +21,15 @@ class RatingSlider: UIView {
     
     // MARK: - Private Data
     
+    private var maxRating: Double = 0
+    
     private var _ratingValue: Int? {
         didSet {
             ratingValueChanged()
         }
     }
     
-    private var _rating = Rating(rating: nil)
+    private var _rating = Rating(rating: nil, maxRating: 0.0)
     
     
     // MARK: - Startup
@@ -40,8 +42,7 @@ class RatingSlider: UIView {
     }
 
     override func drawRect(rect: CGRect) {
-        //TODO: PaintCode Slider
-        // nil -> 5
+        InsighterKit.drawSliderView(sliderColor: _rating.color, sliderFraction: _rating.fraction)
     }
     
     
@@ -63,15 +64,15 @@ class RatingSlider: UIView {
     
     private func calculateRating(position: CGPoint) {
         let width = bounds.width.native
-        let maxScore = RemoteConfig.sharedInstance.getDouble(forKey: .Max_Points)
+        maxRating = RemoteConfig.sharedInstance.getDouble(forKey: .Max_Points)
         let pos = position.x.native
         
-        var rating = round(pos / width * maxScore)
+        var rating = round(pos / width * maxRating)
         
         if rating < 0 {
             rating = 0
-        } else if rating > maxScore {
-            rating = maxScore
+        } else if rating > maxRating {
+            rating = maxRating
         }
         
         let ratingValue = Int(rating)
@@ -124,7 +125,7 @@ class RatingSlider: UIView {
     // MARK: - Private Methods
     
     private func ratingValueChanged() {
-        _rating = Rating(rating: _ratingValue)
+        _rating = Rating(rating: _ratingValue, maxRating: maxRating)
         delegate.ratingSliderDidChange()
         
         setNeedsDisplay()

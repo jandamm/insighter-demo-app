@@ -9,7 +9,7 @@
 import UIKit
 
 //@IBDesignable
-class JDTextView: UITextView, TextStylable, UITextViewDelegate {
+class JDTextView: UITextView, UITextViewDelegate, TextStylable {
 
     // MARK: - Design
     

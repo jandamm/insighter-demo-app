@@ -8,24 +8,33 @@
 
 import UIKit
 
-struct Rating {
-    let ratingInt: Int
+struct Rating: Equatable {
+    let valueInt: Int
+    let valueString: String
+    
+    let fraction: CGFloat
     let color: UIColor
+    
     let slided: Bool
     
-    var ratingString: String {
-        return "\(ratingInt)"
-    }
     
-    init(rating: Int?) {
+    init(rating: Int?, maxRating: Double) {
         self.color = RatingColors.color(forRating: rating)
         
         if let rating = rating {
-            self.ratingInt = rating
+            self.valueInt = rating
+            self.valueString = "\(rating)"
+            self.fraction = CGFloat(Double(rating) / maxRating)
             self.slided = true
         } else {
-            self.ratingInt = 0
+            self.valueInt = 0
+            self.valueString = "0"
+            self.fraction = 0.5
             self.slided = false
         }
     }
+}
+
+func ==(lhs: Rating, rhs: Rating) -> Bool {
+    return lhs.valueInt == rhs.valueInt && lhs.slided == rhs.slided && lhs.fraction == rhs.fraction
 }

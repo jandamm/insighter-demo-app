@@ -186,7 +186,7 @@ class QuestionVC: UIViewController, Flashable {
     
     private func saveAnswer() {
         let UID = _activeQuestion.uid
-        let rating = ratingVC.ratingSlider.rating.ratingInt
+        let rating = ratingVC.ratingSlider.rating.valueInt
         let lastQuestion = _activeQuestionIndex == _questions.count-1
         var comment: String? = nil
         
@@ -215,8 +215,11 @@ class QuestionVC: UIViewController, Flashable {
     private func resetView(andNextQuestion nextQuestion: Bool = false) {
         commentTxtView.text = nil
         ratingVC.ratingSlider.reset()
-        state = .Rating
         
+        if state != .Rating {
+            state = .Rating
+        }
+
         if nextQuestion {
             _activeQuestionIndex += 1
         }
