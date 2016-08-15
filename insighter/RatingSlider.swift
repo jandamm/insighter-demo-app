@@ -21,6 +21,8 @@ class RatingSlider: UIView {
     
     // MARK: - Private Data
     
+    private var isTouching = false
+    
     private var maxRating: Double = 0
     
     private var _ratingValue: Int? {
@@ -63,11 +65,11 @@ class RatingSlider: UIView {
     // MARK: - Calculate Rating
     
     private func calculateRating(position: CGPoint) {
-        let width = bounds.width.native
+        let width = bounds.width
         maxRating = RemoteConfig.sharedInstance.getDouble(forKey: .Max_Points)
-        let pos = position.x.native
+        let pos = position.x
         
-        var rating = round(pos / width * maxRating)
+        var rating = round(Double(pos / width) * maxRating)
         
         if rating < 0 {
             rating = 0
@@ -92,7 +94,7 @@ class RatingSlider: UIView {
         
         calculateRating(position)
         
-        delegate.ratingSliderDidStart()
+        delegateMethodsWithShortDelay(touchesBegan: true)
     }
     
     override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
@@ -110,7 +112,7 @@ class RatingSlider: UIView {
         
         calculateRating(position)
         
-        delegate.ratingSliderDidEnd()
+        delegateMethodsWithShortDelay(touchesBegan: false)
     }
     
     private func getPosition(input: Set<UITouch>) -> CGPoint? {
@@ -119,6 +121,20 @@ class RatingSlider: UIView {
         }
         
         return touch.locationInView(superview)
+    }
+    
+    private func delegateMethodsWithShortDelay(touchesBegan began: Bool) {
+        isTouching = began
+        
+        let yourTimeInSeconds : Double = 0.05
+        let dispatchTime: dispatch_time_t = dispatch_time(DISPATCH_TIME_NOW, Int64(yourTimeInSeconds * Double(NSEC_PER_SEC)))
+        dispatch_after(dispatchTime, dispatch_get_main_queue(), {
+            if self.isTouching && began {
+                self.delegate.ratingSliderDidStart()
+            } else if !began {
+                self.delegate.ratingSliderDidEnd()
+            }
+        })
     }
     
     
