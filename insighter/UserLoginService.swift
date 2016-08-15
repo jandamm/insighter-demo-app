@@ -61,9 +61,10 @@ class UserLoginService {
     
     // MARK: - Global Methods
     
-    func signOutUser() {
+    func signOutUser(completion: CompletionHandlerBool? = nil) {
         try! FIRAuth.auth()!.signOut()
         NSLog("User logged out")
+        getEmailEndingsFromFirebase(completion, forcedCompletionValue: nil)
     }
     
     func checkUserIsLoggedInAndGetData(completion: CompletionHandlerBool?) {
