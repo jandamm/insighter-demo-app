@@ -30,13 +30,6 @@
                         <userDefinedRuntimeAttribute type="string" keyPath="fontStyle" value="RatingBigHighlight"/>
                     </userDefinedRuntimeAttributes>
                 </label>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eDf-th-smA" customClass="RatingSlider" customModule="insighter" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="104" width="600" height="75"/>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="75" id="YmL-Xo-e0g"/>
-                    </constraints>
-                </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sgg-Gg-P5c" customClass="JDLabel" customModule="insighter" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="187" width="75" height="28"/>
                     <constraints>
@@ -78,20 +71,28 @@
                         <userDefinedRuntimeAttribute type="string" keyPath="fontStyle" value="RatingBigText"/>
                     </userDefinedRuntimeAttributes>
                 </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eDf-th-smA" customClass="RatingSlider" customModule="insighter" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="99" width="600" height="85"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="85" id="YmL-Xo-e0g"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="GEy-PR-spa" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="2NE-MG-qx6"/>
                 <constraint firstAttribute="bottom" secondItem="sgg-Gg-P5c" secondAttribute="bottom" id="2ap-AB-a2a"/>
-                <constraint firstItem="eDf-th-smA" firstAttribute="top" secondItem="GEy-PR-spa" secondAttribute="bottom" constant="8" id="8p2-0H-3TK"/>
                 <constraint firstItem="ZYU-vA-lwl" firstAttribute="leading" secondItem="GEy-PR-spa" secondAttribute="trailing" id="DX3-RO-ljS"/>
                 <constraint firstItem="ZYU-vA-lwl" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="40" id="NZ6-1U-Y1W"/>
                 <constraint firstItem="sgg-Gg-P5c" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="PI3-wm-7nK"/>
                 <constraint firstItem="eDf-th-smA" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="XIF-W9-xiG"/>
                 <constraint firstItem="GEy-PR-spa" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="brc-ya-YAe"/>
+                <constraint firstItem="SB1-by-zj0" firstAttribute="top" secondItem="eDf-th-smA" secondAttribute="bottom" constant="3" id="bzL-IX-8YS"/>
                 <constraint firstAttribute="trailing" secondItem="eDf-th-smA" secondAttribute="trailing" id="cMj-07-ZEo"/>
                 <constraint firstAttribute="trailing" secondItem="SB1-by-zj0" secondAttribute="trailing" id="nVj-A6-0hn"/>
                 <constraint firstAttribute="bottom" secondItem="SB1-by-zj0" secondAttribute="bottom" id="r10-5l-TBd"/>
+                <constraint firstItem="eDf-th-smA" firstAttribute="top" secondItem="GEy-PR-spa" secondAttribute="bottom" constant="3" id="ymb-IB-XHy"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="344" y="216.5"/>

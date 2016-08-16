@@ -44,7 +44,7 @@ class RatingSlider: UIView {
     }
 
     override func drawRect(rect: CGRect) {
-        InsighterKit.drawSliderView(sliderColor: _rating.color, sliderFraction: _rating.fraction)
+        InsighterKit.drawSliderView(sliderColor: _rating.color, width: bounds.width, sliderFraction: _rating.fraction)
     }
     
     
