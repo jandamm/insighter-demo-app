@@ -9,7 +9,7 @@
 import UIKit
 
 class EvaluationVC: UIViewController {
-    //TEST for beta
+    //TEST
     @IBOutlet weak var dataLbl: UILabel!
 
     override func viewDidLoad() {
