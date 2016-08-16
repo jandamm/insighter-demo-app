@@ -14,8 +14,8 @@ class RatingVC: UIViewController, RatingSliderDelegate {
     
     @IBOutlet weak var ratingLbl: JDLabel!
     @IBOutlet weak var ratingSlider: RatingSlider!
-    @IBOutlet weak var explanationLeft: JDLabel!
-    @IBOutlet weak var explanationRight: JDLabel!
+    @IBOutlet weak var explanationLeftLbl: JDLabel!
+    @IBOutlet weak var explanationRightLbl: JDLabel!
 
     
     // MARK: - Startup
@@ -42,31 +42,31 @@ class RatingVC: UIViewController, RatingSliderDelegate {
     // MARK: - RatingSliderDelegate
     
     func ratingSliderDidStart() {
-        animateExplanation(false)
+        animateExplanationLabels(false)
     }
     
     func ratingSliderDidEnd() {
-        animateExplanation(true)
+        animateExplanationLabels(true)
     }
     
     func ratingSliderDidChange() {
-        let rating = ratingSlider.rating
+        let rating = ratingSlider.value
         ratingLbl.text = rating.valueString
         ratingLbl.textColor = rating.color
         
         if let questionVC = parentViewController as? QuestionVC {
-            questionVC.applyButtonState()
+            questionVC.stateButtonApply()
         }
     }
     
     
     // MARK: - Animation
     
-    private func animateExplanation(hidden: Bool) {
+    private func animateExplanationLabels(hidden: Bool) {
         let alpha: CGFloat = hidden ? 0 : 1
         UIView.animateWithDuration(0.2, delay: 0, options: .CurveEaseOut, animations: {
-            self.explanationLeft.alpha = alpha
-            self.explanationRight.alpha = alpha
+            self.explanationLeftLbl.alpha = alpha
+            self.explanationRightLbl.alpha = alpha
             }, completion: nil)
     }
 }

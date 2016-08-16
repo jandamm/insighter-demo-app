@@ -45,8 +45,7 @@ class EvaluationVC: UIViewController {
             return NSLog("No questions available")
         }
         
-        let vc = QuestionVC()
-        vc.initiate(withQuestions: questions)
+        let vc = QuestionVC(withQuestions: questions)
         self.presentViewController(vc, animated: true, completion: nil)
     }
 }

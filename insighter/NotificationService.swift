@@ -24,10 +24,10 @@ class NotificationService {
         APP.cancelAllLocalNotifications()
         APP.applicationIconBadgeNumber = 0
         
-        let firstWeekDay = RemoteConfig.sharedInstance.getInt(forKey: .Notif_Trigger_Weekday)
-        let firstHour = RemoteConfig.sharedInstance.getInt(forKey: .Notif_Trigger_Hour)
+        let weekDay = RemoteConfig.sharedInstance.getInt(forKey: .Notif_Trigger_Weekday)
+        let hour = RemoteConfig.sharedInstance.getInt(forKey: .Notif_Trigger_Hour)
         
-        addNotification(onWeekDay: firstWeekDay, atHour: firstHour)
+        addNotification(onWeekDay: weekDay, atHour: hour)
         NSLog("Added Notification")
     }
     
@@ -54,12 +54,12 @@ class NotificationService {
     }
     
     private func getDate(forWeekDay weekDay: Int, atHour hour: Int) -> NSDate {
-        let date = NSDate()
-        let today = CALENDAR.components([.Weekday, .Hour], fromDate: date)
+        let nowDate = NSDate()
+        let nowDateComponents = CALENDAR.components([.Weekday, .Hour], fromDate: nowDate)
         
-        let offset = (weekDay - today.weekday) * 24 + hour - today.hour
+        let offset = (weekDay - nowDateComponents.weekday) * 24 + hour - nowDateComponents.hour
         
-        let destDate = date.dateByAddingTimeInterval(Double(offset) * 60 * 60)
+        let destDate = nowDate.dateByAddingTimeInterval(Double(offset) * 60 * 60)
         
         let ratedRelation = UserLoginService.sharedInstance.ratedWeeksRelation(withDate: destDate)
         

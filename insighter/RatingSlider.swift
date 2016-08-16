@@ -14,6 +14,7 @@ protocol RatingSliderDelegate {
     func ratingSliderDidChange()
 }
 
+
 class RatingSlider: UIView {
     
     var delegate: RatingSliderDelegate!
@@ -23,15 +24,15 @@ class RatingSlider: UIView {
     
     private var isTouching = false
     
-    private var maxRating: Double = 0
+    private var ratingValueMax: Double = 0
     
-    private var _ratingValue: Int? {
+    private var ratingValue: Int? {
         didSet {
             ratingValueChanged()
         }
     }
     
-    private var _rating = Rating(rating: nil, maxRating: 0.0)
+    private var rating = Rating(rating: nil, maxRating: 0.0)
     
     
     // MARK: - Startup
@@ -40,25 +41,26 @@ class RatingSlider: UIView {
         super.awakeFromNib()
         
         userInteractionEnabled = true
+        
         setNeedsDisplay()
     }
 
     override func drawRect(rect: CGRect) {
-        InsighterKit.drawSliderView(sliderColor: _rating.color, width: bounds.width, sliderFraction: _rating.fraction)
+        InsighterKit.drawSliderView(sliderColor: rating.color, width: bounds.width, sliderFraction: rating.fraction)
     }
     
     
     // MARK: - External Data
     
-    var rating: Rating {
-        return _rating
+    var value: Rating {
+        return rating
     }
     
     
     // MARK: - External Methods
     
     func reset() {
-        _ratingValue = nil
+        ratingValue = nil
     }
     
     
@@ -66,21 +68,16 @@ class RatingSlider: UIView {
     
     private func calculateRating(position: CGPoint) {
         let width = bounds.width
-        maxRating = RemoteConfig.sharedInstance.getDouble(forKey: .Max_Points)
-        let pos = position.x
+        ratingValueMax = RemoteConfig.sharedInstance.getDouble(forKey: .Max_Points)
+        let posX = position.x
         
-        var rating = round(Double(pos / width) * maxRating)
+        var rating = Double(posX / width) * ratingValueMax
+        rating = rating.makeBetween(0, and: ratingValueMax)
         
-        if rating < 0 {
-            rating = 0
-        } else if rating > maxRating {
-            rating = maxRating
-        }
+        let ratingVal = Int(round(rating))
         
-        let ratingValue = Int(rating)
-        
-        if _ratingValue == nil || _ratingValue != ratingValue {
-            _ratingValue = ratingValue
+        if ratingValue == nil || ratingValue != ratingVal {
+            ratingValue = ratingVal
         }
     }
     
@@ -141,7 +138,7 @@ class RatingSlider: UIView {
     // MARK: - Private Methods
     
     private func ratingValueChanged() {
-        _rating = Rating(rating: _ratingValue, maxRating: maxRating)
+        rating = Rating(rating: ratingValue, maxRating: ratingValueMax)
         delegate.ratingSliderDidChange()
         
         setNeedsDisplay()

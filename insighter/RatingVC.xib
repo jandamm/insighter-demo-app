@@ -6,8 +6,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RatingVC" customModule="insighter" customModuleProvider="target">
             <connections>
-                <outlet property="explanationLeft" destination="sgg-Gg-P5c" id="JLK-dQ-qlQ"/>
-                <outlet property="explanationRight" destination="SB1-by-zj0" id="imq-jJ-Tyr"/>
+                <outlet property="explanationLeftLbl" destination="sgg-Gg-P5c" id="cRG-W9-Uyg"/>
+                <outlet property="explanationRightLbl" destination="SB1-by-zj0" id="C8j-gB-jxx"/>
                 <outlet property="ratingLbl" destination="GEy-PR-spa" id="knB-I8-kcA"/>
                 <outlet property="ratingSlider" destination="eDf-th-smA" id="JzB-nb-Tnc"/>
                 <outlet property="view" destination="iN0-l3-epB" id="3rO-1d-MNl"/>
