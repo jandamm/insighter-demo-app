@@ -73,7 +73,7 @@ enum TextStyle: String {
         } else if selfString.containsString("TextView") {
             size = 14
         } else if selfString.containsString("TextSubLine") {
-            size = 10
+            size = 12
         }
         
         if selfString.containsString("Primary") || selfString.containsString("Highlight") || selfString.containsString("Medium") || selfString.containsString("Error") {

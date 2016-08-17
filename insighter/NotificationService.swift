@@ -16,6 +16,10 @@ class NotificationService {
     
     // MARK: - External Methods
     
+    func hasNoAllowance() -> Bool {
+        return APP.currentUserNotificationSettings()?.types == UIUserNotificationType.None
+    }
+    
     func askForAllowance() {
         APP.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound], categories: nil))
     }

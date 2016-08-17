@@ -40,8 +40,8 @@ class UserLoginService {
         return _userData.UID
     }
     
-    var companyID: String! {
-        return _company.UID
+    var company: Company! {
+        return _company
     }
     
     func ratedWeeksRelation(withDate date: NSDate) -> Set<CalendarWeek.Relation> {

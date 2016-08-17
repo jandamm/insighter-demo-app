@@ -62,7 +62,7 @@
 	<key>Onb_Notif_Btn</key>
 	<string>weiter</string>
 	<key>Onb_Login_Anmeldung_Lbl</key>
-	<string>Bitte melden Sie sich an.</string>
+	<string>Bitte registrieren Sie sich.</string>
 	<key>Onb_Login_Email_Lbl</key>
 	<string>Ihre Firmen E-Mail Adresse</string>
 	<key>Onb_Login_Email_TxtField</key>
@@ -77,9 +77,7 @@
 	<string>Ihre persönliche Antwort</string>
 	<key>Onb_Login_Security_SubLbl</key>
 	<string>Sie benötigen diese Antwort um Ihr Passwort wiederherzustellen.</string>
-	<key>Onb_Login_Anmeldung_Btn_Log</key>
-	<string>anmelden</string>
-	<key>Onb_Login_Anmeldung_Btn_Reg</key>
+	<key>Onb_Login_Anmeldung_Btn</key>
 	<string>registrieren</string>
 	<key>Que_Number_Of_Number</key>
 	<string>Frage [first] von [second]</string>

@@ -33,7 +33,7 @@ class DataService {
     // MARK: - Global Methods
     
     func addRating(rating: RatingAnswer, lastQuestion: Bool) -> Bool {
-        guard let userID = UserLoginService.sharedInstance.userID, let companyID = UserLoginService.sharedInstance.companyID else {
+        guard let userID = UserLoginService.sharedInstance.userID, let company = UserLoginService.sharedInstance.company else {
             return false
         }
         
@@ -41,17 +41,17 @@ class DataService {
         
         let data = [rating.UID: rating.rating]
         ratingForAverage[rating.UID] = rating.rating
-        uploadRatingData(data, toPath: .rating, forUser: userID, atCompany: companyID)
+        uploadRatingData(data, toPath: .rating, forUser: userID, atCompany: company.UID)
         
         if let comment = rating.comment {
             let data = [rating.UID: comment]
-            uploadRatingData(data, toPath: .comment, forUser: userID, atCompany: companyID)
+            uploadRatingData(data, toPath: .comment, forUser: userID, atCompany: company.UID)
         }
         
         NSLog("Uploaded rating data for question: \(rating.UID)")
         
         if lastQuestion {
-            saveRatingToAverage(forCompany: companyID)
+            saveRatingToAverage(forCompany: company.UID)
             return UserLoginService.sharedInstance.updateLastRated()
         } else {
             return true

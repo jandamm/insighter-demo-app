@@ -205,7 +205,6 @@ class OnboardingLoginVC: UIViewController, FIRLoginable {
         securitySectionSView.alpha = 0
         passwordTxt.NextResponder = loginBtn
         passwordTxt.returnKeyType = .Done
-        loginBtn.remoteConfigKey = RemoteStringKey.Onb_Login_Anmeldung_Btn_Log.rawValue
     }
     
     private func registerState() {
@@ -215,7 +214,6 @@ class OnboardingLoginVC: UIViewController, FIRLoginable {
         
         passwordTxt.NextResponder = securityAnswerTxt
         passwordTxt.returnKeyType = .Next
-        loginBtn.remoteConfigKey = RemoteStringKey.Onb_Login_Anmeldung_Btn_Reg.rawValue
         
         UIView.animateWithDuration(0.5) { 
             self.securitySectionSView.hidden = false

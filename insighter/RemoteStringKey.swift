@@ -59,8 +59,7 @@ enum RemoteStringKey: String, StringReturningEnum {
     case Onb_Login_Security_Dropdown
     case Onb_Login_Security_TxtField
     case Onb_Login_Security_SubLbl
-    case Onb_Login_Anmeldung_Btn_Log
-    case Onb_Login_Anmeldung_Btn_Reg
+    case Onb_Login_Anmeldung_Btn
     
     // Question Rating Screen
     case Que_Number_Of_Number
