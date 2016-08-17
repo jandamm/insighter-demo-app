@@ -123,22 +123,24 @@ class UserLoginService {
     
     private func addUserToCompanyUserCount() {
         guard let company = _company else {
-            NSLog("No Company found, could not add user to company count")
-            return
+            return NSLog("No Company found, could not add user to company count")
         }
         
-        let child = "\(company.UID)/\(DBPathKeys.Company.value.rawValue)/\(DBValueKeys.CompanyValue.users.rawValue)"
+        let refToUsers = REF_COMP.child(company.UID).child(DBPathKeys.Company.value.rawValue).child(DBValueKeys.CompanyValue.users.rawValue)
         
-        REF_COMP.child(child).runTransactionBlock({ currentData -> FIRTransactionResult in
+        refToUsers.runTransactionBlock({ currentData -> FIRTransactionResult in
             let users = currentData.value as? Int ?? 0
             
             currentData.value = users + 1
             
-            NSLog("Added new user to company count")
             return FIRTransactionResult.successWithValue(currentData)
         }) { error, committed, data in
             if let error = error where !committed {
                 NSLog("Could not add user to company count: \(error.localizedDescription)")
+                NSLog("Retrying...")
+                self.addUserToCompanyUserCount()
+            } else if committed {
+                NSLog("Added new user to company count")
             }
         }
     }
@@ -208,9 +210,9 @@ class UserLoginService {
             return
         }
         
-        let child = "\(uid)/\(DBPathKeys.Company.value.rawValue)"
+        let refToValue = REF_COMP.child(uid).child(DBPathKeys.Company.value.rawValue)
         
-        REF_COMP.child(child).observeSingleEventOfType(.Value, withBlock: { snapshot in
+        refToValue.observeSingleEventOfType(.Value, withBlock: { snapshot in
             guard snapshot.exists(), let data = snapshot.value as? [String: AnyObject] else {
                 NSLog("No Company data available in Firebase")
                 self.complete(completion, withForcedValue: forcedCompletionValue, andRealValue: false)

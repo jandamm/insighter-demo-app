@@ -11,7 +11,7 @@ import Foundation
 struct DBValueKeys {
     
     enum CompanyAverage: StringReturningEnum {
-        case rating
+        case sum
         case users
     }
     
