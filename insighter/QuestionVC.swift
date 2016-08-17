@@ -197,14 +197,18 @@ class QuestionVC: UIViewController, Flashable {
             return unknownError()
         }
         
+        let flashSpeed = 0.3
+        
         if lastQuestion {
             NotificationService.sharedInstance.setupNotifications()
             
-            dismissViewControllerAnimated(true, completion: nil)
+            flash(.In, speed: flashSpeed, completion: { _ in
+                self.dismissViewControllerAnimated(true, completion: nil)
+            })
         } else {
-            flash(.In, speed: 0.3, completion: { _ in
+            flash(.In, speed: flashSpeed, completion: { _ in
                 self.resetView(andNextQuestion: true)
-                self.flash(.Out, speed: 0.3, completion: nil)
+                self.flash(.Out, speed: flashSpeed, completion: nil)
             })
         }
     }
