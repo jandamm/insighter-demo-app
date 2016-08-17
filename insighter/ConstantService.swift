@@ -89,6 +89,7 @@ class ConstantService {
             _ratingQuestions = ratingQuestions
             pick -= 1
         }
+        
         if let securityQuestions = NSUD.objectForKey(DBValueKeys.Constant.securityQuestions.rawValue) as? [String] {
             _securityQuestions = securityQuestions
             pick -= 1
@@ -131,6 +132,7 @@ class ConstantService {
                 self._ratingQuestions = ratingQuestions
                 pick -= 1
             }
+            
             if let securityQuestions = data[DBValueKeys.Constant.securityQuestions.rawValue] as? [String: AnyObject] {
                 self._securityQuestions = Array(securityQuestions.keys)
                 pick -= 1

@@ -123,25 +123,24 @@ class UserLoginService {
     
     private func addUserToCompanyUserCount() {
         guard let company = _company else {
-            NSLog("No Company found")
+            NSLog("No Company found, could not add user to company count")
             return
         }
         
         let child = "\(company.UID)/\(DBPathKeys.Company.value.rawValue)/\(DBValueKeys.CompanyValue.users.rawValue)"
         
-        REF_COMP.child(child).observeSingleEventOfType(.Value, withBlock: { snapshot in
-            var users = 1
+        REF_COMP.child(child).runTransactionBlock({ currentData -> FIRTransactionResult in
+            let users = currentData.value as? Int ?? 0
             
-            if snapshot.exists(), let count = snapshot.value as? Int {
-                users += count
+            currentData.value = users + 1
+            
+            NSLog("Added new user to company count")
+            return FIRTransactionResult.successWithValue(currentData)
+        }) { error, committed, data in
+            if let error = error where !committed {
+                NSLog("Could not add user to company count: \(error.localizedDescription)")
             }
-            
-            let comp = Company(UID: company.UID, name: company.name, users: users, userNickName: company.userNickName)
-            
-            self._company = comp
-            self.REF_COMP.child(child).setValue(users)
-            NSLog("Added User to company count")
-        })
+        }
     }
     
     private func getUserDataOrEmailEndings(completion: CompletionHandlerBool?) {
@@ -262,10 +261,8 @@ class UserLoginService {
     }
     
     private func complete(completion : CompletionHandlerBool?, withForcedValue forced: Bool?, andRealValue value: Bool) {
-        if let forced = forced {
-            completion?(forced)
-        } else {
-            completion?(value)
-        }
+        let returnValue = forced ?? value
+        
+        completion?(returnValue)
     }
 }
