@@ -91,7 +91,7 @@ class QuestionVC: UIViewController, Flashable {
         case .Rating:
             saveAnswerAndProceed()
         case .Comment:
-            ratingCommentTxtView.text = nil
+            deleteComment()
             dismissKeyboard()
             
             state = .Rating
@@ -181,10 +181,14 @@ class QuestionVC: UIViewController, Flashable {
         UIApplication.sharedApplication().sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, forEvent: nil)
     }
     
+    private func deleteComment() {
+        ratingCommentTxtView.text = nil
+    }
+    
     private func saveAnswerAndProceed() {
         let UID = questions[questionsActiveIndex].uid
-        let rating = ratingSliderVC.ratingSlider.value.valueInt
-        let lastQuestion = questionsActiveIndex == questions.count-1
+        let rating = ratingSliderVC.ratingSlider.value.integer
+        let lastQuestion = questionsActiveIndex == questions.count - 1
         var comment: String? = nil
         
         if let text = ratingCommentTxtView.text where text.trimmed != "" {
@@ -214,7 +218,9 @@ class QuestionVC: UIViewController, Flashable {
     }
     
     private func resetView(andNextQuestion nextQuestion: Bool = false) {
-        ratingCommentTxtView.text = nil
+        
+        deleteComment()
+        
         ratingSliderVC.ratingSlider.reset()
         
         if state != .Rating {

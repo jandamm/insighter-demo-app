@@ -117,14 +117,15 @@ class RatingSlider: UIView {
             return nil
         }
         
-        return touch.locationInView(superview)
+        return touch.locationInView(self)
     }
     
     private func delegateMethodsWithShortDelay(touchesBegan began: Bool) {
         isTouching = began
         
-        let yourTimeInSeconds : Double = 0.05
-        let dispatchTime: dispatch_time_t = dispatch_time(DISPATCH_TIME_NOW, Int64(yourTimeInSeconds * Double(NSEC_PER_SEC)))
+        let checkAfter = 0.05
+        
+        let dispatchTime: dispatch_time_t = dispatch_time(DISPATCH_TIME_NOW, Int64(checkAfter * Double(NSEC_PER_SEC)))
         dispatch_after(dispatchTime, dispatch_get_main_queue(), {
             if self.isTouching && began {
                 self.delegate.ratingSliderDidStart()

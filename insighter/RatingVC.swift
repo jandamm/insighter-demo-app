@@ -42,16 +42,17 @@ class RatingVC: UIViewController, RatingSliderDelegate {
     // MARK: - RatingSliderDelegate
     
     func ratingSliderDidStart() {
-        animateExplanationLabels(false)
+        animateExplanationLabels(hidden: false)
     }
     
     func ratingSliderDidEnd() {
-        animateExplanationLabels(true)
+        animateExplanationLabels(hidden: true)
     }
     
     func ratingSliderDidChange() {
         let rating = ratingSlider.value
-        ratingLbl.text = rating.valueString
+        
+        ratingLbl.text = rating.string
         ratingLbl.textColor = rating.color
         
         if let questionVC = parentViewController as? QuestionVC {
@@ -62,7 +63,7 @@ class RatingVC: UIViewController, RatingSliderDelegate {
     
     // MARK: - Animation
     
-    private func animateExplanationLabels(hidden: Bool) {
+    private func animateExplanationLabels(hidden hidden: Bool) {
         let alpha: CGFloat = hidden ? 0 : 1
         UIView.animateWithDuration(0.2, delay: 0, options: .CurveEaseOut, animations: {
             self.explanationLeftLbl.alpha = alpha

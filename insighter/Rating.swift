@@ -9,8 +9,8 @@
 import UIKit
 
 struct Rating: Equatable {
-    let valueInt: Int
-    let valueString: String
+    let integer: Int
+    let string: String
     
     let fraction: CGFloat
     let color: UIColor
@@ -22,13 +22,13 @@ struct Rating: Equatable {
         self.color = RatingColors.color(forRating: rating)
         
         if let rating = rating {
-            self.valueInt = rating
-            self.valueString = "\(rating)"
+            self.integer = rating
+            self.string = "\(rating)"
             self.fraction = CGFloat(Double(rating) / maxRating)
             self.slided = true
         } else {
-            self.valueInt = 0
-            self.valueString = "0"
+            self.integer = 0
+            self.string = "0"
             self.fraction = 0.5
             self.slided = false
         }
@@ -36,5 +36,5 @@ struct Rating: Equatable {
 }
 
 func ==(lhs: Rating, rhs: Rating) -> Bool {
-    return lhs.valueInt == rhs.valueInt && lhs.slided == rhs.slided && lhs.fraction == rhs.fraction
+    return lhs.integer == rhs.integer && lhs.slided == rhs.slided && lhs.fraction == rhs.fraction
 }

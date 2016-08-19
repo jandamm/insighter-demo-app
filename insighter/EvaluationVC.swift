@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class EvaluationVC: UIViewController {
     //TEST
@@ -26,6 +27,14 @@ class EvaluationVC: UIViewController {
         })
     }
     
+    
+    @IBAction func resetQuestion(sender: UIButton) {
+        guard let userID = UserLoginService.sharedInstance.userID else {
+            return
+        }
+        
+        FIRDatabase.database().reference().child(DBPathKeys.user.rawValue).child(userID).child(DBValueKeys.User.lastRated.rawValue).removeValue()
+    }
     
     @IBAction func signOut(sender: UIButton) {
         UserLoginService.sharedInstance.signOutUser()

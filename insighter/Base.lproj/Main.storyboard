@@ -191,7 +191,7 @@
                                                             <userDefinedRuntimeAttribute type="string" keyPath="remoteConfigKey" value="Onb_Login_Anmeldung_Lbl"/>
                                                         </userDefinedRuntimeAttributes>
                                                     </label>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" spacing="28" translatesAutoresizingMaskIntoConstraints="NO" id="HoP-Pn-Lhs">
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="28" translatesAutoresizingMaskIntoConstraints="NO" id="HoP-Pn-Lhs">
                                                         <rect key="frame" x="0.0" y="109" width="536" height="272"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="DdH-Om-wGv">
@@ -304,13 +304,13 @@
                                                             </stackView>
                                                         </subviews>
                                                     </stackView>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="71r-Q9-2M1">
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="71r-Q9-2M1">
                                                         <rect key="frame" x="0.0" y="468" width="536" height="52"/>
                                                         <subviews>
                                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="anonymity-lock-disclaimer" translatesAutoresizingMaskIntoConstraints="NO" id="OeW-Yb-flp">
                                                                 <rect key="frame" x="0.0" y="0.0" width="536" height="14"/>
                                                             </imageView>
-                                                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6wk-yQ-k4V" customClass="JDButton" customModule="insighter" customModuleProvider="target">
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6wk-yQ-k4V" customClass="JDButton" customModule="insighter" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="22" width="536" height="30"/>
                                                                 <state key="normal" title="Button"/>
                                                                 <userDefinedRuntimeAttributes>
@@ -488,9 +488,9 @@
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3rW-6S-r0W">
                                         <rect key="frame" x="0.0" y="239" width="536" height="30"/>
-                                        <state key="normal" title="Notification"/>
+                                        <state key="normal" title="Reset Rating"/>
                                         <connections>
-                                            <action selector="notif:" destination="lpM-3k-drX" eventType="touchUpInside" id="cld-bF-srk"/>
+                                            <action selector="resetQuestion:" destination="lpM-3k-drX" eventType="touchUpInside" id="lPv-EJ-LN1"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lfM-yE-pQJ">
