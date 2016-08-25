@@ -10,14 +10,6 @@ import Foundation
 import Firebase
 
 class UserLoginService {
-    
-    //TEST for beta
-    var data: String {
-        return "Got data:\nUser: \(_userFirebase != nil)\nUserData: \(_userData != nil)\nCompanyData: \(_company != nil)"
-    }
-    
-    
-    
     static let sharedInstance = UserLoginService()
     
     private let REF_COMP = FIRDatabase.database().reference().child(DBPathKeys.company.rawValue)

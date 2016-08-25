@@ -10,13 +10,16 @@ import UIKit
 import Firebase
 
 class EvaluationVC: UIViewController {
-    //TEST
-    @IBOutlet weak var dataLbl: UILabel!
+    
+    @IBOutlet weak var scrollView: UIScrollView!
+    
+    private lazy var evalUserVC: EvaluationUserVC = EvaluationUserVC()
+    private lazy var evalCompVC: EvaluationCompanyVC = EvaluationCompanyVC()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        dataLbl.text = UserLoginService.sharedInstance.data
+
+        setupScrollView()
         
         //TEST
         let yourTimeInSeconds : Double = 1
@@ -28,22 +31,22 @@ class EvaluationVC: UIViewController {
     }
     
     
-    @IBAction func resetQuestion(sender: UIButton) {
-        guard let userID = UserLoginService.sharedInstance.userID else {
-            return
-        }
-        
-        FIRDatabase.database().reference().child(DBPathKeys.user.rawValue).child(userID).child(DBValueKeys.User.lastRated.rawValue).removeValue()
-    }
-    
-    @IBAction func signOut(sender: UIButton) {
-        UserLoginService.sharedInstance.signOutUser()
-        
-        performSegueWithIdentifier(Segue.EvaluationToOnboarding.rawValue, sender: nil)
-    }
-    
-    
     // MARK: - Private Methods
+    
+    private func setupScrollView() {
+        
+        addChildViewController(evalUserVC)
+        scrollView.addSubview(evalUserVC.view)
+        evalUserVC.didMoveToParentViewController(self)
+        evalUserVC.view.frame.origin.x = 0
+        
+        addChildViewController(evalCompVC)
+        scrollView.addSubview(evalCompVC.view)
+        evalCompVC.didMoveToParentViewController(self)
+        evalCompVC.view.frame.origin.x = view.frame.width
+        
+        scrollView.contentSize = CGSizeMake(view.frame.width * CGFloat(2), view.frame.height)
+    }
     
     private func askQuestions() {
         guard UserLoginService.sharedInstance.ratedWeeksRelation(withDate: NSDate()).isDisjointWith([.This]) else {

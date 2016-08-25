@@ -20,12 +20,8 @@ class RatingVC: UIViewController, RatingSliderDelegate {
     
     // MARK: - Startup
 
-    convenience init() {
-        self.init(nibName: "RatingVC", bundle: nil)
-    }
-    
-    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
-        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+    init() {
+        super.init(nibName: "RatingVC", bundle: nil)
     }
     
     required init?(coder aDecoder: NSCoder) {

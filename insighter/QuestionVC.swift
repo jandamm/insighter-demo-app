@@ -48,14 +48,10 @@ class QuestionVC: UIViewController, Flashable {
     
     // MARK: - Startup
     
-    convenience init(withQuestions questions: [RatingQuestion]) {
-        self.init(nibName: "QuestionVC", bundle: nil)
+    init(withQuestions questions: [RatingQuestion]) {
+        super.init(nibName: "QuestionVC", bundle: nil)
         
         self.questions = questions
-    }
-    
-    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
-        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
     
     required init?(coder aDecoder: NSCoder) {

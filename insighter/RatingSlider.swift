@@ -17,7 +17,11 @@ protocol RatingSliderDelegate {
 
 class RatingSlider: UIView {
     
-    var delegate: RatingSliderDelegate!
+    var delegate: RatingSliderDelegate? {
+        didSet {
+            NSLog("RatingSlider delegate was set to \(delegate!)")
+        }
+    }
     
     
     // MARK: - Private Data
@@ -128,9 +132,9 @@ class RatingSlider: UIView {
         let dispatchTime: dispatch_time_t = dispatch_time(DISPATCH_TIME_NOW, Int64(checkAfter * Double(NSEC_PER_SEC)))
         dispatch_after(dispatchTime, dispatch_get_main_queue(), {
             if self.isTouching && began {
-                self.delegate.ratingSliderDidStart()
+                self.delegate?.ratingSliderDidStart()
             } else if !began {
-                self.delegate.ratingSliderDidEnd()
+                self.delegate?.ratingSliderDidEnd()
             }
         })
     }
@@ -140,7 +144,7 @@ class RatingSlider: UIView {
     
     private func ratingValueChanged() {
         rating = Rating(rating: ratingValue, maxRating: ratingValueMax)
-        delegate.ratingSliderDidChange()
+        delegate?.ratingSliderDidChange()
         
         setNeedsDisplay()
     }
