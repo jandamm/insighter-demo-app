@@ -35,9 +35,6 @@ class EvaluationCompanyVC: UIViewController {
         let name = "eval-demo-2-\(size)"
         let img = UIImage(named: name)
         
-        print(name)
-        print(img != nil)
-        
         image.image =  img
     }
     
