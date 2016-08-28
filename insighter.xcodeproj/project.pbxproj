@@ -10,8 +10,6 @@
 		131C8D041D59DF3900A2EE8C /* RemoteConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 131C8D031D59DF3900A2EE8C /* RemoteConfig.swift */; };
 		131C8D061D59E1D200A2EE8C /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 131C8D051D59E1D100A2EE8C /* UserData.swift */; };
 		1329B0391D5B12EE004AE52B /* CalendarWeek.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1329B0381D5B12EE004AE52B /* CalendarWeek.swift */; };
-		1329B03B1D5B1BD9004AE52B /* JDScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1329B03A1D5B1BD9004AE52B /* JDScrollView.swift */; };
-		1329B03D1D5B2096004AE52B /* JDTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1329B03C1D5B2096004AE52B /* JDTextField.swift */; };
 		1329B0451D5B4901004AE52B /* RatingQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1329B0441D5B4901004AE52B /* RatingQuestion.swift */; };
 		132A5EBA1D58A28400448DAC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 132A5EB91D58A28400448DAC /* GoogleService-Info.plist */; };
 		1338777B1D62529D00FAF762 /* InsighterKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1338777A1D62529D00FAF762 /* InsighterKit.swift */; };
@@ -25,13 +23,11 @@
 		13517B501D5D06B9002B74AD /* FIRUploadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13517B4F1D5D06B9002B74AD /* FIRUploadable.swift */; };
 		137EB8881D6101C200ACC8F9 /* RatingVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 137EB8871D6101C200ACC8F9 /* RatingVC.xib */; };
 		137EB88A1D6101D100ACC8F9 /* RatingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137EB8891D6101D100ACC8F9 /* RatingVC.swift */; };
-		137EB8911D61C76C00ACC8F9 /* JDTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137EB8901D61C76C00ACC8F9 /* JDTextView.swift */; };
 		137EB8931D61D77E00ACC8F9 /* RatingSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137EB8921D61D77E00ACC8F9 /* RatingSlider.swift */; };
 		137EB8951D61E67900ACC8F9 /* Rating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137EB8941D61E67900ACC8F9 /* Rating.swift */; };
 		137EB8971D61EA1500ACC8F9 /* RatingColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137EB8961D61EA1500ACC8F9 /* RatingColors.swift */; };
 		137EB8991D61FECD00ACC8F9 /* RatingAnswer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137EB8981D61FECD00ACC8F9 /* RatingAnswer.swift */; };
 		137EB89B1D620D7500ACC8F9 /* Flashable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137EB89A1D620D7500ACC8F9 /* Flashable.swift */; };
-		138744C31D5B5BB300512967 /* JDDropdown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 138744C21D5B5BB300512967 /* JDDropdown.swift */; };
 		138C72561D58AB260049561A /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 138C72551D58AB260049561A /* LoadingView.swift */; };
 		138C72581D58B2360049561A /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 138C72571D58B2360049561A /* DataService.swift */; };
 		138C725A1D58B2850049561A /* ConstantService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 138C72591D58B2850049561A /* ConstantService.swift */; };
@@ -50,13 +46,17 @@
 		13A5B99B1D59E4F1008EBDF3 /* UserLoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A5B99A1D59E4F1008EBDF3 /* UserLoginService.swift */; };
 		13A5B99F1D59F250008EBDF3 /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A5B99E1D59F250008EBDF3 /* Style.swift */; };
 		13A5B9A11D59F2E2008EBDF3 /* TextStylable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A5B9A01D59F2E2008EBDF3 /* TextStylable.swift */; };
-		13A5B9A31D59F71E008EBDF3 /* JDLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A5B9A21D59F71E008EBDF3 /* JDLabel.swift */; };
 		13A5B9A51D59FBE6008EBDF3 /* OnboardingLoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A5B9A41D59FBE6008EBDF3 /* OnboardingLoginVC.swift */; };
-		13A5B9A71D59FDB5008EBDF3 /* JDButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A5B9A61D59FDB5008EBDF3 /* JDButton.swift */; };
 		13A5B9A91D5A01D5008EBDF3 /* OnboardingNotificationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A5B9A81D5A01D5008EBDF3 /* OnboardingNotificationVC.swift */; };
 		13A5B9AB1D5A0275008EBDF3 /* EvaluationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A5B9AA1D5A0275008EBDF3 /* EvaluationVC.swift */; };
+		13BF4DE41D71E9F500035D84 /* JDPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BF4DDD1D71E9F500035D84 /* JDPopup.swift */; };
+		13BF4DE51D71E9F500035D84 /* JDScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BF4DDE1D71E9F500035D84 /* JDScrollView.swift */; };
+		13BF4DE61D71E9F500035D84 /* JDTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BF4DDF1D71E9F500035D84 /* JDTextField.swift */; };
+		13BF4DE71D71E9F500035D84 /* JDTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BF4DE01D71E9F500035D84 /* JDTextView.swift */; };
+		13BF4DE81D71E9F500035D84 /* JDButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BF4DE11D71E9F500035D84 /* JDButton.swift */; };
+		13BF4DE91D71E9F500035D84 /* JDDropdown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BF4DE21D71E9F500035D84 /* JDDropdown.swift */; };
+		13BF4DEA1D71E9F500035D84 /* JDLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BF4DE31D71E9F500035D84 /* JDLabel.swift */; };
 		13C16FA01D64C23900F96F13 /* OnboardingWelcomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C16F9F1D64C23900F96F13 /* OnboardingWelcomeVC.swift */; };
-		13ED7E8E1D5D1DB70017CF8A /* JDPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13ED7E8D1D5D1DB70017CF8A /* JDPopup.swift */; };
 		13ED7E901D5DC8CC0017CF8A /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13ED7E8F1D5DC8CC0017CF8A /* NotificationService.swift */; };
 		13ED7E921D5DD32E0017CF8A /* Company.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13ED7E911D5DD32E0017CF8A /* Company.swift */; };
 		13ED7E941D5E17D10017CF8A /* RemoteIntKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13ED7E931D5E17D10017CF8A /* RemoteIntKey.swift */; };
@@ -93,8 +93,6 @@
 		131C8D031D59DF3900A2EE8C /* RemoteConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteConfig.swift; sourceTree = "<group>"; };
 		131C8D051D59E1D100A2EE8C /* UserData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		1329B0381D5B12EE004AE52B /* CalendarWeek.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarWeek.swift; sourceTree = "<group>"; };
-		1329B03A1D5B1BD9004AE52B /* JDScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JDScrollView.swift; sourceTree = "<group>"; };
-		1329B03C1D5B2096004AE52B /* JDTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JDTextField.swift; sourceTree = "<group>"; };
 		1329B0441D5B4901004AE52B /* RatingQuestion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingQuestion.swift; sourceTree = "<group>"; };
 		132A5EB91D58A28400448DAC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1338777A1D62529D00FAF762 /* InsighterKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InsighterKit.swift; sourceTree = "<group>"; };
@@ -108,13 +106,11 @@
 		13517B4F1D5D06B9002B74AD /* FIRUploadable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FIRUploadable.swift; sourceTree = "<group>"; };
 		137EB8871D6101C200ACC8F9 /* RatingVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RatingVC.xib; sourceTree = "<group>"; };
 		137EB8891D6101D100ACC8F9 /* RatingVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingVC.swift; sourceTree = "<group>"; };
-		137EB8901D61C76C00ACC8F9 /* JDTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JDTextView.swift; sourceTree = "<group>"; };
 		137EB8921D61D77E00ACC8F9 /* RatingSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingSlider.swift; sourceTree = "<group>"; };
 		137EB8941D61E67900ACC8F9 /* Rating.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rating.swift; sourceTree = "<group>"; };
 		137EB8961D61EA1500ACC8F9 /* RatingColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingColors.swift; sourceTree = "<group>"; };
 		137EB8981D61FECD00ACC8F9 /* RatingAnswer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingAnswer.swift; sourceTree = "<group>"; };
 		137EB89A1D620D7500ACC8F9 /* Flashable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Flashable.swift; sourceTree = "<group>"; };
-		138744C21D5B5BB300512967 /* JDDropdown.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JDDropdown.swift; sourceTree = "<group>"; };
 		138C72551D58AB260049561A /* LoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		138C72571D58B2360049561A /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		138C72591D58B2850049561A /* ConstantService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstantService.swift; sourceTree = "<group>"; };
@@ -139,13 +135,17 @@
 		13A5B99A1D59E4F1008EBDF3 /* UserLoginService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserLoginService.swift; sourceTree = "<group>"; };
 		13A5B99E1D59F250008EBDF3 /* Style.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
 		13A5B9A01D59F2E2008EBDF3 /* TextStylable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextStylable.swift; sourceTree = "<group>"; };
-		13A5B9A21D59F71E008EBDF3 /* JDLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JDLabel.swift; sourceTree = "<group>"; };
 		13A5B9A41D59FBE6008EBDF3 /* OnboardingLoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingLoginVC.swift; sourceTree = "<group>"; };
-		13A5B9A61D59FDB5008EBDF3 /* JDButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JDButton.swift; sourceTree = "<group>"; };
 		13A5B9A81D5A01D5008EBDF3 /* OnboardingNotificationVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingNotificationVC.swift; sourceTree = "<group>"; };
 		13A5B9AA1D5A0275008EBDF3 /* EvaluationVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EvaluationVC.swift; sourceTree = "<group>"; };
+		13BF4DDD1D71E9F500035D84 /* JDPopup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JDPopup.swift; sourceTree = "<group>"; };
+		13BF4DDE1D71E9F500035D84 /* JDScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JDScrollView.swift; sourceTree = "<group>"; };
+		13BF4DDF1D71E9F500035D84 /* JDTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JDTextField.swift; sourceTree = "<group>"; };
+		13BF4DE01D71E9F500035D84 /* JDTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JDTextView.swift; sourceTree = "<group>"; };
+		13BF4DE11D71E9F500035D84 /* JDButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JDButton.swift; sourceTree = "<group>"; };
+		13BF4DE21D71E9F500035D84 /* JDDropdown.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JDDropdown.swift; sourceTree = "<group>"; };
+		13BF4DE31D71E9F500035D84 /* JDLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JDLabel.swift; sourceTree = "<group>"; };
 		13C16F9F1D64C23900F96F13 /* OnboardingWelcomeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingWelcomeVC.swift; sourceTree = "<group>"; };
-		13ED7E8D1D5D1DB70017CF8A /* JDPopup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JDPopup.swift; sourceTree = "<group>"; };
 		13ED7E8F1D5DC8CC0017CF8A /* NotificationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		13ED7E911D5DD32E0017CF8A /* Company.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Company.swift; sourceTree = "<group>"; };
 		13ED7E931D5E17D10017CF8A /* RemoteIntKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteIntKey.swift; sourceTree = "<group>"; };
@@ -309,13 +309,13 @@
 				13ED7EA31D6098BE0017CF8A /* QuestionVC.xib */,
 				137EB8871D6101C200ACC8F9 /* RatingVC.xib */,
 				13A03D891CF1109E00920838 /* LaunchScreen.storyboard */,
-				13A5B9A61D59FDB5008EBDF3 /* JDButton.swift */,
-				138744C21D5B5BB300512967 /* JDDropdown.swift */,
-				13A5B9A21D59F71E008EBDF3 /* JDLabel.swift */,
-				13ED7E8D1D5D1DB70017CF8A /* JDPopup.swift */,
-				1329B03A1D5B1BD9004AE52B /* JDScrollView.swift */,
-				1329B03C1D5B2096004AE52B /* JDTextField.swift */,
-				137EB8901D61C76C00ACC8F9 /* JDTextView.swift */,
+				13BF4DE11D71E9F500035D84 /* JDButton.swift */,
+				13BF4DE21D71E9F500035D84 /* JDDropdown.swift */,
+				13BF4DE31D71E9F500035D84 /* JDLabel.swift */,
+				13BF4DDD1D71E9F500035D84 /* JDPopup.swift */,
+				13BF4DDE1D71E9F500035D84 /* JDScrollView.swift */,
+				13BF4DDF1D71E9F500035D84 /* JDTextField.swift */,
+				13BF4DE01D71E9F500035D84 /* JDTextView.swift */,
 				138C72551D58AB260049561A /* LoadingView.swift */,
 				13A5B9A01D59F2E2008EBDF3 /* TextStylable.swift */,
 				1340AC7F1D5A19E1008499CE /* TextRemoteConfigable.swift */,
@@ -665,46 +665,46 @@
 				13925BB51D63765E00BA554C /* NumberExtension.swift in Sources */,
 				138C72601D58B9F10049561A /* StringReturningEnum.swift in Sources */,
 				13517B4A1D5BBF7D002B74AD /* TextResettable.swift in Sources */,
-				1329B03B1D5B1BD9004AE52B /* JDScrollView.swift in Sources */,
 				1329B0391D5B12EE004AE52B /* CalendarWeek.swift in Sources */,
+				13BF4DE71D71E9F500035D84 /* JDTextView.swift in Sources */,
 				138C725A1D58B2850049561A /* ConstantService.swift in Sources */,
 				13A03D7E1CF1109E00920838 /* AppDelegate.swift in Sources */,
 				13517B481D5BAE59002B74AD /* Shakeable.swift in Sources */,
 				137EB8971D61EA1500ACC8F9 /* RatingColors.swift in Sources */,
-				13ED7E8E1D5D1DB70017CF8A /* JDPopup.swift in Sources */,
-				13A5B9A31D59F71E008EBDF3 /* JDLabel.swift in Sources */,
 				1338777B1D62529D00FAF762 /* InsighterKit.swift in Sources */,
 				13ED7E991D60985B0017CF8A /* EvaluationUserVC.swift in Sources */,
 				13A5B9AB1D5A0275008EBDF3 /* EvaluationVC.swift in Sources */,
 				13A5B9A51D59FBE6008EBDF3 /* OnboardingLoginVC.swift in Sources */,
 				13517B501D5D06B9002B74AD /* FIRUploadable.swift in Sources */,
 				138C725C1D58B3290049561A /* LocalConstant.swift in Sources */,
+				13BF4DEA1D71E9F500035D84 /* JDLabel.swift in Sources */,
 				13517B4C1D5CD97E002B74AD /* FIRLoginable.swift in Sources */,
-				13A5B9A71D59FDB5008EBDF3 /* JDButton.swift in Sources */,
 				137EB8931D61D77E00ACC8F9 /* RatingSlider.swift in Sources */,
 				138C725E1D58B3680049561A /* DBValueKeys.swift in Sources */,
 				13A5B9A11D59F2E2008EBDF3 /* TextStylable.swift in Sources */,
 				1340AC801D5A19E1008499CE /* TextRemoteConfigable.swift in Sources */,
 				13A5B9A91D5A01D5008EBDF3 /* OnboardingNotificationVC.swift in Sources */,
+				13BF4DE51D71E9F500035D84 /* JDScrollView.swift in Sources */,
 				131C8D061D59E1D200A2EE8C /* UserData.swift in Sources */,
 				13A5B99B1D59E4F1008EBDF3 /* UserLoginService.swift in Sources */,
 				13ED7E9D1D6098740017CF8A /* EvaluationCompanyVC.swift in Sources */,
+				13BF4DE41D71E9F500035D84 /* JDPopup.swift in Sources */,
 				13A5B99F1D59F250008EBDF3 /* Style.swift in Sources */,
-				1329B03D1D5B2096004AE52B /* JDTextField.swift in Sources */,
 				138C72581D58B2360049561A /* DataService.swift in Sources */,
 				1340AC7E1D5A0EB0008499CE /* RemoteStringKey.swift in Sources */,
 				13ED7E921D5DD32E0017CF8A /* Company.swift in Sources */,
 				13ED7E941D5E17D10017CF8A /* RemoteIntKey.swift in Sources */,
 				137EB89B1D620D7500ACC8F9 /* Flashable.swift in Sources */,
 				1329B0451D5B4901004AE52B /* RatingQuestion.swift in Sources */,
+				13BF4DE91D71E9F500035D84 /* JDDropdown.swift in Sources */,
+				13BF4DE81D71E9F500035D84 /* JDButton.swift in Sources */,
 				137EB8951D61E67900ACC8F9 /* Rating.swift in Sources */,
 				13ED7EA41D6098BE0017CF8A /* QuestionVC.swift in Sources */,
 				13ED7E961D5E17E70017CF8A /* RemoteDoubleKey.swift in Sources */,
 				13C16FA01D64C23900F96F13 /* OnboardingWelcomeVC.swift in Sources */,
 				131C8D041D59DF3900A2EE8C /* RemoteConfig.swift in Sources */,
-				137EB8911D61C76C00ACC8F9 /* JDTextView.swift in Sources */,
-				138744C31D5B5BB300512967 /* JDDropdown.swift in Sources */,
 				137EB8991D61FECD00ACC8F9 /* RatingAnswer.swift in Sources */,
+				13BF4DE61D71E9F500035D84 /* JDTextField.swift in Sources */,
 				138C72621D58BE3F0049561A /* DBPathKeys.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class JDScrollView: UIScrollView {
+class JDInputScrollView: UIScrollView {
     
     // MARK: - Outlets
     
@@ -59,4 +59,25 @@ class JDScrollView: UIScrollView {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(keyboardWillHide), name:UIKeyboardWillHideNotification, object: nil)
     }
 
+}
+
+class JDPagingScrollView: UIScrollView {
+    
+    // MARK: - Startup
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        setupScrollView()
+    }
+    
+    
+    // MARK: - Private Methods
+    
+    private func setupScrollView() {
+        showsVerticalScrollIndicator = false
+        showsHorizontalScrollIndicator = false
+        
+        pagingEnabled = true
+    }
 }

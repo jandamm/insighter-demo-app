@@ -19,7 +19,7 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SSg-Sz-Jrd" customClass="JDScrollView" customModule="insighter" customModuleProvider="target">
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SSg-Sz-Jrd" customClass="JDInputScrollView" customModule="insighter" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xhG-Qh-tUS">
