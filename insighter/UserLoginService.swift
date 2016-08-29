@@ -213,9 +213,9 @@ class UserLoginService {
             
             let name = data[DBValueKeys.CompanyValue.name.rawValue] as? String
             let users = data[DBValueKeys.CompanyValue.users.rawValue] as? Int
-            let userNickName = data[DBValueKeys.CompanyValue.userNickName.rawValue] as? String
+            let goodie = data[DBValueKeys.CompanyValue.goodie.rawValue] as? String
             
-            let company = Company(UID: uid, name: name, users: users, userNickName: userNickName)
+            let company = Company(UID: uid, name: name, users: users, goodie: goodie)
             
             self._company = company
             NSLog("Got Company data from Firebase")
