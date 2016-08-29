@@ -41,8 +41,8 @@
                     <connections>
                         <outlet property="loadingSpinnerView" destination="mFs-hu-CHQ" id="jDH-Gr-NFh"/>
                         <outlet property="logoVerticalCenterConstraint" destination="7Pb-JI-hRS" id="JtH-gk-UwO"/>
-                        <segue destination="6Fk-xq-iwQ" kind="show" identifier="IntroToOnboarding" id="80P-sO-EAG"/>
-                        <segue destination="lpM-3k-drX" kind="show" identifier="IntroToEvaluation" id="JCB-AV-3TU"/>
+                        <segue destination="6Fk-xq-iwQ" kind="show" identifier="IntroToOnboarding" customClass="JDSegueSlideFromRight" customModule="JDSegues" id="80P-sO-EAG"/>
+                        <segue destination="lpM-3k-drX" kind="show" identifier="IntroToEvaluation" customClass="JDSegueSlideFromRight" customModule="JDSegues" id="JCB-AV-3TU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -153,8 +153,8 @@
                         </constraints>
                     </view>
                     <connections>
-                        <segue destination="Fd4-Yp-Y0y" kind="show" identifier="OnboardingWelcomeToNotification" id="GNY-XO-IpP"/>
-                        <segue destination="GSs-Mu-3kg" kind="show" identifier="OnboardingWelcomeToLogin" id="gYh-Mw-cGk"/>
+                        <segue destination="Fd4-Yp-Y0y" kind="show" identifier="OnboardingWelcomeToNotification" customClass="JDSegueSlideFromRight" customModule="JDSegues" id="GNY-XO-IpP"/>
+                        <segue destination="GSs-Mu-3kg" kind="show" identifier="OnboardingWelcomeToLogin" customClass="JDSegueSlideFromRight" customModule="JDSegues" id="gYh-Mw-cGk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4wi-4b-cvD" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -367,7 +367,7 @@
                         <outlet property="securityQuestionDropdown" destination="Hbc-tc-8YQ" id="ZBN-TL-FtQ"/>
                         <outlet property="securitySectionSView" destination="kjf-UW-Fag" id="8VA-sF-6l7"/>
                         <outlet property="securitySubLbl" destination="sNC-nH-jJH" id="27h-N8-dqo"/>
-                        <segue destination="lpM-3k-drX" kind="show" identifier="OnboardingLoginToEvaluation" id="gBh-J9-cew"/>
+                        <segue destination="lpM-3k-drX" kind="show" identifier="OnboardingLoginToEvaluation" customClass="JDSegueSlideFromRight" customModule="JDSegues" id="gBh-J9-cew"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aXE-dK-0LQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -459,7 +459,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <segue destination="GSs-Mu-3kg" kind="show" identifier="OnboardingNotificationToLogin" id="LVE-tI-LJY"/>
+                        <segue destination="GSs-Mu-3kg" kind="show" identifier="OnboardingNotificationToLogin" customClass="JDSegueSlideFromRight" customModule="JDSegues" id="LVE-tI-LJY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="19W-V6-fdF" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -481,18 +481,27 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5h2-FH-UnK" customClass="JDPagingScrollView">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </scrollView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JqF-gB-n1i">
+                                <rect key="frame" x="40" y="40" width="48" height="30"/>
+                                <state key="normal" title="Logout"/>
+                                <connections>
+                                    <action selector="logout:" destination="lpM-3k-drX" eventType="touchUpInside" id="8hv-c9-r1J"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="jgy-Hv-xXX" firstAttribute="top" secondItem="5h2-FH-UnK" secondAttribute="bottom" id="4t9-q5-278"/>
+                            <constraint firstItem="JqF-gB-n1i" firstAttribute="leading" secondItem="1qx-Vq-ujI" secondAttribute="leadingMargin" constant="20" id="OdW-Ip-kiv"/>
                             <constraint firstItem="5h2-FH-UnK" firstAttribute="leading" secondItem="1qx-Vq-ujI" secondAttribute="leading" id="TTl-vG-hha"/>
+                            <constraint firstItem="JqF-gB-n1i" firstAttribute="top" secondItem="rG4-pb-Anu" secondAttribute="bottom" constant="20" id="q6o-c6-cP0"/>
                             <constraint firstItem="5h2-FH-UnK" firstAttribute="top" secondItem="1qx-Vq-ujI" secondAttribute="topMargin" id="tUm-W2-P4n"/>
                             <constraint firstAttribute="trailing" secondItem="5h2-FH-UnK" secondAttribute="trailing" id="x8p-HN-2Pz"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="scrollView" destination="5h2-FH-UnK" id="Na7-Ze-wrA"/>
-                        <segue destination="6Fk-xq-iwQ" kind="show" identifier="EvaluationToOnboarding" id="awT-eg-dkg"/>
+                        <segue destination="6Fk-xq-iwQ" kind="show" identifier="EvaluationToOnboarding" customClass="JDSegueSlideFromLeft" customModule="JDSegues" id="awT-eg-dkg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1rG-Ag-6Ny" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -506,7 +515,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="awT-eg-dkg"/>
-        <segue reference="gBh-J9-cew"/>
+        <segue reference="JCB-AV-3TU"/>
         <segue reference="gYh-Mw-cGk"/>
     </inferredMetricsTieBreakers>
 </document>

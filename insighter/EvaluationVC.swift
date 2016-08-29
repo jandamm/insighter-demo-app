@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import JDSegues
 
 class EvaluationVC: UIViewController {
     
@@ -21,13 +22,22 @@ class EvaluationVC: UIViewController {
 
         setupScrollView()
         
-        //TEST
+        // TODO: Question asking
         let yourTimeInSeconds : Double = 1
         
         let dispatchTime: dispatch_time_t = dispatch_time(DISPATCH_TIME_NOW, Int64(yourTimeInSeconds * Double(NSEC_PER_SEC)))
         dispatch_after(dispatchTime, dispatch_get_main_queue(), {
             self.askQuestions()
         })
+    }
+    
+    
+    // MARK: - Actions
+    
+    @IBAction func logout(sender: UIButton) {
+        UserLoginService.sharedInstance.signOutUser() {
+            self.performSegueWithIdentifier(Segue.EvaluationToOnboarding.rawValue, sender: self)
+        }
     }
     
     
@@ -58,6 +68,8 @@ class EvaluationVC: UIViewController {
         }
         
         let vc = QuestionVC(withQuestions: questions)
-        self.presentViewController(vc, animated: true, completion: nil)
+        let segue = JDSegueSlideFromBottom(identifier: nil, source: self, destination: vc)
+        
+        segue.perform()
     }
 }

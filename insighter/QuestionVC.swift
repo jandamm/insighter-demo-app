@@ -203,7 +203,7 @@ class QuestionVC: UIViewController, Flashable {
             NotificationService.sharedInstance.setupNotifications()
             
             flash(.In, speed: flashSpeed, completion: { _ in
-                self.dismissViewControllerAnimated(true, completion: nil)
+                self.dismissVC()
             })
         } else {
             flash(.In, speed: flashSpeed, completion: { _ in
@@ -211,6 +211,10 @@ class QuestionVC: UIViewController, Flashable {
                 self.flash(.Out, speed: flashSpeed, completion: nil)
             })
         }
+    }
+    
+    private func dismissVC() {
+        dismissViewControllerAnimated(true, completion: nil)
     }
     
     private func resetView(andNextQuestion nextQuestion: Bool = false) {
