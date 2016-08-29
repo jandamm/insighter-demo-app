@@ -1,19 +1,19 @@
 PODS:
   - DropDown (1.0.1)
-  - Firebase/Analytics (3.4.0):
+  - Firebase/Analytics (3.5.2):
     - FirebaseAnalytics (~> 3.3)
-  - Firebase/Auth (3.4.0):
+  - Firebase/Auth (3.5.2):
     - Firebase/Analytics
     - FirebaseAuth (= 3.0.4)
-  - Firebase/Core (3.4.0):
+  - Firebase/Core (3.5.2):
     - Firebase/Analytics
-  - Firebase/Database (3.4.0):
+  - Firebase/Database (3.5.2):
     - Firebase/Analytics
     - FirebaseDatabase (= 3.0.2)
-  - Firebase/RemoteConfig (3.4.0):
+  - Firebase/RemoteConfig (3.5.2):
     - Firebase/Analytics
     - FirebaseRemoteConfig (= 1.2.0)
-  - FirebaseAnalytics (3.3.0):
+  - FirebaseAnalytics (3.3.1):
     - FirebaseInstanceID (~> 1.0)
     - GoogleInterchangeUtilities (~> 1.2)
     - GoogleSymbolUtilities (~> 1.1)
@@ -46,6 +46,7 @@ PODS:
   - GoogleSymbolUtilities (1.1.1)
   - GoogleUtilities (1.3.1):
     - GoogleSymbolUtilities (~> 1.0)
+  - JDSegues (0.3)
   - JGProgressHUD (1.4)
   - NextResponderTextField (1.1.0)
 
@@ -55,13 +56,14 @@ DEPENDENCIES:
   - Firebase/Core
   - Firebase/Database
   - Firebase/RemoteConfig
+  - JDSegues
   - JGProgressHUD
   - NextResponderTextField
 
 SPEC CHECKSUMS:
   DropDown: 335df9e9547e97a861a60aed8448821e239d3513
-  Firebase: 754562547af419cc2f4b15247fee419081924bc2
-  FirebaseAnalytics: 228be2991cb28efb96cdafc4d62f64680e615c69
+  Firebase: 94e63112efcad75226c0356a8f3032397b8547c9
+  FirebaseAnalytics: d968d4d5f6aeb795cd64144337bcd233e530efc6
   FirebaseAuth: 26fd291c3b552fc9658420b867520d5ae080421c
   FirebaseDatabase: 59bea2e7dfd81b3b8b2f8e396caf1a52c2ced6f7
   FirebaseInstanceID: ba1e640935235e5fac39dfa816fe7660e72e1a8a
@@ -72,9 +74,10 @@ SPEC CHECKSUMS:
   GoogleParsingUtilities: 30b3896f9ee167dc78747f013d3de157ced1cadf
   GoogleSymbolUtilities: 33117db1b5f290c6fbf259585e4885b4c84b98d7
   GoogleUtilities: 56c5ac05b7aa5dc417a1bb85221a9516e04d7032
+  JDSegues: 2aef00942a320fe947882de2e63c4c35aeaac767
   JGProgressHUD: 1617b0940cf80bb53e8f7d6f0fd69252ea45d6d4
   NextResponderTextField: 26ca1e8f8ac601fa180a2647456f3862acdcc673
 
-PODFILE CHECKSUM: c61847eab8bc23955c712b537c21d4b6c256221a
+PODFILE CHECKSUM: 8016a68266ad9699002b0c22650f0f125cce88f5
 
 COCOAPODS: 1.0.1
