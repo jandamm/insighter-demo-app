@@ -69,7 +69,7 @@ class UserLoginService {
         _company = nil
         
         NSLog("User logged out")
-        getEmailEndingsFromFirebase(completion, forcedCompletionValue: nil)
+        getEmailEndingsFromFirebase(completion, forcedCompletionValue: true)
     }
     
     func checkUserIsLoggedInAndGetData(completion: CompletionHandlerBool?) {
