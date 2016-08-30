@@ -45,9 +45,10 @@
 		13A5B99B1D59E4F1008EBDF3 /* UserLoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A5B99A1D59E4F1008EBDF3 /* UserLoginService.swift */; };
 		13A5B99F1D59F250008EBDF3 /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A5B99E1D59F250008EBDF3 /* Style.swift */; };
 		13A5B9A11D59F2E2008EBDF3 /* TextStylable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A5B9A01D59F2E2008EBDF3 /* TextStylable.swift */; };
-		13A5B9A51D59FBE6008EBDF3 /* OnboardingLoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A5B9A41D59FBE6008EBDF3 /* OnboardingLoginVC.swift */; };
+		13A5B9A51D59FBE6008EBDF3 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A5B9A41D59FBE6008EBDF3 /* LoginVC.swift */; };
 		13A5B9A91D5A01D5008EBDF3 /* OnboardingNotificationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A5B9A81D5A01D5008EBDF3 /* OnboardingNotificationVC.swift */; };
 		13A5B9AB1D5A0275008EBDF3 /* EvaluationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A5B9AA1D5A0275008EBDF3 /* EvaluationVC.swift */; };
+		13B761EE1D75F6ED00E80677 /* JDLoginCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B761ED1D75F6ED00E80677 /* JDLoginCoordinator.swift */; };
 		13BF4DE41D71E9F500035D84 /* JDPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BF4DDD1D71E9F500035D84 /* JDPopup.swift */; };
 		13BF4DE51D71E9F500035D84 /* JDScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BF4DDE1D71E9F500035D84 /* JDScrollView.swift */; };
 		13BF4DE61D71E9F500035D84 /* JDTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BF4DDF1D71E9F500035D84 /* JDTextField.swift */; };
@@ -61,7 +62,7 @@
 		13D489B71D75CA49003D39C5 /* IntroVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13D489B61D75CA49003D39C5 /* IntroVC.xib */; };
 		13D489B91D75CC31003D39C5 /* OnboardingWelcomeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13D489B81D75CC31003D39C5 /* OnboardingWelcomeVC.xib */; };
 		13D489BB1D75CD08003D39C5 /* OnboardingNotificationVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13D489BA1D75CD08003D39C5 /* OnboardingNotificationVC.xib */; };
-		13D489BD1D75CDF7003D39C5 /* OnboardingLoginVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13D489BC1D75CDF7003D39C5 /* OnboardingLoginVC.xib */; };
+		13D489BD1D75CDF7003D39C5 /* LoginVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13D489BC1D75CDF7003D39C5 /* LoginVC.xib */; };
 		13D489BF1D75CE8C003D39C5 /* EvaluationVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13D489BE1D75CE8C003D39C5 /* EvaluationVC.xib */; };
 		13D489C21D75D876003D39C5 /* JDOnboardingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D489C11D75D876003D39C5 /* JDOnboardingCoordinator.swift */; };
 		13ED7E901D5DC8CC0017CF8A /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13ED7E8F1D5DC8CC0017CF8A /* NotificationService.swift */; };
@@ -141,9 +142,10 @@
 		13A5B99A1D59E4F1008EBDF3 /* UserLoginService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserLoginService.swift; sourceTree = "<group>"; };
 		13A5B99E1D59F250008EBDF3 /* Style.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
 		13A5B9A01D59F2E2008EBDF3 /* TextStylable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextStylable.swift; sourceTree = "<group>"; };
-		13A5B9A41D59FBE6008EBDF3 /* OnboardingLoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingLoginVC.swift; sourceTree = "<group>"; };
+		13A5B9A41D59FBE6008EBDF3 /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		13A5B9A81D5A01D5008EBDF3 /* OnboardingNotificationVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingNotificationVC.swift; sourceTree = "<group>"; };
 		13A5B9AA1D5A0275008EBDF3 /* EvaluationVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EvaluationVC.swift; sourceTree = "<group>"; };
+		13B761ED1D75F6ED00E80677 /* JDLoginCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JDLoginCoordinator.swift; sourceTree = "<group>"; };
 		13BF4DDD1D71E9F500035D84 /* JDPopup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JDPopup.swift; sourceTree = "<group>"; };
 		13BF4DDE1D71E9F500035D84 /* JDScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JDScrollView.swift; sourceTree = "<group>"; };
 		13BF4DDF1D71E9F500035D84 /* JDTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JDTextField.swift; sourceTree = "<group>"; };
@@ -157,7 +159,7 @@
 		13D489B61D75CA49003D39C5 /* IntroVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IntroVC.xib; sourceTree = "<group>"; };
 		13D489B81D75CC31003D39C5 /* OnboardingWelcomeVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OnboardingWelcomeVC.xib; sourceTree = "<group>"; };
 		13D489BA1D75CD08003D39C5 /* OnboardingNotificationVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OnboardingNotificationVC.xib; sourceTree = "<group>"; };
-		13D489BC1D75CDF7003D39C5 /* OnboardingLoginVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OnboardingLoginVC.xib; sourceTree = "<group>"; };
+		13D489BC1D75CDF7003D39C5 /* LoginVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginVC.xib; sourceTree = "<group>"; };
 		13D489BE1D75CE8C003D39C5 /* EvaluationVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EvaluationVC.xib; sourceTree = "<group>"; };
 		13D489C11D75D876003D39C5 /* JDOnboardingCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JDOnboardingCoordinator.swift; sourceTree = "<group>"; };
 		13ED7E8F1D5DC8CC0017CF8A /* NotificationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
@@ -305,6 +307,7 @@
 			isa = PBXGroup;
 			children = (
 				13A03D7F1CF1109E00920838 /* IntroVC.swift */,
+				13A5B9A41D59FBE6008EBDF3 /* LoginVC.swift */,
 				13ED7EA11D6098A40017CF8A /* Onboarding */,
 				137EB88F1D61BDF300ACC8F9 /* Question */,
 				13ED7EA01D60989D0017CF8A /* Evaluation */,
@@ -362,6 +365,7 @@
 				13D489B41D75C784003D39C5 /* Coordinator.swift */,
 				13D489B21D75C642003D39C5 /* JDAppCoordinator.swift */,
 				13D489C11D75D876003D39C5 /* JDOnboardingCoordinator.swift */,
+				13B761ED1D75F6ED00E80677 /* JDLoginCoordinator.swift */,
 			);
 			name = Coordinator;
 			sourceTree = "<group>";
@@ -372,7 +376,7 @@
 				13D489B61D75CA49003D39C5 /* IntroVC.xib */,
 				13D489B81D75CC31003D39C5 /* OnboardingWelcomeVC.xib */,
 				13D489BA1D75CD08003D39C5 /* OnboardingNotificationVC.xib */,
-				13D489BC1D75CDF7003D39C5 /* OnboardingLoginVC.xib */,
+				13D489BC1D75CDF7003D39C5 /* LoginVC.xib */,
 				13D489BE1D75CE8C003D39C5 /* EvaluationVC.xib */,
 				13ED7E981D60985B0017CF8A /* EvaluationUserVC.xib */,
 				13ED7E9C1D6098740017CF8A /* EvaluationCompanyVC.xib */,
@@ -397,7 +401,6 @@
 			children = (
 				13C16F9F1D64C23900F96F13 /* OnboardingWelcomeVC.swift */,
 				13A5B9A81D5A01D5008EBDF3 /* OnboardingNotificationVC.swift */,
-				13A5B9A41D59FBE6008EBDF3 /* OnboardingLoginVC.swift */,
 			);
 			name = Onboarding;
 			sourceTree = "<group>";
@@ -544,7 +547,7 @@
 				13A03D8B1CF1109E00920838 /* LaunchScreen.storyboard in Resources */,
 				1340AC7C1D5A0E89008499CE /* RemoteConfigDefaults.plist in Resources */,
 				132A5EBA1D58A28400448DAC /* GoogleService-Info.plist in Resources */,
-				13D489BD1D75CDF7003D39C5 /* OnboardingLoginVC.xib in Resources */,
+				13D489BD1D75CDF7003D39C5 /* LoginVC.xib in Resources */,
 				13A03D881CF1109E00920838 /* Assets.xcassets in Resources */,
 				13ED7E9A1D60985B0017CF8A /* EvaluationUserVC.xib in Resources */,
 				13ED7E9E1D6098740017CF8A /* EvaluationCompanyVC.xib in Resources */,
@@ -716,7 +719,7 @@
 				1338777B1D62529D00FAF762 /* InsighterKit.swift in Sources */,
 				13ED7E991D60985B0017CF8A /* EvaluationUserVC.swift in Sources */,
 				13A5B9AB1D5A0275008EBDF3 /* EvaluationVC.swift in Sources */,
-				13A5B9A51D59FBE6008EBDF3 /* OnboardingLoginVC.swift in Sources */,
+				13A5B9A51D59FBE6008EBDF3 /* LoginVC.swift in Sources */,
 				13517B501D5D06B9002B74AD /* FIRUploadable.swift in Sources */,
 				138C725C1D58B3290049561A /* LocalConstant.swift in Sources */,
 				13D489C21D75D876003D39C5 /* JDOnboardingCoordinator.swift in Sources */,
@@ -740,6 +743,7 @@
 				13ED7E941D5E17D10017CF8A /* RemoteIntKey.swift in Sources */,
 				137EB89B1D620D7500ACC8F9 /* Flashable.swift in Sources */,
 				1329B0451D5B4901004AE52B /* RatingQuestion.swift in Sources */,
+				13B761EE1D75F6ED00E80677 /* JDLoginCoordinator.swift in Sources */,
 				13BF4DE91D71E9F500035D84 /* JDDropdown.swift in Sources */,
 				13BF4DE81D71E9F500035D84 /* JDButton.swift in Sources */,
 				137EB8951D61E67900ACC8F9 /* Rating.swift in Sources */,

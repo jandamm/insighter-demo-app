@@ -96,18 +96,9 @@ class UserLoginService {
         return true
     }
     
-    func registerUser(withUserData userData: UserData, userGotCreated created: Bool, completion: CompletionHandlerBool?) {
-        if created {
-            userData.upload()
-        }
-        
-        getFIRUser { loggedIn in
-            if created {
-                self.addUserToCompanyUserCount()
-            }
-            
-            completion?(loggedIn)
-        }
+    func registerNewUser(withUserData userData: UserData) {
+        userData.upload()
+        addUserToCompanyUserCount()
     }
     
     
@@ -153,13 +144,13 @@ class UserLoginService {
                 return
             }
             
-            self._userFirebase = user
-            self.getUserDataOrEmailEndings(completion)
-            
             if let listener = self._userListener {
                 FIRAuth.auth()?.removeAuthStateDidChangeListener(listener)
                 self._userListener = nil
             }
+            
+            self._userFirebase = user
+            self.getUserDataOrEmailEndings(completion)
         }
     }
     

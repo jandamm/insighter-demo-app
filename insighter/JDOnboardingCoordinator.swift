@@ -11,20 +11,29 @@ import UIKit
 protocol OnboardingDelegate: Coordinator {
     func welcomeBtnPressed()
     func notifBtnPressed()
-    func loggedIn()
 }
 
-class JDOnboardingCoordinator: NSObject, Coordinator, OnboardingDelegate {
+protocol JDOnboardingCoordinatorDelegate: Coordinator {
+    func onboardingEnded<C where C: NSObject, C: Coordinator>(finishedCoordinator: C)
+}
+
+class JDOnboardingCoordinator: NSObject, FIRLoginable, Coordinator, OnboardingDelegate {
+    
+    weak var delegate: JDOnboardingCoordinatorDelegate?
+    
+    var displayedController: UIViewController?
+    
+    
+    // MARK: - Coordinator
     
     let navigationController: UINavigationController
     
-    var childCoordinator = [Coordinator]()
-    
-    
-    // MARK: - Startup
+    var childCoordinator = [NSObject]()
     
     required init(withNavigationController navigationController: UINavigationController) {
         self.navigationController = navigationController
+        
+        super.init()
     }
     
     func start() {
@@ -32,7 +41,7 @@ class JDOnboardingCoordinator: NSObject, Coordinator, OnboardingDelegate {
     }
     
     
-    // MARK: - Delegate
+    // MARK: - Delegates
     
     func welcomeBtnPressed() {
         let showNotification = NotificationService.sharedInstance.hasNoAllowance()
@@ -40,22 +49,24 @@ class JDOnboardingCoordinator: NSObject, Coordinator, OnboardingDelegate {
         if showNotification {
             showOnboardingNotification()
         } else {
-            showOnboardingLogin()
+            onboardingEnded()
         }
     }
     
     func notifBtnPressed() {
         NotificationService.sharedInstance.askForAllowance()
         
-        showOnboardingLogin()
-    }
-    
-    func loggedIn() {
-        
+        onboardingEnded()
     }
     
     
     // MARK: - Private Methods
+    
+    private func onboardingEnded() {
+        childCoordinator.removeAll()
+        
+        delegate?.onboardingEnded(self)
+    }
     
     private func showOnboardingWelcome() {
         let vc = OnboardingWelcomeVC()
@@ -67,14 +78,6 @@ class JDOnboardingCoordinator: NSObject, Coordinator, OnboardingDelegate {
     
     private func showOnboardingNotification() {
         let vc = OnboardingNotificationVC()
-        
-        vc.delegate = self
-        
-        navigationController.pushViewController(vc, animated: true)
-    }
-    
-    private func showOnboardingLogin() {
-        let vc = OnboardingLoginVC()
         
         vc.delegate = self
         

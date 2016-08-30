@@ -8,18 +8,18 @@
 
 import UIKit
 
-class OnboardingLoginVC: UIViewController, FIRLoginable {
+class LoginVC: UIViewController {
     
-    weak var delegate: OnboardingDelegate?
+    weak var delegate: LoginDelegate?
     
     
     // MARK: - State
     
-    private enum State {
+    enum State {
         case Login, Register
     }
     
-    private var state: State = .Login {
+    var state: State = .Login {
         didSet {
             applyState()
         }
@@ -51,9 +51,6 @@ class OnboardingLoginVC: UIViewController, FIRLoginable {
     // MARK: - Private Data
     
     private var dropdownData: [String]!
-    private var company: String?
-    private var securityQuestion: String?
-    private var securityAnswer: String?
     
     
     // MARK: - Outlets
@@ -85,72 +82,28 @@ class OnboardingLoginVC: UIViewController, FIRLoginable {
     // MARK: - Actions
     
     @IBAction func loginPressed(sender: UIButton) {
-        loginManager()
-    }
-    
-    
-    // MARK: - Login
-    
-    private func loginManager() {
         resetSubLbls()
         
-        guard let email = emailTxt.text where email.isValidEmail else {
-            return errorHandling(forType: .Email, withRemoteConfig: .ERROR_INVALID_EMAIL)
-        }
-        guard let password = passwordTxt.text where password.characters.count >= 6 else {
-            return errorHandling(forType: .Password, withRemoteConfig: .ERROR_WEAK_PASSWORD)
-        }
-        guard let company = UserLoginService.sharedInstance.companyID(forEmail: email) else {
-            return errorHandling(forType: .Email, withRemoteConfig: .ERROR_COMPANY_UNKNOWN)
-        }
-        
-        self.company = company
-        
-        switch state {
-        case .Login:
-            loginUser(withEmail: email, andPassword: password, completion: loginResponseHandler)
-        case .Register:
-            guard let question = securityQuestionDropdown.selection else {
-                return errorHandling(forType: .Security, withRemoteConfig: .ERROR_QUESTION_NOT_CHOSEN)
-            }
-            guard let answer = securityAnswerTxt.text where answer.characters.count >= 3 else {
-                return errorHandling(forType: .Security, withRemoteConfig: .ERROR_QUESTION_ANSWER_TOO_SHORT)
-            }
-            
-            self.securityQuestion = question
-            self.securityAnswer = answer.trimmed
-            
-            createUser(forEmail: email, andPassword: password, completion: loginResponseHandler)
-        }
-    }
-    
-    private func loginResponseHandler(uid: String?, error: AnyObject?, created: Bool) {
-        
-        if let uid = uid {
-            registerUser(withID: uid, isCreated: created)
-        } else if let error = error {
-            errorHandling(withString: String(error))
-        } else {
-            errorUndefined()
-        }
-    }
-    
-    private func registerUser(withID uid: String, isCreated created: Bool) {
-        let userData = UserData(UID: uid, company: company, lastRated: nil, previousRated: nil, securityQuestion: securityQuestion, securityAnswer: securityAnswer)
-        
-        UserLoginService.sharedInstance.registerUser(withUserData: userData, userGotCreated: created) { loggedIn in
-            if loggedIn {
-                NSLog("User is logged in")
-                NotificationService.sharedInstance.setupNotifications()
-                self.transitionToNextView()
-            } else {
-                self.errorUndefined()
-            }
-        }
+        delegate?.loginManager(email: emailTxt.text, password: passwordTxt.text, question: securityQuestionDropdown.selection, answer: securityAnswerTxt.text, errorHandler: errorHandling)
     }
     
     
     // MARK: - Error Handling
+    
+    private func errorHandling(withString rConfig: String?) {
+        guard let remoteConfig = rConfig, let type = ErrorType.errorType(forString: remoteConfig) else {
+            NSLog("Unknown Firebase Error occurred: \(rConfig)")
+            return errorUndefined()
+        }
+        
+        let remoteConfigKey = RemoteStringKey(rawValue: remoteConfig)
+        
+        if remoteConfigKey != nil || type == .SwitchState {
+            errorHandling(forType: type, withRemoteConfig: remoteConfigKey)
+        } else {
+            errorUndefined()
+        }
+    }
     
     private func errorHandling(forType type: ErrorType, withRemoteConfig remoteConfigKey: RemoteStringKey!) {
         switch type {
@@ -165,21 +118,6 @@ class OnboardingLoginVC: UIViewController, FIRLoginable {
         case .Security:
             securitySubLbl.remoteConfigKey = remoteConfigKey.rawValue
             securityAnswerTxt.shake()
-        }
-    }
-    
-    private func errorHandling(withString remoteConfig: String) {
-        guard let type = ErrorType.errorType(forString: remoteConfig) else {
-            NSLog("Unknown Firebase Error occurred: \(remoteConfig)")
-            return errorUndefined()
-        }
-        
-        let remoteConfigKey = RemoteStringKey(rawValue: remoteConfig)
-        
-        if remoteConfigKey != nil || type == .SwitchState {
-            errorHandling(forType: type, withRemoteConfig: remoteConfigKey)
-        } else {
-            errorUndefined()
         }
     }
 
@@ -226,10 +164,6 @@ class OnboardingLoginVC: UIViewController, FIRLoginable {
     
     
     // MARK: - Private Methods
-    
-    private func transitionToNextView() {
-        print("OnboardingLoginToEvaluation")
-    }
     
     private func resetSubLbls() {
         emailSubLbl.resetRemoteConfigText()

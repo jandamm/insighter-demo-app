@@ -10,7 +10,15 @@ import UIKit
 
 protocol Coordinator: NSObjectProtocol {
     var navigationController: UINavigationController { get }
-    var childCoordinator: [Coordinator] { get }
+    var childCoordinator: [NSObject] { get set }
     init(withNavigationController navigationController: UINavigationController)
     func start()
+}
+
+extension Coordinator {
+    func removeSubCoordinator<C where C: NSObject, C: Coordinator>(finishedCoordinator: C) {
+        if let index = childCoordinator.indexOf(finishedCoordinator) {
+            childCoordinator.removeAtIndex(index)
+        }
+    }
 }

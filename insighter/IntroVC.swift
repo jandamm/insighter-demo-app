@@ -11,6 +11,8 @@ import Firebase
 
 class IntroVC: UIViewController {
     
+    var animate = true
+    
     // MARK: - Outlets
     
     @IBOutlet weak var logoVerticalCenterConstraint: NSLayoutConstraint!
@@ -19,31 +21,48 @@ class IntroVC: UIViewController {
     
     // MARK: - Startup
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if !animate {
+            setupScreen()
+            applyScreen()
+        }
+    }
+    
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
-        introAnimationLogoStart()
+        spinnerStart()
+        
+        if animate {
+            introAnimationStart()
+        }
     }
 
     
     // MARK: - Animation
     
-    private func introAnimationLogoStart() {
-        
-        loadingSpinnerView.hidden = true
-        
-        logoVerticalCenterConstraint.constant = -45
-        
-        loadingSpinnerView.animationStart()
+    private func introAnimationStart() {
+        setupScreen()
         
         UIView.animateWithDuration(0.5, animations: {
-            self.view.layoutIfNeeded()
-            self.loadingSpinnerView.hidden = false
+            self.applyScreen()
         })
     }
     
-    func introAnimationLogoEnd() {
-        loadingSpinnerView.animationStop()
+    private func setupScreen() {
+        loadingSpinnerView.alpha = 0
+        logoVerticalCenterConstraint.constant = -45
+    }
+    
+    private func applyScreen() {
+        self.view.layoutIfNeeded()
+        self.loadingSpinnerView.alpha = 1
+    }
+    
+    private func spinnerStart() {
+        loadingSpinnerView.animationStart()
     }
 }
 

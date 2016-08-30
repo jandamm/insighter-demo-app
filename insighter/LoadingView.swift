@@ -13,7 +13,6 @@ class LoadingView: UIView {
     
     // MARK: - Variables
     
-    private var animate = false
     private var _boundsMax: CGRect!
     private var _boundsMin: CGRect!
     
@@ -43,26 +42,16 @@ class LoadingView: UIView {
         let widthMin = width * 0.25
         let inset = (width - widthMin) / 2
         
-        animate = true
-        
         _boundsMax = CGRectMake(0, 0, width, width)
         _boundsMin = CGRectMake(inset, inset, widthMin, widthMin)
         
         animation()
     }
     
-    func animationStop() {
-        animate = false
-    }
-    
     
     // MARK: - Animation
     
     private func animation() {
-        guard animate else {
-            return
-        }
-        
         UIView.animateWithDuration(1, animations: {
             self.bounds = self.bounds == self._boundsMax ? self._boundsMin : self._boundsMax
             }) { _ in

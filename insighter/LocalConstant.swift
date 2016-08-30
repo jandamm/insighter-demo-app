@@ -13,4 +13,5 @@ let CALENDAR = NSCalendar(calendarIdentifier: NSCalendarIdentifierISO8601)!
 // Completion Handler
 typealias CompletionHandler = () -> ()
 typealias CompletionHandlerBool = (Bool) -> ()
-typealias CompletionHandlerFirebaseLogin = (String?, AnyObject?, Bool) -> ()
+typealias CompletionHandlerFirebaseLogin = (String?, AnyObject?, Bool, CompletionHandlerFirebaseLoginError) -> ()
+typealias CompletionHandlerFirebaseLoginError = ((String?) -> Void)?
