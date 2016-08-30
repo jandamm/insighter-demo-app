@@ -38,7 +38,6 @@
 		13925BB51D63765E00BA554C /* NumberExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13925BB41D63765E00BA554C /* NumberExtension.swift */; };
 		13A03D7E1CF1109E00920838 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A03D7D1CF1109E00920838 /* AppDelegate.swift */; };
 		13A03D801CF1109E00920838 /* IntroVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A03D7F1CF1109E00920838 /* IntroVC.swift */; };
-		13A03D831CF1109E00920838 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13A03D811CF1109E00920838 /* Main.storyboard */; };
 		13A03D881CF1109E00920838 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13A03D871CF1109E00920838 /* Assets.xcassets */; };
 		13A03D8B1CF1109E00920838 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13A03D891CF1109E00920838 /* LaunchScreen.storyboard */; };
 		13A03D961CF1109E00920838 /* insighterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A03D951CF1109E00920838 /* insighterTests.swift */; };
@@ -57,6 +56,14 @@
 		13BF4DE91D71E9F500035D84 /* JDDropdown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BF4DE21D71E9F500035D84 /* JDDropdown.swift */; };
 		13BF4DEA1D71E9F500035D84 /* JDLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BF4DE31D71E9F500035D84 /* JDLabel.swift */; };
 		13C16FA01D64C23900F96F13 /* OnboardingWelcomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C16F9F1D64C23900F96F13 /* OnboardingWelcomeVC.swift */; };
+		13D489B31D75C642003D39C5 /* JDAppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D489B21D75C642003D39C5 /* JDAppCoordinator.swift */; };
+		13D489B51D75C784003D39C5 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D489B41D75C784003D39C5 /* Coordinator.swift */; };
+		13D489B71D75CA49003D39C5 /* IntroVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13D489B61D75CA49003D39C5 /* IntroVC.xib */; };
+		13D489B91D75CC31003D39C5 /* OnboardingWelcomeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13D489B81D75CC31003D39C5 /* OnboardingWelcomeVC.xib */; };
+		13D489BB1D75CD08003D39C5 /* OnboardingNotificationVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13D489BA1D75CD08003D39C5 /* OnboardingNotificationVC.xib */; };
+		13D489BD1D75CDF7003D39C5 /* OnboardingLoginVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13D489BC1D75CDF7003D39C5 /* OnboardingLoginVC.xib */; };
+		13D489BF1D75CE8C003D39C5 /* EvaluationVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13D489BE1D75CE8C003D39C5 /* EvaluationVC.xib */; };
+		13D489C21D75D876003D39C5 /* JDOnboardingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D489C11D75D876003D39C5 /* JDOnboardingCoordinator.swift */; };
 		13ED7E901D5DC8CC0017CF8A /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13ED7E8F1D5DC8CC0017CF8A /* NotificationService.swift */; };
 		13ED7E921D5DD32E0017CF8A /* Company.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13ED7E911D5DD32E0017CF8A /* Company.swift */; };
 		13ED7E941D5E17D10017CF8A /* RemoteIntKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13ED7E931D5E17D10017CF8A /* RemoteIntKey.swift */; };
@@ -122,7 +129,6 @@
 		13A03D7A1CF1109E00920838 /* insighter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = insighter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13A03D7D1CF1109E00920838 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		13A03D7F1CF1109E00920838 /* IntroVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroVC.swift; sourceTree = "<group>"; };
-		13A03D821CF1109E00920838 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		13A03D871CF1109E00920838 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		13A03D8A1CF1109E00920838 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		13A03D8C1CF1109E00920838 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -146,6 +152,14 @@
 		13BF4DE21D71E9F500035D84 /* JDDropdown.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JDDropdown.swift; sourceTree = "<group>"; };
 		13BF4DE31D71E9F500035D84 /* JDLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JDLabel.swift; sourceTree = "<group>"; };
 		13C16F9F1D64C23900F96F13 /* OnboardingWelcomeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingWelcomeVC.swift; sourceTree = "<group>"; };
+		13D489B21D75C642003D39C5 /* JDAppCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JDAppCoordinator.swift; sourceTree = "<group>"; };
+		13D489B41D75C784003D39C5 /* Coordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		13D489B61D75CA49003D39C5 /* IntroVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IntroVC.xib; sourceTree = "<group>"; };
+		13D489B81D75CC31003D39C5 /* OnboardingWelcomeVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OnboardingWelcomeVC.xib; sourceTree = "<group>"; };
+		13D489BA1D75CD08003D39C5 /* OnboardingNotificationVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OnboardingNotificationVC.xib; sourceTree = "<group>"; };
+		13D489BC1D75CDF7003D39C5 /* OnboardingLoginVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OnboardingLoginVC.xib; sourceTree = "<group>"; };
+		13D489BE1D75CE8C003D39C5 /* EvaluationVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EvaluationVC.xib; sourceTree = "<group>"; };
+		13D489C11D75D876003D39C5 /* JDOnboardingCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JDOnboardingCoordinator.swift; sourceTree = "<group>"; };
 		13ED7E8F1D5DC8CC0017CF8A /* NotificationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		13ED7E911D5DD32E0017CF8A /* Company.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Company.swift; sourceTree = "<group>"; };
 		13ED7E931D5E17D10017CF8A /* RemoteIntKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteIntKey.swift; sourceTree = "<group>"; };
@@ -260,6 +274,7 @@
 				13A03DB01CF1165D00920838 /* Model */,
 				13A03DAF1CF1164500920838 /* View */,
 				13A03DAE1CF1163500920838 /* Controller */,
+				13D489B11D75C629003D39C5 /* Coordinator */,
 				132A5EBB1D58A2BF00448DAC /* Services */,
 				132A5EB81D58A27700448DAC /* Misc */,
 				13A03D871CF1109E00920838 /* Assets.xcassets */,
@@ -300,15 +315,11 @@
 		13A03DAF1CF1164500920838 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				13A03D891CF1109E00920838 /* LaunchScreen.storyboard */,
+				13D489C01D75CFD9003D39C5 /* VCs */,
 				1338777A1D62529D00FAF762 /* InsighterKit.swift */,
 				13A5B99E1D59F250008EBDF3 /* Style.swift */,
 				137EB8961D61EA1500ACC8F9 /* RatingColors.swift */,
-				13A03D811CF1109E00920838 /* Main.storyboard */,
-				13ED7E981D60985B0017CF8A /* EvaluationUserVC.xib */,
-				13ED7E9C1D6098740017CF8A /* EvaluationCompanyVC.xib */,
-				13ED7EA31D6098BE0017CF8A /* QuestionVC.xib */,
-				137EB8871D6101C200ACC8F9 /* RatingVC.xib */,
-				13A03D891CF1109E00920838 /* LaunchScreen.storyboard */,
 				13BF4DE11D71E9F500035D84 /* JDButton.swift */,
 				13BF4DE21D71E9F500035D84 /* JDDropdown.swift */,
 				13BF4DE31D71E9F500035D84 /* JDLabel.swift */,
@@ -343,6 +354,32 @@
 				13925BB41D63765E00BA554C /* NumberExtension.swift */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		13D489B11D75C629003D39C5 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				13D489B41D75C784003D39C5 /* Coordinator.swift */,
+				13D489B21D75C642003D39C5 /* JDAppCoordinator.swift */,
+				13D489C11D75D876003D39C5 /* JDOnboardingCoordinator.swift */,
+			);
+			name = Coordinator;
+			sourceTree = "<group>";
+		};
+		13D489C01D75CFD9003D39C5 /* VCs */ = {
+			isa = PBXGroup;
+			children = (
+				13D489B61D75CA49003D39C5 /* IntroVC.xib */,
+				13D489B81D75CC31003D39C5 /* OnboardingWelcomeVC.xib */,
+				13D489BA1D75CD08003D39C5 /* OnboardingNotificationVC.xib */,
+				13D489BC1D75CDF7003D39C5 /* OnboardingLoginVC.xib */,
+				13D489BE1D75CE8C003D39C5 /* EvaluationVC.xib */,
+				13ED7E981D60985B0017CF8A /* EvaluationUserVC.xib */,
+				13ED7E9C1D6098740017CF8A /* EvaluationCompanyVC.xib */,
+				13ED7EA31D6098BE0017CF8A /* QuestionVC.xib */,
+				137EB8871D6101C200ACC8F9 /* RatingVC.xib */,
+			);
+			name = VCs;
 			sourceTree = "<group>";
 		};
 		13ED7EA01D60989D0017CF8A /* Evaluation */ = {
@@ -501,15 +538,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				13D489BB1D75CD08003D39C5 /* OnboardingNotificationVC.xib in Resources */,
 				13ED7EA51D6098BE0017CF8A /* QuestionVC.xib in Resources */,
+				13D489B91D75CC31003D39C5 /* OnboardingWelcomeVC.xib in Resources */,
 				13A03D8B1CF1109E00920838 /* LaunchScreen.storyboard in Resources */,
 				1340AC7C1D5A0E89008499CE /* RemoteConfigDefaults.plist in Resources */,
 				132A5EBA1D58A28400448DAC /* GoogleService-Info.plist in Resources */,
+				13D489BD1D75CDF7003D39C5 /* OnboardingLoginVC.xib in Resources */,
 				13A03D881CF1109E00920838 /* Assets.xcassets in Resources */,
-				13A03D831CF1109E00920838 /* Main.storyboard in Resources */,
 				13ED7E9A1D60985B0017CF8A /* EvaluationUserVC.xib in Resources */,
 				13ED7E9E1D6098740017CF8A /* EvaluationCompanyVC.xib in Resources */,
 				137EB8881D6101C200ACC8F9 /* RatingVC.xib in Resources */,
+				13D489BF1D75CE8C003D39C5 /* EvaluationVC.xib in Resources */,
+				13D489B71D75CA49003D39C5 /* IntroVC.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -669,6 +710,7 @@
 				13BF4DE71D71E9F500035D84 /* JDTextView.swift in Sources */,
 				138C725A1D58B2850049561A /* ConstantService.swift in Sources */,
 				13A03D7E1CF1109E00920838 /* AppDelegate.swift in Sources */,
+				13D489B31D75C642003D39C5 /* JDAppCoordinator.swift in Sources */,
 				13517B481D5BAE59002B74AD /* Shakeable.swift in Sources */,
 				137EB8971D61EA1500ACC8F9 /* RatingColors.swift in Sources */,
 				1338777B1D62529D00FAF762 /* InsighterKit.swift in Sources */,
@@ -677,6 +719,7 @@
 				13A5B9A51D59FBE6008EBDF3 /* OnboardingLoginVC.swift in Sources */,
 				13517B501D5D06B9002B74AD /* FIRUploadable.swift in Sources */,
 				138C725C1D58B3290049561A /* LocalConstant.swift in Sources */,
+				13D489C21D75D876003D39C5 /* JDOnboardingCoordinator.swift in Sources */,
 				13BF4DEA1D71E9F500035D84 /* JDLabel.swift in Sources */,
 				13517B4C1D5CD97E002B74AD /* FIRLoginable.swift in Sources */,
 				137EB8931D61D77E00ACC8F9 /* RatingSlider.swift in Sources */,
@@ -692,6 +735,7 @@
 				13A5B99F1D59F250008EBDF3 /* Style.swift in Sources */,
 				138C72581D58B2360049561A /* DataService.swift in Sources */,
 				1340AC7E1D5A0EB0008499CE /* RemoteStringKey.swift in Sources */,
+				13D489B51D75C784003D39C5 /* Coordinator.swift in Sources */,
 				13ED7E921D5DD32E0017CF8A /* Company.swift in Sources */,
 				13ED7E941D5E17D10017CF8A /* RemoteIntKey.swift in Sources */,
 				137EB89B1D620D7500ACC8F9 /* Flashable.swift in Sources */,
@@ -741,14 +785,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		13A03D811CF1109E00920838 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				13A03D821CF1109E00920838 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		13A03D891CF1109E00920838 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

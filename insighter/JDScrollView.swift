@@ -51,6 +51,8 @@ class JDInputScrollView: UIScrollView {
         showsVerticalScrollIndicator = false
         showsHorizontalScrollIndicator = false
         
+        viewController.automaticallyAdjustsScrollViewInsets = false
+        
         keyboardDismissMode = .Interactive
     }
     
@@ -60,6 +62,7 @@ class JDInputScrollView: UIScrollView {
     }
 
 }
+
 
 class JDPagingScrollView: UIScrollView {
     

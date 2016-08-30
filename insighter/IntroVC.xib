@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="IntroVC" customModule="insighter" customModuleProvider="target">
+            <connections>
+                <outlet property="loadingSpinnerView" destination="wEI-Ta-wFg" id="s1G-8o-kia"/>
+                <outlet property="logoVerticalCenterConstraint" destination="xSd-gu-5Vn" id="CWG-Mj-6vx"/>
+                <outlet property="view" destination="VBi-V6-WAU" id="snZ-0s-CV5"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="VBi-V6-WAU">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wEI-Ta-wFg" customClass="LoadingView" customModule="insighter" customModuleProvider="target">
+                    <rect key="frame" x="285" y="325" width="30" height="30"/>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="Sqi-MX-Z4P"/>
+                        <constraint firstAttribute="width" constant="30" id="zEB-GZ-fMX"/>
+                    </constraints>
+                </view>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-insighter-intro" translatesAutoresizingMaskIntoConstraints="NO" id="WlK-xi-c3u">
+                    <rect key="frame" x="58" y="255" width="484" height="90"/>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="wEI-Ta-wFg" firstAttribute="centerX" secondItem="VBi-V6-WAU" secondAttribute="centerX" id="9f6-kU-GPv"/>
+                <constraint firstAttribute="trailing" secondItem="WlK-xi-c3u" secondAttribute="trailing" constant="58" id="B15-Sw-n8L"/>
+                <constraint firstItem="WlK-xi-c3u" firstAttribute="leading" secondItem="VBi-V6-WAU" secondAttribute="leading" constant="58" id="QUE-PE-FMH"/>
+                <constraint firstItem="wEI-Ta-wFg" firstAttribute="centerY" secondItem="VBi-V6-WAU" secondAttribute="centerY" constant="40" id="bUu-hk-zJK"/>
+                <constraint firstItem="WlK-xi-c3u" firstAttribute="centerY" secondItem="VBi-V6-WAU" secondAttribute="centerY" id="xSd-gu-5Vn"/>
+            </constraints>
+        </view>
+    </objects>
+    <resources>
+        <image name="logo-insighter-intro" width="258" height="90"/>
+    </resources>
+</document>

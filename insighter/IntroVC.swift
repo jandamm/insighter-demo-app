@@ -7,7 +7,6 @@
 //
 
 import UIKit
-
 import Firebase
 
 class IntroVC: UIViewController {
@@ -16,37 +15,23 @@ class IntroVC: UIViewController {
     
     @IBOutlet weak var logoVerticalCenterConstraint: NSLayoutConstraint!
     @IBOutlet weak var loadingSpinnerView: LoadingView!
-
-    
-    // MARK: - Private Variables
-    
-    private var _userLoggedIn: Bool?
-    private var _checkedConstants = false
-    private var _checkedRemoteConfig = false
     
     
     // MARK: - Startup
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        loadingSpinnerView.hidden = true
-        
-        getConstants()
-        getRemoteConfig()
-        getUser()
-    }
-    
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
-        introAnimationLogo()
+        introAnimationLogoStart()
     }
 
     
     // MARK: - Animation
     
-    private func introAnimationLogo() {
+    private func introAnimationLogoStart() {
+        
+        loadingSpinnerView.hidden = true
+        
         logoVerticalCenterConstraint.constant = -45
         
         loadingSpinnerView.animationStart()
@@ -57,48 +42,8 @@ class IntroVC: UIViewController {
         })
     }
     
-    // MARK: - Navigation
-    
-    private func transitionToNextView() {
-        guard let loggedIn = _userLoggedIn where _checkedConstants && _checkedRemoteConfig else {
-            return
-        }
-        
+    func introAnimationLogoEnd() {
         loadingSpinnerView.animationStop()
-        
-        let segue: Segue = loggedIn ? .IntroToEvaluation : .IntroToOnboarding
-        
-        performSegueWithIdentifier(segue.rawValue, sender: nil)
-    }
-    
-    
-    // MARK: - Initialization
-    
-    private func getConstants() {
-        ConstantService.sharedInstance.initiateConstants() { successful in
-            self._checkedConstants = true
-            NSLog("Got Constants successful: \(successful)")
-            self.transitionToNextView()
-        }
-    }
-    
-    private func getRemoteConfig() {
-        RemoteConfig.sharedInstance.getRemoteConfigValues { successful in
-            self._checkedRemoteConfig = true
-            NSLog("Got Remote Config successful: \(successful)")
-            self.transitionToNextView()
-        }
-    }
-    
-    private func getUser() {
-        UserLoginService.sharedInstance.checkUserIsLoggedInAndGetData { loggedIn in
-            self._userLoggedIn = loggedIn
-            
-            if loggedIn {
-                NSLog("User is Logged in: \(loggedIn)")
-                self.transitionToNextView()
-            }
-        }
     }
 }
 

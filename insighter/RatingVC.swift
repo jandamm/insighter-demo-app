@@ -19,14 +19,6 @@ class RatingVC: UIViewController, RatingSliderDelegate {
 
     
     // MARK: - Startup
-
-    init() {
-        super.init(nibName: "RatingVC", bundle: nil)
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

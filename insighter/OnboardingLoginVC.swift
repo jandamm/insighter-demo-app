@@ -10,6 +10,9 @@ import UIKit
 
 class OnboardingLoginVC: UIViewController, FIRLoginable {
     
+    weak var delegate: OnboardingDelegate?
+    
+    
     // MARK: - State
     
     private enum State {
@@ -225,7 +228,7 @@ class OnboardingLoginVC: UIViewController, FIRLoginable {
     // MARK: - Private Methods
     
     private func transitionToNextView() {
-        performSegueWithIdentifier(Segue.OnboardingLoginToEvaluation.rawValue, sender: nil)
+        print("OnboardingLoginToEvaluation")
     }
     
     private func resetSubLbls() {

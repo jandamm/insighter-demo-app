@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="OnboardingNotificationVC" customModule="insighter" customModuleProvider="target">
+            <connections>
+                <outlet property="view" destination="u5f-vd-Xqj" id="wrH-2y-hAy"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="u5f-vd-Xqj">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="FUy-Zy-cix">
+                    <rect key="frame" x="32" y="60" width="536" height="520"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fWn-DS-oky" customClass="JDLabel" customModule="insighter" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="536" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="fontStyle" value="Heading"/>
+                                <userDefinedRuntimeAttribute type="string" keyPath="remoteConfigKey" value="Onb_Notif_Erklaerung_Lbl"/>
+                            </userDefinedRuntimeAttributes>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dfX-kN-y2c" customClass="JDLabel" customModule="insighter" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="245" width="536" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="remoteConfigKey" value="Onb_Notif_Systemmeldung_Lbl"/>
+                            </userDefinedRuntimeAttributes>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tt5-Cx-35m" customClass="JDButton" customModule="insighter" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="490" width="536" height="30"/>
+                            <state key="normal" title="Button"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="remoteConfigKey" value="Onb_Notif_Btn"/>
+                                <userDefinedRuntimeAttribute type="string" keyPath="fontStyle" value="ButtonPrimary"/>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="nextPressed:" destination="-1" eventType="touchUpInside" id="h74-Kb-vPU"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                </stackView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="FUy-Zy-cix" secondAttribute="trailing" constant="32" id="Wgg-X0-0cJ"/>
+                <constraint firstAttribute="bottom" secondItem="FUy-Zy-cix" secondAttribute="bottom" constant="20" id="cew-o3-cpd"/>
+                <constraint firstItem="FUy-Zy-cix" firstAttribute="top" secondItem="u5f-vd-Xqj" secondAttribute="top" constant="60" id="lJ9-0N-Us0"/>
+                <constraint firstItem="FUy-Zy-cix" firstAttribute="leading" secondItem="u5f-vd-Xqj" secondAttribute="leading" constant="32" id="yub-ZN-tLV"/>
+            </constraints>
+        </view>
+    </objects>
+</document>

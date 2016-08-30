@@ -37,7 +37,7 @@ class EvaluationVC: UIViewController {
     @IBAction func logout(sender: UIButton) {
         UserLoginService.sharedInstance.signOutUser() { loggedOut in
             if loggedOut {
-                self.performSegueWithIdentifier(Segue.EvaluationToOnboarding.rawValue, sender: self)
+                print("EvaluationToOnboarding")
             }
         }
     }

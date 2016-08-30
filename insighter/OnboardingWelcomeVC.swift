@@ -10,27 +10,12 @@ import UIKit
 
 class OnboardingWelcomeVC: UIViewController {
     
+    weak var delegate: OnboardingDelegate?
+    
+    
     // MARK: - Actions
     
     @IBAction func nextPressed(sender: UIButton) {
-        let showNotification = NotificationService.sharedInstance.hasNoAllowance()
-        
-        if showNotification {
-            transitionToNotification()
-        } else {
-            transitionToLogin()
-        }
+        delegate?.welcomeBtnPressed()
     }
-    
-    
-    // MARK: - Private Methods
-    
-    private func transitionToLogin() {
-        performSegueWithIdentifier(Segue.OnboardingWelcomeToLogin.rawValue, sender: nil)
-    }
-    
-    private func transitionToNotification() {
-        performSegueWithIdentifier(Segue.OnboardingWelcomeToNotification.rawValue, sender: nil)
-    }
-    
 }
