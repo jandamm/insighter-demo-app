@@ -8,7 +8,9 @@
 
 import UIKit
 
-class JDAppCoordinator: NSObject, Coordinator, JDOnboardingCoordinatorDelegate, JDLoginCoordinatorDelegate {
+typealias JDAppCoordinatorDelegate = protocol<JDOnboardingCoordinatorDelegate, JDLoginCoordinatorDelegate, JDEvaluationDelegate>
+
+class JDAppCoordinator: NSObject, Coordinator, JDAppCoordinatorDelegate {
 
     private var _userLoggedIn = false
     
@@ -36,13 +38,7 @@ class JDAppCoordinator: NSObject, Coordinator, JDOnboardingCoordinatorDelegate, 
         
         removeSubCoordinator(finishedCoordinator)
         
-        let coordinator = JDLoginCoordinator(withNavigationController: navigationController)
-        
-        coordinator.delegate = self
-        
-        childCoordinator.append(coordinator)
-        
-        coordinator.start()
+        showLogin()
     }
     
     func loginEnded<C where C: NSObject, C: Coordinator>(finishedCoordinator: C) {
@@ -58,17 +54,12 @@ class JDAppCoordinator: NSObject, Coordinator, JDOnboardingCoordinatorDelegate, 
         
         
         if !_userLoggedIn {
-            let onboardingCoordinator = JDOnboardingCoordinator(withNavigationController: navigationController)
-            
-            childCoordinator.append(onboardingCoordinator)
-            
-            onboardingCoordinator.delegate = self
-            
-            onboardingCoordinator.start()
+            showOnboarding()
         } else {
+            // TODO: - Question or main
             print("question or main")
             
-            UserLoginService.sharedInstance.signOutUser()
+            showEvaluation()
         }
     }
     
@@ -107,6 +98,9 @@ class JDAppCoordinator: NSObject, Coordinator, JDOnboardingCoordinatorDelegate, 
         }
     }
     
+    
+    // MARK: - Show Methods
+    
     private func showIntro(animate: Bool) {
         let vc = IntroVC()
         
@@ -115,4 +109,38 @@ class JDAppCoordinator: NSObject, Coordinator, JDOnboardingCoordinatorDelegate, 
         navigationController.pushViewController(vc, animated: true)
     }
     
+    private func showOnboarding() {
+        let onboardingCoordinator = JDOnboardingCoordinator(withNavigationController: navigationController)
+        
+        onboardingCoordinator.delegate = self
+        
+        childCoordinator.append(onboardingCoordinator)
+        
+        onboardingCoordinator.start()
+    }
+    
+    private func showLogin() {
+        let coordinator = JDLoginCoordinator(withNavigationController: navigationController)
+        
+        coordinator.delegate = self
+        
+        childCoordinator.append(coordinator)
+        
+        coordinator.start()
+    }
+    
+    private func showQuestion() {
+        // TODO: - Implement show question
+        print("show question")
+    }
+    
+    private func showEvaluation() {
+        let coordinator = JDEvaluationCoordinator(withNavigationController: navigationController)
+        
+        coordinator.delegate = self
+        
+        childCoordinator.append(coordinator)
+        
+        coordinator.start()
+    }
 }

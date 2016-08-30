@@ -49,6 +49,8 @@
 		13A5B9A91D5A01D5008EBDF3 /* OnboardingNotificationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A5B9A81D5A01D5008EBDF3 /* OnboardingNotificationVC.swift */; };
 		13A5B9AB1D5A0275008EBDF3 /* EvaluationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A5B9AA1D5A0275008EBDF3 /* EvaluationVC.swift */; };
 		13B761EE1D75F6ED00E80677 /* JDLoginCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B761ED1D75F6ED00E80677 /* JDLoginCoordinator.swift */; };
+		13B761F01D762CD200E80677 /* JDEvaluationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B761EF1D762CD200E80677 /* JDEvaluationCoordinator.swift */; };
+		13B761F21D762EBE00E80677 /* JDQuestionCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B761F11D762EBE00E80677 /* JDQuestionCoordinator.swift */; };
 		13BF4DE41D71E9F500035D84 /* JDPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BF4DDD1D71E9F500035D84 /* JDPopup.swift */; };
 		13BF4DE51D71E9F500035D84 /* JDScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BF4DDE1D71E9F500035D84 /* JDScrollView.swift */; };
 		13BF4DE61D71E9F500035D84 /* JDTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BF4DDF1D71E9F500035D84 /* JDTextField.swift */; };
@@ -146,6 +148,8 @@
 		13A5B9A81D5A01D5008EBDF3 /* OnboardingNotificationVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingNotificationVC.swift; sourceTree = "<group>"; };
 		13A5B9AA1D5A0275008EBDF3 /* EvaluationVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EvaluationVC.swift; sourceTree = "<group>"; };
 		13B761ED1D75F6ED00E80677 /* JDLoginCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JDLoginCoordinator.swift; sourceTree = "<group>"; };
+		13B761EF1D762CD200E80677 /* JDEvaluationCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JDEvaluationCoordinator.swift; sourceTree = "<group>"; };
+		13B761F11D762EBE00E80677 /* JDQuestionCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JDQuestionCoordinator.swift; sourceTree = "<group>"; };
 		13BF4DDD1D71E9F500035D84 /* JDPopup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JDPopup.swift; sourceTree = "<group>"; };
 		13BF4DDE1D71E9F500035D84 /* JDScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JDScrollView.swift; sourceTree = "<group>"; };
 		13BF4DDF1D71E9F500035D84 /* JDTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JDTextField.swift; sourceTree = "<group>"; };
@@ -366,6 +370,8 @@
 				13D489B21D75C642003D39C5 /* JDAppCoordinator.swift */,
 				13D489C11D75D876003D39C5 /* JDOnboardingCoordinator.swift */,
 				13B761ED1D75F6ED00E80677 /* JDLoginCoordinator.swift */,
+				13B761F11D762EBE00E80677 /* JDQuestionCoordinator.swift */,
+				13B761EF1D762CD200E80677 /* JDEvaluationCoordinator.swift */,
 			);
 			name = Coordinator;
 			sourceTree = "<group>";
@@ -731,6 +737,7 @@
 				1340AC801D5A19E1008499CE /* TextRemoteConfigable.swift in Sources */,
 				13A5B9A91D5A01D5008EBDF3 /* OnboardingNotificationVC.swift in Sources */,
 				13BF4DE51D71E9F500035D84 /* JDScrollView.swift in Sources */,
+				13B761F01D762CD200E80677 /* JDEvaluationCoordinator.swift in Sources */,
 				131C8D061D59E1D200A2EE8C /* UserData.swift in Sources */,
 				13A5B99B1D59E4F1008EBDF3 /* UserLoginService.swift in Sources */,
 				13ED7E9D1D6098740017CF8A /* EvaluationCompanyVC.swift in Sources */,
@@ -745,6 +752,7 @@
 				1329B0451D5B4901004AE52B /* RatingQuestion.swift in Sources */,
 				13B761EE1D75F6ED00E80677 /* JDLoginCoordinator.swift in Sources */,
 				13BF4DE91D71E9F500035D84 /* JDDropdown.swift in Sources */,
+				13B761F21D762EBE00E80677 /* JDQuestionCoordinator.swift in Sources */,
 				13BF4DE81D71E9F500035D84 /* JDButton.swift in Sources */,
 				137EB8951D61E67900ACC8F9 /* Rating.swift in Sources */,
 				13ED7EA41D6098BE0017CF8A /* QuestionVC.swift in Sources */,

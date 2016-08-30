@@ -10,6 +10,8 @@ import UIKit
 
 class QuestionVC: UIViewController, Flashable {
     
+    weak var delegate: QuestionDelegate?
+    
     private var questions = [RatingQuestion]()
     
     private var questionsActiveIndex = 0 {

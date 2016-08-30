@@ -8,9 +8,10 @@
 
 import UIKit
 import Firebase
-import JDSegues
 
 class EvaluationVC: UIViewController {
+    
+    weak var delegate: EvaluationDelegate?
     
     @IBOutlet weak var scrollView: UIScrollView!
     
@@ -69,9 +70,11 @@ class EvaluationVC: UIViewController {
             return NSLog("No questions available")
         }
         
-        let vc = QuestionVC(withQuestions: questions)
-        let segue = JDSegueSlideFromBottom(identifier: nil, source: self, destination: vc)
+        print("ask questions")
         
-        segue.perform()
+//        let vc = QuestionVC(withQuestions: questions)
+//        let segue = JDSegueSlideFromBottom(identifier: nil, source: self, destination: vc)
+//        
+//        segue.perform()
     }
 }

@@ -68,6 +68,9 @@ class JDOnboardingCoordinator: NSObject, FIRLoginable, Coordinator, OnboardingDe
         delegate?.onboardingEnded(self)
     }
     
+    
+    // MARK: - Show Methods
+    
     private func showOnboardingWelcome() {
         let vc = OnboardingWelcomeVC()
         
