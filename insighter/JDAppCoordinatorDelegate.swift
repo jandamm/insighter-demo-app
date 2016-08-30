@@ -1,5 +1,5 @@
 //
-//  CoordinatorDelegates.swift
+//  JDAppCoordinatorDelegate.swift
 //  insighter
 //
 //  Created by Jan Dammshäuser on 30.08.16.

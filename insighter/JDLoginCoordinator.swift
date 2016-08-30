@@ -9,7 +9,7 @@
 import UIKit
 
 protocol LoginDelegate: Coordinator {
-    func loginManager(email email: String?, password: String?, question: String?, answer: String?, errorHandler: CompletionHandlerFirebaseLoginError)
+    func login(withEmail email: String?, password: String?, question: String?, answer: String?, errorHandler: CompletionHandlerFirebaseLoginError)
 }
 
 class JDLoginCoordinator: NSObject, FIRLoginable, Coordinator, LoginDelegate {
@@ -48,7 +48,7 @@ class JDLoginCoordinator: NSObject, FIRLoginable, Coordinator, LoginDelegate {
     
     // MARK: - Delegates
     
-    func loginManager(email email: String?, password: String?, question: String?, answer: String?, errorHandler: CompletionHandlerFirebaseLoginError) {
+    func login(withEmail email: String?, password: String?, question: String?, answer: String?, errorHandler: CompletionHandlerFirebaseLoginError) {
         guard let loginVC = loginVC else {
             errorHandler?(nil)
             return

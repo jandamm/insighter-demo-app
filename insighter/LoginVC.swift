@@ -84,7 +84,7 @@ class LoginVC: UIViewController {
     @IBAction func loginPressed(sender: UIButton) {
         resetSubLbls()
         
-        delegate?.loginManager(email: emailTxt.text, password: passwordTxt.text, question: securityQuestionDropdown.selection, answer: securityAnswerTxt.text, errorHandler: errorHandling)
+        delegate?.login(withEmail: emailTxt.text, password: passwordTxt.text, question: securityQuestionDropdown.selection, answer: securityAnswerTxt.text, errorHandler: errorHandling)
     }
     
     
