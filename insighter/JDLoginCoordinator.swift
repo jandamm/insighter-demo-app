@@ -12,10 +12,6 @@ protocol LoginDelegate: Coordinator {
     func loginManager(email email: String?, password: String?, question: String?, answer: String?, errorHandler: CompletionHandlerFirebaseLoginError)
 }
 
-protocol JDLoginCoordinatorDelegate: Coordinator {
-    func loginEnded<C where C: NSObject, C: Coordinator>(finishedCoordinator: C)
-}
-
 class JDLoginCoordinator: NSObject, FIRLoginable, Coordinator, LoginDelegate {
     
     weak var delegate: JDLoginCoordinatorDelegate?

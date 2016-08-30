@@ -13,10 +13,6 @@ protocol OnboardingDelegate: Coordinator {
     func notifBtnPressed()
 }
 
-protocol JDOnboardingCoordinatorDelegate: Coordinator {
-    func onboardingEnded<C where C: NSObject, C: Coordinator>(finishedCoordinator: C)
-}
-
 class JDOnboardingCoordinator: NSObject, FIRLoginable, Coordinator, OnboardingDelegate {
     
     weak var delegate: JDOnboardingCoordinatorDelegate?

@@ -12,13 +12,9 @@ protocol EvaluationDelegate: Coordinator {
     
 }
 
-protocol JDEvaluationDelegate: Coordinator {
-    
-}
-
 class JDEvaluationCoordinator: NSObject, Coordinator, EvaluationDelegate {
     
-    weak var delegate: JDEvaluationDelegate?
+    weak var delegate: JDEvaluationCoordinatorDelegate?
     
     
     // MARK: - Coordinator

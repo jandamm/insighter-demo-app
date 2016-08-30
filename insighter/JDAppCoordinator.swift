@@ -8,8 +8,6 @@
 
 import UIKit
 
-typealias JDAppCoordinatorDelegate = protocol<JDOnboardingCoordinatorDelegate, JDLoginCoordinatorDelegate, JDEvaluationDelegate>
-
 class JDAppCoordinator: NSObject, Coordinator, JDAppCoordinatorDelegate {
 
     private var _userLoggedIn = false

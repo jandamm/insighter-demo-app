@@ -12,13 +12,9 @@ protocol QuestionDelegate: Coordinator {
     
 }
 
-protocol JDQuestionDelegate: Coordinator {
-    
-}
-
 class JDQuestionCoordinator: NSObject, Coordinator, QuestionDelegate {
     
-    weak var delegate: JDQuestionDelegate?
+    weak var delegate: JDQuestionCoordinatorDelegate?
     
     
     // MARK: - Coordinator

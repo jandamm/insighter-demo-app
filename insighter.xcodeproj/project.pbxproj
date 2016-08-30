@@ -51,6 +51,7 @@
 		13B761EE1D75F6ED00E80677 /* JDLoginCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B761ED1D75F6ED00E80677 /* JDLoginCoordinator.swift */; };
 		13B761F01D762CD200E80677 /* JDEvaluationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B761EF1D762CD200E80677 /* JDEvaluationCoordinator.swift */; };
 		13B761F21D762EBE00E80677 /* JDQuestionCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B761F11D762EBE00E80677 /* JDQuestionCoordinator.swift */; };
+		13B761F41D76331000E80677 /* CoordinatorDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B761F31D76331000E80677 /* CoordinatorDelegates.swift */; };
 		13BF4DE41D71E9F500035D84 /* JDPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BF4DDD1D71E9F500035D84 /* JDPopup.swift */; };
 		13BF4DE51D71E9F500035D84 /* JDScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BF4DDE1D71E9F500035D84 /* JDScrollView.swift */; };
 		13BF4DE61D71E9F500035D84 /* JDTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BF4DDF1D71E9F500035D84 /* JDTextField.swift */; };
@@ -150,6 +151,7 @@
 		13B761ED1D75F6ED00E80677 /* JDLoginCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JDLoginCoordinator.swift; sourceTree = "<group>"; };
 		13B761EF1D762CD200E80677 /* JDEvaluationCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JDEvaluationCoordinator.swift; sourceTree = "<group>"; };
 		13B761F11D762EBE00E80677 /* JDQuestionCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JDQuestionCoordinator.swift; sourceTree = "<group>"; };
+		13B761F31D76331000E80677 /* CoordinatorDelegates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoordinatorDelegates.swift; sourceTree = "<group>"; };
 		13BF4DDD1D71E9F500035D84 /* JDPopup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JDPopup.swift; sourceTree = "<group>"; };
 		13BF4DDE1D71E9F500035D84 /* JDScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JDScrollView.swift; sourceTree = "<group>"; };
 		13BF4DDF1D71E9F500035D84 /* JDTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JDTextField.swift; sourceTree = "<group>"; };
@@ -367,6 +369,7 @@
 			isa = PBXGroup;
 			children = (
 				13D489B41D75C784003D39C5 /* Coordinator.swift */,
+				13B761F31D76331000E80677 /* CoordinatorDelegates.swift */,
 				13D489B21D75C642003D39C5 /* JDAppCoordinator.swift */,
 				13D489C11D75D876003D39C5 /* JDOnboardingCoordinator.swift */,
 				13B761ED1D75F6ED00E80677 /* JDLoginCoordinator.swift */,
@@ -730,6 +733,7 @@
 				138C725C1D58B3290049561A /* LocalConstant.swift in Sources */,
 				13D489C21D75D876003D39C5 /* JDOnboardingCoordinator.swift in Sources */,
 				13BF4DEA1D71E9F500035D84 /* JDLabel.swift in Sources */,
+				13B761F41D76331000E80677 /* CoordinatorDelegates.swift in Sources */,
 				13517B4C1D5CD97E002B74AD /* FIRLoginable.swift in Sources */,
 				137EB8931D61D77E00ACC8F9 /* RatingSlider.swift in Sources */,
 				138C725E1D58B3680049561A /* DBValueKeys.swift in Sources */,
