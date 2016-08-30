@@ -374,7 +374,7 @@
             </objects>
             <point key="canvasLocation" x="2316" y="165"/>
         </scene>
-        <!--View Controller-->
+        <!--Onboarding NotificationVC-->
         <scene sceneID="ttV-kP-fII">
             <objects>
                 <viewController id="Fd4-Yp-Y0y" customClass="OnboardingNotificationVC" customModule="insighter" customModuleProvider="target" sceneMemberID="viewController">
@@ -386,76 +386,48 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Spl-8y-fIM" customClass="JDScrollView" customModule="insighter" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="tzm-ee-WiB">
+                                <rect key="frame" x="32" y="60" width="536" height="520"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wc7-Bv-1PF">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                                        <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="tzm-ee-WiB">
-                                                <rect key="frame" x="32" y="60" width="536" height="520"/>
-                                                <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wj4-l8-hZR" customClass="JDLabel" customModule="insighter" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="536" height="21"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <nil key="highlightedColor"/>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="string" keyPath="fontStyle" value="Heading"/>
-                                                            <userDefinedRuntimeAttribute type="string" keyPath="remoteConfigKey" value="Onb_Notif_Erklaerung_Lbl"/>
-                                                        </userDefinedRuntimeAttributes>
-                                                    </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sQV-Fg-z27" customClass="JDLabel" customModule="insighter" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="245" width="536" height="21"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <nil key="highlightedColor"/>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="string" keyPath="remoteConfigKey" value="Onb_Notif_Systemmeldung_Lbl"/>
-                                                        </userDefinedRuntimeAttributes>
-                                                    </label>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FbI-Ug-Feq" customClass="JDButton" customModule="insighter" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="490" width="536" height="30"/>
-                                                        <state key="normal" title="Button"/>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="string" keyPath="remoteConfigKey" value="Onb_Notif_Btn"/>
-                                                            <userDefinedRuntimeAttribute type="string" keyPath="fontStyle" value="ButtonPrimary"/>
-                                                        </userDefinedRuntimeAttributes>
-                                                        <connections>
-                                                            <action selector="nextPressed:" destination="Fd4-Yp-Y0y" eventType="touchUpInside" id="duq-Vp-wvG"/>
-                                                        </connections>
-                                                    </button>
-                                                </subviews>
-                                            </stackView>
-                                        </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <constraints>
-                                            <constraint firstItem="tzm-ee-WiB" firstAttribute="top" secondItem="wc7-Bv-1PF" secondAttribute="top" constant="60" id="5Zt-zb-FfI"/>
-                                            <constraint firstItem="tzm-ee-WiB" firstAttribute="leading" secondItem="wc7-Bv-1PF" secondAttribute="leading" constant="32" id="RkX-nV-HZk"/>
-                                            <constraint firstAttribute="bottom" secondItem="tzm-ee-WiB" secondAttribute="bottom" constant="20" id="RpJ-XH-Ull"/>
-                                            <constraint firstAttribute="trailing" secondItem="tzm-ee-WiB" secondAttribute="trailing" constant="32" id="r4L-w7-qsj"/>
-                                        </constraints>
-                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wj4-l8-hZR" customClass="JDLabel" customModule="insighter" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="536" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="fontStyle" value="Heading"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="remoteConfigKey" value="Onb_Notif_Erklaerung_Lbl"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sQV-Fg-z27" customClass="JDLabel" customModule="insighter" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="245" width="536" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="remoteConfigKey" value="Onb_Notif_Systemmeldung_Lbl"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FbI-Ug-Feq" customClass="JDButton" customModule="insighter" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="490" width="536" height="30"/>
+                                        <state key="normal" title="Button"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="remoteConfigKey" value="Onb_Notif_Btn"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="fontStyle" value="ButtonPrimary"/>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="nextPressed:" destination="Fd4-Yp-Y0y" eventType="touchUpInside" id="duq-Vp-wvG"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstItem="wc7-Bv-1PF" firstAttribute="leading" secondItem="Spl-8y-fIM" secondAttribute="leading" id="D4O-SH-uzT"/>
-                                    <constraint firstItem="wc7-Bv-1PF" firstAttribute="top" secondItem="Spl-8y-fIM" secondAttribute="top" id="G1H-n2-ESj"/>
-                                    <constraint firstAttribute="bottom" secondItem="wc7-Bv-1PF" secondAttribute="bottom" id="NCG-C7-tEB"/>
-                                    <constraint firstAttribute="trailing" secondItem="wc7-Bv-1PF" secondAttribute="trailing" id="ibl-5M-vox"/>
-                                </constraints>
-                                <connections>
-                                    <outlet property="viewController" destination="Fd4-Yp-Y0y" id="WMv-Kh-lMH"/>
-                                </connections>
-                            </scrollView>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Spl-8y-fIM" firstAttribute="leading" secondItem="ePy-VZ-UO9" secondAttribute="leading" id="8iw-hs-lWI"/>
-                            <constraint firstItem="wc7-Bv-1PF" firstAttribute="height" secondItem="ePy-VZ-UO9" secondAttribute="height" id="LQa-fC-7bI"/>
-                            <constraint firstItem="Spl-8y-fIM" firstAttribute="top" secondItem="ePy-VZ-UO9" secondAttribute="top" id="Zli-z4-Obn"/>
-                            <constraint firstItem="wc7-Bv-1PF" firstAttribute="width" secondItem="ePy-VZ-UO9" secondAttribute="width" id="qpU-pa-8CM"/>
-                            <constraint firstItem="hWS-le-lgp" firstAttribute="top" secondItem="Spl-8y-fIM" secondAttribute="bottom" id="uPR-VP-Nh5"/>
-                            <constraint firstAttribute="trailing" secondItem="Spl-8y-fIM" secondAttribute="trailing" id="uZH-ZX-P9z"/>
+                            <constraint firstItem="tzm-ee-WiB" firstAttribute="leading" secondItem="ePy-VZ-UO9" secondAttribute="leading" constant="32" id="24U-KR-jhm"/>
+                            <constraint firstAttribute="trailing" secondItem="tzm-ee-WiB" secondAttribute="trailing" constant="32" id="8hN-US-9aC"/>
+                            <constraint firstItem="tzm-ee-WiB" firstAttribute="top" secondItem="ePy-VZ-UO9" secondAttribute="top" constant="60" id="ZuC-kf-XXp"/>
+                            <constraint firstItem="hWS-le-lgp" firstAttribute="top" secondItem="tzm-ee-WiB" secondAttribute="bottom" constant="20" id="mOu-KC-A2k"/>
                         </constraints>
                     </view>
                     <connections>
@@ -514,8 +486,8 @@
         <image name="logo-insighter-intro" width="258" height="90"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="LVE-tI-LJY"/>
         <segue reference="awT-eg-dkg"/>
-        <segue reference="JCB-AV-3TU"/>
-        <segue reference="gYh-Mw-cGk"/>
+        <segue reference="gBh-J9-cew"/>
     </inferredMetricsTieBreakers>
 </document>
