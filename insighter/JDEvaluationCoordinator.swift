@@ -9,7 +9,7 @@
 import UIKit
 
 protocol EvaluationDelegate: JDCoordinatorDelegate {
-    var navigationController: UINavigationController { get }
+    func logout()
 }
 
 class JDEvaluationCoordinator: JDCoordinator, EvaluationDelegate {
@@ -31,7 +31,14 @@ class JDEvaluationCoordinator: JDCoordinator, EvaluationDelegate {
         
         vc.delegate = self
     
-        
         setViewControllers([vc], animated: true)
+    }
+    
+    func logout() {
+        delegate?.loggedOut(self)
+    }
+    
+    deinit {
+        print("deinit eval coord")
     }
 }

@@ -13,10 +13,10 @@ class EvaluationVC: UIViewController {
     
     weak var delegate: EvaluationDelegate?
     
-    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var scrollView: JDPagingScrollView!
     
-    private lazy var evalUserVC: EvaluationUserVC = EvaluationUserVC()
-    private lazy var evalCompVC: EvaluationCompanyVC = EvaluationCompanyVC()
+    private var evalUserVC: EvaluationUserVC!
+    private var evalCompVC: EvaluationCompanyVC!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,8 +27,8 @@ class EvaluationVC: UIViewController {
         let yourTimeInSeconds : Double = 1
         
         let dispatchTime: dispatch_time_t = dispatch_time(DISPATCH_TIME_NOW, Int64(yourTimeInSeconds * Double(NSEC_PER_SEC)))
-        dispatch_after(dispatchTime, dispatch_get_main_queue(), {
-            self.askQuestions()
+        dispatch_after(dispatchTime, dispatch_get_main_queue(), { [weak self] in
+            self?.askQuestions()
         })
     }
     
@@ -36,29 +36,25 @@ class EvaluationVC: UIViewController {
     // MARK: - Actions
     
     @IBAction func logout(sender: UIButton) {
-        UserLoginService.sharedInstance.signOutUser() { loggedOut in
-            if loggedOut {
-                print("EvaluationToOnboarding")
-            }
-        }
+        UserLoginService.sharedInstance.signOutUser(nil)
+        
+        self.delegate?.logout()
     }
     
     
     // MARK: - Private Methods
     
     private func setupScrollView() {
+        evalUserVC = EvaluationUserVC()
+        evalCompVC = EvaluationCompanyVC()
         
         addChildViewController(evalUserVC)
         scrollView.addSubview(evalUserVC.view)
         evalUserVC.didMoveToParentViewController(self)
-        evalUserVC.view.frame.origin.x = 0
         
         addChildViewController(evalCompVC)
         scrollView.addSubview(evalCompVC.view)
         evalCompVC.didMoveToParentViewController(self)
-        evalCompVC.view.frame.origin.x = view.frame.width
-        
-        scrollView.contentSize = CGSizeMake(view.frame.width * CGFloat(2), view.frame.height)
     }
     
     private func askQuestions() {

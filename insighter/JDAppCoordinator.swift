@@ -22,6 +22,12 @@ class JDAppCoordinator: JDParentCoordinator, JDAppCoordinatorDelegate {
     
     // MARK: - Delegates
     
+    func loggedOut(finishedCoordinator: JDCoordinator) {
+        removeChildCoordinator(finishedCoordinator)
+        
+        showLogin()
+    }
+    
     func onboardingEnded(finishedCoordinator: JDCoordinator) {
         removeChildCoordinator(finishedCoordinator)
         

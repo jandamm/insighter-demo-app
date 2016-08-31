@@ -24,5 +24,5 @@ protocol JDQuestionCoordinatorDelegate: JDCoordinatorDelegate {
 }
 
 protocol JDEvaluationCoordinatorDelegate: JDCoordinatorDelegate {
-    
+    func loggedOut(finishedCoordinator: JDCoordinator)
 }

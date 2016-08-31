@@ -112,6 +112,6 @@ class JDLoginCoordinator: JDCoordinator, FIRLoginable, LoginDelegate {
         
         loginVC = vc
         
-        pushViewController(vc, animated: true)
+        setViewControllers([vc], animated: true)
     }
 }

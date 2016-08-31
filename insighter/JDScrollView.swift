@@ -66,6 +66,11 @@ class JDInputScrollView: UIScrollView {
 
 class JDPagingScrollView: UIScrollView {
     
+    // MARK: - Outlets
+    
+    @IBOutlet weak var viewController: UIViewController!
+    
+    
     // MARK: - Startup
     
     override func awakeFromNib() {
@@ -74,12 +79,29 @@ class JDPagingScrollView: UIScrollView {
         setupScrollView()
     }
     
+    override func layoutSubviews() {
+        setView()
+    }
+    
+    
+    private func setView() {
+        let pages = subviews.count
+        
+        for (i, view) in subviews.enumerate() {
+            view.frame.origin.x = view.frame.width * CGFloat(i)
+        }
+        
+        contentSize = CGSizeMake(frame.width * CGFloat(pages), frame.height)
+    }
+    
     
     // MARK: - Private Methods
     
     private func setupScrollView() {
         showsVerticalScrollIndicator = false
         showsHorizontalScrollIndicator = false
+        
+        viewController.automaticallyAdjustsScrollViewInsets = false
         
         pagingEnabled = true
     }

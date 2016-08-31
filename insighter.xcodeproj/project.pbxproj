@@ -284,7 +284,6 @@
 				13A03DB01CF1165D00920838 /* Model */,
 				13A03DAF1CF1164500920838 /* View */,
 				13A03DAE1CF1163500920838 /* Controller */,
-				13233B661D76C403000D825B /* JDNavigationController.swift */,
 				13D489B11D75C629003D39C5 /* Coordinator */,
 				132A5EBB1D58A2BF00448DAC /* Services */,
 				132A5EB81D58A27700448DAC /* Misc */,
@@ -320,6 +319,7 @@
 				13ED7EA11D6098A40017CF8A /* Onboarding */,
 				137EB88F1D61BDF300ACC8F9 /* Question */,
 				13ED7EA01D60989D0017CF8A /* Evaluation */,
+				13233B661D76C403000D825B /* JDNavigationController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
