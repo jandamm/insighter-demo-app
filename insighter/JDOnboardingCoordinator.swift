@@ -8,31 +8,19 @@
 
 import UIKit
 
-protocol OnboardingDelegate: Coordinator {
+protocol OnboardingDelegate: JDCoordinatorDelegate {
     func welcomeBtnPressed()
     func notifBtnPressed()
 }
 
-class JDOnboardingCoordinator: NSObject, FIRLoginable, Coordinator, OnboardingDelegate {
+class JDOnboardingCoordinator: JDCoordinator, FIRLoginable, OnboardingDelegate {
     
     weak var delegate: JDOnboardingCoordinatorDelegate?
-    
-    var displayedController: UIViewController?
     
     
     // MARK: - Coordinator
     
-    let navigationController: UINavigationController
-    
-    var childCoordinator = [NSObject]()
-    
-    required init(withNavigationController navigationController: UINavigationController) {
-        self.navigationController = navigationController
-        
-        super.init()
-    }
-    
-    func start() {
+    override func start() {
         showOnboardingWelcome()
     }
     
@@ -59,8 +47,6 @@ class JDOnboardingCoordinator: NSObject, FIRLoginable, Coordinator, OnboardingDe
     // MARK: - Private Methods
     
     private func onboardingEnded() {
-        childCoordinator.removeAll()
-        
         delegate?.onboardingEnded(self)
     }
     
@@ -72,7 +58,7 @@ class JDOnboardingCoordinator: NSObject, FIRLoginable, Coordinator, OnboardingDe
         
         vc.delegate = self
         
-        navigationController.pushViewController(vc, animated: true)
+        pushViewController(vc, animated: true)
     }
     
     private func showOnboardingNotification() {
@@ -80,6 +66,6 @@ class JDOnboardingCoordinator: NSObject, FIRLoginable, Coordinator, OnboardingDe
         
         vc.delegate = self
         
-        navigationController.pushViewController(vc, animated: true)
+        pushViewController(vc, animated: true)
     }
 }

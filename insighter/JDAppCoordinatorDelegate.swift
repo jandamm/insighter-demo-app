@@ -11,18 +11,18 @@ import Foundation
 typealias JDAppCoordinatorDelegate = protocol<JDOnboardingCoordinatorDelegate, JDLoginCoordinatorDelegate, JDQuestionCoordinatorDelegate, JDEvaluationCoordinatorDelegate>
 
 
-protocol JDOnboardingCoordinatorDelegate: Coordinator {
-    func onboardingEnded<C where C: NSObject, C: Coordinator>(finishedCoordinator: C)
+protocol JDOnboardingCoordinatorDelegate: JDCoordinatorDelegate {
+    func onboardingEnded(finishedCoordinator: JDCoordinator)
 }
 
-protocol JDLoginCoordinatorDelegate: Coordinator {
-    func loginEnded<C where C: NSObject, C: Coordinator>(finishedCoordinator: C)
+protocol JDLoginCoordinatorDelegate: JDCoordinatorDelegate {
+    func loginEnded(finishedCoordinator: JDCoordinator)
 }
 
-protocol JDQuestionCoordinatorDelegate: Coordinator {
+protocol JDQuestionCoordinatorDelegate: JDCoordinatorDelegate {
     
 }
 
-protocol JDEvaluationCoordinatorDelegate: Coordinator {
+protocol JDEvaluationCoordinatorDelegate: JDCoordinatorDelegate {
     
 }

@@ -8,28 +8,18 @@
 
 import UIKit
 
-protocol EvaluationDelegate: Coordinator {
-    
+protocol EvaluationDelegate: JDCoordinatorDelegate {
+    var navigationController: UINavigationController { get }
 }
 
-class JDEvaluationCoordinator: NSObject, Coordinator, EvaluationDelegate {
+class JDEvaluationCoordinator: JDCoordinator, EvaluationDelegate {
     
     weak var delegate: JDEvaluationCoordinatorDelegate?
     
     
     // MARK: - Coordinator
     
-    let navigationController: UINavigationController
-    
-    var childCoordinator = [NSObject]()
-    
-    required init(withNavigationController navigationController: UINavigationController) {
-        self.navigationController = navigationController
-        
-        super.init()
-    }
-    
-    func start() {
+    override func start() {
         showEvaluationVC()
     }
     
@@ -40,7 +30,8 @@ class JDEvaluationCoordinator: NSObject, Coordinator, EvaluationDelegate {
         let vc = EvaluationVC()
         
         vc.delegate = self
+    
         
-        navigationController.pushViewController(vc, animated: true)
+        setViewControllers([vc], animated: true)
     }
 }

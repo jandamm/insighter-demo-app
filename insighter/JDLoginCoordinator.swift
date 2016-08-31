@@ -8,11 +8,11 @@
 
 import UIKit
 
-protocol LoginDelegate: Coordinator {
+protocol LoginDelegate: JDCoordinatorDelegate {
     func login(withEmail email: String?, password: String?, question: String?, answer: String?, errorHandler: CompletionHandlerFirebaseLoginError)
 }
 
-class JDLoginCoordinator: NSObject, FIRLoginable, Coordinator, LoginDelegate {
+class JDLoginCoordinator: JDCoordinator, FIRLoginable, LoginDelegate {
     
     weak var delegate: JDLoginCoordinatorDelegate?
     
@@ -25,24 +25,8 @@ class JDLoginCoordinator: NSObject, FIRLoginable, Coordinator, LoginDelegate {
     
     // MARK: - Coordinator
     
-    let navigationController: UINavigationController
-    
-    var childCoordinator = [NSObject]()
-    
-    required init(withNavigationController navigationController: UINavigationController) {
-        self.navigationController = navigationController
-        
-        super.init()
-    }
-    
-    func start() {
-        let vc = LoginVC()
-        
-        vc.delegate = self
-        
-        loginVC = vc
-        
-        navigationController.pushViewController(vc, animated: true)
+    override func start() {
+        showLogin()
     }
     
     
@@ -116,5 +100,18 @@ class JDLoginCoordinator: NSObject, FIRLoginable, Coordinator, LoginDelegate {
     private func finish() {
         loginVC = nil
         delegate?.loginEnded(self)
+    }
+    
+    
+    // MARK: - Show Methods
+    
+    private func showLogin() {
+        let vc = LoginVC()
+        
+        vc.delegate = self
+        
+        loginVC = vc
+        
+        pushViewController(vc, animated: true)
     }
 }

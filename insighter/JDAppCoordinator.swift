@@ -8,41 +8,32 @@
 
 import UIKit
 
-class JDAppCoordinator: NSObject, Coordinator, JDAppCoordinatorDelegate {
+class JDAppCoordinator: JDParentCoordinator, JDAppCoordinatorDelegate {
 
     private var _userLoggedIn = false
     
     
     // MARK: - Coordinator
     
-    let navigationController: UINavigationController
-    
-    var childCoordinator = [NSObject]()
-    
-    required init(withNavigationController navigationController: UINavigationController) {
-        self.navigationController = navigationController
-        
-        super.init()
-    }
-    
-    func start() {
+    override func start() {
         getInitialDataWithIntro(userDataOnly: false)
     }
     
     
     // MARK: - Delegates
     
-    func onboardingEnded<C where C: NSObject, C: Coordinator>(finishedCoordinator: C) {
-        
-        removeSubCoordinator(finishedCoordinator)
+    func onboardingEnded(finishedCoordinator: JDCoordinator) {
+        removeChildCoordinator(finishedCoordinator)
         
         showLogin()
     }
     
-    func loginEnded<C where C: NSObject, C: Coordinator>(finishedCoordinator: C) {
-        removeSubCoordinator(finishedCoordinator)
+    func loginEnded(finishedCoordinator: JDCoordinator) {
+        removeChildCoordinator(finishedCoordinator)
         
-        getInitialDataWithIntro(userDataOnly: true)
+        getInitialData(userDataOnly: true)
+        
+        popToRootViewControllerAnimated(true)
     }
     
     
@@ -62,7 +53,7 @@ class JDAppCoordinator: NSObject, Coordinator, JDAppCoordinatorDelegate {
     }
     
     private func getInitialDataWithIntro(userDataOnly userDataOnly: Bool) {
-        showIntro(!userDataOnly)
+        showIntro()
         
         getInitialData(userDataOnly: userDataOnly)
     }
@@ -99,12 +90,10 @@ class JDAppCoordinator: NSObject, Coordinator, JDAppCoordinatorDelegate {
     
     // MARK: - Show Methods
     
-    private func showIntro(animate: Bool) {
+    private func showIntro() {
         let vc = IntroVC()
         
-        vc.animate = animate
-        
-        navigationController.pushViewController(vc, animated: true)
+        pushViewController(vc, animated: true)
     }
     
     private func showOnboarding() {
@@ -112,7 +101,7 @@ class JDAppCoordinator: NSObject, Coordinator, JDAppCoordinatorDelegate {
         
         onboardingCoordinator.delegate = self
         
-        childCoordinator.append(onboardingCoordinator)
+        addChildCoordinator(onboardingCoordinator)
         
         onboardingCoordinator.start()
     }
@@ -122,7 +111,7 @@ class JDAppCoordinator: NSObject, Coordinator, JDAppCoordinatorDelegate {
         
         coordinator.delegate = self
         
-        childCoordinator.append(coordinator)
+        addChildCoordinator(coordinator)
         
         coordinator.start()
     }
@@ -137,7 +126,7 @@ class JDAppCoordinator: NSObject, Coordinator, JDAppCoordinatorDelegate {
         
         coordinator.delegate = self
         
-        childCoordinator.append(coordinator)
+        addChildCoordinator(coordinator)
         
         coordinator.start()
     }

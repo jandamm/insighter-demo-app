@@ -16,29 +16,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var rootViewController: UINavigationController!
     
-    var appCoordinator: Coordinator!
+    var appCoordinator: JDCoordinatorDelegate!
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         FIRApp.configure()
-        let frame = UIScreen.mainScreen().bounds
         
-        window = UIWindow(frame: frame)
+        let windowFrame = UIScreen.mainScreen().bounds
+        window = UIWindow(frame: windowFrame)
         
-        rootViewController = UINavigationController()
-        rootViewController.navigationBar.hidden = true
-        
-        if let window = self.window {
-            window.rootViewController = rootViewController
-        }
+        rootViewController = JDNavigationController()
         
         appCoordinator = JDAppCoordinator(withNavigationController: rootViewController)
         
-        appCoordinator.start()
+        if let window = self.window {
+            window.rootViewController = rootViewController
+            
+            appCoordinator.start()
+            
+            window.makeKeyAndVisible()
+            
+            return true
+        }
         
-        window?.makeKeyAndVisible()
-        
-        return true
+        return false
     }
     
     func applicationWillResignActive(application: UIApplication) {

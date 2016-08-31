@@ -11,8 +11,6 @@ import Firebase
 
 class IntroVC: UIViewController {
     
-    var animate = true
-    
     // MARK: - Outlets
     
     @IBOutlet weak var logoVerticalCenterConstraint: NSLayoutConstraint!
@@ -21,23 +19,12 @@ class IntroVC: UIViewController {
     
     // MARK: - Startup
     
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        if !animate {
-            setupScreen()
-            applyScreen()
-        }
-    }
-    
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
         spinnerStart()
         
-        if animate {
-            introAnimationStart()
-        }
+        introAnimationStart()
     }
 
     

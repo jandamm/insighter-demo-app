@@ -8,28 +8,18 @@
 
 import UIKit
 
-protocol QuestionDelegate: Coordinator {
+protocol QuestionDelegate: JDCoordinatorDelegate {
     
 }
 
-class JDQuestionCoordinator: NSObject, Coordinator, QuestionDelegate {
+class JDQuestionCoordinator: JDCoordinator, QuestionDelegate {
     
     weak var delegate: JDQuestionCoordinatorDelegate?
     
     
     // MARK: - Coordinator
     
-    let navigationController: UINavigationController
-    
-    var childCoordinator = [NSObject]()
-    
-    required init(withNavigationController navigationController: UINavigationController) {
-        self.navigationController = navigationController
-        
-        super.init()
-    }
-    
-    func start() {
+    override func start() {
         showQuestionVC()
     }
     
@@ -44,6 +34,6 @@ class JDQuestionCoordinator: NSObject, Coordinator, QuestionDelegate {
 //        
 //        vc.delegate = self
 //        
-//        navigationController.pushViewController(vc, animated: true)
+//        pushViewController(vc, animated: true)
     }
 }
