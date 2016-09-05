@@ -15,7 +15,7 @@ target 'insighter' do
   pod 'JGProgressHUD'
   pod 'NextResponderTextField'
   
-  pod 'JDSegues'
+  pod 'JDTransition'
 
   target 'insighterTests' do
     inherit! :search_paths

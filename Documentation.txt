@@ -1,0 +1,18 @@
+Fragen:
+
+[company]:
+	Wird ersetzt durch den aktuellen Firmenname.
+
+RemoteConfig:
+
+[first]; [second]; ...
+	Wenn in dem Textfeld etwas ersetzt wird, an der Stelle in richtiger Reihenfolge [first] etc einsetzen.
+	Theoretisch kann auch [first] und [second] getauscht werden, sollte dauerhaft jedoch programmatisch geändert werden, da es sonst zu Verwirrungen führt.
+
+Notif_Trigger_Weekday
+	Wochentag an dem die Benachrichtigung stattfinden soll (Int: 1-7; Sonntag-Samstag)
+
+Notif_Trigger_Hour
+	Uhrzeit an der die Benachrichtigung stattfinden soll (Int: 0-23)
+	Minuten/Sekunden hängen von der Erstellung der Benachrichtigung ab
+

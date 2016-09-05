@@ -1,0 +1,6 @@
+framework module JDTransition {
+  umbrella header "JDTransition-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -1,6 +1,0 @@
-framework module JDSegues {
-  umbrella header "JDSegues-umbrella.h"
-
-  export *
-  module * { export * }
-}
