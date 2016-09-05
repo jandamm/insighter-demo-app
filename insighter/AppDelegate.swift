@@ -6,7 +6,7 @@
 //  Copyright © 2016 Jan Dammshäuser. All rights reserved.
 //
 
-import UIKit
+import JDCoordinator
 import Firebase
 
 @UIApplicationMain
@@ -16,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var rootViewController: UINavigationController!
     
-    var appCoordinator: JDCoordinatorDelegate!
+    var appCoordinator: JDCoordinator!
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {

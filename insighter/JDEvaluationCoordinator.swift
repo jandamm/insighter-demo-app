@@ -6,7 +6,7 @@
 //  Copyright © 2016 Jan Dammshäuser. All rights reserved.
 //
 
-import UIKit
+import JDCoordinator
 
 protocol EvaluationDelegate: JDCoordinatorDelegate {
     func logout()
@@ -31,7 +31,7 @@ class JDEvaluationCoordinator: JDCoordinator, EvaluationDelegate {
         
         vc.delegate = self
     
-        setViewControllers([vc], animated: true)
+        setViewControllers(vc, animated: true)
     }
     
     func logout() {

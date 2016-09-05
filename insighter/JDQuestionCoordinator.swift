@@ -6,7 +6,7 @@
 //  Copyright © 2016 Jan Dammshäuser. All rights reserved.
 //
 
-import UIKit
+import JDCoordinator
 
 protocol QuestionDelegate: JDCoordinatorDelegate {
     

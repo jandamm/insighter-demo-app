@@ -6,7 +6,7 @@
 //  Copyright © 2016 Jan Dammshäuser. All rights reserved.
 //
 
-import Foundation
+import JDCoordinator
 
 typealias JDAppCoordinatorDelegate = protocol<JDOnboardingCoordinatorDelegate, JDLoginCoordinatorDelegate, JDQuestionCoordinatorDelegate, JDEvaluationCoordinatorDelegate>
 

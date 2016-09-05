@@ -6,7 +6,7 @@
 //  Copyright © 2016 Jan Dammshäuser. All rights reserved.
 //
 
-import UIKit
+import JDCoordinator
 
 protocol LoginDelegate: JDCoordinatorDelegate {
     func login(withEmail email: String?, password: String?, question: String?, answer: String?, errorHandler: CompletionHandlerFirebaseLoginError)
@@ -112,6 +112,6 @@ class JDLoginCoordinator: JDCoordinator, FIRLoginable, LoginDelegate {
         
         loginVC = vc
         
-        setViewControllers([vc], animated: true)
+        setViewControllers(vc, animated: true)
     }
 }

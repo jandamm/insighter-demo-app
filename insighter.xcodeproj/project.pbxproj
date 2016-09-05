@@ -62,7 +62,6 @@
 		13BF4DEA1D71E9F500035D84 /* JDLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BF4DE31D71E9F500035D84 /* JDLabel.swift */; };
 		13C16FA01D64C23900F96F13 /* OnboardingWelcomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C16F9F1D64C23900F96F13 /* OnboardingWelcomeVC.swift */; };
 		13D489B31D75C642003D39C5 /* JDAppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D489B21D75C642003D39C5 /* JDAppCoordinator.swift */; };
-		13D489B51D75C784003D39C5 /* JDCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D489B41D75C784003D39C5 /* JDCoordinator.swift */; };
 		13D489B71D75CA49003D39C5 /* IntroVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13D489B61D75CA49003D39C5 /* IntroVC.xib */; };
 		13D489B91D75CC31003D39C5 /* OnboardingWelcomeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13D489B81D75CC31003D39C5 /* OnboardingWelcomeVC.xib */; };
 		13D489BB1D75CD08003D39C5 /* OnboardingNotificationVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13D489BA1D75CD08003D39C5 /* OnboardingNotificationVC.xib */; };
@@ -163,7 +162,6 @@
 		13BF4DE31D71E9F500035D84 /* JDLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JDLabel.swift; sourceTree = "<group>"; };
 		13C16F9F1D64C23900F96F13 /* OnboardingWelcomeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingWelcomeVC.swift; sourceTree = "<group>"; };
 		13D489B21D75C642003D39C5 /* JDAppCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JDAppCoordinator.swift; sourceTree = "<group>"; };
-		13D489B41D75C784003D39C5 /* JDCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JDCoordinator.swift; sourceTree = "<group>"; };
 		13D489B61D75CA49003D39C5 /* IntroVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IntroVC.xib; sourceTree = "<group>"; };
 		13D489B81D75CC31003D39C5 /* OnboardingWelcomeVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OnboardingWelcomeVC.xib; sourceTree = "<group>"; };
 		13D489BA1D75CD08003D39C5 /* OnboardingNotificationVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OnboardingNotificationVC.xib; sourceTree = "<group>"; };
@@ -371,7 +369,6 @@
 		13D489B11D75C629003D39C5 /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
-				13D489B41D75C784003D39C5 /* JDCoordinator.swift */,
 				13B761F31D76331000E80677 /* JDAppCoordinatorDelegate.swift */,
 				13D489B21D75C642003D39C5 /* JDAppCoordinator.swift */,
 				13D489C11D75D876003D39C5 /* JDOnboardingCoordinator.swift */,
@@ -753,7 +750,6 @@
 				13A5B99F1D59F250008EBDF3 /* Style.swift in Sources */,
 				138C72581D58B2360049561A /* DataService.swift in Sources */,
 				1340AC7E1D5A0EB0008499CE /* RemoteStringKey.swift in Sources */,
-				13D489B51D75C784003D39C5 /* JDCoordinator.swift in Sources */,
 				13ED7E921D5DD32E0017CF8A /* Company.swift in Sources */,
 				13ED7E941D5E17D10017CF8A /* RemoteIntKey.swift in Sources */,
 				137EB89B1D620D7500ACC8F9 /* Flashable.swift in Sources */,

@@ -1,12 +1,13 @@
 //
-//  JDCoordinator.swift
-//  insighter
+//  JDCoordinatorProtocol.swift
+//  JDCoordinator
 //
-//  Created by Jan Dammshäuser on 30.08.16.
+//  Created by Jan Dammshäuser on 05.09.16.
 //  Copyright © 2016 Jan Dammshäuser. All rights reserved.
 //
 
 import UIKit
+
 
 /// Use this protocol for weak delegates of JDCoordinators to ViewControllers and other JDCoordinators.
 public typealias JDCoordinatorDelegate = JDCoordinatorProtocol
@@ -21,48 +22,8 @@ public protocol JDCoordinatorProtocol: NSObjectProtocol {
 }
 
 
-/// JDCoordinator are meant to coordinate one or more ViewControllers
-@objc
-public class JDCoordinator: NSObject, JDCoordinatorProtocol {
+public extension JDCoordinatorProtocol {
     
-    /// This navigationController pushes all ViewControllers
-    public let navigationController: UINavigationController
-    
-    /// Initialize the JDCoordinator a UINavigationController
-    public required init(withNavigationController navigationController: UINavigationController) {
-        self.navigationController = navigationController
-        
-        super.init()
-    }
-    
-    /// You need to override this method so it pushes the initial ViewController.
-    public func start() {
-        NSLog("Error: Start method hasn't been overridden")
-    }
-}
-
-
-/// JDParentCoordinator are meant to coordinate one or more JDCoordinators and ViewControllers.
-@objc
-public class JDParentCoordinator: JDCoordinator {
-    
-    private var childCoordinator = [JDCoordinator]()
-    
-    /// Add a JDCoordinator as a child
-    public func addChildCoordinator(coordinator: JDCoordinator) {
-        childCoordinator.append(coordinator)
-    }
-    
-    /// Remove a child
-    public func removeChildCoordinator(coordinator: JDCoordinator) {
-        if let index = childCoordinator.indexOf(coordinator) {
-            childCoordinator.removeAtIndex(index)
-        }
-    }
-}
-
-
-public extension JDCoordinator {
     /// Convenience method to pushViewController directly within JDCoordinator
     public func pushViewController(viewController: UIViewController, animated: Bool) {
         navigationController.pushViewController(viewController, animated: animated)
@@ -86,5 +47,10 @@ public extension JDCoordinator {
     /// Convenience method to setViewControllers directly within JDCoordinator
     public func setViewControllers(viewControllers: [UIViewController], animated: Bool) {
         navigationController.setViewControllers(viewControllers, animated: animated)
+    }
+    
+    /// Convenience method to setViewControllers directly within JDCoordinator
+    public func setViewControllers(viewController: UIViewController, animated: Bool) {
+        navigationController.setViewControllers([viewController], animated: animated)
     }
 }
