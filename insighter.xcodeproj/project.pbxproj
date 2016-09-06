@@ -369,8 +369,8 @@
 		13D489B11D75C629003D39C5 /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
-				13B761F31D76331000E80677 /* JDAppCoordinatorDelegate.swift */,
 				13D489B21D75C642003D39C5 /* JDAppCoordinator.swift */,
+				13B761F31D76331000E80677 /* JDAppCoordinatorDelegate.swift */,
 				13D489C11D75D876003D39C5 /* JDOnboardingCoordinator.swift */,
 				13B761ED1D75F6ED00E80677 /* JDLoginCoordinator.swift */,
 				13B761F11D762EBE00E80677 /* JDQuestionCoordinator.swift */,

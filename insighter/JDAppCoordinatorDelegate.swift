@@ -10,7 +10,6 @@ import JDCoordinator
 
 typealias JDAppCoordinatorDelegate = protocol<JDOnboardingCoordinatorDelegate, JDLoginCoordinatorDelegate, JDQuestionCoordinatorDelegate, JDEvaluationCoordinatorDelegate>
 
-
 protocol JDOnboardingCoordinatorDelegate: JDCoordinatorDelegate {
     func onboardingEnded(finishedCoordinator: JDCoordinator)
 }
@@ -20,7 +19,7 @@ protocol JDLoginCoordinatorDelegate: JDCoordinatorDelegate {
 }
 
 protocol JDQuestionCoordinatorDelegate: JDCoordinatorDelegate {
-    
+    func questionsAsked(finishedCoordinator: JDCoordinator)
 }
 
 protocol JDEvaluationCoordinatorDelegate: JDCoordinatorDelegate {
