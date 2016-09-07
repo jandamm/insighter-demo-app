@@ -15,16 +15,15 @@ protocol FIRUploadable {
 }
 
 extension FIRUploadable {
-    
+
     func upload() {
         let data = uploadData
         guard data.count > 0 else {
             return NSLog("Nothing uploaded, data was empty")
         }
-        
+
         FIRDatabase.database().reference().child(FIR_PATH).updateChildValues(data)
-        
+
         NSLog("Uploaded \(self) to \(FIR_PATH)")
     }
-    
 }

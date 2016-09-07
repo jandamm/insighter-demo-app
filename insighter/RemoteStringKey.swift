@@ -8,16 +8,14 @@
 
 import Foundation
 
-
 // The cases of this Enumeration should be RemoteConfigDefaults as well
 // _ERROR_ are used to tell if there is an invalid/no key
-
 
 enum RemoteStringKey: String, StringReturningEnum {
     case _EMPTY_
     case _ERROR_WRONG_KEY
     case _ERROR_NO_KEY
-    
+
     // Login Errors
     case ERROR_INVALID_EMAIL
     case ERROR_EMAIL_ALREADY_IN_USE
@@ -28,14 +26,14 @@ enum RemoteStringKey: String, StringReturningEnum {
     case ERROR_COMPANY_UNKNOWN
     case ERROR_UNKNOWN_TITLE
     case ERROR_UNKNOWN_EXPLANATION
-    
+
     // Basics
     case Our_Company_Name
     case Per_Max_Points
     case Notif_Reminder_Title
     case Notif_Reminder_Body
     case Notif_Reminder_Action
-    
+
     // Onboarding Willkommen Screen
     case Onb_Will_Willkommen_Lbl
     case Onb_Will_Wir_Verbessern_Lbl
@@ -43,12 +41,12 @@ enum RemoteStringKey: String, StringReturningEnum {
     case Onb_Will_Anonym_Middle_Lbl
     case Onb_Will_Anonym_Bottom_Lbl
     case Onb_Will_Next_Btn
-    
+
     // Onboarding Login Screen
     case Onb_Notif_Erklaerung_Lbl
     case Onb_Notif_Systemmeldung_Lbl
     case Onb_Notif_Btn
-    
+
     // Onboarding Login Screen
     case Onb_Login_Anmeldung_Lbl
     case Onb_Login_Email_Lbl
@@ -60,7 +58,7 @@ enum RemoteStringKey: String, StringReturningEnum {
     case Onb_Login_Security_TxtField
     case Onb_Login_Security_SubLbl
     case Onb_Login_Anmeldung_Btn
-    
+
     // Question Rating Screen
     case Que_Number_Of_Number
     case Que_Rating_Slider_Left_Lbl
@@ -70,7 +68,7 @@ enum RemoteStringKey: String, StringReturningEnum {
     // Question Comment Screen
     case Que_Comment_Save_Btn
     case Que_Comment_Discard_Btn
-    
+
     // Evaluation User Screen
     case Eva_User_Title_Lbl
     case Eva_User_Rating_Title_Lbl

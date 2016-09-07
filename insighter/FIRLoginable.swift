@@ -9,10 +9,10 @@
 import Foundation
 import Firebase
 
-protocol FIRLoginable { }
+protocol FIRLoginable {}
 
 extension FIRLoginable {
-    
+
     func loginUser(withEmail email: String, andPassword password: String, completion: CompletionHandlerFirebaseLogin, errorHandler: CompletionHandlerFirebaseLoginError) {
         NSLog("Attempt Login with Firebase")
         FIRAuth.auth()?.signInWithEmail(email, password: password) { user, error in
@@ -20,11 +20,11 @@ extension FIRLoginable {
                 NSLog("Logged in with Firebase")
             }
             let errorKey = error?.userInfo[FIRAuthErrorNameKey]
-            
+
             completion(user?.uid, errorKey, false, errorHandler)
         }
     }
-    
+
     func createUser(forEmail email: String, andPassword password: String, completion: CompletionHandlerFirebaseLogin, errorHandler: CompletionHandlerFirebaseLoginError) {
         NSLog("Attempt Registration at Firebase")
         FIRAuth.auth()?.createUserWithEmail(email, password: password) { user, error in
@@ -32,10 +32,8 @@ extension FIRLoginable {
                 NSLog("Registered at Firebase")
             }
             let errorKey = error?.userInfo[FIRAuthErrorNameKey]
-            
+
             completion(user?.uid, errorKey, true, errorHandler)
         }
     }
-    
 }
-

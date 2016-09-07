@@ -11,16 +11,15 @@ import UIKit
 struct Rating: Equatable {
     let integer: Int
     let string: String
-    
+
     let fraction: CGFloat
     let color: UIColor
-    
+
     let slided: Bool
-    
-    
+
     init(rating: Int?, maxRating: Double) {
         self.color = RatingColors.color(forRating: rating)
-        
+
         if let rating = rating {
             self.integer = rating
             self.string = "\(rating)"

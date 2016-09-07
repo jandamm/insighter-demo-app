@@ -8,12 +8,12 @@
 
 import UIKit
 
-//@IBDesignable
+// @IBDesignable
 class JDButton: UIButton, TextStylable, TextResettable {
 
     // MARK: - Design
-    
-    @IBInspectable var remoteConfigKey: String!  {
+
+    @IBInspectable var remoteConfigKey: String! {
         didSet {
             if _remoteConfigKeyDefault == nil {
                 _remoteConfigKeyDefault = remoteConfigKey
@@ -21,50 +21,44 @@ class JDButton: UIButton, TextStylable, TextResettable {
             setText()
         }
     }
-    @IBInspectable var fontStyle: String!  {
+    @IBInspectable var fontStyle: String! {
         didSet {
             applyTextStyle()
         }
     }
     @IBInspectable var overrideDefaultSettings: Bool!
-    
-    
+
     // MARK: - Private Data
-    
+
     private var _remoteConfigKeyDefault: String!
-    
-    
+
     // MARK: - Global Data
-    
+
     var remoteConfigKeyDefault: String! {
         return _remoteConfigKeyDefault
     }
-    
-    
+
     // MARK: - Startup
-    
+
     override func layoutSubviews() {
         super.layoutSubviews()
-        
+
         styleView()
     }
-    
-    
+
     // MARK: - Interface Builder
-    
+
     override func prepareForInterfaceBuilder() {
         super.prepareForInterfaceBuilder()
-        
+
         applyTextStyle()
     }
-    
-    
+
     // MARK: - Appearance
-    
+
     private func styleView() {
         if fontStyle == nil {
             applyTextStyle()
         }
     }
-
 }

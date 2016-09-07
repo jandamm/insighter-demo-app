@@ -11,32 +11,32 @@ import UIKit
 protocol ColorScheme {}
 extension ColorScheme {
     static func rgba(r: CGFloat, _ g: CGFloat, _ b: CGFloat, _ a: CGFloat) -> UIColor {
-        return UIColor(red: r/255, green: g/255, blue: b/255, alpha: a)
+        return UIColor(red: r / 255, green: g / 255, blue: b / 255, alpha: a)
     }
 }
 
 class Colors: ColorScheme {
-    
+
     class func textColor() -> UIColor {
         return rgba(33, 33, 33, 1)
     }
-    
+
     class func highlightColor() -> UIColor {
         return rgba(255, 166, 67, 1)
     }
-    
+
     class func primaryColor() -> UIColor {
         return rgba(0, 156, 223, 1)
     }
-    
+
     class func errorColor() -> UIColor {
         return rgba(244, 81, 83, 1)
     }
-    
+
     class func successColor() -> UIColor {
         return rgba(92, 187, 115, 1)
     }
-    
+
     class func lightContrastColor() -> UIColor {
         return rgba(224, 224, 224, 1)
     }
@@ -52,12 +52,12 @@ enum TextStyle: String {
     case TextField, TextFieldPrimary
     case TextView
     case TextSubLine, TextSubLineMedium
-    
+
     func font() -> UIFont {
         let selfString = self.rawValue
         var size: CGFloat = 20
         var name = "AvenirNext-Regular"
-        
+
         if selfString.containsString("RatingBigText") {
             size = 30
         } else if selfString.containsString("RatingBig") {
@@ -75,17 +75,17 @@ enum TextStyle: String {
         } else if selfString.containsString("TextSubLine") {
             size = 12
         }
-        
+
         if selfString.containsString("Primary") || selfString.containsString("Highlight") || selfString.containsString("Medium") || selfString.containsString("Error") {
             name = "AvenirNext-Medium"
         }
-        
+
         return UIFont(name: name, size: size)!
     }
-    
+
     func color() -> UIColor {
         let color: UIColor
-        
+
         if String(self).containsString("Primary") {
             color = Colors.primaryColor()
         } else if String(self).containsString("Highlight") {
@@ -95,7 +95,7 @@ enum TextStyle: String {
         } else {
             color = Colors.textColor()
         }
-        
+
         return color
     }
 }

@@ -9,12 +9,12 @@
 import Foundation
 
 struct DBValueKeys {
-    
+
     enum CompanyAverage: StringReturningEnum {
         case sum
         case users
     }
-    
+
     enum CompanyValue: StringReturningEnum {
         case goodie
         case name
@@ -26,12 +26,12 @@ struct DBValueKeys {
         case ratingQuestions
         case securityQuestions
     }
-    
+
     enum Email: StringReturningEnum {
         case company
         case ending
     }
-    
+
     enum User: StringReturningEnum {
         case company
         case lastRated
@@ -39,5 +39,4 @@ struct DBValueKeys {
         case securityAnswer
         case securityQuestion
     }
-    
 }

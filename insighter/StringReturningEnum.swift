@@ -14,11 +14,11 @@ protocol StringReturningEnum {
 }
 
 extension StringReturningEnum {
-    
+
     var rawValue: String {
         return "\(self)"
     }
-    
+
     var error: String {
         NSLog("\(self)")
         return "__\(self)__".uppercaseString

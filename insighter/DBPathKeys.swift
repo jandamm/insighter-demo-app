@@ -13,7 +13,7 @@ enum DBPathKeys: StringReturningEnum {
     case constant
     case email
     case user
-    
+
     enum Company: StringReturningEnum {
         case average
         case comment
