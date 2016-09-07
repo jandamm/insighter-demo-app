@@ -10,20 +10,20 @@ import Foundation
 import Firebase
 
 protocol FIRUploadable {
-    var FIR_PATH: String { get }
-    var uploadData: [String: AnyObject] { get }
+	var FIR_PATH: String { get }
+	var uploadData: [String: AnyObject] { get }
 }
 
 extension FIRUploadable {
 
-    func upload() {
-        let data = uploadData
-        guard data.count > 0 else {
-            return NSLog("Nothing uploaded, data was empty")
-        }
+	func upload() {
+		let data = uploadData
+		guard data.count > 0 else {
+			return NSLog("Nothing uploaded, data was empty")
+		}
 
-        FIRDatabase.database().reference().child(FIR_PATH).updateChildValues(data)
+		FIRDatabase.database().reference().child(FIR_PATH).updateChildValues(data)
 
-        NSLog("Uploaded \(self) to \(FIR_PATH)")
-    }
+		NSLog("Uploaded \(self) to \(FIR_PATH)")
+	}
 }

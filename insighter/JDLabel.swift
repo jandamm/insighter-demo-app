@@ -11,56 +11,56 @@ import UIKit
 // @IBDesignable
 class JDLabel: UILabel, TextStylable, TextResettable {
 
-    // MARK: - Design
+	// MARK: - Design
 
-    @IBInspectable var remoteConfigKey: String! {
-        didSet {
-            if _remoteConfigKeyDefault == nil {
-                _remoteConfigKeyDefault = remoteConfigKey
-            }
-            setText()
-        }
-    }
-    @IBInspectable var fontStyle: String! {
-        didSet {
-            applyTextStyle()
-        }
-    }
+	@IBInspectable var remoteConfigKey: String! {
+		didSet {
+			if _remoteConfigKeyDefault == nil {
+				_remoteConfigKeyDefault = remoteConfigKey
+			}
+			setText()
+		}
+	}
+	@IBInspectable var fontStyle: String! {
+		didSet {
+			applyTextStyle()
+		}
+	}
 
-    // MARK: - Private Data
+	// MARK: - Private Data
 
-    private var _remoteConfigKeyDefault: String!
+	private var _remoteConfigKeyDefault: String!
 
-    // MARK: - Global Data
+	// MARK: - Global Data
 
-    var remoteConfigKeyDefault: String! {
-        return _remoteConfigKeyDefault
-    }
+	var remoteConfigKeyDefault: String! {
+		return _remoteConfigKeyDefault
+	}
 
-    // MARK: - Startup
+	// MARK: - Startup
 
-    override func layoutSubviews() {
-        super.layoutSubviews()
+	override func layoutSubviews() {
+		super.layoutSubviews()
 
-        styleView()
-    }
+		styleView()
+	}
 
-    // MARK: - Interface Builder
+	// MARK: - Interface Builder
 
-    override func prepareForInterfaceBuilder() {
-        super.prepareForInterfaceBuilder()
+	override func prepareForInterfaceBuilder() {
+		super.prepareForInterfaceBuilder()
 
-        applyTextStyle()
-    }
+		applyTextStyle()
+	}
 
-    // MARK: - Appearance
+	// MARK: - Appearance
 
-    private func styleView() {
-        if fontStyle == nil {
-            applyTextStyle()
-        }
+	private func styleView() {
+		if fontStyle == nil {
+			applyTextStyle()
+		}
 
-        adjustsFontSizeToFitWidth = true
-        minimumScaleFactor = 0.5
-    }
+		adjustsFontSizeToFitWidth = true
+		minimumScaleFactor = 0.5
+	}
 }

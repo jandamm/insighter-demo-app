@@ -9,15 +9,15 @@
 import Foundation
 
 enum DBPathKeys: StringReturningEnum {
-    case company
-    case constant
-    case email
-    case user
+	case company
+	case constant
+	case email
+	case user
 
-    enum Company: StringReturningEnum {
-        case average
-        case comment
-        case rating
-        case value
-    }
+	enum Company: StringReturningEnum {
+		case average
+		case comment
+		case rating
+		case value
+	}
 }

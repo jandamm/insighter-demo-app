@@ -9,11 +9,11 @@
 import Foundation
 
 struct RatingAnswer: Equatable {
-    let UID: String
-    let rating: Int
-    let comment: String?
+	let UID: String
+	let rating: Int
+	let comment: String?
 }
 
 func ==(lhs: RatingAnswer, rhs: RatingAnswer) -> Bool {
-    return lhs.UID == rhs.UID && lhs.rating == rhs.rating && lhs.comment == rhs.comment
+	return lhs.UID == rhs.UID && lhs.rating == rhs.rating && lhs.comment == rhs.comment
 }

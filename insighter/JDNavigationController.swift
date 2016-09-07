@@ -10,23 +10,23 @@ import UIKit
 
 class JDNavigationController: UINavigationController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+	override func viewDidLoad() {
+		super.viewDidLoad()
 
-        setupNavigationController()
-    }
+		setupNavigationController()
+	}
 
-    private func setupNavigationController() {
-        navigationBar.hidden = true
+	private func setupNavigationController() {
+		navigationBar.hidden = true
 
-        disableSwipeBack()
-    }
+		disableSwipeBack()
+	}
 
-    func disableSwipeBack() {
-        interactivePopGestureRecognizer?.enabled = false
-    }
+	func disableSwipeBack() {
+		interactivePopGestureRecognizer?.enabled = false
+	}
 
-    func enableSwipeBack() {
-        interactivePopGestureRecognizer?.enabled = true
-    }
+	func enableSwipeBack() {
+		interactivePopGestureRecognizer?.enabled = true
+	}
 }

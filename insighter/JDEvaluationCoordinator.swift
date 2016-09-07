@@ -9,30 +9,30 @@
 import JDCoordinator
 
 protocol EvaluationDelegate: JDCoordinatorDelegate {
-    func logout()
+	func logout()
 }
 
 class JDEvaluationCoordinator: JDCoordinator, EvaluationDelegate {
 
-    weak var delegate: JDEvaluationCoordinatorDelegate?
+	weak var delegate: JDEvaluationCoordinatorDelegate?
 
-    // MARK: - Coordinator
+	// MARK: - Coordinator
 
-    override func start() {
-        showEvaluationVC()
-    }
+	override func start() {
+		showEvaluationVC()
+	}
 
-    // MARK: - Show Methods
+	// MARK: - Show Methods
 
-    private func showEvaluationVC() {
-        let vc = EvaluationVC()
+	private func showEvaluationVC() {
+		let vc = EvaluationVC()
 
-        vc.delegate = self
+		vc.delegate = self
 
-        setViewControllers(vc, animated: true)
-    }
+		setViewControllers(vc, animated: true)
+	}
 
-    func logout() {
-        delegate?.loggedOut(self)
-    }
+	func logout() {
+		delegate?.loggedOut(self)
+	}
 }

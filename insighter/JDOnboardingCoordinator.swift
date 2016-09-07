@@ -9,59 +9,59 @@
 import JDCoordinator
 
 protocol OnboardingDelegate: JDCoordinatorDelegate {
-    func welcomeBtnPressed()
-    func notifBtnPressed()
+	func welcomeBtnPressed()
+	func notifBtnPressed()
 }
 
 class JDOnboardingCoordinator: JDCoordinator, FIRLoginable, OnboardingDelegate {
 
-    weak var delegate: JDOnboardingCoordinatorDelegate?
+	weak var delegate: JDOnboardingCoordinatorDelegate?
 
-    // MARK: - Coordinator
+	// MARK: - Coordinator
 
-    override func start() {
-        showOnboardingWelcome()
-    }
+	override func start() {
+		showOnboardingWelcome()
+	}
 
-    // MARK: - Delegates
+	// MARK: - Delegates
 
-    func welcomeBtnPressed() {
-        let showNotification = NotificationService.sharedInstance.hasNoAllowance()
+	func welcomeBtnPressed() {
+		let showNotification = NotificationService.sharedInstance.hasNoAllowance()
 
-        if showNotification {
-            showOnboardingNotification()
-        } else {
-            onboardingEnded()
-        }
-    }
+		if showNotification {
+			showOnboardingNotification()
+		} else {
+			onboardingEnded()
+		}
+	}
 
-    func notifBtnPressed() {
-        NotificationService.sharedInstance.askForAllowance()
+	func notifBtnPressed() {
+		NotificationService.sharedInstance.askForAllowance()
 
-        onboardingEnded()
-    }
+		onboardingEnded()
+	}
 
-    // MARK: - Private Methods
+	// MARK: - Private Methods
 
-    private func onboardingEnded() {
-        delegate?.onboardingEnded(self)
-    }
+	private func onboardingEnded() {
+		delegate?.onboardingEnded(self)
+	}
 
-    // MARK: - Show Methods
+	// MARK: - Show Methods
 
-    private func showOnboardingWelcome() {
-        let vc = OnboardingWelcomeVC()
+	private func showOnboardingWelcome() {
+		let vc = OnboardingWelcomeVC()
 
-        vc.delegate = self
+		vc.delegate = self
 
-        pushViewController(vc, animated: true)
-    }
+		pushViewController(vc, animated: true)
+	}
 
-    private func showOnboardingNotification() {
-        let vc = OnboardingNotificationVC()
+	private func showOnboardingNotification() {
+		let vc = OnboardingNotificationVC()
 
-        vc.delegate = self
+		vc.delegate = self
 
-        pushViewController(vc, animated: true)
-    }
+		pushViewController(vc, animated: true)
+	}
 }

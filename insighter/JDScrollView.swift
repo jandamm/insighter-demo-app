@@ -10,91 +10,91 @@ import UIKit
 
 class JDInputScrollView: UIScrollView {
 
-    // MARK: - Outlets
+	// MARK: - Outlets
 
-    @IBOutlet weak var viewController: UIViewController!
+	@IBOutlet weak var viewController: UIViewController!
 
-    // MARK: - Startup
+	// MARK: - Startup
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
+	override func awakeFromNib() {
+		super.awakeFromNib()
 
-        setupNotificationListenersForKeyboardEvents()
-        setupScrollView()
-    }
+		setupNotificationListenersForKeyboardEvents()
+		setupScrollView()
+	}
 
-    // MARK: - Keyboard Actions
+	// MARK: - Keyboard Actions
 
-    func keyboardWillShow(notification: NSNotification) {
+	func keyboardWillShow(notification: NSNotification) {
 
-        var userInfo = notification.userInfo!
-        var keyboardFrame: CGRect = (userInfo[UIKeyboardFrameBeginUserInfoKey] as! NSValue).CGRectValue()
-        keyboardFrame = viewController.view.convertRect(keyboardFrame, fromView: nil)
+		var userInfo = notification.userInfo!
+		var keyboardFrame: CGRect = (userInfo[UIKeyboardFrameBeginUserInfoKey] as! NSValue).CGRectValue()
+		keyboardFrame = viewController.view.convertRect(keyboardFrame, fromView: nil)
 
-        var contentInset: UIEdgeInsets = self.contentInset
-        contentInset.bottom = keyboardFrame.size.height
-        self.contentInset = contentInset
-    }
+		var contentInset: UIEdgeInsets = self.contentInset
+		contentInset.bottom = keyboardFrame.size.height
+		self.contentInset = contentInset
+	}
 
-    func keyboardWillHide(notification: NSNotification) {
+	func keyboardWillHide(notification: NSNotification) {
 
-        let contentInset: UIEdgeInsets = UIEdgeInsetsZero
-        self.contentInset = contentInset
-    }
+		let contentInset: UIEdgeInsets = UIEdgeInsetsZero
+		self.contentInset = contentInset
+	}
 
-    // MARK: - Private Methods
+	// MARK: - Private Methods
 
-    private func setupScrollView() {
-        showsVerticalScrollIndicator = false
-        showsHorizontalScrollIndicator = false
+	private func setupScrollView() {
+		showsVerticalScrollIndicator = false
+		showsHorizontalScrollIndicator = false
 
-        viewController.automaticallyAdjustsScrollViewInsets = false
+		viewController.automaticallyAdjustsScrollViewInsets = false
 
-        keyboardDismissMode = .Interactive
-    }
+		keyboardDismissMode = .Interactive
+	}
 
-    private func setupNotificationListenersForKeyboardEvents() {
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(keyboardWillShow), name: UIKeyboardWillShowNotification, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(keyboardWillHide), name: UIKeyboardWillHideNotification, object: nil)
-    }
+	private func setupNotificationListenersForKeyboardEvents() {
+		NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(keyboardWillShow), name: UIKeyboardWillShowNotification, object: nil)
+		NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(keyboardWillHide), name: UIKeyboardWillHideNotification, object: nil)
+	}
 }
 
 class JDPagingScrollView: UIScrollView {
 
-    // MARK: - Outlets
+	// MARK: - Outlets
 
-    @IBOutlet weak var viewController: UIViewController!
+	@IBOutlet weak var viewController: UIViewController!
 
-    // MARK: - Startup
+	// MARK: - Startup
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
+	override func awakeFromNib() {
+		super.awakeFromNib()
 
-        setupScrollView()
-    }
+		setupScrollView()
+	}
 
-    override func layoutSubviews() {
-        setView()
-    }
+	override func layoutSubviews() {
+		setView()
+	}
 
-    // MARK: - Private Methods
+	// MARK: - Private Methods
 
-    private func setView() {
-        let pages = subviews.count
+	private func setView() {
+		let pages = subviews.count
 
-        for (i, view) in subviews.enumerate() {
-            view.frame.origin.x = view.frame.width * CGFloat(i)
-        }
+		for (i, view) in subviews.enumerate() {
+			view.frame.origin.x = view.frame.width * CGFloat(i)
+		}
 
-        contentSize = CGSizeMake(frame.width * CGFloat(pages), frame.height)
-    }
+		contentSize = CGSizeMake(frame.width * CGFloat(pages), frame.height)
+	}
 
-    private func setupScrollView() {
-        showsVerticalScrollIndicator = false
-        showsHorizontalScrollIndicator = false
+	private func setupScrollView() {
+		showsVerticalScrollIndicator = false
+		showsHorizontalScrollIndicator = false
 
-        viewController.automaticallyAdjustsScrollViewInsets = false
+		viewController.automaticallyAdjustsScrollViewInsets = false
 
-        pagingEnabled = true
-    }
+		pagingEnabled = true
+	}
 }

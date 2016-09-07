@@ -11,62 +11,62 @@ import UIKit
 // @IBDesignable
 class JDTextView: UITextView, UITextViewDelegate, TextStylable {
 
-    // MARK: - Design
+	// MARK: - Design
 
-    let fontStyle: String! = TextStyle.TextView.rawValue
+	let fontStyle: String! = TextStyle.TextView.rawValue
 
-    // MARK: - Startup
+	// MARK: - Startup
 
-    override func layoutSubviews() {
-        super.layoutSubviews()
+	override func layoutSubviews() {
+		super.layoutSubviews()
 
-        delegate = self
+		delegate = self
 
-        styleView()
-    }
+		styleView()
+	}
 
-    // MARK: - Interface Builder
+	// MARK: - Interface Builder
 
-    override func prepareForInterfaceBuilder() {
-        super.prepareForInterfaceBuilder()
+	override func prepareForInterfaceBuilder() {
+		super.prepareForInterfaceBuilder()
 
-        applyTextStyle()
-    }
+		applyTextStyle()
+	}
 
-    // MARK: - Dismiss Keyboard
+	// MARK: - Dismiss Keyboard
 
-    func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
-        if (text == "\n") {
-            textView.resignFirstResponder()
-            return false
-        }
-        return true
-    }
+	func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
+		if (text == "\n") {
+			textView.resignFirstResponder()
+			return false
+		}
+		return true
+	}
 
-    // MARK: - Appearance
+	// MARK: - Appearance
 
-    private func styleView() {
+	private func styleView() {
 
-        applyTextStyle()
+		applyTextStyle()
 
-        textContainerInset.left = 8
-        textContainerInset.right = 8
-        textContainerInset.top = 8
-        textContainerInset.bottom = 8
+		textContainerInset.left = 8
+		textContainerInset.right = 8
+		textContainerInset.top = 8
+		textContainerInset.bottom = 8
 
-        returnKeyType = .Done
+		returnKeyType = .Done
 
-        addBorder()
-    }
+		addBorder()
+	}
 
-    private func addBorder() {
-        let border = CALayer()
-        let lineWidth: CGFloat = 1
+	private func addBorder() {
+		let border = CALayer()
+		let lineWidth: CGFloat = 1
 
-        border.borderColor = Colors.primaryColor().CGColor
-        border.frame = CGRect(x: 0, y: 0, width: bounds.width - 1, height: bounds.height - 1)
-        border.borderWidth = lineWidth
+		border.borderColor = Colors.primaryColor().CGColor
+		border.frame = CGRect(x: 0, y: 0, width: bounds.width - 1, height: bounds.height - 1)
+		border.borderWidth = lineWidth
 
-        layer.addSublayer(border)
-    }
+		layer.addSublayer(border)
+	}
 }

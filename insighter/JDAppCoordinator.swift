@@ -10,159 +10,159 @@ import JDCoordinator
 
 class JDAppCoordinator: JDParentCoordinator, JDAppCoordinatorDelegate {
 
-    private var _userLoggedIn = false
+	private var _userLoggedIn = false
 
-    private var introVC: IntroVC?
+	private var introVC: IntroVC?
 
-    // MARK: - Coordinator
+	// MARK: - Coordinator
 
-    override func start() {
-        getInitialDataWithIntro(userDataOnly: false)
-    }
+	override func start() {
+		getInitialDataWithIntro(userDataOnly: false)
+	}
 
-    // MARK: - Delegates
+	// MARK: - Delegates
 
-    func loggedOut(finishedCoordinator: JDCoordinator) {
-        removeChildCoordinator(finishedCoordinator)
+	func loggedOut(finishedCoordinator: JDCoordinator) {
+		removeChildCoordinator(finishedCoordinator)
 
-        showLogin()
-    }
+		showLogin()
+	}
 
-    func onboardingEnded(finishedCoordinator: JDCoordinator) {
-        removeChildCoordinator(finishedCoordinator)
+	func onboardingEnded(finishedCoordinator: JDCoordinator) {
+		removeChildCoordinator(finishedCoordinator)
 
-        showLogin()
-    }
+		showLogin()
+	}
 
-    func questionsAsked(finishedCoordinator: JDCoordinator) {
-        removeChildCoordinator(finishedCoordinator)
+	func questionsAsked(finishedCoordinator: JDCoordinator) {
+		removeChildCoordinator(finishedCoordinator)
 
-        showEvaluation()
-    }
+		showEvaluation()
+	}
 
-    func loginEnded(finishedCoordinator: JDCoordinator) {
-        removeChildCoordinator(finishedCoordinator)
+	func loginEnded(finishedCoordinator: JDCoordinator) {
+		removeChildCoordinator(finishedCoordinator)
 
-        if introVC == nil {
-            introVC = IntroVC()
-        }
+		if introVC == nil {
+			introVC = IntroVC()
+		}
 
-        introVC!.animated = false
+		introVC!.animated = false
 
-        getInitialDataWithIntro(userDataOnly: true)
-    }
+		getInitialDataWithIntro(userDataOnly: true)
+	}
 
-    // MARK: - Private Methods
+	// MARK: - Private Methods
 
-    private func transitionToNextView() {
+	private func transitionToNextView() {
 
-        if !_userLoggedIn {
-            showOnboarding()
-        } else {
+		if !_userLoggedIn {
+			showOnboarding()
+		} else {
 
-            introVC = nil
+			introVC = nil
 
-            if !showQuestion() {
-                showEvaluation()
-            }
-        }
-    }
+			if !showQuestion() {
+				showEvaluation()
+			}
+		}
+	}
 
-    private func getInitialDataWithIntro(userDataOnly userDataOnly: Bool) {
-        showIntro()
+	private func getInitialDataWithIntro(userDataOnly userDataOnly: Bool) {
+		showIntro()
 
-        getInitialData(userDataOnly: userDataOnly)
-    }
+		getInitialData(userDataOnly: userDataOnly)
+	}
 
-    private func getInitialData(userDataOnly userDataOnly: Bool) {
-        let dispatch = dispatch_group_create()
+	private func getInitialData(userDataOnly userDataOnly: Bool) {
+		let dispatch = dispatch_group_create()
 
-        if !userDataOnly {
-            dispatch_group_enter(dispatch)
-            ConstantService.sharedInstance.initiateConstants() { successful in
-                NSLog("Got Constants successful: \(successful)")
-                dispatch_group_leave(dispatch)
-            }
+		if !userDataOnly {
+			dispatch_group_enter(dispatch)
+			ConstantService.sharedInstance.initiateConstants() { successful in
+				NSLog("Got Constants successful: \(successful)")
+				dispatch_group_leave(dispatch)
+			}
 
-            dispatch_group_enter(dispatch)
-            RemoteConfig.sharedInstance.getRemoteConfigValues { successful in
-                NSLog("Got Remote Config successful: \(successful)")
-                dispatch_group_leave(dispatch)
-            }
-        }
+			dispatch_group_enter(dispatch)
+			RemoteConfig.sharedInstance.getRemoteConfigValues { successful in
+				NSLog("Got Remote Config successful: \(successful)")
+				dispatch_group_leave(dispatch)
+			}
+		}
 
-        dispatch_group_enter(dispatch)
-        UserLoginService.sharedInstance.checkUserIsLoggedInAndGetData { loggedIn in
-            self._userLoggedIn = loggedIn
-            NSLog("User is Logged in: \(loggedIn)")
-            dispatch_group_leave(dispatch)
-        }
+		dispatch_group_enter(dispatch)
+		UserLoginService.sharedInstance.checkUserIsLoggedInAndGetData { loggedIn in
+			self._userLoggedIn = loggedIn
+			NSLog("User is Logged in: \(loggedIn)")
+			dispatch_group_leave(dispatch)
+		}
 
-        dispatch_group_notify(dispatch, dispatch_get_main_queue()) {
-            self.transitionToNextView()
-        }
-    }
+		dispatch_group_notify(dispatch, dispatch_get_main_queue()) {
+			self.transitionToNextView()
+		}
+	}
 
-    // MARK: - Show Methods
+	// MARK: - Show Methods
 
-    private func showIntro() {
-        let vc = introVC ?? IntroVC()
+	private func showIntro() {
+		let vc = introVC ?? IntroVC()
 
-        pushViewController(vc, animated: true)
-    }
+		pushViewController(vc, animated: true)
+	}
 
-    private func showOnboarding() {
-        let onboardingCoordinator = JDOnboardingCoordinator(withNavigationController: navigationController)
+	private func showOnboarding() {
+		let onboardingCoordinator = JDOnboardingCoordinator(withNavigationController: navigationController)
 
-        onboardingCoordinator.delegate = self
+		onboardingCoordinator.delegate = self
 
-        addChildCoordinator(onboardingCoordinator)
+		addChildCoordinator(onboardingCoordinator)
 
-        onboardingCoordinator.start()
-    }
+		onboardingCoordinator.start()
+	}
 
-    private func showLogin() {
-        let coordinator = JDLoginCoordinator(withNavigationController: navigationController)
+	private func showLogin() {
+		let coordinator = JDLoginCoordinator(withNavigationController: navigationController)
 
-        coordinator.delegate = self
+		coordinator.delegate = self
 
-        addChildCoordinator(coordinator)
+		addChildCoordinator(coordinator)
 
-        coordinator.start()
-    }
+		coordinator.start()
+	}
 
-    private func showQuestion() -> Bool {
-        guard UserLoginService.sharedInstance.ratedWeeksRelation(withDate: NSDate()).isDisjointWith([.This]) else {
-            NSLog("No question needs to be asked")
-            return false
-        }
+	private func showQuestion() -> Bool {
+		guard UserLoginService.sharedInstance.ratedWeeksRelation(withDate: NSDate()).isDisjointWith([.This]) else {
+			NSLog("No question needs to be asked")
+			return false
+		}
 
-        let questions = ConstantService.sharedInstance.ratingQuestions
+		let questions = ConstantService.sharedInstance.ratingQuestions
 
-        guard questions.count > 0 else {
-            NSLog("No questions available")
-            return false
-        }
+		guard questions.count > 0 else {
+			NSLog("No questions available")
+			return false
+		}
 
-        let coordinator = JDQuestionCoordinator(withNavigationController: navigationController)
+		let coordinator = JDQuestionCoordinator(withNavigationController: navigationController)
 
-        coordinator.delegate = self
-        coordinator.questions = questions
+		coordinator.delegate = self
+		coordinator.questions = questions
 
-        addChildCoordinator(coordinator)
+		addChildCoordinator(coordinator)
 
-        coordinator.start()
+		coordinator.start()
 
-        return true
-    }
+		return true
+	}
 
-    private func showEvaluation() {
-        let coordinator = JDEvaluationCoordinator(withNavigationController: navigationController)
+	private func showEvaluation() {
+		let coordinator = JDEvaluationCoordinator(withNavigationController: navigationController)
 
-        coordinator.delegate = self
+		coordinator.delegate = self
 
-        addChildCoordinator(coordinator)
+		addChildCoordinator(coordinator)
 
-        coordinator.start()
-    }
+		coordinator.start()
+	}
 }

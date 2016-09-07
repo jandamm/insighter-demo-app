@@ -9,18 +9,18 @@
 import Foundation
 
 protocol StringReturningEnum {
-    var rawValue: String { get }
-    var error: String { get }
+	var rawValue: String { get }
+	var error: String { get }
 }
 
 extension StringReturningEnum {
 
-    var rawValue: String {
-        return "\(self)"
-    }
+	var rawValue: String {
+		return "\(self)"
+	}
 
-    var error: String {
-        NSLog("\(self)")
-        return "__\(self)__".uppercaseString
-    }
+	var error: String {
+		NSLog("\(self)")
+		return "__\(self)__".uppercaseString
+	}
 }

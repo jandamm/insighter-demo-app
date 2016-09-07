@@ -11,53 +11,53 @@ import UIKit
 // @IBDesignable
 class LoadingView: UIView {
 
-    // MARK: - Variables
+	// MARK: - Variables
 
-    private var _boundsMax: CGRect!
-    private var _boundsMin: CGRect!
+	private var _boundsMax: CGRect!
+	private var _boundsMin: CGRect!
 
-    // MARK: - Startup
+	// MARK: - Startup
 
-    override func layoutSubviews() {
-        super.layoutSubviews()
+	override func layoutSubviews() {
+		super.layoutSubviews()
 
-        layoutView()
-    }
+		layoutView()
+	}
 
-    // MARK: - Interface Builder
+	// MARK: - Interface Builder
 
-    override func prepareForInterfaceBuilder() {
-        super.prepareForInterfaceBuilder()
+	override func prepareForInterfaceBuilder() {
+		super.prepareForInterfaceBuilder()
 
-        layoutView()
-    }
+		layoutView()
+	}
 
-    // MARK: - Global Methods
+	// MARK: - Global Methods
 
-    func animationStart() {
-        let width = bounds.width
-        let widthMin = width * 0.25
-        let inset = (width - widthMin) / 2
+	func animationStart() {
+		let width = bounds.width
+		let widthMin = width * 0.25
+		let inset = (width - widthMin) / 2
 
-        _boundsMax = CGRectMake(0, 0, width, width)
-        _boundsMin = CGRectMake(inset, inset, widthMin, widthMin)
+		_boundsMax = CGRectMake(0, 0, width, width)
+		_boundsMin = CGRectMake(inset, inset, widthMin, widthMin)
 
-        animation()
-    }
+		animation()
+	}
 
-    // MARK: - Animation
+	// MARK: - Animation
 
-    private func animation() {
-        UIView.animateWithDuration(1, animations: {
-            self.bounds = self.bounds == self._boundsMax ? self._boundsMin : self._boundsMax
-        }) { _ in
-            self.animation()
-        }
-    }
+	private func animation() {
+		UIView.animateWithDuration(1, animations: {
+			self.bounds = self.bounds == self._boundsMax ? self._boundsMin : self._boundsMax
+		}) { _ in
+			self.animation()
+		}
+	}
 
-    // MARK: - Layout
+	// MARK: - Layout
 
-    private func layoutView() {
-        layer.cornerRadius = bounds.width / 2
-    }
+	private func layoutView() {
+		layer.cornerRadius = bounds.width / 2
+	}
 }

@@ -9,12 +9,12 @@
 import Foundation
 
 struct Company: Equatable {
-    let UID: String
-    let name: String?
-    let users: Int?
-    let goodie: String?
+	let UID: String
+	let name: String?
+	let users: Int?
+	let goodie: String?
 }
 
 func ==(lhs: Company, rhs: Company) -> Bool {
-    return lhs.UID == rhs.UID && lhs.name == rhs.name && lhs.users == rhs.users && lhs.goodie == rhs.goodie
+	return lhs.UID == rhs.UID && lhs.name == rhs.name && lhs.users == rhs.users && lhs.goodie == rhs.goodie
 }

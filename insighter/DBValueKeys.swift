@@ -10,33 +10,33 @@ import Foundation
 
 struct DBValueKeys {
 
-    enum CompanyAverage: StringReturningEnum {
-        case sum
-        case users
-    }
+	enum CompanyAverage: StringReturningEnum {
+		case sum
+		case users
+	}
 
-    enum CompanyValue: StringReturningEnum {
-        case goodie
-        case name
-        case users
-    }
+	enum CompanyValue: StringReturningEnum {
+		case goodie
+		case name
+		case users
+	}
 
-    enum Constant: StringReturningEnum {
-        case _versionDate
-        case ratingQuestions
-        case securityQuestions
-    }
+	enum Constant: StringReturningEnum {
+		case _versionDate
+		case ratingQuestions
+		case securityQuestions
+	}
 
-    enum Email: StringReturningEnum {
-        case company
-        case ending
-    }
+	enum Email: StringReturningEnum {
+		case company
+		case ending
+	}
 
-    enum User: StringReturningEnum {
-        case company
-        case lastRated
-        case previousRated
-        case securityAnswer
-        case securityQuestion
-    }
+	enum User: StringReturningEnum {
+		case company
+		case lastRated
+		case previousRated
+		case securityAnswer
+		case securityQuestion
+	}
 }

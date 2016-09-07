@@ -9,7 +9,7 @@
 import Foundation
 
 enum RemoteDoubleKey: String, StringReturningEnum {
-    case _ERROR_
+	case _ERROR_
 
-    case Max_Points
+	case Max_Points
 }

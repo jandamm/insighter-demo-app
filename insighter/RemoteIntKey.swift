@@ -9,9 +9,9 @@
 import Foundation
 
 enum RemoteIntKey: String, StringReturningEnum {
-    case _ERROR_
+	case _ERROR_
 
-    // Notification Times
-    case Notif_Trigger_Weekday
-    case Notif_Trigger_Hour
+	// Notification Times
+	case Notif_Trigger_Weekday
+	case Notif_Trigger_Hour
 }

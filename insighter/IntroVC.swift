@@ -11,55 +11,55 @@ import Firebase
 
 class IntroVC: UIViewController {
 
-    var animated = true
+	var animated = true
 
-    // MARK: - Outlets
+	// MARK: - Outlets
 
-    @IBOutlet weak var logoVerticalCenterConstraint: NSLayoutConstraint!
-    @IBOutlet weak var loadingSpinnerView: LoadingView!
+	@IBOutlet weak var logoVerticalCenterConstraint: NSLayoutConstraint!
+	@IBOutlet weak var loadingSpinnerView: LoadingView!
 
-    // MARK: - Startup
+	// MARK: - Startup
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+	override func viewDidLoad() {
+		super.viewDidLoad()
 
-        if !self.animated {
-            setupScreen()
-            applyScreen()
-        }
-    }
+		if !self.animated {
+			setupScreen()
+			applyScreen()
+		}
+	}
 
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
+	override func viewDidAppear(animated: Bool) {
+		super.viewDidAppear(animated)
 
-        spinnerStart()
+		spinnerStart()
 
-        if self.animated {
-            introAnimationStart()
-        }
-    }
+		if self.animated {
+			introAnimationStart()
+		}
+	}
 
-    // MARK: - Animation
+	// MARK: - Animation
 
-    private func introAnimationStart() {
-        setupScreen()
+	private func introAnimationStart() {
+		setupScreen()
 
-        UIView.animateWithDuration(0.5, animations: {
-            self.applyScreen()
-        })
-    }
+		UIView.animateWithDuration(0.5, animations: {
+			self.applyScreen()
+		})
+	}
 
-    private func setupScreen() {
-        loadingSpinnerView.alpha = 0
-        logoVerticalCenterConstraint.constant = -45
-    }
+	private func setupScreen() {
+		loadingSpinnerView.alpha = 0
+		logoVerticalCenterConstraint.constant = -45
+	}
 
-    private func applyScreen() {
-        self.view.layoutIfNeeded()
-        self.loadingSpinnerView.alpha = 1
-    }
+	private func applyScreen() {
+		self.view.layoutIfNeeded()
+		self.loadingSpinnerView.alpha = 1
+	}
 
-    private func spinnerStart() {
-        loadingSpinnerView.animationStart()
-    }
+	private func spinnerStart() {
+		loadingSpinnerView.animationStart()
+	}
 }

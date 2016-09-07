@@ -9,14 +9,14 @@
 import UIKit
 
 protocol TextResettable: TextRemoteConfigable {
-    var remoteConfigKeyDefault: String! { get }
+	var remoteConfigKeyDefault: String! { get }
 }
 
 extension TextResettable {
 
-    mutating func resetRemoteConfigText() {
-        if remoteConfigKey != remoteConfigKeyDefault {
-            remoteConfigKey = remoteConfigKeyDefault
-        }
-    }
+	mutating func resetRemoteConfigText() {
+		if remoteConfigKey != remoteConfigKeyDefault {
+			remoteConfigKey = remoteConfigKeyDefault
+		}
+	}
 }

@@ -11,39 +11,39 @@ import Firebase
 
 class EvaluationVC: UIViewController {
 
-    weak var delegate: EvaluationDelegate?
+	weak var delegate: EvaluationDelegate?
 
-    @IBOutlet weak var scrollView: JDPagingScrollView!
+	@IBOutlet weak var scrollView: JDPagingScrollView!
 
-    private var evalUserVC: EvaluationUserVC!
-    private var evalCompVC: EvaluationCompanyVC!
+	private var evalUserVC: EvaluationUserVC!
+	private var evalCompVC: EvaluationCompanyVC!
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+	override func viewDidLoad() {
+		super.viewDidLoad()
 
-        setupScrollView()
-    }
+		setupScrollView()
+	}
 
-    // MARK: - Actions
+	// MARK: - Actions
 
-    @IBAction func logout(sender: UIButton) {
-        UserLoginService.sharedInstance.signOutUser(nil)
+	@IBAction func logout(sender: UIButton) {
+		UserLoginService.sharedInstance.signOutUser(nil)
 
-        self.delegate?.logout()
-    }
+		self.delegate?.logout()
+	}
 
-    // MARK: - Private Methods
+	// MARK: - Private Methods
 
-    private func setupScrollView() {
-        evalUserVC = EvaluationUserVC()
-        evalCompVC = EvaluationCompanyVC()
+	private func setupScrollView() {
+		evalUserVC = EvaluationUserVC()
+		evalCompVC = EvaluationCompanyVC()
 
-        addChildViewController(evalUserVC)
-        scrollView.addSubview(evalUserVC.view)
-        evalUserVC.didMoveToParentViewController(self)
+		addChildViewController(evalUserVC)
+		scrollView.addSubview(evalUserVC.view)
+		evalUserVC.didMoveToParentViewController(self)
 
-        addChildViewController(evalCompVC)
-        scrollView.addSubview(evalCompVC.view)
-        evalCompVC.didMoveToParentViewController(self)
-    }
+		addChildViewController(evalCompVC)
+		scrollView.addSubview(evalCompVC.view)
+		evalCompVC.didMoveToParentViewController(self)
+	}
 }

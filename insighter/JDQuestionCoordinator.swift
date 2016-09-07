@@ -9,46 +9,46 @@
 import JDCoordinator
 
 protocol QuestionDelegate: JDCoordinatorDelegate {
-    func nextQuestion()
+	func nextQuestion()
 }
 
 class JDQuestionCoordinator: JDCoordinator, QuestionDelegate {
 
-    weak var delegate: JDQuestionCoordinatorDelegate?
+	weak var delegate: JDQuestionCoordinatorDelegate?
 
-    var questions = [RatingQuestion]()
+	var questions = [RatingQuestion]()
 
-    // MARK: - Coordinator
+	// MARK: - Coordinator
 
-    override func start() {
-        if questions.count > 0 {
-            showQuestionVC()
-        } else {
-            NSLog("Empty Questions")
-            questionsAsked()
-        }
-    }
+	override func start() {
+		if questions.count > 0 {
+			showQuestionVC()
+		} else {
+			NSLog("Empty Questions")
+			questionsAsked()
+		}
+	}
 
-    func nextQuestion() {
-        questionsAsked()
-    }
+	func nextQuestion() {
+		questionsAsked()
+	}
 
-    // MARK: - Private Methods
+	// MARK: - Private Methods
 
-    private func questionsAsked() {
-        delegate?.questionsAsked(self)
-    }
+	private func questionsAsked() {
+		delegate?.questionsAsked(self)
+	}
 
-    // MARK: - Show Methods
+	// MARK: - Show Methods
 
-    private func showQuestionVC() {
+	private func showQuestionVC() {
 
-        // TODO: - Implement Checking for Question
+		// TODO: - Implement Checking for Question
 
-        let vc = QuestionVC(withQuestions: questions)
+		let vc = QuestionVC(withQuestions: questions)
 
-        vc.delegate = self
+		vc.delegate = self
 
-        pushViewController(vc, animated: true)
-    }
+		pushViewController(vc, animated: true)
+	}
 }

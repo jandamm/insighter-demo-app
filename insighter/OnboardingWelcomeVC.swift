@@ -10,11 +10,11 @@ import UIKit
 
 class OnboardingWelcomeVC: UIViewController {
 
-    weak var delegate: OnboardingDelegate?
+	weak var delegate: OnboardingDelegate?
 
-    // MARK: - Actions
+	// MARK: - Actions
 
-    @IBAction func nextPressed(sender: UIButton) {
-        delegate?.welcomeBtnPressed()
-    }
+	@IBAction func nextPressed(sender: UIButton) {
+		delegate?.welcomeBtnPressed()
+	}
 }

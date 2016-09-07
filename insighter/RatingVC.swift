@@ -10,49 +10,49 @@ import UIKit
 
 class RatingVC: UIViewController, RatingSliderDelegate {
 
-    // MARK: - Outlets
+	// MARK: - Outlets
 
-    @IBOutlet weak var ratingLbl: JDLabel!
-    @IBOutlet weak var ratingSlider: RatingSlider!
-    @IBOutlet weak var explanationLeftLbl: JDLabel!
-    @IBOutlet weak var explanationRightLbl: JDLabel!
+	@IBOutlet weak var ratingLbl: JDLabel!
+	@IBOutlet weak var ratingSlider: RatingSlider!
+	@IBOutlet weak var explanationLeftLbl: JDLabel!
+	@IBOutlet weak var explanationRightLbl: JDLabel!
 
-    // MARK: - Startup
+	// MARK: - Startup
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+	override func viewDidLoad() {
+		super.viewDidLoad()
 
-        ratingSlider.delegate = self
-    }
+		ratingSlider.delegate = self
+	}
 
-    // MARK: - RatingSliderDelegate
+	// MARK: - RatingSliderDelegate
 
-    func ratingSliderDidStart() {
-        animateExplanationLabels(hidden: false)
-    }
+	func ratingSliderDidStart() {
+		animateExplanationLabels(hidden: false)
+	}
 
-    func ratingSliderDidEnd() {
-        animateExplanationLabels(hidden: true)
-    }
+	func ratingSliderDidEnd() {
+		animateExplanationLabels(hidden: true)
+	}
 
-    func ratingSliderDidChange() {
-        let rating = ratingSlider.value
+	func ratingSliderDidChange() {
+		let rating = ratingSlider.value
 
-        ratingLbl.text = rating.string
-        ratingLbl.textColor = rating.color
+		ratingLbl.text = rating.string
+		ratingLbl.textColor = rating.color
 
-        if let questionVC = parentViewController as? QuestionVC {
-            questionVC.stateButtonApply()
-        }
-    }
+		if let questionVC = parentViewController as? QuestionVC {
+			questionVC.stateButtonApply()
+		}
+	}
 
-    // MARK: - Animation
+	// MARK: - Animation
 
-    private func animateExplanationLabels(hidden hidden: Bool) {
-        let alpha: CGFloat = hidden ? 0 : 1
-        UIView.animateWithDuration(0.2, delay: 0, options: .CurveEaseOut, animations: {
-            self.explanationLeftLbl.alpha = alpha
-            self.explanationRightLbl.alpha = alpha
-        }, completion: nil)
-    }
+	private func animateExplanationLabels(hidden hidden: Bool) {
+		let alpha: CGFloat = hidden ? 0 : 1
+		UIView.animateWithDuration(0.2, delay: 0, options: .CurveEaseOut, animations: {
+			self.explanationLeftLbl.alpha = alpha
+			self.explanationRightLbl.alpha = alpha
+		}, completion: nil)
+	}
 }
