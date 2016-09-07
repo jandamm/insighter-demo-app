@@ -1319,7 +1319,7 @@
 			};
 			name = Debug;
 		};
-		05C275AE12556609D937DD95D333BC7F /* Release */ = {
+		07DF92A9B49FA680946CE3C71C7A3966 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C3551027134BD4F9C9B063224C9DCAD2 /* JDTransition.xcconfig */;
 			buildSettings = {
@@ -1335,7 +1335,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/JDTransition/JDTransition-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/JDTransition/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/JDTransition/JDTransition.modulemap";
 				MTL_ENABLE_DEBUG_INFO = NO;
@@ -1365,7 +1365,7 @@
 			};
 			name = Release;
 		};
-		50C6F3439B1BB6F17258EDBEBDD681BD /* Debug */ = {
+		543A67D1E9D5EF24C005BDC771A63416 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C3551027134BD4F9C9B063224C9DCAD2 /* JDTransition.xcconfig */;
 			buildSettings = {
@@ -1381,7 +1381,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/JDTransition/JDTransition-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/JDTransition/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/JDTransition/JDTransition.modulemap";
 				MTL_ENABLE_DEBUG_INFO = YES;
@@ -1908,8 +1908,8 @@
 		4AA0BC2C47B0E185D4ED056854040463 /* Build configuration list for PBXNativeTarget "JDTransition" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				50C6F3439B1BB6F17258EDBEBDD681BD /* Debug */,
-				05C275AE12556609D937DD95D333BC7F /* Release */,
+				543A67D1E9D5EF24C005BDC771A63416 /* Debug */,
+				07DF92A9B49FA680946CE3C71C7A3966 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
