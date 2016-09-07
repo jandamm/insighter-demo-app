@@ -12,9 +12,9 @@ protocol QuestionDelegate: JDCoordinatorDelegate {
 	func nextQuestion()
 }
 
-class JDQuestionCoordinator: JDCoordinator, QuestionDelegate {
+class QuestionCoordinator: JDCoordinator, QuestionDelegate {
 
-	weak var delegate: JDQuestionCoordinatorDelegate?
+	weak var delegate: QuestionCoordinatorDelegate?
 
 	var questions = [RatingQuestion]()
 

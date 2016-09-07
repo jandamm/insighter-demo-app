@@ -26,7 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 		rootViewController = JDNavigationController()
 
-		appCoordinator = JDAppCoordinator(withNavigationController: rootViewController)
+		appCoordinator = AppCoordinator(withNavigationController: rootViewController)
 
 		if let window = self.window {
 			window.rootViewController = rootViewController

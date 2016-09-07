@@ -49,10 +49,10 @@
 		13A5B9A51D59FBE6008EBDF3 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A5B9A41D59FBE6008EBDF3 /* LoginVC.swift */; };
 		13A5B9A91D5A01D5008EBDF3 /* OnboardingNotificationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A5B9A81D5A01D5008EBDF3 /* OnboardingNotificationVC.swift */; };
 		13A5B9AB1D5A0275008EBDF3 /* EvaluationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A5B9AA1D5A0275008EBDF3 /* EvaluationVC.swift */; };
-		13B761EE1D75F6ED00E80677 /* JDLoginCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B761ED1D75F6ED00E80677 /* JDLoginCoordinator.swift */; };
-		13B761F01D762CD200E80677 /* JDEvaluationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B761EF1D762CD200E80677 /* JDEvaluationCoordinator.swift */; };
-		13B761F21D762EBE00E80677 /* JDQuestionCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B761F11D762EBE00E80677 /* JDQuestionCoordinator.swift */; };
-		13B761F41D76331000E80677 /* JDAppCoordinatorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B761F31D76331000E80677 /* JDAppCoordinatorDelegate.swift */; };
+		13B761EE1D75F6ED00E80677 /* LoginCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B761ED1D75F6ED00E80677 /* LoginCoordinator.swift */; };
+		13B761F01D762CD200E80677 /* EvaluationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B761EF1D762CD200E80677 /* EvaluationCoordinator.swift */; };
+		13B761F21D762EBE00E80677 /* QuestionCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B761F11D762EBE00E80677 /* QuestionCoordinator.swift */; };
+		13B761F41D76331000E80677 /* AppCoordinatorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B761F31D76331000E80677 /* AppCoordinatorDelegate.swift */; };
 		13BF4DE41D71E9F500035D84 /* JDPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BF4DDD1D71E9F500035D84 /* JDPopup.swift */; };
 		13BF4DE51D71E9F500035D84 /* JDScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BF4DDE1D71E9F500035D84 /* JDScrollView.swift */; };
 		13BF4DE61D71E9F500035D84 /* JDTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BF4DDF1D71E9F500035D84 /* JDTextField.swift */; };
@@ -61,13 +61,13 @@
 		13BF4DE91D71E9F500035D84 /* JDDropdown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BF4DE21D71E9F500035D84 /* JDDropdown.swift */; };
 		13BF4DEA1D71E9F500035D84 /* JDLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BF4DE31D71E9F500035D84 /* JDLabel.swift */; };
 		13C16FA01D64C23900F96F13 /* OnboardingWelcomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C16F9F1D64C23900F96F13 /* OnboardingWelcomeVC.swift */; };
-		13D489B31D75C642003D39C5 /* JDAppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D489B21D75C642003D39C5 /* JDAppCoordinator.swift */; };
+		13D489B31D75C642003D39C5 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D489B21D75C642003D39C5 /* AppCoordinator.swift */; };
 		13D489B71D75CA49003D39C5 /* IntroVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13D489B61D75CA49003D39C5 /* IntroVC.xib */; };
 		13D489B91D75CC31003D39C5 /* OnboardingWelcomeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13D489B81D75CC31003D39C5 /* OnboardingWelcomeVC.xib */; };
 		13D489BB1D75CD08003D39C5 /* OnboardingNotificationVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13D489BA1D75CD08003D39C5 /* OnboardingNotificationVC.xib */; };
 		13D489BD1D75CDF7003D39C5 /* LoginVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13D489BC1D75CDF7003D39C5 /* LoginVC.xib */; };
 		13D489BF1D75CE8C003D39C5 /* EvaluationVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13D489BE1D75CE8C003D39C5 /* EvaluationVC.xib */; };
-		13D489C21D75D876003D39C5 /* JDOnboardingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D489C11D75D876003D39C5 /* JDOnboardingCoordinator.swift */; };
+		13D489C21D75D876003D39C5 /* OnboardingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D489C11D75D876003D39C5 /* OnboardingCoordinator.swift */; };
 		13ED7E901D5DC8CC0017CF8A /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13ED7E8F1D5DC8CC0017CF8A /* NotificationService.swift */; };
 		13ED7E921D5DD32E0017CF8A /* Company.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13ED7E911D5DD32E0017CF8A /* Company.swift */; };
 		13ED7E941D5E17D10017CF8A /* RemoteIntKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13ED7E931D5E17D10017CF8A /* RemoteIntKey.swift */; };
@@ -149,10 +149,10 @@
 		13A5B9A41D59FBE6008EBDF3 /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		13A5B9A81D5A01D5008EBDF3 /* OnboardingNotificationVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingNotificationVC.swift; sourceTree = "<group>"; };
 		13A5B9AA1D5A0275008EBDF3 /* EvaluationVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EvaluationVC.swift; sourceTree = "<group>"; };
-		13B761ED1D75F6ED00E80677 /* JDLoginCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JDLoginCoordinator.swift; sourceTree = "<group>"; };
-		13B761EF1D762CD200E80677 /* JDEvaluationCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JDEvaluationCoordinator.swift; sourceTree = "<group>"; };
-		13B761F11D762EBE00E80677 /* JDQuestionCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JDQuestionCoordinator.swift; sourceTree = "<group>"; };
-		13B761F31D76331000E80677 /* JDAppCoordinatorDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JDAppCoordinatorDelegate.swift; sourceTree = "<group>"; };
+		13B761ED1D75F6ED00E80677 /* LoginCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginCoordinator.swift; sourceTree = "<group>"; };
+		13B761EF1D762CD200E80677 /* EvaluationCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EvaluationCoordinator.swift; sourceTree = "<group>"; };
+		13B761F11D762EBE00E80677 /* QuestionCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionCoordinator.swift; sourceTree = "<group>"; };
+		13B761F31D76331000E80677 /* AppCoordinatorDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppCoordinatorDelegate.swift; sourceTree = "<group>"; };
 		13BF4DDD1D71E9F500035D84 /* JDPopup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JDPopup.swift; sourceTree = "<group>"; };
 		13BF4DDE1D71E9F500035D84 /* JDScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JDScrollView.swift; sourceTree = "<group>"; };
 		13BF4DDF1D71E9F500035D84 /* JDTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JDTextField.swift; sourceTree = "<group>"; };
@@ -161,13 +161,13 @@
 		13BF4DE21D71E9F500035D84 /* JDDropdown.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JDDropdown.swift; sourceTree = "<group>"; };
 		13BF4DE31D71E9F500035D84 /* JDLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JDLabel.swift; sourceTree = "<group>"; };
 		13C16F9F1D64C23900F96F13 /* OnboardingWelcomeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingWelcomeVC.swift; sourceTree = "<group>"; };
-		13D489B21D75C642003D39C5 /* JDAppCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JDAppCoordinator.swift; sourceTree = "<group>"; };
+		13D489B21D75C642003D39C5 /* AppCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		13D489B61D75CA49003D39C5 /* IntroVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IntroVC.xib; sourceTree = "<group>"; };
 		13D489B81D75CC31003D39C5 /* OnboardingWelcomeVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OnboardingWelcomeVC.xib; sourceTree = "<group>"; };
 		13D489BA1D75CD08003D39C5 /* OnboardingNotificationVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OnboardingNotificationVC.xib; sourceTree = "<group>"; };
 		13D489BC1D75CDF7003D39C5 /* LoginVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginVC.xib; sourceTree = "<group>"; };
 		13D489BE1D75CE8C003D39C5 /* EvaluationVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EvaluationVC.xib; sourceTree = "<group>"; };
-		13D489C11D75D876003D39C5 /* JDOnboardingCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JDOnboardingCoordinator.swift; sourceTree = "<group>"; };
+		13D489C11D75D876003D39C5 /* OnboardingCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingCoordinator.swift; sourceTree = "<group>"; };
 		13ED7E8F1D5DC8CC0017CF8A /* NotificationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		13ED7E911D5DD32E0017CF8A /* Company.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Company.swift; sourceTree = "<group>"; };
 		13ED7E931D5E17D10017CF8A /* RemoteIntKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteIntKey.swift; sourceTree = "<group>"; };
@@ -369,12 +369,12 @@
 		13D489B11D75C629003D39C5 /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
-				13D489B21D75C642003D39C5 /* JDAppCoordinator.swift */,
-				13B761F31D76331000E80677 /* JDAppCoordinatorDelegate.swift */,
-				13D489C11D75D876003D39C5 /* JDOnboardingCoordinator.swift */,
-				13B761ED1D75F6ED00E80677 /* JDLoginCoordinator.swift */,
-				13B761F11D762EBE00E80677 /* JDQuestionCoordinator.swift */,
-				13B761EF1D762CD200E80677 /* JDEvaluationCoordinator.swift */,
+				13D489B21D75C642003D39C5 /* AppCoordinator.swift */,
+				13B761F31D76331000E80677 /* AppCoordinatorDelegate.swift */,
+				13D489C11D75D876003D39C5 /* OnboardingCoordinator.swift */,
+				13B761ED1D75F6ED00E80677 /* LoginCoordinator.swift */,
+				13B761F11D762EBE00E80677 /* QuestionCoordinator.swift */,
+				13B761EF1D762CD200E80677 /* EvaluationCoordinator.swift */,
 			);
 			name = Coordinator;
 			sourceTree = "<group>";
@@ -736,7 +736,7 @@
 				13BF4DE71D71E9F500035D84 /* JDTextView.swift in Sources */,
 				138C725A1D58B2850049561A /* ConstantService.swift in Sources */,
 				13A03D7E1CF1109E00920838 /* AppDelegate.swift in Sources */,
-				13D489B31D75C642003D39C5 /* JDAppCoordinator.swift in Sources */,
+				13D489B31D75C642003D39C5 /* AppCoordinator.swift in Sources */,
 				13517B481D5BAE59002B74AD /* Shakeable.swift in Sources */,
 				137EB8971D61EA1500ACC8F9 /* RatingColors.swift in Sources */,
 				1338777B1D62529D00FAF762 /* InsighterKit.swift in Sources */,
@@ -746,9 +746,9 @@
 				13A5B9A51D59FBE6008EBDF3 /* LoginVC.swift in Sources */,
 				13517B501D5D06B9002B74AD /* FIRUploadable.swift in Sources */,
 				138C725C1D58B3290049561A /* LocalConstant.swift in Sources */,
-				13D489C21D75D876003D39C5 /* JDOnboardingCoordinator.swift in Sources */,
+				13D489C21D75D876003D39C5 /* OnboardingCoordinator.swift in Sources */,
 				13BF4DEA1D71E9F500035D84 /* JDLabel.swift in Sources */,
-				13B761F41D76331000E80677 /* JDAppCoordinatorDelegate.swift in Sources */,
+				13B761F41D76331000E80677 /* AppCoordinatorDelegate.swift in Sources */,
 				13517B4C1D5CD97E002B74AD /* FIRLoginable.swift in Sources */,
 				137EB8931D61D77E00ACC8F9 /* RatingSlider.swift in Sources */,
 				138C725E1D58B3680049561A /* DBValueKeys.swift in Sources */,
@@ -756,7 +756,7 @@
 				1340AC801D5A19E1008499CE /* TextRemoteConfigable.swift in Sources */,
 				13A5B9A91D5A01D5008EBDF3 /* OnboardingNotificationVC.swift in Sources */,
 				13BF4DE51D71E9F500035D84 /* JDScrollView.swift in Sources */,
-				13B761F01D762CD200E80677 /* JDEvaluationCoordinator.swift in Sources */,
+				13B761F01D762CD200E80677 /* EvaluationCoordinator.swift in Sources */,
 				131C8D061D59E1D200A2EE8C /* UserData.swift in Sources */,
 				13A5B99B1D59E4F1008EBDF3 /* UserLoginService.swift in Sources */,
 				13ED7E9D1D6098740017CF8A /* EvaluationCompanyVC.swift in Sources */,
@@ -768,9 +768,9 @@
 				13ED7E941D5E17D10017CF8A /* RemoteIntKey.swift in Sources */,
 				137EB89B1D620D7500ACC8F9 /* Flashable.swift in Sources */,
 				1329B0451D5B4901004AE52B /* RatingQuestion.swift in Sources */,
-				13B761EE1D75F6ED00E80677 /* JDLoginCoordinator.swift in Sources */,
+				13B761EE1D75F6ED00E80677 /* LoginCoordinator.swift in Sources */,
 				13BF4DE91D71E9F500035D84 /* JDDropdown.swift in Sources */,
-				13B761F21D762EBE00E80677 /* JDQuestionCoordinator.swift in Sources */,
+				13B761F21D762EBE00E80677 /* QuestionCoordinator.swift in Sources */,
 				13BF4DE81D71E9F500035D84 /* JDButton.swift in Sources */,
 				137EB8951D61E67900ACC8F9 /* Rating.swift in Sources */,
 				13ED7EA41D6098BE0017CF8A /* QuestionVC.swift in Sources */,

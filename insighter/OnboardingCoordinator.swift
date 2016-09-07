@@ -13,9 +13,9 @@ protocol OnboardingDelegate: JDCoordinatorDelegate {
 	func notifBtnPressed()
 }
 
-class JDOnboardingCoordinator: JDCoordinator, FIRLoginable, OnboardingDelegate {
+class OnboardingCoordinator: JDCoordinator, FIRLoginable, OnboardingDelegate {
 
-	weak var delegate: JDOnboardingCoordinatorDelegate?
+	weak var delegate: OnboardingCoordinatorDelegate?
 
 	// MARK: - Coordinator
 

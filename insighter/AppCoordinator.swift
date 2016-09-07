@@ -8,16 +8,14 @@
 
 import JDCoordinator
 
-class JDAppCoordinator: JDParentCoordinator, JDAppCoordinatorDelegate {
+class AppCoordinator: JDParentCoordinator, AppCoordinatorDelegate {
 
 	private var _userLoggedIn = false
-
-	private var introVC: IntroVC?
 
 	// MARK: - Coordinator
 
 	override func start() {
-		getInitialDataWithIntro(userDataOnly: false)
+		getInitialDataWithIntro(userDataOnly: false, animatedIntro: true)
 	}
 
 	// MARK: - Delegates
@@ -43,13 +41,7 @@ class JDAppCoordinator: JDParentCoordinator, JDAppCoordinatorDelegate {
 	func loginEnded(finishedCoordinator: JDCoordinator) {
 		removeChildCoordinator(finishedCoordinator)
 
-		if introVC == nil {
-			introVC = IntroVC()
-		}
-
-		introVC!.animated = false
-
-		getInitialDataWithIntro(userDataOnly: true)
+		getInitialDataWithIntro(userDataOnly: true, animatedIntro: false)
 	}
 
 	// MARK: - Private Methods
@@ -57,10 +49,9 @@ class JDAppCoordinator: JDParentCoordinator, JDAppCoordinatorDelegate {
 	private func transitionToNextView() {
 
 		if !_userLoggedIn {
+
 			showOnboarding()
 		} else {
-
-			introVC = nil
 
 			if !showQuestion() {
 				showEvaluation()
@@ -68,8 +59,8 @@ class JDAppCoordinator: JDParentCoordinator, JDAppCoordinatorDelegate {
 		}
 	}
 
-	private func getInitialDataWithIntro(userDataOnly userDataOnly: Bool) {
-		showIntro()
+	private func getInitialDataWithIntro(userDataOnly userDataOnly: Bool, animatedIntro animated: Bool) {
+		showIntro(animated: animated)
 
 		getInitialData(userDataOnly: userDataOnly)
 	}
@@ -105,14 +96,16 @@ class JDAppCoordinator: JDParentCoordinator, JDAppCoordinatorDelegate {
 
 	// MARK: - Show Methods
 
-	private func showIntro() {
-		let vc = introVC ?? IntroVC()
+	private func showIntro(animated animated: Bool) {
+		let vc = IntroVC()
+
+		vc.animated = animated
 
 		pushViewController(vc, animated: true)
 	}
 
 	private func showOnboarding() {
-		let onboardingCoordinator = JDOnboardingCoordinator(withNavigationController: navigationController)
+		let onboardingCoordinator = OnboardingCoordinator(withNavigationController: navigationController)
 
 		onboardingCoordinator.delegate = self
 
@@ -122,7 +115,7 @@ class JDAppCoordinator: JDParentCoordinator, JDAppCoordinatorDelegate {
 	}
 
 	private func showLogin() {
-		let coordinator = JDLoginCoordinator(withNavigationController: navigationController)
+		let coordinator = LoginCoordinator(withNavigationController: navigationController)
 
 		coordinator.delegate = self
 
@@ -144,7 +137,7 @@ class JDAppCoordinator: JDParentCoordinator, JDAppCoordinatorDelegate {
 			return false
 		}
 
-		let coordinator = JDQuestionCoordinator(withNavigationController: navigationController)
+		let coordinator = QuestionCoordinator(withNavigationController: navigationController)
 
 		coordinator.delegate = self
 		coordinator.questions = questions
@@ -157,7 +150,7 @@ class JDAppCoordinator: JDParentCoordinator, JDAppCoordinatorDelegate {
 	}
 
 	private func showEvaluation() {
-		let coordinator = JDEvaluationCoordinator(withNavigationController: navigationController)
+		let coordinator = EvaluationCoordinator(withNavigationController: navigationController)
 
 		coordinator.delegate = self
 

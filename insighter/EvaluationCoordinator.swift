@@ -12,9 +12,9 @@ protocol EvaluationDelegate: JDCoordinatorDelegate {
 	func logout()
 }
 
-class JDEvaluationCoordinator: JDCoordinator, EvaluationDelegate {
+class EvaluationCoordinator: JDCoordinator, EvaluationDelegate {
 
-	weak var delegate: JDEvaluationCoordinatorDelegate?
+	weak var delegate: EvaluationCoordinatorDelegate?
 
 	// MARK: - Coordinator
 

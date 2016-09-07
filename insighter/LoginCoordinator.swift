@@ -12,9 +12,9 @@ protocol LoginDelegate: JDCoordinatorDelegate {
 	func login(withEmail email: String?, password: String?, question: String?, answer: String?, errorHandler: CompletionHandlerFirebaseLoginError)
 }
 
-class JDLoginCoordinator: JDCoordinator, FIRLoginable, LoginDelegate {
+class LoginCoordinator: JDCoordinator, FIRLoginable, LoginDelegate {
 
-	weak var delegate: JDLoginCoordinatorDelegate?
+	weak var delegate: LoginCoordinatorDelegate?
 
 	private var company: String?
 	private var securityQuestion: String?
