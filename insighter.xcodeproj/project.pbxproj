@@ -624,7 +624,7 @@
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = "${SRCROOT}/swiftformat0.8.2 insighter -s \"never\" -i \"tab\"";
+			shellPath = "${SRCROOT}/swiftformat0.9.5 insighter -s \"never\" -i \"tab\"";
 			shellScript = "";
 		};
 		224AD8E5831AABBEE2AF00DA /* [CP] Check Pods Manifest.lock */ = {
