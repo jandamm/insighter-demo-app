@@ -153,7 +153,7 @@ class LoginVC: UIViewController {
 		UIView.animate(withDuration: 0.5, animations: {
 			self.securitySectionSView.isHidden = false
 			self.securitySectionSView.alpha = 1
-		}) 
+		})
 	}
 
 	// MARK: - Private Methods

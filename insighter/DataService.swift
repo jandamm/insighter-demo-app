@@ -37,11 +37,11 @@ class DataService {
 
 		let data = [rating.UID: rating.rating]
 		ratingForAverage[rating.UID] = rating.rating
-		uploadRatingData(data as [String : AnyObject], toPath: .rating, forUser: userID, atCompany: company.UID)
+		uploadRatingData(data as [String: AnyObject], toPath: .rating, forUser: userID, atCompany: company.UID)
 
 		if let comment = rating.comment {
 			let data = [rating.UID: comment]
-			uploadRatingData(data as [String : AnyObject], toPath: .comment, forUser: userID, atCompany: company.UID)
+			uploadRatingData(data as [String: AnyObject], toPath: .comment, forUser: userID, atCompany: company.UID)
 		}
 
 		NSLog("Uploaded rating data for question: \(rating.UID)")
@@ -86,7 +86,7 @@ class DataService {
 
 			return FIRTransactionResult.success(withValue: currentData)
 		}) { error, committed, data in
-			if let error = error , !committed {
+			if let error = error, !committed {
 				NSLog("Could not upload data to average: \(error.localizedDescription)")
 				NSLog("Retrying...")
 				self.saveRatingToAverage(forCompany: companyID)

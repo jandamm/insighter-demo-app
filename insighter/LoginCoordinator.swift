@@ -36,11 +36,11 @@ class LoginCoordinator: JDCoordinator, FIRLoginable, LoginDelegate {
 			return
 		}
 
-		guard let email = email , email.isValidEmail else {
+		guard let email = email, email.isValidEmail else {
 			errorHandler?("ERROR_INVALID_EMAIL")
 			return
 		}
-		guard let password = password , password.characters.count >= 6 else {
+		guard let password = password, password.characters.count >= 6 else {
 			errorHandler?("ERROR_WEAK_PASSWORD")
 			return
 		}
@@ -59,7 +59,7 @@ class LoginCoordinator: JDCoordinator, FIRLoginable, LoginDelegate {
 				errorHandler?("ERROR_QUESTION_NOT_CHOSEN")
 				return
 			}
-			guard let answer = answer , answer.characters.count >= 3 else {
+			guard let answer = answer, answer.characters.count >= 3 else {
 				errorHandler?("ERROR_QUESTION_ANSWER_TOO_SHORT")
 				return
 			}

@@ -52,7 +52,7 @@ class LoadingView: UIView {
 			self.bounds = self.bounds == self._boundsMax ? self._boundsMin : self._boundsMax
 		}, completion: { _ in
 			self.animation()
-		}) 
+		})
 	}
 
 	// MARK: - Layout

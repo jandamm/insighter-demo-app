@@ -183,7 +183,7 @@ class QuestionVC: UIViewController, Flashable {
 		let lastQuestion = questionsActiveIndex == questions.count - 1
 		var comment: String? = nil
 
-		if let text = ratingCommentTxtView.text , text.trimmed != "" {
+		if let text = ratingCommentTxtView.text, text.trimmed != "" {
 			comment = text
 		}
 

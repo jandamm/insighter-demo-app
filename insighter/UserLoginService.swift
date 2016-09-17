@@ -114,7 +114,7 @@ class UserLoginService {
 
 			return FIRTransactionResult.success(withValue: currentData)
 		}) { error, committed, data in
-			if let error = error , !committed {
+			if let error = error, !committed {
 				NSLog("Could not add user to company count: \(error.localizedDescription)")
 				NSLog("Retrying...")
 				self.addUserToCompanyUserCount()
@@ -153,7 +153,7 @@ class UserLoginService {
 	fileprivate func getUserDataFromFirebase(_ completion: CompletionHandlerBool?, forcedCompletionValue: Bool?) {
 		let uid = _userFirebase.uid
 
-		if let user = _userData , user.UID == uid {
+		if let user = _userData, user.UID == uid {
 			self.complete(completion, withForcedValue: forcedCompletionValue, andRealValue: false)
 			return
 		}
