@@ -10,7 +10,7 @@ import JDCoordinator
 
 class AppCoordinator: JDParentCoordinator, AppCoordinatorDelegate {
 
-	private var _userLoggedIn = false
+	fileprivate var _userLoggedIn = false
 
 	// MARK: - Coordinator
 
@@ -20,25 +20,25 @@ class AppCoordinator: JDParentCoordinator, AppCoordinatorDelegate {
 
 	// MARK: - Delegates
 
-	func loggedOut(finishedCoordinator: JDCoordinator) {
+	func loggedOut(_ finishedCoordinator: JDCoordinator) {
 		removeChildCoordinator(finishedCoordinator)
 
 		showLogin()
 	}
 
-	func onboardingEnded(finishedCoordinator: JDCoordinator) {
+	func onboardingEnded(_ finishedCoordinator: JDCoordinator) {
 		removeChildCoordinator(finishedCoordinator)
 
 		showLogin()
 	}
 
-	func questionsAsked(finishedCoordinator: JDCoordinator) {
+	func questionsAsked(_ finishedCoordinator: JDCoordinator) {
 		removeChildCoordinator(finishedCoordinator)
 
 		showEvaluation()
 	}
 
-	func loginEnded(finishedCoordinator: JDCoordinator) {
+	func loginEnded(_ finishedCoordinator: JDCoordinator) {
 		removeChildCoordinator(finishedCoordinator)
 
 		getInitialDataWithIntro(userDataOnly: true, animatedIntro: false)
@@ -46,7 +46,7 @@ class AppCoordinator: JDParentCoordinator, AppCoordinatorDelegate {
 
 	// MARK: - Private Methods
 
-	private func transitionToNextView() {
+	fileprivate func transitionToNextView() {
 
 		if !_userLoggedIn {
 
@@ -59,13 +59,13 @@ class AppCoordinator: JDParentCoordinator, AppCoordinatorDelegate {
 		}
 	}
 
-	private func getInitialDataWithIntro(userDataOnly userDataOnly: Bool, animatedIntro animated: Bool) {
+	fileprivate func getInitialDataWithIntro(userDataOnly: Bool, animatedIntro animated: Bool) {
 		showIntro(animated: animated)
 
 		getInitialData(userDataOnly: userDataOnly)
 	}
 
-	private func getInitialData(userDataOnly userDataOnly: Bool) {
+	fileprivate func getInitialData(userDataOnly: Bool) {
 		let dispatch = dispatch_group_create()
 
 		if !userDataOnly {
@@ -96,7 +96,7 @@ class AppCoordinator: JDParentCoordinator, AppCoordinatorDelegate {
 
 	// MARK: - Show Methods
 
-	private func showIntro(animated animated: Bool) {
+	fileprivate func showIntro(animated: Bool) {
 		let vc = IntroVC()
 
 		vc.animated = animated
@@ -104,7 +104,7 @@ class AppCoordinator: JDParentCoordinator, AppCoordinatorDelegate {
 		pushViewController(vc, animated: true)
 	}
 
-	private func showOnboarding() {
+	fileprivate func showOnboarding() {
 		let onboardingCoordinator = OnboardingCoordinator(withNavigationController: navigationController)
 
 		onboardingCoordinator.delegate = self
@@ -114,7 +114,7 @@ class AppCoordinator: JDParentCoordinator, AppCoordinatorDelegate {
 		onboardingCoordinator.start()
 	}
 
-	private func showLogin() {
+	fileprivate func showLogin() {
 		let coordinator = LoginCoordinator(withNavigationController: navigationController)
 
 		coordinator.delegate = self
@@ -124,7 +124,7 @@ class AppCoordinator: JDParentCoordinator, AppCoordinatorDelegate {
 		coordinator.start()
 	}
 
-	private func showQuestion() -> Bool {
+	fileprivate func showQuestion() -> Bool {
 		guard UserLoginService.sharedInstance.ratedWeeksRelation(withDate: NSDate()).isDisjointWith([.This]) else {
 			NSLog("No question needs to be asked")
 			return false
@@ -149,7 +149,7 @@ class AppCoordinator: JDParentCoordinator, AppCoordinatorDelegate {
 		return true
 	}
 
-	private func showEvaluation() {
+	fileprivate func showEvaluation() {
 		let coordinator = EvaluationCoordinator(withNavigationController: navigationController)
 
 		coordinator.delegate = self

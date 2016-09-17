@@ -24,7 +24,7 @@ class EvaluationCoordinator: JDCoordinator, EvaluationDelegate {
 
 	// MARK: - Show Methods
 
-	private func showEvaluationVC() {
+	fileprivate func showEvaluationVC() {
 		let vc = EvaluationVC()
 
 		vc.delegate = self

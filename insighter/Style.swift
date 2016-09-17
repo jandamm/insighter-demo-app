@@ -12,7 +12,7 @@ protocol ColorScheme {}
 
 extension ColorScheme {
 
-	static func rgba(r: CGFloat, _ g: CGFloat, _ b: CGFloat, _ a: CGFloat) -> UIColor {
+	static func rgba(_ r: CGFloat, _ g: CGFloat, _ b: CGFloat, _ a: CGFloat) -> UIColor {
 		return UIColor(red: r / 255, green: g / 255, blue: b / 255, alpha: a)
 	}
 }
@@ -60,25 +60,25 @@ enum TextStyle: String {
 		var size: CGFloat = 20
 		var name = "AvenirNext-Regular"
 
-		if selfString.containsString("RatingBigText") {
+		if selfString.contains("RatingBigText") {
 			size = 30
-		} else if selfString.containsString("RatingBig") {
+		} else if selfString.contains("RatingBig") {
 			size = 70
-		} else if selfString.containsString("Heading") {
+		} else if selfString.contains("Heading") {
 			size = 25
-		} else if selfString.containsString("TextBig") {
+		} else if selfString.contains("TextBig") {
 			size = 22
-		} else if selfString.containsString("TextField") {
+		} else if selfString.contains("TextField") {
 			size = 18
-		} else if selfString.containsString("TextSmall") {
+		} else if selfString.contains("TextSmall") {
 			size = 16
-		} else if selfString.containsString("TextView") {
+		} else if selfString.contains("TextView") {
 			size = 14
-		} else if selfString.containsString("TextSubLine") {
+		} else if selfString.contains("TextSubLine") {
 			size = 12
 		}
 
-		if selfString.containsString("Primary") || selfString.containsString("Highlight") || selfString.containsString("Medium") || selfString.containsString("Error") {
+		if selfString.contains("Primary") || selfString.contains("Highlight") || selfString.contains("Medium") || selfString.contains("Error") {
 			name = "AvenirNext-Medium"
 		}
 
@@ -88,11 +88,11 @@ enum TextStyle: String {
 	func color() -> UIColor {
 		let color: UIColor
 
-		if String(self).containsString("Primary") {
+		if String(describing: self).contains("Primary") {
 			color = Colors.primaryColor()
-		} else if String(self).containsString("Highlight") {
+		} else if String(describing: self).contains("Highlight") {
 			color = Colors.highlightColor()
-		} else if String(self).containsString("Error") {
+		} else if String(describing: self).contains("Error") {
 			color = Colors.errorColor()
 		} else {
 			color = Colors.textColor()

@@ -10,7 +10,7 @@ import Foundation
 
 extension Int {
 
-	func makeBetween(floor: Int, and ceiling: Int) -> Int {
+	func makeBetween(_ floor: Int, and ceiling: Int) -> Int {
 		if self < floor {
 			return floor
 		} else if self > ceiling {
@@ -23,7 +23,7 @@ extension Int {
 
 extension Double {
 
-	func makeBetween(floor: Double, and ceiling: Double) -> Double {
+	func makeBetween(_ floor: Double, and ceiling: Double) -> Double {
 		if self < floor {
 			return floor
 		} else if self > ceiling {

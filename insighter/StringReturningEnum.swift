@@ -21,6 +21,6 @@ extension StringReturningEnum {
 
 	var error: String {
 		NSLog("\(self)")
-		return "__\(self)__".uppercaseString
+		return "__\(self)__".uppercased()
 	}
 }

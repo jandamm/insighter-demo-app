@@ -35,13 +35,13 @@ class QuestionCoordinator: JDCoordinator, QuestionDelegate {
 
 	// MARK: - Private Methods
 
-	private func questionsAsked() {
+	fileprivate func questionsAsked() {
 		delegate?.questionsAsked(self)
 	}
 
 	// MARK: - Show Methods
 
-	private func showQuestionVC() {
+	fileprivate func showQuestionVC() {
 
 		// TODO: - Implement Checking for Question
 

@@ -24,29 +24,29 @@ class RatingSlider: UIView {
 
 	// MARK: - Private Data
 
-	private var isTouching = false
+	fileprivate var isTouching = false
 
-	private var ratingValueMax: Double = 0
+	fileprivate var ratingValueMax: Double = 0
 
-	private var ratingValue: Int? {
+	fileprivate var ratingValue: Int? {
 		didSet {
 			ratingValueChanged()
 		}
 	}
 
-	private var rating = Rating(rating: nil, maxRating: 0.0)
+	fileprivate var rating = Rating(rating: nil, maxRating: 0.0)
 
 	// MARK: - Startup
 
 	override func awakeFromNib() {
 		super.awakeFromNib()
 
-		userInteractionEnabled = true
+		isUserInteractionEnabled = true
 
 		setNeedsDisplay()
 	}
 
-	override func drawRect(rect: CGRect) {
+	override func draw(_ rect: CGRect) {
 		InsighterKit.drawSliderView(sliderColor: rating.color, width: bounds.width, sliderFraction: rating.fraction)
 	}
 
@@ -64,7 +64,7 @@ class RatingSlider: UIView {
 
 	// MARK: - Calculate Rating
 
-	private func calculateRating(position: CGPoint) {
+	fileprivate func calculateRating(_ position: CGPoint) {
 		let width = bounds.width
 		ratingValueMax = RemoteConfig.sharedInstance.getDouble(forKey: .Max_Points)
 		let posX = position.x
@@ -81,7 +81,7 @@ class RatingSlider: UIView {
 
 	// MARK: - Touches
 
-	override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+	override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
 		guard let position = getPosition(touches) else {
 			return
 		}
@@ -91,7 +91,7 @@ class RatingSlider: UIView {
 		delegateMethodsWithShortDelay(touchesBegan: true)
 	}
 
-	override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
+	override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
 		guard let position = getPosition(touches) else {
 			return
 		}
@@ -99,7 +99,7 @@ class RatingSlider: UIView {
 		calculateRating(position)
 	}
 
-	override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
+	override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
 		guard let position = getPosition(touches) else {
 			return
 		}
@@ -109,21 +109,21 @@ class RatingSlider: UIView {
 		delegateMethodsWithShortDelay(touchesBegan: false)
 	}
 
-	private func getPosition(input: Set<UITouch>) -> CGPoint? {
+	fileprivate func getPosition(_ input: Set<UITouch>) -> CGPoint? {
 		guard let touch = input.first else {
 			return nil
 		}
 
-		return touch.locationInView(self)
+		return touch.location(in: self)
 	}
 
-	private func delegateMethodsWithShortDelay(touchesBegan began: Bool) {
+	fileprivate func delegateMethodsWithShortDelay(touchesBegan began: Bool) {
 		isTouching = began
 
 		let checkAfter = 0.05
 
-		let dispatchTime: dispatch_time_t = dispatch_time(DISPATCH_TIME_NOW, Int64(checkAfter * Double(NSEC_PER_SEC)))
-		dispatch_after(dispatchTime, dispatch_get_main_queue(), {
+		let dispatchTime: DispatchTime = DispatchTime.now() + Double(Int64(checkAfter * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)
+		DispatchQueue.main.asyncAfter(deadline: dispatchTime, execute: {
 			if self.isTouching && began {
 				self.delegate?.ratingSliderDidStart()
 			} else if !began {
@@ -134,7 +134,7 @@ class RatingSlider: UIView {
 
 	// MARK: - Private Methods
 
-	private func ratingValueChanged() {
+	fileprivate func ratingValueChanged() {
 		rating = Rating(rating: ratingValue, maxRating: ratingValueMax)
 		delegate?.ratingSliderDidChange()
 

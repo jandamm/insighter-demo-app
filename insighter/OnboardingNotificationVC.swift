@@ -14,7 +14,7 @@ class OnboardingNotificationVC: UIViewController {
 
 	// MARK: - Actions
 
-	@IBAction func nextPressed(sender: UIButton) {
+	@IBAction func nextPressed(_ sender: UIButton) {
 		delegate?.notifBtnPressed()
 	}
 }

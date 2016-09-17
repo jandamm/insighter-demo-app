@@ -16,17 +16,17 @@ class JDNavigationController: UINavigationController {
 		setupNavigationController()
 	}
 
-	private func setupNavigationController() {
-		navigationBar.hidden = true
+	fileprivate func setupNavigationController() {
+		navigationBar.isHidden = true
 
 		disableSwipeBack()
 	}
 
 	func disableSwipeBack() {
-		interactivePopGestureRecognizer?.enabled = false
+		interactivePopGestureRecognizer?.isEnabled = false
 	}
 
 	func enableSwipeBack() {
-		interactivePopGestureRecognizer?.enabled = true
+		interactivePopGestureRecognizer?.isEnabled = true
 	}
 }

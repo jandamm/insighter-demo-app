@@ -29,7 +29,7 @@ class IntroVC: UIViewController {
 		}
 	}
 
-	override func viewDidAppear(animated: Bool) {
+	override func viewDidAppear(_ animated: Bool) {
 		super.viewDidAppear(animated)
 
 		spinnerStart()
@@ -41,25 +41,25 @@ class IntroVC: UIViewController {
 
 	// MARK: - Animation
 
-	private func introAnimationStart() {
+	fileprivate func introAnimationStart() {
 		setupScreen()
 
-		UIView.animateWithDuration(0.5, animations: {
+		UIView.animate(withDuration: 0.5, animations: {
 			self.applyScreen()
 		})
 	}
 
-	private func setupScreen() {
+	fileprivate func setupScreen() {
 		loadingSpinnerView.alpha = 0
 		logoVerticalCenterConstraint.constant = -45
 	}
 
-	private func applyScreen() {
+	fileprivate func applyScreen() {
 		self.view.layoutIfNeeded()
 		self.loadingSpinnerView.alpha = 1
 	}
 
-	private func spinnerStart() {
+	fileprivate func spinnerStart() {
 		loadingSpinnerView.animationStart()
 	}
 }

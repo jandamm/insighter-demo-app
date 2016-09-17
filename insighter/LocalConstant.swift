@@ -8,7 +8,7 @@
 
 import Foundation
 
-let CALENDAR = NSCalendar(calendarIdentifier: NSCalendarIdentifierISO8601)!
+let CALENDAR = Calendar(identifier: Calendar.Identifier.iso8601)
 
 // Completion Handler
 typealias CompletionHandler = () -> ()

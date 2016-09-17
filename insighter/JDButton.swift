@@ -30,7 +30,7 @@ class JDButton: UIButton, TextStylable, TextResettable {
 
 	// MARK: - Private Data
 
-	private var _remoteConfigKeyDefault: String!
+	fileprivate var _remoteConfigKeyDefault: String!
 
 	// MARK: - Global Data
 
@@ -56,7 +56,7 @@ class JDButton: UIButton, TextStylable, TextResettable {
 
 	// MARK: - Appearance
 
-	private func styleView() {
+	fileprivate func styleView() {
 		if fontStyle == nil {
 			applyTextStyle()
 		}

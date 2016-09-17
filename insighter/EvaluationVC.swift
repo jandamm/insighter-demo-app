@@ -15,8 +15,8 @@ class EvaluationVC: UIViewController {
 
 	@IBOutlet weak var scrollView: JDPagingScrollView!
 
-	private var evalUserVC: EvaluationUserVC!
-	private var evalCompVC: EvaluationCompanyVC!
+	fileprivate var evalUserVC: EvaluationUserVC!
+	fileprivate var evalCompVC: EvaluationCompanyVC!
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -26,7 +26,7 @@ class EvaluationVC: UIViewController {
 
 	// MARK: - Actions
 
-	@IBAction func logout(sender: UIButton) {
+	@IBAction func logout(_ sender: UIButton) {
 		UserLoginService.sharedInstance.signOutUser(nil)
 
 		self.delegate?.logout()
@@ -34,16 +34,16 @@ class EvaluationVC: UIViewController {
 
 	// MARK: - Private Methods
 
-	private func setupScrollView() {
+	fileprivate func setupScrollView() {
 		evalUserVC = EvaluationUserVC()
 		evalCompVC = EvaluationCompanyVC()
 
 		addChildViewController(evalUserVC)
 		scrollView.addSubview(evalUserVC.view)
-		evalUserVC.didMoveToParentViewController(self)
+		evalUserVC.didMove(toParentViewController: self)
 
 		addChildViewController(evalCompVC)
 		scrollView.addSubview(evalCompVC.view)
-		evalCompVC.didMoveToParentViewController(self)
+		evalCompVC.didMove(toParentViewController: self)
 	}
 }

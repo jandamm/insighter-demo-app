@@ -13,9 +13,9 @@ protocol FIRLoginable {}
 
 extension FIRLoginable {
 
-	func loginUser(withEmail email: String, andPassword password: String, completion: CompletionHandlerFirebaseLogin, errorHandler: CompletionHandlerFirebaseLoginError) {
+	func loginUser(withEmail email: String, andPassword password: String, completion: @escaping CompletionHandlerFirebaseLogin, errorHandler: CompletionHandlerFirebaseLoginError) {
 		NSLog("Attempt Login with Firebase")
-		FIRAuth.auth()?.signInWithEmail(email, password: password) { user, error in
+		FIRAuth.auth()?.signIn(withEmail: email, password: password) { user, error in
 			if user?.uid != nil {
 				NSLog("Logged in with Firebase")
 			}
@@ -25,9 +25,9 @@ extension FIRLoginable {
 		}
 	}
 
-	func createUser(forEmail email: String, andPassword password: String, completion: CompletionHandlerFirebaseLogin, errorHandler: CompletionHandlerFirebaseLoginError) {
+	func createUser(forEmail email: String, andPassword password: String, completion: @escaping CompletionHandlerFirebaseLogin, errorHandler: CompletionHandlerFirebaseLoginError) {
 		NSLog("Attempt Registration at Firebase")
-		FIRAuth.auth()?.createUserWithEmail(email, password: password) { user, error in
+		FIRAuth.auth()?.createUser(withEmail: email, password: password) { user, error in
 			if user?.uid != nil {
 				NSLog("Registered at Firebase")
 			}

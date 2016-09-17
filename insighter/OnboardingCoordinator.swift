@@ -43,13 +43,13 @@ class OnboardingCoordinator: JDCoordinator, FIRLoginable, OnboardingDelegate {
 
 	// MARK: - Private Methods
 
-	private func onboardingEnded() {
+	fileprivate func onboardingEnded() {
 		delegate?.onboardingEnded(self)
 	}
 
 	// MARK: - Show Methods
 
-	private func showOnboardingWelcome() {
+	fileprivate func showOnboardingWelcome() {
 		let vc = OnboardingWelcomeVC()
 
 		vc.delegate = self
@@ -57,7 +57,7 @@ class OnboardingCoordinator: JDCoordinator, FIRLoginable, OnboardingDelegate {
 		pushViewController(vc, animated: true)
 	}
 
-	private func showOnboardingNotification() {
+	fileprivate func showOnboardingNotification() {
 		let vc = OnboardingNotificationVC()
 
 		vc.delegate = self

@@ -15,10 +15,10 @@ class LoginVC: UIViewController {
 	// MARK: - State
 
 	enum State {
-		case Login, Register
+		case login, register
 	}
 
-	var state: State = .Login {
+	var state: State = .login {
 		didSet {
 			applyState()
 		}
@@ -26,12 +26,12 @@ class LoginVC: UIViewController {
 
 	// MARK: - ErrorType
 
-	private enum ErrorType {
-		case Email, Password, Security, SwitchState
+	fileprivate enum ErrorType {
+		case Email, Password, security, SwitchState
 
-		private static var email: Set = ["ERROR_INVALID_EMAIL", "ERROR_EMAIL_ALREADY_IN_USE"]
-		private static var password: Set = ["ERROR_WEAK_PASSWORD", "ERROR_WRONG_PASSWORD"]
-		private static var switchState: Set = ["ERROR_USER_NOT_FOUND"]
+		fileprivate static var email: Set = ["ERROR_INVALID_EMAIL", "ERROR_EMAIL_ALREADY_IN_USE"]
+		fileprivate static var password: Set = ["ERROR_WEAK_PASSWORD", "ERROR_WRONG_PASSWORD"]
+		fileprivate static var switchState: Set = ["ERROR_USER_NOT_FOUND"]
 
 		static func errorType(forString s: String) -> ErrorType? {
 			if email.contains(s) {
@@ -48,7 +48,7 @@ class LoginVC: UIViewController {
 
 	// MARK: - Private Data
 
-	private var dropdownData: [String]!
+	fileprivate var dropdownData: [String]!
 
 	// MARK: - Outlets
 
@@ -76,7 +76,7 @@ class LoginVC: UIViewController {
 
 	// MARK: - Actions
 
-	@IBAction func loginPressed(sender: UIButton) {
+	@IBAction func loginPressed(_ sender: UIButton) {
 		resetSubLbls()
 
 		delegate?.login(withEmail: emailTxt.text, password: passwordTxt.text, question: securityQuestionDropdown.selection, answer: securityAnswerTxt.text, errorHandler: errorHandling)
@@ -84,7 +84,7 @@ class LoginVC: UIViewController {
 
 	// MARK: - Error Handling
 
-	private func errorHandling(withString rConfig: String?) {
+	fileprivate func errorHandling(withString rConfig: String?) {
 		guard let remoteConfig = rConfig, let type = ErrorType.errorType(forString: remoteConfig) else {
 			NSLog("Unknown Firebase Error occurred: \(rConfig)")
 			return errorUndefined()
@@ -99,72 +99,72 @@ class LoginVC: UIViewController {
 		}
 	}
 
-	private func errorHandling(forType type: ErrorType, withRemoteConfig remoteConfigKey: RemoteStringKey!) {
+	fileprivate func errorHandling(forType type: ErrorType, withRemoteConfig remoteConfigKey: RemoteStringKey!) {
 		switch type {
 		case .SwitchState:
-			state = .Register
+			state = .register
 		case .Email:
 			emailSubLbl.remoteConfigKey = remoteConfigKey.rawValue
 			emailTxt.shake()
 		case .Password:
 			passwordSubLbl.remoteConfigKey = remoteConfigKey.rawValue
 			passwordTxt.shake()
-		case .Security:
+		case .security:
 			securitySubLbl.remoteConfigKey = remoteConfigKey.rawValue
 			securityAnswerTxt.shake()
 		}
 	}
 
-	private func errorUndefined() {
+	fileprivate func errorUndefined() {
 		let HUD = JDPopup(titleKey: .ERROR_UNKNOWN_TITLE, subTitleKey: .ERROR_UNKNOWN_EXPLANATION, imageStyle: .Error)
 		HUD.showInView(view)
 	}
 
 	// MARK: - State Change
 
-	private func applyState() {
+	fileprivate func applyState() {
 		switch state {
-		case .Login:
+		case .login:
 			loginState()
-		case .Register:
+		case .register:
 			registerState()
 		}
 	}
 
-	private func loginState() {
-		guard state == .Login else {
+	fileprivate func loginState() {
+		guard state == .login else {
 			return
 		}
 
-		securitySectionSView.hidden = true
+		securitySectionSView.isHidden = true
 		securitySectionSView.alpha = 0
 		passwordTxt.NextResponder = loginBtn
 		passwordTxt.returnKeyType = .Done
 	}
 
-	private func registerState() {
-		guard state == .Register else {
+	fileprivate func registerState() {
+		guard state == .register else {
 			return
 		}
 
 		passwordTxt.NextResponder = securityAnswerTxt
 		passwordTxt.returnKeyType = .Next
 
-		UIView.animateWithDuration(0.5) {
-			self.securitySectionSView.hidden = false
+		UIView.animate(withDuration: 0.5, animations: {
+			self.securitySectionSView.isHidden = false
 			self.securitySectionSView.alpha = 1
-		}
+		}) 
 	}
 
 	// MARK: - Private Methods
 
-	private func resetSubLbls() {
+	fileprivate func resetSubLbls() {
 		emailSubLbl.resetRemoteConfigText()
 		passwordSubLbl.resetRemoteConfigText()
 		securitySubLbl.resetRemoteConfigText()
 	}
 
-	private func initializeDropdown() {
+	fileprivate func initializeDropdown() {
 		dropdownData = ConstantService.sharedInstance.securityQuestions
 		securityQuestionDropdown.dataSource(dropdownData)
 	}

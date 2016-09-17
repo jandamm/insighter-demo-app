@@ -40,51 +40,51 @@ class RatingColors: ColorScheme {
 		return ten()
 	}
 
-	private class func null() -> UIColor {
+	fileprivate class func null() -> UIColor {
 		return Colors.highlightColor()
 	}
 
-	private class func zero() -> UIColor {
+	fileprivate class func zero() -> UIColor {
 		return Colors.errorColor()
 	}
 
-	private class func one() -> UIColor {
+	fileprivate class func one() -> UIColor {
 		return rgba(246, 97, 97, 1)
 	}
 
-	private class func two() -> UIColor {
+	fileprivate class func two() -> UIColor {
 		return rgba(248, 114, 76, 1)
 	}
 
-	private class func three() -> UIColor {
+	fileprivate class func three() -> UIColor {
 		return rgba(250, 132, 73, 1)
 	}
 
-	private class func four() -> UIColor {
+	fileprivate class func four() -> UIColor {
 		return rgba(252, 149, 70, 1)
 	}
 
-	private class func five() -> UIColor {
+	fileprivate class func five() -> UIColor {
 		return Colors.highlightColor()
 	}
 
-	private class func six() -> UIColor {
+	fileprivate class func six() -> UIColor {
 		return rgba(222, 170, 77, 1)
 	}
 
-	private class func seven() -> UIColor {
+	fileprivate class func seven() -> UIColor {
 		return rgba(189, 174, 86, 1)
 	}
 
-	private class func eight() -> UIColor {
+	fileprivate class func eight() -> UIColor {
 		return rgba(157, 178, 96, 1)
 	}
 
-	private class func nine() -> UIColor {
+	fileprivate class func nine() -> UIColor {
 		return rgba(124, 182, 105, 1)
 	}
 
-	private class func ten() -> UIColor {
+	fileprivate class func ten() -> UIColor {
 		return Colors.successColor()
 	}
 }

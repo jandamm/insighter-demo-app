@@ -10,11 +10,11 @@
 
 import UIKit
 
-public class InsighterKit: NSObject {
+open class InsighterKit: NSObject {
 
 	/// / Drawing Methods
 
-	public class func drawSliderView(sliderColor sliderColor: UIColor = UIColor(red: 1.000, green: 0.651, blue: 0.263, alpha: 1.000), width: CGFloat = 311, sliderFraction: CGFloat = 0.5) {
+	open class func drawSliderView(sliderColor: UIColor = UIColor(red: 1.000, green: 0.651, blue: 0.263, alpha: 1.000), width: CGFloat = 311, sliderFraction: CGFloat = 0.5) {
 		/// / General Declarations
 		let context = UIGraphicsGetCurrentContext()
 
@@ -28,59 +28,59 @@ public class InsighterKit: NSObject {
 		let angle: CGFloat = -45 - sliderFraction * (135 - 45)
 
 		/// / SliderGroup
-		CGContextSaveGState(context)
-		CGContextTranslateCTM(context, 0, topMargin)
-		CGContextScaleCTM(context, scaling, scaling)
+		context?.saveGState()
+		context?.translateBy(x: 0, y: topMargin)
+		context?.scaleBy(x: scaling, y: scaling)
 
-		CGContextBeginTransparencyLayer(context, nil)
+		context?.beginTransparencyLayer(auxiliaryInfo: nil)
 
 		/// / Clip Clip
 		let clipPath = UIBezierPath()
-		clipPath.moveToPoint(CGPointMake(295.31, 73.64))
-		clipPath.addLineToPoint(CGPointMake(311, 57.81))
-		clipPath.addCurveToPoint(CGPointMake(155.93, 0), controlPoint1: CGPointMake(275.69, 22.72), controlPoint2: CGPointMake(219.38, 0))
-		clipPath.addCurveToPoint(CGPointMake(0, 58.68), controlPoint1: CGPointMake(91.97, 0), controlPoint2: CGPointMake(35.25, 23.09))
-		clipPath.addLineToPoint(CGPointMake(16.18, 75))
-		clipPath.addCurveToPoint(CGPointMake(156.43, 23.34), controlPoint1: CGPointMake(47.15, 43.76), controlPoint2: CGPointMake(98.42, 23.34))
-		clipPath.addCurveToPoint(CGPointMake(295.31, 73.64), controlPoint1: CGPointMake(213.59, 23.34), controlPoint2: CGPointMake(264.21, 43.17))
-		clipPath.closePath()
+		clipPath.move(to: CGPoint(x: 295.31, y: 73.64))
+		clipPath.addLine(to: CGPoint(x: 311, y: 57.81))
+		clipPath.addCurve(to: CGPoint(x: 155.93, y: 0), controlPoint1: CGPoint(x: 275.69, y: 22.72), controlPoint2: CGPoint(x: 219.38, y: 0))
+		clipPath.addCurve(to: CGPoint(x: 0, y: 58.68), controlPoint1: CGPoint(x: 91.97, y: 0), controlPoint2: CGPoint(x: 35.25, y: 23.09))
+		clipPath.addLine(to: CGPoint(x: 16.18, y: 75))
+		clipPath.addCurve(to: CGPoint(x: 156.43, y: 23.34), controlPoint1: CGPoint(x: 47.15, y: 43.76), controlPoint2: CGPoint(x: 98.42, y: 23.34))
+		clipPath.addCurve(to: CGPoint(x: 295.31, y: 73.64), controlPoint1: CGPoint(x: 213.59, y: 23.34), controlPoint2: CGPoint(x: 264.21, y: 43.17))
+		clipPath.close()
 		clipPath.usesEvenOddFillRule = true
 
 		clipPath.addClip()
 
 		/// / BackgroundRect Drawing
-		let backgroundRectPath = UIBezierPath(rect: CGRectMake(0, 0, 311, 75))
+		let backgroundRectPath = UIBezierPath(rect: CGRect(x: 0, y: 0, width: 311, height: 75))
 		backgroundColor.setFill()
 		backgroundRectPath.fill()
 
 		/// / AngledRect Drawing
-		CGContextSaveGState(context)
-		CGContextTranslateCTM(context, 155.03, 214.97)
-		CGContextRotateCTM(context, -angle * CGFloat(M_PI) / 180)
+		context?.saveGState()
+		context?.translateBy(x: 155.03, y: 214.97)
+		context?.rotate(by: -angle * CGFloat(M_PI) / 180)
 
-		let angledRectPath = UIBezierPath(rect: CGRectMake(-229.11, 0, 458.21, 246.12))
+		let angledRectPath = UIBezierPath(rect: CGRect(x: -229.11, y: 0, width: 458.21, height: 246.12))
 		sliderColor.setFill()
 		angledRectPath.fill()
 
-		CGContextRestoreGState(context)
+		context?.restoreGState()
 
-		CGContextEndTransparencyLayer(context)
+		context?.endTransparencyLayer()
 
-		CGContextRestoreGState(context)
+		context?.restoreGState()
 	}
 
-	public class func drawCanvas1(sliderColor sliderColor: UIColor = UIColor(red: 1.000, green: 0.651, blue: 0.263, alpha: 1.000)) {
+	open class func drawCanvas1(sliderColor: UIColor = UIColor(red: 1.000, green: 0.651, blue: 0.263, alpha: 1.000)) {
 		/// / General Declarations
 		let context = UIGraphicsGetCurrentContext()
 
 		/// / Symbol Drawing
-		let symbolRect = CGRectMake(72, 83, 311, 75)
-		CGContextSaveGState(context)
+		let symbolRect = CGRect(x: 72, y: 83, width: 311, height: 75)
+		context?.saveGState()
 		UIRectClip(symbolRect)
-		CGContextTranslateCTM(context, symbolRect.origin.x, symbolRect.origin.y)
-		CGContextScaleCTM(context, symbolRect.size.width / 311, symbolRect.size.height / 85)
+		context?.translateBy(x: symbolRect.origin.x, y: symbolRect.origin.y)
+		context?.scaleBy(x: symbolRect.size.width / 311, y: symbolRect.size.height / 85)
 
 		InsighterKit.drawSliderView(sliderColor: sliderColor, width: 311, sliderFraction: 0.5)
-		CGContextRestoreGState(context)
+		context?.restoreGState()
 	}
 }

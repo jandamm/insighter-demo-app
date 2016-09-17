@@ -26,8 +26,8 @@ class JDDropdown: UILabel, TextStylable, TextRemoteConfigable {
 
 	// MARK: - Private Data
 
-	private var _dropdownList: [String]?
-	private var _selection: String? {
+	fileprivate var _dropdownList: [String]?
+	fileprivate var _selection: String? {
 		didSet {
 			text = _selection
 		}
@@ -57,7 +57,7 @@ class JDDropdown: UILabel, TextStylable, TextRemoteConfigable {
 
 	// MARK: - Appearance
 
-	private func styleView() {
+	fileprivate func styleView() {
 		if fontStyle == nil {
 			applyTextStyle()
 		}
@@ -65,7 +65,7 @@ class JDDropdown: UILabel, TextStylable, TextRemoteConfigable {
 
 	// MARK: - Global Methods
 
-	func dataSource(source: [String]) {
+	func dataSource(_ source: [String]) {
 		_dropdownList = source
 
 		// TEST

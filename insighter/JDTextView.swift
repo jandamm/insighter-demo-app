@@ -35,7 +35,7 @@ class JDTextView: UITextView, UITextViewDelegate, TextStylable {
 
 	// MARK: - Dismiss Keyboard
 
-	func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
+	func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
 		if (text == "\n") {
 			textView.resignFirstResponder()
 			return false
@@ -45,7 +45,7 @@ class JDTextView: UITextView, UITextViewDelegate, TextStylable {
 
 	// MARK: - Appearance
 
-	private func styleView() {
+	fileprivate func styleView() {
 
 		applyTextStyle()
 
@@ -54,16 +54,16 @@ class JDTextView: UITextView, UITextViewDelegate, TextStylable {
 		textContainerInset.top = 8
 		textContainerInset.bottom = 8
 
-		returnKeyType = .Done
+		returnKeyType = .done
 
 		addBorder()
 	}
 
-	private func addBorder() {
+	fileprivate func addBorder() {
 		let border = CALayer()
 		let lineWidth: CGFloat = 1
 
-		border.borderColor = Colors.primaryColor().CGColor
+		border.borderColor = Colors.primaryColor().cgColor
 		border.frame = CGRect(x: 0, y: 0, width: bounds.width - 1, height: bounds.height - 1)
 		border.borderWidth = lineWidth
 

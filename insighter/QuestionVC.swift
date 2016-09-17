@@ -12,9 +12,9 @@ class QuestionVC: UIViewController, Flashable {
 
 	weak var delegate: QuestionDelegate?
 
-	private var questions = [RatingQuestion]()
+	fileprivate var questions = [RatingQuestion]()
 
-	private var questionsActiveIndex = 0 {
+	fileprivate var questionsActiveIndex = 0 {
 		didSet {
 			let maxIndex = questions.count - 1
 
@@ -24,14 +24,14 @@ class QuestionVC: UIViewController, Flashable {
 		}
 	}
 
-	private var state: State = .Rating {
+	fileprivate var state: State = .rating {
 		didSet {
 			stateApply()
 		}
 	}
 
-	private enum State {
-		case Rating, Comment
+	fileprivate enum State {
+		case rating, comment
 	}
 
 	// MARK: - Outlets
@@ -40,8 +40,8 @@ class QuestionVC: UIViewController, Flashable {
 	@IBOutlet weak var questionLbl: JDLabel!
 
 	@IBOutlet weak var ratingStackView: UIStackView!
-	private var ratingSliderVC: RatingVC!
-	private var ratingCommentTxtView: JDTextView!
+	fileprivate var ratingSliderVC: RatingVC!
+	fileprivate var ratingCommentTxtView: JDTextView!
 
 	@IBOutlet weak var upperBtn: JDButton!
 	@IBOutlet weak var lowerBtn: JDButton!
@@ -63,39 +63,39 @@ class QuestionVC: UIViewController, Flashable {
 
 		setupRatingStackView()
 
-		state = .Rating
+		state = .rating
 
 		questionsActiveIndex = 0
 	}
 
 	// MARK: - Actions
 
-	@IBAction func upperBtnPressed(sender: UIButton) {
+	@IBAction func upperBtnPressed(_ sender: UIButton) {
 		switch state {
-		case .Rating:
-			state = .Comment
-		case .Comment:
+		case .rating:
+			state = .comment
+		case .comment:
 			dismissKeyboard()
 
-			state = .Rating
+			state = .rating
 		}
 	}
 
-	@IBAction func lowerBtnPressed(sender: UIButton) {
+	@IBAction func lowerBtnPressed(_ sender: UIButton) {
 		switch state {
-		case .Rating:
+		case .rating:
 			saveAnswerAndProceed()
-		case .Comment:
+		case .comment:
 			deleteComment()
 			dismissKeyboard()
 
-			state = .Rating
+			state = .rating
 		}
 	}
 
 	// MARK: - Appearance
 
-	private func setupRatingStackView() {
+	fileprivate func setupRatingStackView() {
 		ratingSliderVC = RatingVC()
 		ratingCommentTxtView = JDTextView()
 
@@ -104,25 +104,25 @@ class QuestionVC: UIViewController, Flashable {
 		ratingStackView.addArrangedSubview(ratingSliderVC.view)
 		ratingStackView.addArrangedSubview(ratingCommentTxtView)
 
-		ratingSliderVC.didMoveToParentViewController(self)
+		ratingSliderVC.didMove(toParentViewController: self)
 
 		ratingStackViewShowSubview()
 	}
 
-	private func ratingStackViewShowSubview() {
-		let stateRating = state == .Rating
+	fileprivate func ratingStackViewShowSubview() {
+		let stateRating = state == .rating
 
-		ratingSliderVC.view.hidden = !stateRating
+		ratingSliderVC.view.isHidden = !stateRating
 		ratingSliderVC.view.alpha = !stateRating ? 0 : 1
-		ratingCommentTxtView.hidden = stateRating
+		ratingCommentTxtView.isHidden = stateRating
 		ratingCommentTxtView.alpha = stateRating ? 0 : 1
 	}
 
-	private func questionSet() {
+	fileprivate func questionSet() {
 		var text = RemoteConfig.sharedInstance.getString(forKey: .Que_Number_Of_Number)
 
-		text = text.stringByReplacingOccurrencesOfString("[first]", withString: "\(questionsActiveIndex + 1)")
-		text = text.stringByReplacingOccurrencesOfString("[second]", withString: "\(questions.count)")
+		text = text.replacingOccurrences(of: "[first]", with: "\(questionsActiveIndex + 1)")
+		text = text.replacingOccurrences(of: "[second]", with: "\(questions.count)")
 
 		questionNumberLbl.text = text
 		questionLbl.text = questions[questionsActiveIndex].question
@@ -132,22 +132,22 @@ class QuestionVC: UIViewController, Flashable {
 
 	func stateButtonApply() {
 		switch state {
-		case .Rating:
-			lowerBtn.enabled = ratingSliderVC.ratingSlider.value.slided
-		case .Comment:
-			lowerBtn.enabled = true
+		case .rating:
+			lowerBtn.isEnabled = ratingSliderVC.ratingSlider.value.slided
+		case .comment:
+			lowerBtn.isEnabled = true
 		}
 	}
 
-	private func stateApply() {
+	fileprivate func stateApply() {
 		switch state {
-		case .Rating:
+		case .rating:
 			upperBtn.resetRemoteConfigText()
 			lowerBtn.resetRemoteConfigText()
 
 			upperBtn.fontStyle = TextStyle.Button.rawValue
 			lowerBtn.fontStyle = TextStyle.ButtonPrimary.rawValue
-		case .Comment:
+		case .comment:
 			upperBtn.remoteConfigKey = RemoteStringKey.Que_Comment_Save_Btn.rawValue
 			lowerBtn.remoteConfigKey = RemoteStringKey.Que_Comment_Discard_Btn.rawValue
 
@@ -157,33 +157,33 @@ class QuestionVC: UIViewController, Flashable {
 
 		stateButtonApply()
 
-		UIView.animateWithDuration(0.3, animations: {
+		UIView.animate(withDuration: 0.3, animations: {
 			self.ratingStackViewShowSubview()
 		})
 	}
 
 	// MARK: - Private Methods
 
-	private func unknownError() {
+	fileprivate func unknownError() {
 		let HUD = JDPopup(titleKey: .ERROR_UNKNOWN_TITLE, subTitleKey: .ERROR_UNKNOWN_EXPLANATION, imageStyle: .Error)
 		HUD.showInView(view)
 	}
 
-	private func dismissKeyboard() {
-		UIApplication.sharedApplication().sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, forEvent: nil)
+	fileprivate func dismissKeyboard() {
+		UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
 	}
 
-	private func deleteComment() {
+	fileprivate func deleteComment() {
 		ratingCommentTxtView.text = nil
 	}
 
-	private func saveAnswerAndProceed() {
+	fileprivate func saveAnswerAndProceed() {
 		let UID = questions[questionsActiveIndex].uid
 		let rating = ratingSliderVC.ratingSlider.value.integer
 		let lastQuestion = questionsActiveIndex == questions.count - 1
 		var comment: String? = nil
 
-		if let text = ratingCommentTxtView.text where text.trimmed != "" {
+		if let text = ratingCommentTxtView.text , text.trimmed != "" {
 			comment = text
 		}
 
@@ -198,29 +198,29 @@ class QuestionVC: UIViewController, Flashable {
 		if lastQuestion {
 			NotificationService.sharedInstance.setupNotifications()
 
-			flash(.In, speed: flashSpeed, completion: { _ in
+			flash(.in, speed: flashSpeed, completion: { _ in
 				self.dismissVC()
 			})
 		} else {
-			flash(.In, speed: flashSpeed, completion: { _ in
+			flash(.in, speed: flashSpeed, completion: { _ in
 				self.resetView(andNextQuestion: true)
-				self.flash(.Out, speed: flashSpeed, completion: nil)
+				self.flash(.out, speed: flashSpeed, completion: nil)
 			})
 		}
 	}
 
-	private func dismissVC() {
+	fileprivate func dismissVC() {
 		delegate?.nextQuestion()
 	}
 
-	private func resetView(andNextQuestion nextQuestion: Bool = false) {
+	fileprivate func resetView(andNextQuestion nextQuestion: Bool = false) {
 
 		deleteComment()
 
 		ratingSliderVC.ratingSlider.reset()
 
-		if state != .Rating {
-			state = .Rating
+		if state != .rating {
+			state = .rating
 		}
 
 		if nextQuestion {

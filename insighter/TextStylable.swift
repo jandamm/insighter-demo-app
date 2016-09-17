@@ -20,8 +20,8 @@ extension TextStylable where Self: UIButton {
 		let style = getStyle()
 
 		titleLabel?.font = style.font()
-		setTitleColor(style.color(), forState: UIControlState.Normal)
-		setTitleColor(style.color().colorWithAlphaComponent(0.45), forState: UIControlState.Disabled)
+		setTitleColor(style.color(), for: UIControlState())
+		setTitleColor(style.color().withAlphaComponent(0.45), for: UIControlState.disabled)
 	}
 }
 
@@ -57,7 +57,7 @@ extension TextStylable where Self: UITextView {
 
 extension TextStylable {
 
-	private func getStyle() -> TextStyle {
+	fileprivate func getStyle() -> TextStyle {
 		guard let font = fontStyle, let style = TextStyle(rawValue: font) else {
 			return TextStyle.Text
 		}

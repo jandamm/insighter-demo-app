@@ -47,15 +47,15 @@ class JDTextField: NextResponderTextField, TextStylable, TextRemoteConfigable, S
 
 	// MARK: - Appearance
 
-	override func textRectForBounds(bounds: CGRect) -> CGRect {
-		return CGRectMake(bounds.origin.x + 12, bounds.origin.y + 4, bounds.width - 24, bounds.height - 4)
+	override func textRectForBounds(_ bounds: CGRect) -> CGRect {
+		return CGRect(x: bounds.origin.x + 12, y: bounds.origin.y + 4, width: bounds.width - 24, height: bounds.height - 4)
 	}
 
-	override func editingRectForBounds(bounds: CGRect) -> CGRect {
+	override func editingRectForBounds(_ bounds: CGRect) -> CGRect {
 		return textRectForBounds(bounds)
 	}
 
-	private func styleView() {
+	fileprivate func styleView() {
 		applyTextStyle()
 
 		minimumFontSize = 14
@@ -66,11 +66,11 @@ class JDTextField: NextResponderTextField, TextStylable, TextRemoteConfigable, S
 		addLine()
 	}
 
-	private func addLine() {
+	fileprivate func addLine() {
 		let line = CALayer()
 		let lineWidth: CGFloat = 1
 
-		line.borderColor = Colors.primaryColor().CGColor
+		line.borderColor = Colors.primaryColor().cgColor
 		line.frame = CGRect(x: 0, y: bounds.height - lineWidth, width: bounds.width, height: lineWidth)
 		line.borderWidth = lineWidth
 

@@ -25,37 +25,37 @@ class JDInputScrollView: UIScrollView {
 
 	// MARK: - Keyboard Actions
 
-	func keyboardWillShow(notification: NSNotification) {
+	func keyboardWillShow(_ notification: Notification) {
 
-		var userInfo = notification.userInfo!
-		var keyboardFrame: CGRect = (userInfo[UIKeyboardFrameBeginUserInfoKey] as! NSValue).CGRectValue()
-		keyboardFrame = viewController.view.convertRect(keyboardFrame, fromView: nil)
+		var userInfo = (notification as NSNotification).userInfo!
+		var keyboardFrame: CGRect = (userInfo[UIKeyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
+		keyboardFrame = viewController.view.convert(keyboardFrame, from: nil)
 
 		var contentInset: UIEdgeInsets = self.contentInset
 		contentInset.bottom = keyboardFrame.size.height
 		self.contentInset = contentInset
 	}
 
-	func keyboardWillHide(notification: NSNotification) {
+	func keyboardWillHide(_ notification: Notification) {
 
-		let contentInset: UIEdgeInsets = UIEdgeInsetsZero
+		let contentInset: UIEdgeInsets = UIEdgeInsets.zero
 		self.contentInset = contentInset
 	}
 
 	// MARK: - Private Methods
 
-	private func setupScrollView() {
+	fileprivate func setupScrollView() {
 		showsVerticalScrollIndicator = false
 		showsHorizontalScrollIndicator = false
 
 		viewController.automaticallyAdjustsScrollViewInsets = false
 
-		keyboardDismissMode = .Interactive
+		keyboardDismissMode = .interactive
 	}
 
-	private func setupNotificationListenersForKeyboardEvents() {
-		NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(keyboardWillShow), name: UIKeyboardWillShowNotification, object: nil)
-		NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(keyboardWillHide), name: UIKeyboardWillHideNotification, object: nil)
+	fileprivate func setupNotificationListenersForKeyboardEvents() {
+		NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+		NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
 	}
 }
 
@@ -79,22 +79,22 @@ class JDPagingScrollView: UIScrollView {
 
 	// MARK: - Private Methods
 
-	private func setView() {
+	fileprivate func setView() {
 		let pages = subviews.count
 
-		for (i, view) in subviews.enumerate() {
+		for (i, view) in subviews.enumerated() {
 			view.frame.origin.x = view.frame.width * CGFloat(i)
 		}
 
-		contentSize = CGSizeMake(frame.width * CGFloat(pages), frame.height)
+		contentSize = CGSize(width: frame.width * CGFloat(pages), height: frame.height)
 	}
 
-	private func setupScrollView() {
+	fileprivate func setupScrollView() {
 		showsVerticalScrollIndicator = false
 		showsHorizontalScrollIndicator = false
 
 		viewController.automaticallyAdjustsScrollViewInsets = false
 
-		pagingEnabled = true
+		isPagingEnabled = true
 	}
 }

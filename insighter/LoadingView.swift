@@ -13,8 +13,8 @@ class LoadingView: UIView {
 
 	// MARK: - Variables
 
-	private var _boundsMax: CGRect!
-	private var _boundsMin: CGRect!
+	fileprivate var _boundsMax: CGRect!
+	fileprivate var _boundsMin: CGRect!
 
 	// MARK: - Startup
 
@@ -39,25 +39,25 @@ class LoadingView: UIView {
 		let widthMin = width * 0.25
 		let inset = (width - widthMin) / 2
 
-		_boundsMax = CGRectMake(0, 0, width, width)
-		_boundsMin = CGRectMake(inset, inset, widthMin, widthMin)
+		_boundsMax = CGRect(x: 0, y: 0, width: width, height: width)
+		_boundsMin = CGRect(x: inset, y: inset, width: widthMin, height: widthMin)
 
 		animation()
 	}
 
 	// MARK: - Animation
 
-	private func animation() {
-		UIView.animateWithDuration(1, animations: {
+	fileprivate func animation() {
+		UIView.animate(withDuration: 1, animations: {
 			self.bounds = self.bounds == self._boundsMax ? self._boundsMin : self._boundsMax
-		}) { _ in
+		}, completion: { _ in
 			self.animation()
-		}
+		}) 
 	}
 
 	// MARK: - Layout
 
-	private func layoutView() {
+	fileprivate func layoutView() {
 		layer.cornerRadius = bounds.width / 2
 	}
 }

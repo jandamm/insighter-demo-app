@@ -12,17 +12,17 @@ import Firebase
 class UserLoginService {
 	static let sharedInstance = UserLoginService()
 
-	private let REF_COMP = FIRDatabase.database().reference().child(DBPathKeys.company.rawValue)
-	private let REF_MAIL = FIRDatabase.database().reference().child(DBPathKeys.email.rawValue)
-	private let REF_USER = FIRDatabase.database().reference().child(DBPathKeys.user.rawValue)
+	fileprivate let REF_COMP = FIRDatabase.database().reference().child(DBPathKeys.company.rawValue)
+	fileprivate let REF_MAIL = FIRDatabase.database().reference().child(DBPathKeys.email.rawValue)
+	fileprivate let REF_USER = FIRDatabase.database().reference().child(DBPathKeys.user.rawValue)
 
 	// MARK: - Private Data
 
-	private var _userFirebase: FIRUser!
-	private var _userData: UserData!
-	private var _company: Company!
-	private var _emailEndings = [String: String]()
-	private var _userListener: FIRAuthStateDidChangeListenerHandle?
+	fileprivate var _userFirebase: FIRUser!
+	fileprivate var _userData: UserData!
+	fileprivate var _company: Company!
+	fileprivate var _emailEndings = [String: String]()
+	fileprivate var _userListener: FIRAuthStateDidChangeListenerHandle?
 
 	// MARK: - External Data
 
@@ -34,9 +34,9 @@ class UserLoginService {
 		return _company
 	}
 
-	func ratedWeeksRelation(withDate date: NSDate) -> Set<CalendarWeek.Relation> {
+	func ratedWeeksRelation(withDate date: Date) -> Set<CalendarWeek.Relation> {
 		guard let userData = _userData else {
-			return [.None]
+			return [.none]
 		}
 
 		let relationLast = userData.lastRated.calenderWeekRelation(forDate: date)
@@ -46,7 +46,7 @@ class UserLoginService {
 	}
 
 	func companyID(forEmail mail: String) -> String? {
-		let mailParts = mail.componentsSeparatedByString("@")
+		let mailParts = mail.components(separatedBy: "@")
 		let part = mailParts.count - 1
 		let ending = mailParts[part]
 		return companyID(forEmailEnding: ending)
@@ -58,7 +58,7 @@ class UserLoginService {
 
 	// MARK: - Global Methods
 
-	func signOutUser(completion: CompletionHandlerBool? = nil) {
+	func signOutUser(_ completion: CompletionHandlerBool? = nil) {
 		try! FIRAuth.auth()!.signOut()
 
 		_userFirebase = nil
@@ -69,16 +69,16 @@ class UserLoginService {
 		getEmailEndingsFromFirebase(completion, forcedCompletionValue: true)
 	}
 
-	func checkUserIsLoggedInAndGetData(completion: CompletionHandlerBool?) {
+	func checkUserIsLoggedInAndGetData(_ completion: CompletionHandlerBool?) {
 		getFIRUser(completion)
 	}
 
-	func updateLastRated(withDate date: NSDate = NSDate()) -> Bool {
+	func updateLastRated(withDate date: Date = Date()) -> Bool {
 		guard let old = _userData else {
 			return false
 		}
 
-		var dates = [date.timeIntervalSince1970, old.lastRated.timeIntervalSince1970, old.previousRated.timeIntervalSince1970].sort()
+		var dates = [date.timeIntervalSince1970, old.lastRated.timeIntervalSince1970, old.previousRated.timeIntervalSince1970].sorted()
 
 		let lastRated = dates.last
 		dates.removeLast()
@@ -100,7 +100,7 @@ class UserLoginService {
 
 	// MARK: - Private Methods
 
-	private func addUserToCompanyUserCount() {
+	fileprivate func addUserToCompanyUserCount() {
 		guard let company = _company else {
 			return NSLog("No Company found, could not add user to company count")
 		}
@@ -112,9 +112,9 @@ class UserLoginService {
 
 			currentData.value = users + 1
 
-			return FIRTransactionResult.successWithValue(currentData)
+			return FIRTransactionResult.success(withValue: currentData)
 		}) { error, committed, data in
-			if let error = error where !committed {
+			if let error = error , !committed {
 				NSLog("Could not add user to company count: \(error.localizedDescription)")
 				NSLog("Retrying...")
 				self.addUserToCompanyUserCount()
@@ -124,7 +124,7 @@ class UserLoginService {
 		}
 	}
 
-	private func getUserDataOrEmailEndings(completion: CompletionHandlerBool?) {
+	fileprivate func getUserDataOrEmailEndings(_ completion: CompletionHandlerBool?) {
 		let loggedIn = _userFirebase != nil
 
 		if loggedIn {
@@ -134,14 +134,14 @@ class UserLoginService {
 		}
 	}
 
-	private func getFIRUser(completion: CompletionHandlerBool?) {
-		_userListener = FIRAuth.auth()?.addAuthStateDidChangeListener { auth, user in
+	fileprivate func getFIRUser(_ completion: CompletionHandlerBool?) {
+		_userListener = FIRAuth.auth()?.addStateDidChangeListener { auth, user in
 			guard self._userFirebase == nil else {
 				return
 			}
 
 			if let listener = self._userListener {
-				FIRAuth.auth()?.removeAuthStateDidChangeListener(listener)
+				FIRAuth.auth()?.removeStateDidChangeListener(listener)
 				self._userListener = nil
 			}
 
@@ -150,17 +150,17 @@ class UserLoginService {
 		}
 	}
 
-	private func getUserDataFromFirebase(completion: CompletionHandlerBool?, forcedCompletionValue: Bool?) {
+	fileprivate func getUserDataFromFirebase(_ completion: CompletionHandlerBool?, forcedCompletionValue: Bool?) {
 		let uid = _userFirebase.uid
 
-		if let user = _userData where user.UID == uid {
+		if let user = _userData , user.UID == uid {
 			self.complete(completion, withForcedValue: forcedCompletionValue, andRealValue: false)
 			return
 		}
 
 		NSLog("Checking User data from Firebase")
 
-		REF_USER.child(uid).observeSingleEventOfType(.Value, withBlock: { snapshot in
+		REF_USER.child(uid).observeSingleEvent(of: .value, with: { snapshot in
 			guard snapshot.exists(), let data = snapshot.value as? [String: AnyObject] else {
 				NSLog("No User data available in Firebase")
 				self.complete(completion, withForcedValue: forcedCompletionValue, andRealValue: false)
@@ -182,7 +182,7 @@ class UserLoginService {
 		})
 	}
 
-	private func getCompanyFromFirebase(completion: CompletionHandlerBool?, forcedCompletionValue: Bool?) {
+	fileprivate func getCompanyFromFirebase(_ completion: CompletionHandlerBool?, forcedCompletionValue: Bool?) {
 		guard let user = _userData, let uid = user.company else {
 			NSLog("No User or Company found")
 			self.complete(completion, withForcedValue: forcedCompletionValue, andRealValue: false)
@@ -191,7 +191,7 @@ class UserLoginService {
 
 		let refToValue = REF_COMP.child(uid).child(DBPathKeys.Company.value.rawValue)
 
-		refToValue.observeSingleEventOfType(.Value, withBlock: { snapshot in
+		refToValue.observeSingleEvent(of: .value, with: { snapshot in
 			guard snapshot.exists(), let data = snapshot.value as? [String: AnyObject] else {
 				NSLog("No Company data available in Firebase")
 				self.complete(completion, withForcedValue: forcedCompletionValue, andRealValue: false)
@@ -211,7 +211,7 @@ class UserLoginService {
 		})
 	}
 
-	private func getEmailEndingsFromFirebase(completion: CompletionHandlerBool?, forcedCompletionValue: Bool?) {
+	fileprivate func getEmailEndingsFromFirebase(_ completion: CompletionHandlerBool?, forcedCompletionValue: Bool?) {
 		guard _userFirebase == nil && _emailEndings.count == 0 else {
 			complete(completion, withForcedValue: forcedCompletionValue, andRealValue: false)
 			return
@@ -219,7 +219,7 @@ class UserLoginService {
 
 		NSLog("Checking Email Endings from Firebase")
 
-		REF_MAIL.observeSingleEventOfType(.Value, withBlock: { snapshot in
+		REF_MAIL.observeSingleEvent(of: .value, with: { snapshot in
 			guard snapshot.exists(), let data = snapshot.value as? [String: [String: String]] else {
 				NSLog("No Email data available in Firebase")
 				self.complete(completion, withForcedValue: forcedCompletionValue, andRealValue: false)
@@ -241,7 +241,7 @@ class UserLoginService {
 		})
 	}
 
-	private func complete(completion: CompletionHandlerBool?, withForcedValue forced: Bool?, andRealValue value: Bool) {
+	fileprivate func complete(_ completion: CompletionHandlerBool?, withForcedValue forced: Bool?, andRealValue value: Bool) {
 		let returnValue = forced ?? value
 
 		completion?(returnValue)

@@ -12,7 +12,7 @@ import Firebase
 class RemoteConfig {
 	static let sharedInstance = RemoteConfig()
 
-	private let remoteConfig = FIRRemoteConfig.remoteConfig()
+	fileprivate let remoteConfig = FIRRemoteConfig.remoteConfig()
 
 	// MARK: - Initialization
 
@@ -27,11 +27,11 @@ class RemoteConfig {
 
 	// MARK: - External Methods
 
-	func getRemoteConfigValues(completion: CompletionHandlerBool?) {
+	func getRemoteConfigValues(_ completion: CompletionHandlerBool?) {
 		let expDuration = remoteConfig.configSettings.isDeveloperModeEnabled ? 0 : 3600
 
-		remoteConfig.fetchWithExpirationDuration(NSTimeInterval(expDuration)) { (status, error) in
-			if (status == FIRRemoteConfigFetchStatus.Success) {
+		remoteConfig.fetch(withExpirationDuration: TimeInterval(expDuration)) { (status, error) in
+			if (status == FIRRemoteConfigFetchStatus.success) {
 				self.remoteConfig.activateFetched()
 				NSLog("RemoteConfig successfully fetched and activated")
 				completion?(true)
@@ -59,10 +59,10 @@ class RemoteConfig {
 	}
 
 	func getInt(forKey key: RemoteIntKey) -> Int {
-		return getNSNumber(forValue: key.rawValue).integerValue
+		return getNSNumber(forValue: key.rawValue).intValue
 	}
 
-	private func getNSNumber(forValue key: String) -> NSNumber {
+	fileprivate func getNSNumber(forValue key: String) -> NSNumber {
 		guard let value = remoteConfig[key].numberValue else {
 			return 0
 		}

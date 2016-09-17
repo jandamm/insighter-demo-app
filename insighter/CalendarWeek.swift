@@ -11,7 +11,7 @@ import Foundation
 struct CalendarWeek: Equatable {
 
 	enum Relation {
-		case This, Last, Previous, None
+		case this, last, previous, none
 	}
 
 	// MARK: - Data
@@ -20,35 +20,35 @@ struct CalendarWeek: Equatable {
 		return calWeek(date)
 	}
 
-	var timeIntervalSince1970: NSTimeInterval {
+	var timeIntervalSince1970: TimeInterval {
 		return date.timeIntervalSince1970
 	}
 
-	private let date: NSDate
+	fileprivate let date: Date
 
 	// MARK: - Initialization
 
 	init() {
-		date = NSDate()
+		date = Date()
 	}
 
-	init(withNSDate date: NSDate) {
+	init(withNSDate date: Date) {
 		self.date = date
 	}
 
 	// MARK: - Global Methods
 
-	func calenderWeekRelation(forDate inputDate: NSDate) -> Relation {
+	func calenderWeekRelation(forDate inputDate: Date) -> Relation {
 
 		switch calWeek(inputDate) {
 		case stringValue:
-			return .This
+			return .this
 		case calendarWeek(beforeWeeks: 1):
-			return .Last
+			return .last
 		case calendarWeek(beforeWeeks: 2):
-			return .Previous
+			return .previous
 		default:
-			return .None
+			return .none
 		}
 	}
 
@@ -57,26 +57,26 @@ struct CalendarWeek: Equatable {
 	}
 
 	func calendarWeek(inWeeks weeks: Double) -> String {
-		let timeInterval: NSTimeInterval = weeks * 7 * 24 * 60 * 60
-		let date = self.date.dateByAddingTimeInterval(timeInterval)
+		let timeInterval: TimeInterval = weeks * 7 * 24 * 60 * 60
+		let date = self.date.addingTimeInterval(timeInterval)
 
 		return calWeek(date)
 	}
 
 	// MARK: - Private Methods
 
-	private func calWeek(date: NSDate) -> String {
+	fileprivate func calWeek(_ date: Date) -> String {
 		let year = getYear(date)
 		let week = getWeek(date)
 		return "\(year)-\(week)"
 	}
 
-	private func getWeek(date: NSDate) -> Int {
-		return CALENDAR.components(.WeekOfYear, fromDate: date).weekOfYear
+	fileprivate func getWeek(_ date: Date) -> Int {
+		return (CALENDAR as NSCalendar).components(.weekOfYear, from: date).weekOfYear!
 	}
 
-	private func getYear(date: NSDate) -> Int {
-		return CALENDAR.components(.Year, fromDate: date).year
+	fileprivate func getYear(_ date: Date) -> Int {
+		return (CALENDAR as NSCalendar).components(.year, from: date).year!
 	}
 }
 

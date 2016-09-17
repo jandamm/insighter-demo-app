@@ -12,11 +12,11 @@ class RatingQuestion: NSObject, NSCoding {
 
 	// MARK: - Private Data
 
-	private let errorUID = "<no uid>"
-	private let errorQuestion = "Something went wrong."
+	fileprivate let errorUID = "<no uid>"
+	fileprivate let errorQuestion = "Something went wrong."
 
-	private var _uid: String!
-	private var _question: String!
+	fileprivate var _uid: String!
+	fileprivate var _question: String!
 
 	// MARK: - Global Data
 
@@ -26,7 +26,7 @@ class RatingQuestion: NSObject, NSCoding {
 
 	var question: String {
 		let company = UserLoginService.sharedInstance.company.name ?? "Error"
-		return _question == nil ? errorQuestion : _question.stringByReplacingOccurrencesOfString("[company]", withString: company)
+		return _question == nil ? errorQuestion : _question.replacingOccurrences(of: "[company]", with: company)
 	}
 
 	// MARK: - Initialization
@@ -42,12 +42,12 @@ class RatingQuestion: NSObject, NSCoding {
 
 	required convenience init?(coder aDecoder: NSCoder) {
 		self.init()
-		self._uid = aDecoder.decodeObjectForKey("uid") as? String
-		self._question = aDecoder.decodeObjectForKey("question") as? String
+		self._uid = aDecoder.decodeObject(forKey: "uid") as? String
+		self._question = aDecoder.decodeObject(forKey: "question") as? String
 	}
 
-	func encodeWithCoder(aCoder: NSCoder) {
-		aCoder.encodeObject(self._uid, forKey: "uid")
-		aCoder.encodeObject(self._question, forKey: "question")
+	func encode(with aCoder: NSCoder) {
+		aCoder.encode(self._uid, forKey: "uid")
+		aCoder.encode(self._question, forKey: "question")
 	}
 }

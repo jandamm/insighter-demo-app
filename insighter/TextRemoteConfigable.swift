@@ -18,7 +18,7 @@ extension TextRemoteConfigable where Self: UIButton {
 
 	func setText() {
 		let title = getValue()
-		setTitle(title, forState: .Normal)
+		setTitle(title, for: UIControlState())
 	}
 }
 
@@ -38,7 +38,7 @@ extension TextRemoteConfigable where Self: UITextField {
 
 extension TextRemoteConfigable {
 
-	private func getKey() -> RemoteStringKey {
+	fileprivate func getKey() -> RemoteStringKey {
 		guard let rawKey = remoteConfigKey else {
 			return RemoteStringKey._ERROR_NO_KEY
 		}
@@ -50,7 +50,7 @@ extension TextRemoteConfigable {
 		return key
 	}
 
-	private func getValue() -> String {
+	fileprivate func getValue() -> String {
 		let key = getKey()
 
 		return RemoteConfig.sharedInstance.getString(forKey: key)

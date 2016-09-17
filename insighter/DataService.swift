@@ -12,15 +12,15 @@ import Firebase
 class DataService {
 	static let sharedInstance = DataService()
 
-	private let REF = FIRDatabase.database().reference().child(DBPathKeys.company.rawValue)
+	fileprivate let REF = FIRDatabase.database().reference().child(DBPathKeys.company.rawValue)
 
 	// MARK: - Private Data
 
-	private let REF_COMP = FIRDatabase.database().reference().child(DBPathKeys.company.rawValue)
+	fileprivate let REF_COMP = FIRDatabase.database().reference().child(DBPathKeys.company.rawValue)
 
-	private var KW: CalendarWeek!
+	fileprivate var KW: CalendarWeek!
 
-	private var ratingForAverage = [String: Int]()
+	fileprivate var ratingForAverage = [String: Int]()
 
 	// MARK: - External Data
 
@@ -28,7 +28,7 @@ class DataService {
 
 	// MARK: - Global Methods
 
-	func addRating(rating: RatingAnswer, lastQuestion: Bool) -> Bool {
+	func addRating(_ rating: RatingAnswer, lastQuestion: Bool) -> Bool {
 		guard let userID = UserLoginService.sharedInstance.userID, let company = UserLoginService.sharedInstance.company else {
 			return false
 		}
@@ -37,11 +37,11 @@ class DataService {
 
 		let data = [rating.UID: rating.rating]
 		ratingForAverage[rating.UID] = rating.rating
-		uploadRatingData(data, toPath: .rating, forUser: userID, atCompany: company.UID)
+		uploadRatingData(data as [String : AnyObject], toPath: .rating, forUser: userID, atCompany: company.UID)
 
 		if let comment = rating.comment {
 			let data = [rating.UID: comment]
-			uploadRatingData(data, toPath: .comment, forUser: userID, atCompany: company.UID)
+			uploadRatingData(data as [String : AnyObject], toPath: .comment, forUser: userID, atCompany: company.UID)
 		}
 
 		NSLog("Uploaded rating data for question: \(rating.UID)")
@@ -56,12 +56,12 @@ class DataService {
 
 	// MARK: - Private Methods
 
-	private func uploadRatingData(data: [String: AnyObject], toPath path: DBPathKeys.Company, forUser userID: String, atCompany companyID: String) {
+	fileprivate func uploadRatingData(_ data: [String: AnyObject], toPath path: DBPathKeys.Company, forUser userID: String, atCompany companyID: String) {
 		let refToUserRating = REF_COMP.child(companyID).child(path.rawValue).child(KW.stringValue).child(userID)
 		refToUserRating.updateChildValues(data)
 	}
 
-	private func saveRatingToAverage(forCompany companyID: String) {
+	fileprivate func saveRatingToAverage(forCompany companyID: String) {
 		let refToAverage = REF_COMP.child(companyID).child(DBPathKeys.Company.average.rawValue).child(KW.stringValue)
 
 		refToAverage.runTransactionBlock({ currentData -> FIRTransactionResult in
@@ -84,9 +84,9 @@ class DataService {
 
 			currentData.value = data
 
-			return FIRTransactionResult.successWithValue(currentData)
+			return FIRTransactionResult.success(withValue: currentData)
 		}) { error, committed, data in
-			if let error = error where !committed {
+			if let error = error , !committed {
 				NSLog("Could not upload data to average: \(error.localizedDescription)")
 				NSLog("Retrying...")
 				self.saveRatingToAverage(forCompany: companyID)

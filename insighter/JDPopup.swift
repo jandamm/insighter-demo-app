@@ -11,8 +11,8 @@ import JGProgressHUD
 class JDPopup: JGProgressHUD {
 
 	enum ImageStyle {
-		case Error
-		case Success
+		case error
+		case success
 	}
 
 	convenience init(titleKey: RemoteStringKey, subTitleKey: RemoteStringKey, imageStyle: ImageStyle) {
@@ -28,9 +28,9 @@ class JDPopup: JGProgressHUD {
 		let imageName: String
 
 		switch imageStyle {
-		case .Error:
+		case .error:
 			imageName = "popup-error-img"
-		case .Success:
+		case .success:
 			imageName = "popup-success-img"
 		}
 

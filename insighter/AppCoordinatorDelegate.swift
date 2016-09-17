@@ -8,20 +8,20 @@
 
 import JDCoordinator
 
-typealias AppCoordinatorDelegate = protocol<OnboardingCoordinatorDelegate, LoginCoordinatorDelegate, QuestionCoordinatorDelegate, EvaluationCoordinatorDelegate>
+typealias AppCoordinatorDelegate = OnboardingCoordinatorDelegate & LoginCoordinatorDelegate & QuestionCoordinatorDelegate & EvaluationCoordinatorDelegate
 
 protocol OnboardingCoordinatorDelegate: JDCoordinatorDelegate {
-	func onboardingEnded(finishedCoordinator: JDCoordinator)
+	func onboardingEnded(_ finishedCoordinator: JDCoordinator)
 }
 
 protocol LoginCoordinatorDelegate: JDCoordinatorDelegate {
-	func loginEnded(finishedCoordinator: JDCoordinator)
+	func loginEnded(_ finishedCoordinator: JDCoordinator)
 }
 
 protocol QuestionCoordinatorDelegate: JDCoordinatorDelegate {
-	func questionsAsked(finishedCoordinator: JDCoordinator)
+	func questionsAsked(_ finishedCoordinator: JDCoordinator)
 }
 
 protocol EvaluationCoordinatorDelegate: JDCoordinatorDelegate {
-	func loggedOut(finishedCoordinator: JDCoordinator)
+	func loggedOut(_ finishedCoordinator: JDCoordinator)
 }

@@ -11,16 +11,16 @@ import UIKit
 class NotificationService {
 	static let sharedInstance = NotificationService()
 
-	private let APP = UIApplication.sharedApplication()
+	fileprivate let APP = UIApplication.shared
 
 	// MARK: - External Methods
 
 	func hasNoAllowance() -> Bool {
-		return APP.currentUserNotificationSettings()?.types == UIUserNotificationType.None
+		return APP.currentUserNotificationSettings?.types == UIUserNotificationType()
 	}
 
 	func askForAllowance() {
-		APP.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound], categories: nil))
+		APP.registerUserNotificationSettings(UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil))
 	}
 
 	func setupNotifications() {
@@ -36,7 +36,7 @@ class NotificationService {
 
 	// MARK: - Private Methods
 
-	private func addNotification(onWeekDay weekDay: Int, atHour hour: Int) {
+	fileprivate func addNotification(onWeekDay weekDay: Int, atHour hour: Int) {
 		let notification = UILocalNotification()
 
 		let title = RemoteConfig.sharedInstance.getString(forKey: .Notif_Reminder_Title)
@@ -48,25 +48,25 @@ class NotificationService {
 		notification.alertBody = body
 		notification.alertAction = action
 		notification.fireDate = date
-		notification.repeatInterval = .Weekday
+		notification.repeatInterval = .weekday
 		notification.soundName = UILocalNotificationDefaultSoundName
 		notification.applicationIconBadgeNumber = 1
 
 		APP.scheduleLocalNotification(notification)
 	}
 
-	private func getDate(forWeekDay weekDay: Int, atHour hour: Int) -> NSDate {
-		let nowDate = NSDate()
-		let nowDateComponents = CALENDAR.components([.Weekday, .Hour], fromDate: nowDate)
+	fileprivate func getDate(forWeekDay weekDay: Int, atHour hour: Int) -> Date {
+		let nowDate = Date()
+		let nowDateComponents = (CALENDAR as NSCalendar).components([.weekday, .hour], from: nowDate)
 
-		let offset = (weekDay - nowDateComponents.weekday) * 24 + hour - nowDateComponents.hour
+		let offset = (weekDay - nowDateComponents.weekday!) * 24 + hour - nowDateComponents.hour!
 
-		let destDate = nowDate.dateByAddingTimeInterval(Double(offset) * 60 * 60)
+		let destDate = nowDate.addingTimeInterval(Double(offset) * 60 * 60)
 
 		let ratedRelation = UserLoginService.sharedInstance.ratedWeeksRelation(withDate: destDate)
 
-		if destDate.timeIntervalSinceNow < 0 || ratedRelation.contains(.This) {
-			return destDate.dateByAddingTimeInterval(7 * 24 * 60 * 60)
+		if destDate.timeIntervalSinceNow < 0 || ratedRelation.contains(.this) {
+			return destDate.addingTimeInterval(7 * 24 * 60 * 60)
 		}
 
 		return destDate

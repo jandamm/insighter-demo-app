@@ -8,34 +8,34 @@
 
 import UIKit
 
-enum Direction { case In, Out }
+enum Direction { case `in`, out }
 
 protocol Flashable {}
 
 extension Flashable where Self: UIViewController {
 
-	func flash(direction: Direction, speed: Double = 0.0, completion: CompletionHandlerBool?) {
+	func flash(_ direction: Direction, speed: Double = 0.0, completion: CompletionHandlerBool?) {
 
 		switch direction {
-		case .In:
+		case .in:
 
 			let flashView = UIView(frame: view.frame)
-			flashView.backgroundColor = UIColor.whiteColor()
+			flashView.backgroundColor = UIColor.white
 			flashView.alpha = 0.0
 			view.addSubview(flashView)
 
 			flashView.translatesAutoresizingMaskIntoConstraints = false
-			view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("|[flashView]|", options: [], metrics: nil, views: ["flashView": flashView]))
-			view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|[flashView]|", options: [], metrics: nil, views: ["flashView": flashView]))
+			view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "|[flashView]|", options: [], metrics: nil, views: ["flashView": flashView]))
+			view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[flashView]|", options: [], metrics: nil, views: ["flashView": flashView]))
 
-			UIView.animateWithDuration(speed, animations: {
+			UIView.animate(withDuration: speed, animations: {
 				flashView.alpha = 1
 			}, completion: { complete in
 				completion?(complete)
 			})
 
-		case .Out:
-			UIView.animateWithDuration(speed, animations: { _ in
+		case .out:
+			UIView.animate(withDuration: speed, animations: { _ in
 				self.view.subviews.last?.alpha = 0
 			}, completion: { complete in
 				self.view.subviews.last?.removeFromSuperview()

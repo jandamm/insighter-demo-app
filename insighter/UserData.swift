@@ -18,18 +18,18 @@ struct UserData: Equatable, FIRUploadable {
 
 	// MARK: - Initialization
 
-	init(UID: String, company: String?, lastRated: NSTimeInterval?, previousRated: NSTimeInterval?, securityQuestion: String?, securityAnswer: String?) {
+	init(UID: String, company: String?, lastRated: TimeInterval?, previousRated: TimeInterval?, securityQuestion: String?, securityAnswer: String?) {
 		self.UID = UID
 		self.company = company
 		self.securityAnswer = securityAnswer
 		self.securityQuestion = securityQuestion
 
 		let lastRated = lastRated == nil ? 0 : lastRated!
-		let lastRatedDate = NSDate(timeIntervalSince1970: lastRated)
+		let lastRatedDate = Date(timeIntervalSince1970: lastRated)
 		self.lastRated = CalendarWeek(withNSDate: lastRatedDate)
 
 		let previousRated = previousRated == nil ? 0 : previousRated!
-		let previousRatedDate = NSDate(timeIntervalSince1970: previousRated)
+		let previousRatedDate = Date(timeIntervalSince1970: previousRated)
 		self.previousRated = CalendarWeek(withNSDate: previousRatedDate)
 	}
 
@@ -44,7 +44,7 @@ struct UserData: Equatable, FIRUploadable {
 		var out = [String: AnyObject]()
 
 		if let company = company {
-			out[key.company.rawValue] = company
+			out[key.company.rawValue] = company as AnyObject?
 		}
 		if lastRated.timeIntervalSince1970 > 0 {
 			out[key.lastRated.rawValue] = lastRated.timeIntervalSince1970
@@ -53,10 +53,10 @@ struct UserData: Equatable, FIRUploadable {
 			out[key.previousRated.rawValue] = previousRated.timeIntervalSince1970
 		}
 		if let securityQuestion = securityQuestion {
-			out[key.securityQuestion.rawValue] = securityQuestion
+			out[key.securityQuestion.rawValue] = securityQuestion as AnyObject?
 		}
 		if let securityAnswer = securityAnswer {
-			out[key.securityAnswer.rawValue] = securityAnswer
+			out[key.securityAnswer.rawValue] = securityAnswer as AnyObject?
 		}
 
 		return out

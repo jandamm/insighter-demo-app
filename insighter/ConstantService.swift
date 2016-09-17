@@ -12,15 +12,15 @@ import Firebase
 class ConstantService {
 	static let sharedInstance = ConstantService()
 
-	private let FIR_REF = FIRDatabase.database().reference().child(DBPathKeys.constant.rawValue)
-	private let NSUD = NSUserDefaults.standardUserDefaults()
+	fileprivate let FIR_REF = FIRDatabase.database().reference().child(DBPathKeys.constant.rawValue)
+	fileprivate let NSUD = UserDefaults.standard
 
 	// MARK: - Private Data
 
-	private var _versionDate = ""
+	fileprivate var _versionDate = ""
 
-	private var _ratingQuestions = [String: RatingQuestion]()
-	private var _securityQuestions: [String]?
+	fileprivate var _ratingQuestions = [String: RatingQuestion]()
+	fileprivate var _securityQuestions: [String]?
 
 	// MARK: - External Data
 
@@ -34,18 +34,18 @@ class ConstantService {
 
 	// MARK: - Global Methods
 
-	func initiateConstants(completion: CompletionHandlerBool?) {
+	func initiateConstants(_ completion: CompletionHandlerBool?) {
 
 		versionFromNSUD()
 
-		FIR_REF.child(DBValueKeys.Constant._versionDate.rawValue).observeSingleEventOfType(.Value, withBlock: { snapshot in
+		FIR_REF.child(DBValueKeys.Constant._versionDate.rawValue).observeSingleEvent(of: .value, with: { snapshot in
 			guard snapshot.exists(), let data = snapshot.value else {
 				self.noConnectionToFirebase()
 				self.constantsFromNSUD(completion)
 				return
 			}
 
-			let firebaseVersion = String(data)
+			let firebaseVersion = String(describing: data)
 
 			NSLog("Constants: Local Version: \(self._versionDate); Firebase Version: \(firebaseVersion)")
 
@@ -59,17 +59,17 @@ class ConstantService {
 
 	// MARK: - NSUserDefaults
 
-	private func versionFromNSUD() {
-		if let versionDate = NSUD.stringForKey(DBValueKeys.Constant._versionDate.rawValue) {
+	fileprivate func versionFromNSUD() {
+		if let versionDate = NSUD.string(forKey: DBValueKeys.Constant._versionDate.rawValue) {
 			_versionDate = versionDate
 		}
 	}
 
-	private func constantsToNSUD() {
+	fileprivate func constantsToNSUD() {
 		NSUD.setValue(_versionDate, forKey: DBValueKeys.Constant._versionDate.rawValue)
 
-		let data = NSKeyedArchiver.archivedDataWithRootObject(_ratingQuestions)
-		NSUD.setObject(data, forKey: DBValueKeys.Constant.ratingQuestions.rawValue)
+		let data = NSKeyedArchiver.archivedData(withRootObject: _ratingQuestions)
+		NSUD.set(data, forKey: DBValueKeys.Constant.ratingQuestions.rawValue)
 
 		NSUD.setValue(_securityQuestions, forKey: DBValueKeys.Constant.securityQuestions.rawValue)
 
@@ -78,15 +78,15 @@ class ConstantService {
 		NSLog("Saved Constants from Firebase to NSUD successful: \(success)")
 	}
 
-	private func constantsFromNSUD(completion: CompletionHandlerBool?) {
+	fileprivate func constantsFromNSUD(_ completion: CompletionHandlerBool?) {
 		var pick = 2
 
-		if let data = NSUD.objectForKey(DBValueKeys.Constant.ratingQuestions.rawValue) as? NSData, let ratingQuestions = NSKeyedUnarchiver.unarchiveObjectWithData(data) as? [String: RatingQuestion] {
+		if let data = NSUD.object(forKey: DBValueKeys.Constant.ratingQuestions.rawValue) as? Data, let ratingQuestions = NSKeyedUnarchiver.unarchiveObject(with: data) as? [String: RatingQuestion] {
 			_ratingQuestions = ratingQuestions
 			pick -= 1
 		}
 
-		if let securityQuestions = NSUD.objectForKey(DBValueKeys.Constant.securityQuestions.rawValue) as? [String] {
+		if let securityQuestions = NSUD.object(forKey: DBValueKeys.Constant.securityQuestions.rawValue) as? [String] {
 			_securityQuestions = securityQuestions
 			pick -= 1
 		}
@@ -100,9 +100,9 @@ class ConstantService {
 
 	// MARK: - Firebase
 
-	private func constantsFromFirebase(completion: CompletionHandlerBool?) {
+	fileprivate func constantsFromFirebase(_ completion: CompletionHandlerBool?) {
 		NSLog("Getting Constants from Firebase")
-		FIR_REF.observeSingleEventOfType(.Value, withBlock: { snapshot in
+		FIR_REF.observeSingleEvent(of: .value, with: { snapshot in
 			guard snapshot.exists(), let data = snapshot.value as? [String: AnyObject] else {
 				self.noConnectionToFirebase()
 				completion?(false)
@@ -112,7 +112,7 @@ class ConstantService {
 			var pick = 3
 
 			if let version = data[DBValueKeys.Constant._versionDate.rawValue] {
-				self._versionDate = String(version)
+				self._versionDate = String(describing: version)
 				pick -= 1
 			}
 
@@ -144,7 +144,7 @@ class ConstantService {
 
 	// MARK: - Private Methods
 
-	private func noConnectionToFirebase() {
+	fileprivate func noConnectionToFirebase() {
 		NSLog("Constants: No connection to Firebase")
 	}
 }

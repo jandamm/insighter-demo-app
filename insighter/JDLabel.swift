@@ -29,7 +29,7 @@ class JDLabel: UILabel, TextStylable, TextResettable {
 
 	// MARK: - Private Data
 
-	private var _remoteConfigKeyDefault: String!
+	fileprivate var _remoteConfigKeyDefault: String!
 
 	// MARK: - Global Data
 
@@ -55,7 +55,7 @@ class JDLabel: UILabel, TextStylable, TextResettable {
 
 	// MARK: - Appearance
 
-	private func styleView() {
+	fileprivate func styleView() {
 		if fontStyle == nil {
 			applyTextStyle()
 		}
