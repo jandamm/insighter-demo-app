@@ -29,9 +29,9 @@ class LoginVC: UIViewController {
 	private enum ErrorType {
 		case Email, Password, Security, SwitchState
 
-		static private var email: Set = ["ERROR_INVALID_EMAIL", "ERROR_EMAIL_ALREADY_IN_USE"]
-		static private var password: Set = ["ERROR_WEAK_PASSWORD", "ERROR_WRONG_PASSWORD"]
-		static private var switchState: Set = ["ERROR_USER_NOT_FOUND"]
+		private static var email: Set = ["ERROR_INVALID_EMAIL", "ERROR_EMAIL_ALREADY_IN_USE"]
+		private static var password: Set = ["ERROR_WEAK_PASSWORD", "ERROR_WRONG_PASSWORD"]
+		private static var switchState: Set = ["ERROR_USER_NOT_FOUND"]
 
 		static func errorType(forString s: String) -> ErrorType? {
 			if email.contains(s) {

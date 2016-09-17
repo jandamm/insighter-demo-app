@@ -40,7 +40,7 @@ class RatingQuestion: NSObject, NSCoding {
 
 	override init() {}
 
-	convenience required init?(coder aDecoder: NSCoder) {
+	required convenience init?(coder aDecoder: NSCoder) {
 		self.init()
 		self._uid = aDecoder.decodeObjectForKey("uid") as? String
 		self._question = aDecoder.decodeObjectForKey("question") as? String

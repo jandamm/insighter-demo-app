@@ -9,7 +9,9 @@
 import UIKit
 
 protocol ColorScheme {}
+
 extension ColorScheme {
+
 	static func rgba(r: CGFloat, _ g: CGFloat, _ b: CGFloat, _ a: CGFloat) -> UIColor {
 		return UIColor(red: r / 255, green: g / 255, blue: b / 255, alpha: a)
 	}
