@@ -33,12 +33,12 @@ class RemoteConfig {
 		remoteConfig.fetch(withExpirationDuration: TimeInterval(expDuration)) { (status, error) in
 			if (status == FIRRemoteConfigFetchStatus.success) {
 				self.remoteConfig.activateFetched()
-				NSLog("RemoteConfig successfully fetched and activated")
+				NSLog("[JD] RemoteConfig successfully fetched and activated")
 				completion?(true)
 			} else {
 				let errorString = error == nil ? "Error unspecified" : error!.localizedDescription
 
-				NSLog("Config not fetched: \(errorString)")
+				NSLog("[JD] Config not fetched: \(errorString)")
 				completion?(false)
 			}
 		}

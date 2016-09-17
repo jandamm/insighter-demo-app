@@ -18,7 +18,7 @@ class RatingSlider: UIView {
 
 	var delegate: RatingSliderDelegate? {
 		didSet {
-			NSLog("RatingSlider delegate was set to \(delegate!)")
+			NSLog("[JD] RatingSlider delegate was set to \(delegate!)")
 		}
 	}
 

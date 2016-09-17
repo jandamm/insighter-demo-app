@@ -24,7 +24,7 @@ class QuestionCoordinator: JDCoordinator, QuestionDelegate {
 		if questions.count > 0 {
 			showQuestionVC()
 		} else {
-			NSLog("Empty Questions")
+			NSLog("[JD] Empty Questions")
 			questionsAsked()
 		}
 	}

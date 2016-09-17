@@ -65,7 +65,7 @@ class UserLoginService {
 		_userData = nil
 		_company = nil
 
-		NSLog("User logged out")
+		NSLog("[JD] User logged out")
 		getEmailEndingsFromFirebase(completion, forcedCompletionValue: true)
 	}
 
@@ -89,7 +89,7 @@ class UserLoginService {
 		_userData = user
 
 		user.upload()
-		NSLog("Updated lastRated")
+		NSLog("[JD] Updated lastRated")
 		return true
 	}
 
@@ -102,7 +102,7 @@ class UserLoginService {
 
 	fileprivate func addUserToCompanyUserCount() {
 		guard let company = _company else {
-			return NSLog("No Company found, could not add user to company count")
+			return NSLog("[JD] No Company found, could not add user to company count")
 		}
 
 		let refToUsers = REF_COMP.child(company.UID).child(DBPathKeys.Company.value.rawValue).child(DBValueKeys.CompanyValue.users.rawValue)
@@ -115,11 +115,11 @@ class UserLoginService {
 			return FIRTransactionResult.success(withValue: currentData)
 		}) { error, committed, data in
 			if let error = error, !committed {
-				NSLog("Could not add user to company count: \(error.localizedDescription)")
-				NSLog("Retrying...")
+				NSLog("[JD] Could not add user to company count: \(error.localizedDescription)")
+				NSLog("[JD] Retrying...")
 				self.addUserToCompanyUserCount()
 			} else if committed {
-				NSLog("Added new user to company count")
+				NSLog("[JD] Added new user to company count")
 			}
 		}
 	}
@@ -158,11 +158,11 @@ class UserLoginService {
 			return
 		}
 
-		NSLog("Checking User data from Firebase")
+		NSLog("[JD] Checking User data from Firebase")
 
 		REF_USER.child(uid).observeSingleEvent(of: .value, with: { snapshot in
 			guard snapshot.exists(), let data = snapshot.value as? [String: AnyObject] else {
-				NSLog("No User data available in Firebase")
+				NSLog("[JD] No User data available in Firebase")
 				self.complete(completion, withForcedValue: forcedCompletionValue, andRealValue: false)
 				return
 			}
@@ -176,7 +176,7 @@ class UserLoginService {
 			let user = UserData(UID: uid, company: company, lastRated: lastRated, previousRated: previousRated, securityQuestion: securityQuestion, securityAnswer: securityAnswer)
 
 			self._userData = user
-			NSLog("Got User data from Firebase")
+			NSLog("[JD] Got User data from Firebase")
 
 			self.getCompanyFromFirebase(completion, forcedCompletionValue: nil)
 		})
@@ -184,7 +184,7 @@ class UserLoginService {
 
 	fileprivate func getCompanyFromFirebase(_ completion: CompletionHandlerBool?, forcedCompletionValue: Bool?) {
 		guard let user = _userData, let uid = user.company else {
-			NSLog("No User or Company found")
+			NSLog("[JD] No User or Company found")
 			self.complete(completion, withForcedValue: forcedCompletionValue, andRealValue: false)
 			return
 		}
@@ -193,7 +193,7 @@ class UserLoginService {
 
 		refToValue.observeSingleEvent(of: .value, with: { snapshot in
 			guard snapshot.exists(), let data = snapshot.value as? [String: AnyObject] else {
-				NSLog("No Company data available in Firebase")
+				NSLog("[JD] No Company data available in Firebase")
 				self.complete(completion, withForcedValue: forcedCompletionValue, andRealValue: false)
 				return
 			}
@@ -205,7 +205,7 @@ class UserLoginService {
 			let company = Company(UID: uid, name: name, users: users, goodie: goodie)
 
 			self._company = company
-			NSLog("Got Company data from Firebase")
+			NSLog("[JD] Got Company data from Firebase")
 
 			self.complete(completion, withForcedValue: forcedCompletionValue, andRealValue: true)
 		})
@@ -217,11 +217,11 @@ class UserLoginService {
 			return
 		}
 
-		NSLog("Checking Email Endings from Firebase")
+		NSLog("[JD] Checking Email Endings from Firebase")
 
 		REF_MAIL.observeSingleEvent(of: .value, with: { snapshot in
 			guard snapshot.exists(), let data = snapshot.value as? [String: [String: String]] else {
-				NSLog("No Email data available in Firebase")
+				NSLog("[JD] No Email data available in Firebase")
 				self.complete(completion, withForcedValue: forcedCompletionValue, andRealValue: false)
 				return
 			}
@@ -235,7 +235,7 @@ class UserLoginService {
 			}
 
 			self._emailEndings = mails
-			NSLog("Got Email Endings from Firebase")
+			NSLog("[JD] Got Email Endings from Firebase")
 
 			self.complete(completion, withForcedValue: forcedCompletionValue, andRealValue: true)
 		})

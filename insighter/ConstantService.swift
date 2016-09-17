@@ -47,7 +47,7 @@ class ConstantService {
 
 			let firebaseVersion = String(describing: data)
 
-			NSLog("Constants: Local Version: \(self._versionDate); Firebase Version: \(firebaseVersion)")
+			NSLog("[JD] Constants: Local Version: \(self._versionDate); Firebase Version: \(firebaseVersion)")
 
 			if firebaseVersion == self._versionDate {
 				self.constantsFromNSUD(completion)
@@ -75,7 +75,7 @@ class ConstantService {
 
 		let success = NSUD.synchronize()
 
-		NSLog("Saved Constants from Firebase to NSUD successful: \(success)")
+		NSLog("[JD] Saved Constants from Firebase to NSUD successful: \(success)")
 	}
 
 	fileprivate func constantsFromNSUD(_ completion: CompletionHandlerBool?) {
@@ -93,7 +93,7 @@ class ConstantService {
 
 		let complete = pick == 0
 
-		NSLog("Got Local Constants completely: \(complete)")
+		NSLog("[JD] Got Local Constants completely: \(complete)")
 
 		completion?(complete)
 	}
@@ -101,7 +101,7 @@ class ConstantService {
 	// MARK: - Firebase
 
 	fileprivate func constantsFromFirebase(_ completion: CompletionHandlerBool?) {
-		NSLog("Getting Constants from Firebase")
+		NSLog("[JD] Getting Constants from Firebase")
 		FIR_REF.observeSingleEvent(of: .value, with: { snapshot in
 			guard snapshot.exists(), let data = snapshot.value as? [String: AnyObject] else {
 				self.noConnectionToFirebase()
@@ -135,7 +135,7 @@ class ConstantService {
 
 			let complete = pick == 0
 
-			NSLog("Got Constants from Firebase completely: \(complete)")
+			NSLog("[JD] Got Constants from Firebase completely: \(complete)")
 
 			self.constantsToNSUD()
 			completion?(complete)
@@ -145,6 +145,6 @@ class ConstantService {
 	// MARK: - Private Methods
 
 	fileprivate func noConnectionToFirebase() {
-		NSLog("Constants: No connection to Firebase")
+		NSLog("[JD] Constants: No connection to Firebase")
 	}
 }

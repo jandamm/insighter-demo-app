@@ -71,13 +71,13 @@ class AppCoordinator: JDParentCoordinator, AppCoordinatorDelegate {
 		if !userDataOnly {
 			dispatch.enter()
 			ConstantService.sharedInstance.initiateConstants() { successful in
-				NSLog("Got Constants successful: \(successful)")
+				NSLog("[JD] Got Constants successful: \(successful)")
 				dispatch.leave()
 			}
 
 			dispatch.enter()
 			RemoteConfig.sharedInstance.getRemoteConfigValues { successful in
-				NSLog("Got Remote Config successful: \(successful)")
+				NSLog("[JD] Got Remote Config successful: \(successful)")
 				dispatch.leave()
 			}
 		}
@@ -85,7 +85,7 @@ class AppCoordinator: JDParentCoordinator, AppCoordinatorDelegate {
 		dispatch.enter()
 		UserLoginService.sharedInstance.checkUserIsLoggedInAndGetData { loggedIn in
 			self._userLoggedIn = loggedIn
-			NSLog("User is Logged in: \(loggedIn)")
+			NSLog("[JD] User is Logged in: \(loggedIn)")
 			dispatch.leave()
 		}
 
@@ -126,14 +126,14 @@ class AppCoordinator: JDParentCoordinator, AppCoordinatorDelegate {
 
 	fileprivate func showQuestion() -> Bool {
 		guard UserLoginService.sharedInstance.ratedWeeksRelation(withDate: Date()).isDisjoint(with: [.this]) else {
-			NSLog("No question needs to be asked")
+			NSLog("[JD] No question needs to be asked")
 			return false
 		}
 
 		let questions = ConstantService.sharedInstance.ratingQuestions
 
 		guard questions.count > 0 else {
-			NSLog("No questions available")
+			NSLog("[JD] No questions available")
 			return false
 		}
 

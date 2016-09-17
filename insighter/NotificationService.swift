@@ -31,7 +31,7 @@ class NotificationService {
 		let hour = RemoteConfig.sharedInstance.getInt(forKey: .Notif_Trigger_Hour)
 
 		addNotification(onWeekDay: weekDay, atHour: hour)
-		NSLog("Added Notification")
+		NSLog("[JD] Added Notification")
 	}
 
 	// MARK: - Private Methods

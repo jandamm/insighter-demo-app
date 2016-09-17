@@ -86,7 +86,7 @@ class LoginVC: UIViewController {
 
 	fileprivate func errorHandling(withString rConfig: String?) {
 		guard let remoteConfig = rConfig, let type = ErrorType.errorType(forString: remoteConfig) else {
-			NSLog("Unknown Firebase Error occurred: \(rConfig)")
+			NSLog("[JD] Unknown Firebase Error occurred: \(rConfig)")
 			return errorUndefined()
 		}
 

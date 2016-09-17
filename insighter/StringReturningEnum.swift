@@ -20,7 +20,7 @@ extension StringReturningEnum {
 	}
 
 	var error: String {
-		NSLog("\(self)")
+		NSLog("[JD] \(self)")
 		return "__\(self)__".uppercased()
 	}
 }

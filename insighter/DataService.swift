@@ -44,7 +44,7 @@ class DataService {
 			uploadRatingData(data as [String: AnyObject], toPath: .comment, forUser: userID, atCompany: company.UID)
 		}
 
-		NSLog("Uploaded rating data for question: \(rating.UID)")
+		NSLog("[JD] Uploaded rating data for question: \(rating.UID)")
 
 		if lastQuestion {
 			saveRatingToAverage(forCompany: company.UID)
@@ -87,11 +87,11 @@ class DataService {
 			return FIRTransactionResult.success(withValue: currentData)
 		}) { error, committed, data in
 			if let error = error, !committed {
-				NSLog("Could not upload data to average: \(error.localizedDescription)")
-				NSLog("Retrying...")
+				NSLog("[JD] Could not upload data to average: \(error.localizedDescription)")
+				NSLog("[JD] Retrying...")
 				self.saveRatingToAverage(forCompany: companyID)
 			} else if committed {
-				NSLog("Uploaded User Rating to Average")
+				NSLog("[JD] Uploaded User Rating to Average")
 				self.ratingForAverage.removeAll()
 			}
 		}
