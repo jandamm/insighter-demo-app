@@ -11,12 +11,12 @@ target 'insighter' do
   pod 'Firebase/Database'
   pod 'Firebase/RemoteConfig'
   
-  pod 'DropDown'
-  pod 'JGProgressHUD'
-  pod 'NextResponderTextField'
+#  pod 'DropDown'
+#  pod 'JGProgressHUD'
+#  pod 'NextResponderTextField'
   
-  pod 'JDTransition'
-  pod 'JDCoordinator'
+#  pod 'JDTransition'
+#  pod 'JDCoordinator'
 
   target 'insighterTests' do
     inherit! :search_paths
