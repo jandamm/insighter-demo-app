@@ -74,6 +74,8 @@ class JDPagingScrollView: UIScrollView {
 	}
 
 	override func layoutSubviews() {
+		super.layoutSubviews()
+
 		setView()
 	}
 

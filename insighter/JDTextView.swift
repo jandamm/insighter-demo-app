@@ -11,18 +11,26 @@ import UIKit
 // @IBDesignable
 class JDTextView: UITextView, UITextViewDelegate, TextStylable {
 
+	private var border: CALayer?
+
 	// MARK: - Design
 
 	let fontStyle: String! = TextStyle.TextView.rawValue
 
 	// MARK: - Startup
 
-	override func layoutSubviews() {
-		super.layoutSubviews()
+	override func didMoveToSuperview() {
+		super.didMoveToSuperview()
 
 		delegate = self
 
 		styleView()
+	}
+
+	override func layoutSubviews() {
+		super.layoutSubviews()
+
+		addBorder()
 	}
 
 	// MARK: - Interface Builder
@@ -55,18 +63,23 @@ class JDTextView: UITextView, UITextViewDelegate, TextStylable {
 		textContainerInset.bottom = 8
 
 		returnKeyType = .done
-
-		addBorder()
 	}
 
 	fileprivate func addBorder() {
-		let border = CALayer()
 		let lineWidth: CGFloat = 1
+		let borderFrame = CGRect(x: 0, y: 0, width: bounds.width - 1, height: bounds.height - 1)
 
-		border.borderColor = Colors.primaryColor().cgColor
-		border.frame = CGRect(x: 0, y: 0, width: bounds.width - 1, height: bounds.height - 1)
-		border.borderWidth = lineWidth
+		if let border = self.border {
+			border.frame = borderFrame
+		} else {
+			let border = CALayer()
 
-		layer.addSublayer(border)
+			border.borderColor = Colors.primaryColor().cgColor
+			border.frame = borderFrame
+			border.borderWidth = lineWidth
+
+			layer.masksToBounds = true
+			layer.addSublayer(border)
+		}
 	}
 }

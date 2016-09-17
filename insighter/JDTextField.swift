@@ -12,6 +12,8 @@ import NextResponderTextField
 // @IBDesignable
 class JDTextField: NextResponderTextField, TextStylable, TextRemoteConfigable, Shakeable {
 
+	private var line: CALayer?
+
 	// MARK: - Outlets
 
 	@IBOutlet weak var NextResponder: UIControl? {
@@ -31,10 +33,16 @@ class JDTextField: NextResponderTextField, TextStylable, TextRemoteConfigable, S
 
 	// MARK: - Startup
 
+	override func didMoveToSuperview() {
+		super.didMoveToSuperview()
+
+		styleView()
+	}
+
 	override func layoutSubviews() {
 		super.layoutSubviews()
 
-		styleView()
+		addLine()
 	}
 
 	// MARK: - Interface Builder
@@ -62,18 +70,23 @@ class JDTextField: NextResponderTextField, TextStylable, TextRemoteConfigable, S
 		adjustsFontSizeToFitWidth = true
 		borderStyle = .none
 		enablesReturnKeyAutomatically = true
-
-		addLine()
 	}
 
 	fileprivate func addLine() {
-		let line = CALayer()
 		let lineWidth: CGFloat = 1
+		let lineFrame = CGRect(x: 0, y: bounds.height - lineWidth, width: bounds.width, height: lineWidth)
 
-		line.borderColor = Colors.primaryColor().cgColor
-		line.frame = CGRect(x: 0, y: bounds.height - lineWidth, width: bounds.width, height: lineWidth)
-		line.borderWidth = lineWidth
+		if let line = self.line {
+			line.frame = lineFrame
+		} else {
+			let line = CALayer()
 
-		layer.addSublayer(line)
+			line.borderColor = Colors.primaryColor().cgColor
+			line.frame = lineFrame
+			line.borderWidth = lineWidth
+
+			layer.masksToBounds = true
+			layer.addSublayer(line)
+		}
 	}
 }

@@ -39,8 +39,8 @@ class JDLabel: UILabel, TextStylable, TextResettable {
 
 	// MARK: - Startup
 
-	override func layoutSubviews() {
-		super.layoutSubviews()
+	override func didMoveToSuperview() {
+		super.didMoveToSuperview()
 
 		styleView()
 	}
