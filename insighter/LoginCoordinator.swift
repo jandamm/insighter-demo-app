@@ -73,7 +73,7 @@ class LoginCoordinator: JDCoordinator, FIRLoginable, LoginDelegate {
 
 	// MARK: - Private Methods
 
-	fileprivate func loginResponseHandler(_ uid: String?, error: AnyObject?, created: Bool, errorHandler: CompletionHandlerFirebaseLoginError) {
+	fileprivate func loginResponseHandler(_ uid: String?, error: String?, created: Bool, errorHandler: CompletionHandlerFirebaseLoginError) {
 
 		if let uid = uid {
 			registerUser(withID: uid, isCreated: created, errorHandler: errorHandler)

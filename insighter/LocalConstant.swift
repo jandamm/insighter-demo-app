@@ -13,5 +13,5 @@ let CALENDAR = Calendar(identifier: Calendar.Identifier.iso8601)
 // Completion Handler
 typealias CompletionHandler = () -> ()
 typealias CompletionHandlerBool = (Bool) -> ()
-typealias CompletionHandlerFirebaseLogin = (String?, AnyObject?, Bool, CompletionHandlerFirebaseLoginError) -> ()
+typealias CompletionHandlerFirebaseLogin = (String?, String?, Bool, CompletionHandlerFirebaseLoginError) -> ()
 typealias CompletionHandlerFirebaseLoginError = ((String?) -> Void)?

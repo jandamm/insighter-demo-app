@@ -19,7 +19,8 @@ extension FIRLoginable {
 			if user?.uid != nil {
 				NSLog("Logged in with Firebase")
 			}
-			let errorKey = error?.userInfo[FIRAuthErrorNameKey]
+
+			let errorKey = self.errorKey(fromError: error)
 
 			completion(user?.uid, errorKey, false, errorHandler)
 		}
@@ -31,9 +32,18 @@ extension FIRLoginable {
 			if user?.uid != nil {
 				NSLog("Registered at Firebase")
 			}
-			let errorKey = error?.userInfo[FIRAuthErrorNameKey]
+
+			let errorKey = self.errorKey(fromError: error)
 
 			completion(user?.uid, errorKey, true, errorHandler)
 		}
+	}
+
+	private func errorKey(fromError error: Error?) -> String {
+		if let userInfo = error?._userInfo as? [String: String], let key = userInfo["error_name"] {
+			return key
+		}
+
+		return ""
 	}
 }
