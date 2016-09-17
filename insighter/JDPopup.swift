@@ -23,7 +23,7 @@ class JDPopup: JGProgressHUD {
 	}
 
 	init(title: String, subTitle: String, imageStyle: ImageStyle) {
-		super.init(style: .ExtraLight)
+		super.init(style: .extraLight)
 
 		let imageName: String
 
@@ -37,7 +37,7 @@ class JDPopup: JGProgressHUD {
 		textLabel.text = title
 		detailTextLabel.text = subTitle
 		cornerRadius = 3
-		dismissAfterDelay(2, animated: true)
+		dismiss(afterDelay: 2, animated: true)
 		indicatorView = JGProgressHUDImageIndicatorView(image: UIImage(named: imageName))
 	}
 

@@ -47,16 +47,16 @@ struct UserData: Equatable, FIRUploadable {
 			out[key.company.rawValue] = company as AnyObject?
 		}
 		if lastRated.timeIntervalSince1970 > 0 {
-			out[key.lastRated.rawValue] = lastRated.timeIntervalSince1970
+			out[key.lastRated.rawValue] = lastRated.timeIntervalSince1970 as AnyObject
 		}
 		if previousRated.timeIntervalSince1970 > 0 {
-			out[key.previousRated.rawValue] = previousRated.timeIntervalSince1970
+			out[key.previousRated.rawValue] = previousRated.timeIntervalSince1970 as AnyObject
 		}
 		if let securityQuestion = securityQuestion {
-			out[key.securityQuestion.rawValue] = securityQuestion as AnyObject?
+			out[key.securityQuestion.rawValue] = securityQuestion as AnyObject
 		}
 		if let securityAnswer = securityAnswer {
-			out[key.securityAnswer.rawValue] = securityAnswer as AnyObject?
+			out[key.securityAnswer.rawValue] = securityAnswer as AnyObject
 		}
 
 		return out

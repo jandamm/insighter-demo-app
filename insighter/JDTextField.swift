@@ -47,12 +47,12 @@ class JDTextField: NextResponderTextField, TextStylable, TextRemoteConfigable, S
 
 	// MARK: - Appearance
 
-	override func textRectForBounds(_ bounds: CGRect) -> CGRect {
+	override func textRect(forBounds bounds: CGRect) -> CGRect {
 		return CGRect(x: bounds.origin.x + 12, y: bounds.origin.y + 4, width: bounds.width - 24, height: bounds.height - 4)
 	}
 
-	override func editingRectForBounds(_ bounds: CGRect) -> CGRect {
-		return textRectForBounds(bounds)
+	override func editingRect(forBounds bounds: CGRect) -> CGRect {
+		return textRect(forBounds: bounds)
 	}
 
 	fileprivate func styleView() {
@@ -60,7 +60,7 @@ class JDTextField: NextResponderTextField, TextStylable, TextRemoteConfigable, S
 
 		minimumFontSize = 14
 		adjustsFontSizeToFitWidth = true
-		borderStyle = .None
+		borderStyle = .none
 		enablesReturnKeyAutomatically = true
 
 		addLine()

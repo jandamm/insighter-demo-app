@@ -116,8 +116,8 @@ class LoginVC: UIViewController {
 	}
 
 	fileprivate func errorUndefined() {
-		let HUD = JDPopup(titleKey: .ERROR_UNKNOWN_TITLE, subTitleKey: .ERROR_UNKNOWN_EXPLANATION, imageStyle: .Error)
-		HUD.showInView(view)
+		let HUD = JDPopup(titleKey: .ERROR_UNKNOWN_TITLE, subTitleKey: .ERROR_UNKNOWN_EXPLANATION, imageStyle: .error)
+		HUD.show(in: view)
 	}
 
 	// MARK: - State Change
@@ -139,7 +139,7 @@ class LoginVC: UIViewController {
 		securitySectionSView.isHidden = true
 		securitySectionSView.alpha = 0
 		passwordTxt.NextResponder = loginBtn
-		passwordTxt.returnKeyType = .Done
+		passwordTxt.returnKeyType = .done
 	}
 
 	fileprivate func registerState() {
@@ -148,7 +148,7 @@ class LoginVC: UIViewController {
 		}
 
 		passwordTxt.NextResponder = securityAnswerTxt
-		passwordTxt.returnKeyType = .Next
+		passwordTxt.returnKeyType = .next
 
 		UIView.animate(withDuration: 0.5, animations: {
 			self.securitySectionSView.isHidden = false

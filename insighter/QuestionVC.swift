@@ -165,8 +165,8 @@ class QuestionVC: UIViewController, Flashable {
 	// MARK: - Private Methods
 
 	fileprivate func unknownError() {
-		let HUD = JDPopup(titleKey: .ERROR_UNKNOWN_TITLE, subTitleKey: .ERROR_UNKNOWN_EXPLANATION, imageStyle: .Error)
-		HUD.showInView(view)
+		let HUD = JDPopup(titleKey: .ERROR_UNKNOWN_TITLE, subTitleKey: .ERROR_UNKNOWN_EXPLANATION, imageStyle: .error)
+		HUD.show(in: view)
 	}
 
 	fileprivate func dismissKeyboard() {

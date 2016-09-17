@@ -66,30 +66,30 @@ class AppCoordinator: JDParentCoordinator, AppCoordinatorDelegate {
 	}
 
 	fileprivate func getInitialData(userDataOnly: Bool) {
-		let dispatch = dispatch_group_create()
+		let dispatch = DispatchGroup()
 
 		if !userDataOnly {
-			dispatch_group_enter(dispatch)
+			dispatch.enter()
 			ConstantService.sharedInstance.initiateConstants() { successful in
 				NSLog("Got Constants successful: \(successful)")
-				dispatch_group_leave(dispatch)
+				dispatch.leave()
 			}
 
-			dispatch_group_enter(dispatch)
+			dispatch.enter()
 			RemoteConfig.sharedInstance.getRemoteConfigValues { successful in
 				NSLog("Got Remote Config successful: \(successful)")
-				dispatch_group_leave(dispatch)
+				dispatch.leave()
 			}
 		}
 
-		dispatch_group_enter(dispatch)
+		dispatch.enter()
 		UserLoginService.sharedInstance.checkUserIsLoggedInAndGetData { loggedIn in
 			self._userLoggedIn = loggedIn
 			NSLog("User is Logged in: \(loggedIn)")
-			dispatch_group_leave(dispatch)
+			dispatch.leave()
 		}
 
-		dispatch_group_notify(dispatch, dispatch_get_main_queue()) {
+		dispatch.notify(queue: DispatchQueue.main) {
 			self.transitionToNextView()
 		}
 	}
@@ -125,7 +125,7 @@ class AppCoordinator: JDParentCoordinator, AppCoordinatorDelegate {
 	}
 
 	fileprivate func showQuestion() -> Bool {
-		guard UserLoginService.sharedInstance.ratedWeeksRelation(withDate: NSDate()).isDisjointWith([.This]) else {
+		guard UserLoginService.sharedInstance.ratedWeeksRelation(withDate: Date()).isDisjoint(with: [.this]) else {
 			NSLog("No question needs to be asked")
 			return false
 		}
