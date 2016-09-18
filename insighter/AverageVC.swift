@@ -28,7 +28,13 @@ class AverageVC: UIViewController {
 
 		setupDataFields()
 
-		ratingBar.setAverage(average)
+		ratingBar.layout(andSetAverage: average)
+	}
+
+	override func viewDidLayoutSubviews() {
+		super.viewDidLayoutSubviews()
+
+		ratingBar.layout()
 	}
 
 	// MARK: - Global Methods

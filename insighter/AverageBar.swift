@@ -43,8 +43,10 @@ class AverageBar: UIView {
 
 	// MARK: - Global Methods
 
-	func setAverage(_ average: Average) {
-		self.average = average
+	func layout(andSetAverage average: Average? = nil) {
+		if let average = average {
+			self.average = average
+		}
 
 		setupAverageBar()
 	}
@@ -53,6 +55,9 @@ class AverageBar: UIView {
 
 	private func setupAverageBar() {
 		// TODO: - Implement
+
+		userConstraint?.constant = 125
+		compConstraint?.constant = 26
 
 		print("Setup Average Bar")
 		print(userConstraint)
@@ -72,7 +77,7 @@ class AverageBar: UIView {
 		bar.translatesAutoresizingMaskIntoConstraints = false
 
 		let horizontal = NSLayoutConstraint.constraints(withVisualFormat: "H:|-0-[v]-0-|", options: .directionLeadingToTrailing, metrics: nil, views: ["v": bar])
-		let top = NSLayoutConstraint(item: self, attribute: .bottom, relatedBy: .equal, toItem: bar, attribute: .top, multiplier: 1, constant: 19)
+		let top = NSLayoutConstraint(item: self, attribute: .bottom, relatedBy: .equal, toItem: bar, attribute: .top, multiplier: 1, constant: 50)
 		let bottom: NSLayoutConstraint
 
 		switch type {
