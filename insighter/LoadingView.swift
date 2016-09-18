@@ -32,7 +32,7 @@ class LoadingView: UIView {
 		layoutView()
 	}
 
-	// MARK: - Global Methods
+	// MARK: - Internal Methods
 
 	func animationStart() {
 		let width = bounds.width

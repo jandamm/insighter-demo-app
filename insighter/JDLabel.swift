@@ -31,7 +31,7 @@ class JDLabel: UILabel, TextStylable, TextResettable {
 
 	fileprivate var _remoteConfigKeyDefault: String!
 
-	// MARK: - Global Data
+	// MARK: - Internal Data
 
 	var remoteConfigKeyDefault: String! {
 		return _remoteConfigKeyDefault
@@ -62,5 +62,34 @@ class JDLabel: UILabel, TextStylable, TextResettable {
 
 		adjustsFontSizeToFitWidth = true
 		minimumScaleFactor = 0.5
+	}
+}
+
+@IBDesignable
+class JDDateLabel: JDLabel {
+
+	// MARK: - Design
+
+	@IBInspectable var thisWeek: Bool = true {
+		didSet {
+			setDate()
+		}
+	}
+
+	// MARK: - Startup
+
+	override func didMoveToSuperview() {
+		super.didMoveToSuperview()
+
+		setDate()
+	}
+
+	// MARK: - Private Methods
+
+	private func setDate() {
+		let adjustInterval: TimeInterval = thisWeek ? 0 : -7 * 24 * 60 * 60
+		let date = Date().addingTimeInterval(adjustInterval)
+
+		text = String(describing: date)
 	}
 }

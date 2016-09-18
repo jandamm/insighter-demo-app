@@ -24,9 +24,9 @@ class DataService {
 
 	// MARK: - External Data
 
-	// MARK: - Initialization
+	// MARK: - Startup
 
-	// MARK: - Global Methods
+	// MARK: - Internal Methods
 
 	func addRating(_ rating: RatingAnswer, lastQuestion: Bool) -> Bool {
 		guard let userID = UserLoginService.sharedInstance.userID, let company = UserLoginService.sharedInstance.company else {

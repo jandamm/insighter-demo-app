@@ -56,7 +56,7 @@ class UserLoginService {
 		return _emailEndings[ending]
 	}
 
-	// MARK: - Global Methods
+	// MARK: - Internal Methods
 
 	func signOutUser(_ completion: CompletionHandlerBool? = nil) {
 		try! FIRAuth.auth()!.signOut()

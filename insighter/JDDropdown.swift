@@ -63,7 +63,7 @@ class JDDropdown: UILabel, TextStylable, TextRemoteConfigable {
 		}
 	}
 
-	// MARK: - Global Methods
+	// MARK: - Internal Methods
 
 	func dataSource(_ source: [String]) {
 		_dropdownList = source

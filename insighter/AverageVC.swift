@@ -37,7 +37,7 @@ class AverageVC: UIViewController {
 		ratingBar.layout()
 	}
 
-	// MARK: - Global Methods
+	// MARK: - Internal Methods
 
 	func setAverage(_ average: Average) {
 		self.average = average

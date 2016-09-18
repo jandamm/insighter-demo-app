@@ -18,7 +18,7 @@ class RatingQuestion: NSObject, NSCoding {
 	fileprivate var _uid: String!
 	fileprivate var _question: String!
 
-	// MARK: - Global Data
+	// MARK: - Internal Data
 
 	var uid: String {
 		return _uid == nil ? errorUID : _uid

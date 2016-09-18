@@ -32,7 +32,7 @@ class JDButton: UIButton, TextStylable, TextResettable {
 
 	fileprivate var _remoteConfigKeyDefault: String!
 
-	// MARK: - Global Data
+	// MARK: - Internal Data
 
 	var remoteConfigKeyDefault: String! {
 		return _remoteConfigKeyDefault

@@ -36,7 +36,7 @@ struct CalendarWeek: Equatable {
 		self.date = date
 	}
 
-	// MARK: - Global Methods
+	// MARK: - Internal Methods
 
 	func calenderWeekRelation(forDate inputDate: Date) -> Relation {
 

@@ -41,7 +41,7 @@ class AverageBar: UIView {
 		setupView()
 	}
 
-	// MARK: - Global Methods
+	// MARK: - Internal Methods
 
 	func layout(andSetAverage average: Average? = nil) {
 		if let average = average {
@@ -54,7 +54,8 @@ class AverageBar: UIView {
 	// MARK: - Private Methods
 
 	private func setupAverageBar() {
-		let heightPerPoint = frame.height / 10
+		let maxPoints = RemoteConfig.sharedInstance.getDouble(forKey: .Max_Points)
+		let heightPerPoint = frame.height / CGFloat(maxPoints)
 
 		userConstraint?.constant = heightPerPoint * average.user.avg
 		compConstraint?.constant = heightPerPoint * average.company.avg

@@ -32,7 +32,7 @@ class ConstantService {
 		return _securityQuestions == nil ? [DBValueKeys.Constant.securityQuestions.error] : _securityQuestions!
 	}
 
-	// MARK: - Global Methods
+	// MARK: - Internal Methods
 
 	func initiateConstants(_ completion: CompletionHandlerBool?) {
 
