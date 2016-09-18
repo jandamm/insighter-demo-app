@@ -79,13 +79,18 @@ class JDPagingScrollView: UIScrollView {
 		setView()
 	}
 
+	override func addSubview(_ view: UIView) {
+		super.addSubview(view)
+
+		view.frame = frame
+	}
+
 	// MARK: - Private Methods
 
 	fileprivate func setView() {
 		let pages = subviews.count
 
 		for (i, view) in subviews.enumerated() {
-			view.frame = frame
 			view.frame.origin.x = frame.width * CGFloat(i)
 		}
 
