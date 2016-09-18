@@ -5,11 +5,12 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AverageVC">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AverageVC" customModule="insighter" customModuleProvider="target">
             <connections>
                 <outlet property="compScoreLbl" destination="ILf-rM-4BW" id="8yR-cx-7fs"/>
                 <outlet property="ratingBar" destination="wxS-IR-02x" id="H2y-Kc-tes"/>
                 <outlet property="userScoreLbl" destination="8lj-pp-lHP" id="6xD-aP-5Nn"/>
+                <outlet property="view" destination="iN0-l3-epB" id="cLu-wg-Gy1"/>
                 <outlet property="weekLbl" destination="n3g-Qx-3yw" id="VZr-mm-7kt"/>
             </connections>
         </placeholder>
@@ -31,6 +32,9 @@
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="fontStyle" value="TextFieldHighlight"/>
+                    </userDefinedRuntimeAttributes>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="KW 12" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n3g-Qx-3yw" customClass="JDLabel" customModule="insighter" customModuleProvider="target">
                     <constraints>
@@ -39,6 +43,9 @@
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="fontStyle" value="TextView"/>
+                    </userDefinedRuntimeAttributes>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10,0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ILf-rM-4BW" customClass="JDLabel" customModule="insighter" customModuleProvider="target">
                     <constraints>
@@ -48,6 +55,9 @@
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="fontStyle" value="TextViewMediumWhite"/>
+                    </userDefinedRuntimeAttributes>
                 </label>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

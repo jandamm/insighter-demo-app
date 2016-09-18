@@ -21,24 +21,24 @@ class AverageVC: UIViewController {
 
 	private var average: Average!
 
-	// MARK: - Global Methods
-
-	func setAverage(_ average: Average) {
-		self.average = average
+	override func awakeFromNib() {
+		super.awakeFromNib()
 
 		setupDataFields()
 
 		ratingBar.setAverage(average)
 	}
 
+	// MARK: - Global Methods
+
+	func setAverage(_ average: Average) {
+		self.average = average
+	}
+
 	// MARK: - Private Methods
 
 	private func setupDataFields() {
 		// TODO: - Implement
-
-		userScoreLbl.text = "8,0"
-		compScoreLbl.text = "7,0"
-		weekLbl.text = "KW 12"
 
 		print("Setup Data Fields")
 	}

@@ -51,8 +51,8 @@ enum TextStyle: String {
 	case Text, TextPrimary
 	case TextSmall
 	case Button, ButtonPrimary, ButtonHighlight, ButtonError
-	case TextField, TextFieldPrimary
-	case TextView
+	case TextField, TextFieldPrimary, TextFieldHighlight
+	case TextView, TextViewMediumWhite
 	case TextSubLine, TextSubLineMedium
 
 	func font() -> UIFont {
@@ -94,6 +94,8 @@ enum TextStyle: String {
 			color = Colors.highlight
 		} else if String(describing: self).contains("Error") {
 			color = Colors.error
+		} else if String(describing: self).contains("White") {
+			color = UIColor.white
 		} else {
 			color = Colors.text
 		}
