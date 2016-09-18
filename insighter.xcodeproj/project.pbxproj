@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1311FE2A1D8EFCB000362886 /* AverageBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1311FE291D8EFCB000362886 /* AverageBar.swift */; };
 		131C8D041D59DF3900A2EE8C /* RemoteConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 131C8D031D59DF3900A2EE8C /* RemoteConfig.swift */; };
 		131C8D061D59E1D200A2EE8C /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 131C8D051D59E1D100A2EE8C /* UserData.swift */; };
 		13233B671D76C403000D825B /* JDNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13233B661D76C403000D825B /* JDNavigationController.swift */; };
@@ -32,7 +33,6 @@
 		138A432F1D8E70E000680299 /* Average.swift in Sources */ = {isa = PBXBuildFile; fileRef = 138A432E1D8E70E000680299 /* Average.swift */; };
 		138A43311D8E735E00680299 /* AverageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 138A43301D8E735E00680299 /* AverageVC.swift */; };
 		138A43331D8E759300680299 /* AverageVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 138A43321D8E759300680299 /* AverageVC.xib */; };
-		138A43351D8EAA6500680299 /* AverageBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 138A43341D8EAA6500680299 /* AverageBar.swift */; };
 		138C72561D58AB260049561A /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 138C72551D58AB260049561A /* LoadingView.swift */; };
 		138C72581D58B2360049561A /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 138C72571D58B2360049561A /* DataService.swift */; };
 		138C725A1D58B2850049561A /* ConstantService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 138C72591D58B2850049561A /* ConstantService.swift */; };
@@ -105,6 +105,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1311FE291D8EFCB000362886 /* AverageBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AverageBar.swift; sourceTree = "<group>"; };
 		131C8D031D59DF3900A2EE8C /* RemoteConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteConfig.swift; sourceTree = "<group>"; };
 		131C8D051D59E1D100A2EE8C /* UserData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		13233B661D76C403000D825B /* JDNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JDNavigationController.swift; sourceTree = "<group>"; };
@@ -130,7 +131,6 @@
 		138A432E1D8E70E000680299 /* Average.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Average.swift; sourceTree = "<group>"; };
 		138A43301D8E735E00680299 /* AverageVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AverageVC.swift; sourceTree = "<group>"; };
 		138A43321D8E759300680299 /* AverageVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AverageVC.xib; sourceTree = "<group>"; };
-		138A43341D8EAA6500680299 /* AverageBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AverageBar.swift; sourceTree = "<group>"; };
 		138C72551D58AB260049561A /* LoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		138C72571D58B2360049561A /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		138C72591D58B2850049561A /* ConstantService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstantService.swift; sourceTree = "<group>"; };
@@ -262,14 +262,6 @@
 			name = Question;
 			sourceTree = "<group>";
 		};
-		138A43361D8EAA6A00680299 /* Average */ = {
-			isa = PBXGroup;
-			children = (
-				138A43341D8EAA6500680299 /* AverageBar.swift */,
-			);
-			name = Average;
-			sourceTree = "<group>";
-		};
 		13A03D711CF1109E00920838 = {
 			isa = PBXGroup;
 			children = (
@@ -359,8 +351,8 @@
 				13517B491D5BBF7D002B74AD /* TextResettable.swift */,
 				13517B471D5BAE59002B74AD /* Shakeable.swift */,
 				137EB8921D61D77E00ACC8F9 /* RatingSlider.swift */,
+				1311FE291D8EFCB000362886 /* AverageBar.swift */,
 				137EB89A1D620D7500ACC8F9 /* Flashable.swift */,
-				138A43361D8EAA6A00680299 /* Average */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -812,7 +804,7 @@
 				1329B0451D5B4901004AE52B /* RatingQuestion.swift in Sources */,
 				13B761EE1D75F6ED00E80677 /* LoginCoordinator.swift in Sources */,
 				13BF4DE91D71E9F500035D84 /* JDDropdown.swift in Sources */,
-				138A43351D8EAA6500680299 /* AverageBar.swift in Sources */,
+				1311FE2A1D8EFCB000362886 /* AverageBar.swift in Sources */,
 				13B761F21D762EBE00E80677 /* QuestionCoordinator.swift in Sources */,
 				13BF4DE81D71E9F500035D84 /* JDButton.swift in Sources */,
 				137EB8951D61E67900ACC8F9 /* Rating.swift in Sources */,

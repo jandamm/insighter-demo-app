@@ -13,7 +13,7 @@ struct Average {
 	let company: CompanyAverage
 	let user: UserAverage
 
-	var kw: String {
+	var week: String {
 		let kw = key.components(separatedBy: "-")
 
 		guard key == company.key, key == user.key else {
@@ -33,10 +33,14 @@ struct CompanyAverage {
 	let users: Int
 	let sum: Int
 
-	var average: Double {
+	var avg: Double {
 		let avg = Double(sum) / Double(users)
 		let mltp = 10.0
 		return (avg * mltp).rounded() / mltp
+	}
+
+	var average: String {
+		return String(avg)
 	}
 }
 
@@ -44,7 +48,7 @@ struct UserAverage {
 	let key: String
 	let answers: [String: Int]
 
-	var average: Double {
+	var avg: Double {
 		var sum = 0
 
 		for (_, rating) in answers {
@@ -52,5 +56,9 @@ struct UserAverage {
 		}
 
 		return Double(sum) / Double(answers.count)
+	}
+
+	var average: String {
+		return String(avg)
 	}
 }

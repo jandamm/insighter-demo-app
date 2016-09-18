@@ -21,8 +21,10 @@ class AverageVC: UIViewController {
 
 	private var average: Average!
 
-	override func awakeFromNib() {
-		super.awakeFromNib()
+	// MARK: - Startup
+
+	override func viewDidLoad() {
+		super.viewDidLoad()
 
 		setupDataFields()
 
@@ -38,8 +40,8 @@ class AverageVC: UIViewController {
 	// MARK: - Private Methods
 
 	private func setupDataFields() {
-		// TODO: - Implement
-
-		print("Setup Data Fields")
+		userScoreLbl.text = average.user.average
+		compScoreLbl.text = average.company.average
+		weekLbl.text = average.week
 	}
 }
