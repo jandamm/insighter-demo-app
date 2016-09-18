@@ -65,6 +65,7 @@ enum RemoteStringKey: String, StringReturningEnum {
 	case Que_Rating_Slider_Right_Lbl
 	case Que_Rating_Comment_Btn
 	case Que_Rating_Save_Btn
+
 	// Question Comment Screen
 	case Que_Comment_Save_Btn
 	case Que_Comment_Discard_Btn
@@ -75,4 +76,8 @@ enum RemoteStringKey: String, StringReturningEnum {
 	case Eva_User_Feedback_Title_Lbl
 	case Eva_User_Feedback_Erklaerung_Lbl
 	case Eva_User_Punkte_Title_Lbl
+
+	// Evaluation Company Screen
+	case Eva_Comp_Title_Lbl
+	case Eva_Comp_Verlauf_Lbl
 }

@@ -11,6 +11,10 @@ import UIKit
 @IBDesignable
 class AverageBar: UIView {
 
+	// MARK: - Private Data
+
+	private var average: Average!
+
 	// MARK: - Startup
 
 	override func didMoveToSuperview() {
@@ -28,9 +32,25 @@ class AverageBar: UIView {
 	// MARK: - Global Methods
 
 	func setAverage(_ average: Average) {
+		self.average = average
+
+		setupDataFields()
+		setupAverageBar()
 	}
 
 	// MARK: - Private Methods
+
+	private func setupDataFields() {
+		// TODO: - Implement
+
+		print("Setup Data Fields")
+	}
+
+	private func setupAverageBar() {
+		// TODO: - Implement
+
+		print("Setup Average Bar")
+	}
 
 	private func setupView() {
 		layer.cornerRadius = 2

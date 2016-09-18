@@ -113,5 +113,9 @@ voll zu</string>
 	<string>Kontinuität vorletzte Woche:</string>
 	<key>Eva_User_Punkte_Sum_Lbl</key>
 	<string>Summe diese Woche:</string>
+	<key>Eva_Comp_Title_Lbl</key>
+	<string>Firmen Ergebnisse</string>
+	<key>Eva_Comp_Verlauf_Lbl</key>
+	<string>Engagement im Zeitverlauf:</string>
 </dict>
 </plist>
