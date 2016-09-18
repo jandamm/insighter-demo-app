@@ -85,7 +85,8 @@ class JDPagingScrollView: UIScrollView {
 		let pages = subviews.count
 
 		for (i, view) in subviews.enumerated() {
-			view.frame.origin.x = view.frame.width * CGFloat(i)
+			view.frame = frame
+			view.frame.origin.x = frame.width * CGFloat(i)
 		}
 
 		contentSize = CGSize(width: frame.width * CGFloat(pages), height: frame.height)
