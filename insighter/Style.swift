@@ -19,27 +19,27 @@ extension ColorScheme {
 
 class Colors: ColorScheme {
 
-	class func textColor() -> UIColor {
+	class var text: UIColor {
 		return rgba(33, 33, 33, 1)
 	}
 
-	class func highlightColor() -> UIColor {
+	class var highlight: UIColor {
 		return rgba(255, 166, 67, 1)
 	}
 
-	class func primaryColor() -> UIColor {
+	class var primary: UIColor {
 		return rgba(0, 156, 223, 1)
 	}
 
-	class func errorColor() -> UIColor {
+	class var error: UIColor {
 		return rgba(244, 81, 83, 1)
 	}
 
-	class func successColor() -> UIColor {
+	class var success: UIColor {
 		return rgba(92, 187, 115, 1)
 	}
 
-	class func lightContrastColor() -> UIColor {
+	class var lightContrast: UIColor {
 		return rgba(224, 224, 224, 1)
 	}
 }
@@ -89,13 +89,13 @@ enum TextStyle: String {
 		let color: UIColor
 
 		if String(describing: self).contains("Primary") {
-			color = Colors.primaryColor()
+			color = Colors.primary
 		} else if String(describing: self).contains("Highlight") {
-			color = Colors.highlightColor()
+			color = Colors.highlight
 		} else if String(describing: self).contains("Error") {
-			color = Colors.errorColor()
+			color = Colors.error
 		} else {
-			color = Colors.textColor()
+			color = Colors.text
 		}
 
 		return color

@@ -41,11 +41,11 @@ class RatingColors: ColorScheme {
 	}
 
 	fileprivate class func null() -> UIColor {
-		return Colors.highlightColor()
+		return Colors.highlight
 	}
 
 	fileprivate class func zero() -> UIColor {
-		return Colors.errorColor()
+		return Colors.error
 	}
 
 	fileprivate class func one() -> UIColor {
@@ -65,7 +65,7 @@ class RatingColors: ColorScheme {
 	}
 
 	fileprivate class func five() -> UIColor {
-		return Colors.highlightColor()
+		return Colors.highlight
 	}
 
 	fileprivate class func six() -> UIColor {
@@ -85,6 +85,6 @@ class RatingColors: ColorScheme {
 	}
 
 	fileprivate class func ten() -> UIColor {
-		return Colors.successColor()
+		return Colors.success
 	}
 }

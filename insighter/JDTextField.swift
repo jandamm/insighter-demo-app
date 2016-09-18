@@ -81,7 +81,7 @@ class JDTextField: NextResponderTextField, TextStylable, TextRemoteConfigable, S
 		} else {
 			let line = CALayer()
 
-			line.borderColor = Colors.primaryColor().cgColor
+			line.borderColor = Colors.primary.cgColor
 			line.frame = lineFrame
 			line.borderWidth = lineWidth
 

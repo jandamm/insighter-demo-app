@@ -74,7 +74,7 @@ class JDTextView: UITextView, UITextViewDelegate, TextStylable {
 		} else {
 			let border = CALayer()
 
-			border.borderColor = Colors.primaryColor().cgColor
+			border.borderColor = Colors.primary.cgColor
 			border.frame = borderFrame
 			border.borderWidth = lineWidth
 
