@@ -6,7 +6,7 @@
 //  Copyright © 2016 Jan Dammshäuser. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 struct Average {
 	let key: String
@@ -33,14 +33,18 @@ struct CompanyAverage {
 	let users: Int
 	let sum: Int
 
-	var avg: Double {
+	private var averageBase: Double {
 		let avg = Double(sum) / Double(users)
 		let mltp = 10.0
 		return (avg * mltp).rounded() / mltp
 	}
 
+	var avg: CGFloat {
+		return CGFloat(averageBase)
+	}
+
 	var average: String {
-		return String(avg)
+		return String(averageBase)
 	}
 }
 
@@ -48,7 +52,7 @@ struct UserAverage {
 	let key: String
 	let answers: [String: Int]
 
-	var avg: Double {
+	var averageBase: Double {
 		var sum = 0
 
 		for (_, rating) in answers {
@@ -58,7 +62,11 @@ struct UserAverage {
 		return Double(sum) / Double(answers.count)
 	}
 
+	var avg: CGFloat {
+		return CGFloat(averageBase)
+	}
+
 	var average: String {
-		return String(avg)
+		return String(averageBase)
 	}
 }

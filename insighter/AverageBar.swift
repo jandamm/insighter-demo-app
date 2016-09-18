@@ -54,13 +54,10 @@ class AverageBar: UIView {
 	// MARK: - Private Methods
 
 	private func setupAverageBar() {
-		// TODO: - Implement
+		let heightPerPoint = frame.height / 10
 
-		userConstraint?.constant = 125
-		compConstraint?.constant = 26
-
-		print("Setup Average Bar")
-		print(userConstraint)
+		userConstraint?.constant = heightPerPoint * average.user.avg
+		compConstraint?.constant = heightPerPoint * average.company.avg
 	}
 
 	private func setupView() {
