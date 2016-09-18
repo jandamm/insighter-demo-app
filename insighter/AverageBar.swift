@@ -34,17 +34,10 @@ class AverageBar: UIView {
 	func setAverage(_ average: Average) {
 		self.average = average
 
-		setupDataFields()
 		setupAverageBar()
 	}
 
 	// MARK: - Private Methods
-
-	private func setupDataFields() {
-		// TODO: - Implement
-
-		print("Setup Data Fields")
-	}
 
 	private func setupAverageBar() {
 		// TODO: - Implement

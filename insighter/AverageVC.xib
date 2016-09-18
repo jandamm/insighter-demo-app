@@ -5,7 +5,14 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AverageVC">
+            <connections>
+                <outlet property="compScoreLbl" destination="ILf-rM-4BW" id="8yR-cx-7fs"/>
+                <outlet property="ratingBar" destination="wxS-IR-02x" id="H2y-Kc-tes"/>
+                <outlet property="userScoreLbl" destination="8lj-pp-lHP" id="6xD-aP-5Nn"/>
+                <outlet property="weekLbl" destination="n3g-Qx-3yw" id="VZr-mm-7kt"/>
+            </connections>
+        </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
             <rect key="frame" x="0.0" y="0.0" width="43" height="248"/>
@@ -33,7 +40,7 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10,0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ILf-rM-4BW">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10,0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ILf-rM-4BW" customClass="JDLabel" customModule="insighter" customModuleProvider="target">
                     <constraints>
                         <constraint firstAttribute="width" constant="32" id="3mk-EL-hcJ"/>
                         <constraint firstAttribute="height" constant="19" id="Mu5-Bh-kVM"/>

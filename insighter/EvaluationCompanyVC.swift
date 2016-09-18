@@ -10,14 +10,30 @@ import UIKit
 
 class EvaluationCompanyVC: UIViewController {
 
+	@IBOutlet weak var averageSView: UIStackView!
+
 	// MARK: - Startup
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
+
+		let bar = AverageVC()
+
+		let comp = CompanyAverage(key: "2016-16", users: 12, sum: 24)
+		let user = UserAverage(key: "2016-16", answers: ["a": 7])
+		let average = Average(key: "2016-16", company: comp, user: user)
+
+		bar.setAverage(average)
+
+		averageSView.addArrangedSubview(bar.view)
 	}
 
 	override func viewDidLayoutSubviews() {
 		super.viewDidLayoutSubviews()
+
+		print(averageSView.arrangedSubviews.count)
+		print(averageSView.arrangedSubviews.first?.frame)
+		print(averageSView.bounds)
 	}
 
 	override func didReceiveMemoryWarning() {

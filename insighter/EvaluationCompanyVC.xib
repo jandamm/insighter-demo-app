@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EvaluationCompanyVC" customModule="insighter" customModuleProvider="target">
             <connections>
+                <outlet property="averageSView" destination="Wmr-6a-5tX" id="3ye-PW-i9j"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -51,7 +52,17 @@
                                         <userDefinedRuntimeAttribute type="string" keyPath="remoteConfigKey" value="Eva_Comp_Verlauf_Lbl"/>
                                     </userDefinedRuntimeAttributes>
                                 </label>
-                                <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="DNf-Tj-SIO"/>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UFi-Uo-0Tq">
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Wmr-6a-5tX"/>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="Wmr-6a-5tX" secondAttribute="bottom" id="39A-Hv-tKX"/>
+                                        <constraint firstAttribute="trailing" secondItem="Wmr-6a-5tX" secondAttribute="trailing" id="GQP-Ph-P33"/>
+                                        <constraint firstItem="Wmr-6a-5tX" firstAttribute="top" secondItem="UFi-Uo-0Tq" secondAttribute="top" id="JRB-wo-r1a"/>
+                                        <constraint firstItem="Wmr-6a-5tX" firstAttribute="leading" secondItem="UFi-Uo-0Tq" secondAttribute="leading" id="oMa-PA-Ezg"/>
+                                    </constraints>
+                                </view>
                             </subviews>
                         </stackView>
                     </subviews>
