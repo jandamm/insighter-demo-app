@@ -12,79 +12,69 @@ class RatingColors: ColorScheme {
 
 	class func color(forRating rating: Int?) -> UIColor {
 		guard let rating = rating else {
-			return null()
+			return null
 		}
-
-		if rating <= 0 {
-			return zero()
-		} else if rating == 1 {
-			return one()
-		} else if rating == 2 {
-			return two()
-		} else if rating == 3 {
-			return three()
-		} else if rating == 4 {
-			return four()
-		} else if rating == 5 {
-			return five()
-		} else if rating == 6 {
-			return six()
-		} else if rating == 7 {
-			return seven()
-		} else if rating == 8 {
-			return eight()
-		} else if rating == 9 {
-			return nine()
-		}
-
-		return ten()
+        
+        switch rating {
+        case let y where y <= 0: return zero
+        case 1: return one
+        case 2: return two
+        case 3: return three
+        case 4: return four
+        case 5: return five
+        case 6: return six
+        case 7: return seven
+        case 8: return eight
+        case 9: return nine
+        default: return ten
+        }
 	}
 
-	fileprivate class func null() -> UIColor {
+	private class var null: UIColor {
 		return Colors.highlight
 	}
 
-	fileprivate class func zero() -> UIColor {
+	private class var zero: UIColor {
 		return Colors.error
 	}
 
-	fileprivate class func one() -> UIColor {
+	private class var one: UIColor {
 		return rgba(246, 97, 97, 1)
 	}
 
-	fileprivate class func two() -> UIColor {
+	private class var two: UIColor {
 		return rgba(248, 114, 76, 1)
 	}
 
-	fileprivate class func three() -> UIColor {
+	private class var three: UIColor {
 		return rgba(250, 132, 73, 1)
 	}
 
-	fileprivate class func four() -> UIColor {
+	private class var four: UIColor {
 		return rgba(252, 149, 70, 1)
 	}
 
-	fileprivate class func five() -> UIColor {
+	private class var five: UIColor {
 		return Colors.highlight
 	}
 
-	fileprivate class func six() -> UIColor {
+	private class var six: UIColor {
 		return rgba(222, 170, 77, 1)
 	}
 
-	fileprivate class func seven() -> UIColor {
+	private class var seven: UIColor {
 		return rgba(189, 174, 86, 1)
 	}
 
-	fileprivate class func eight() -> UIColor {
+	private class var eight: UIColor {
 		return rgba(157, 178, 96, 1)
 	}
 
-	fileprivate class func nine() -> UIColor {
+	private class var nine: UIColor {
 		return rgba(124, 182, 105, 1)
 	}
 
-	fileprivate class func ten() -> UIColor {
+	private class var ten: UIColor {
 		return Colors.success
 	}
 }

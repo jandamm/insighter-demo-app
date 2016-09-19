@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol RatingSliderDelegate {
+protocol RatingSliderDelegate: NSObjectProtocol {
 	func ratingSliderDidStart()
 	func ratingSliderDidEnd()
 	func ratingSliderDidChange()
@@ -16,7 +16,7 @@ protocol RatingSliderDelegate {
 
 class RatingSlider: UIView {
 
-	var delegate: RatingSliderDelegate? {
+	weak var delegate: RatingSliderDelegate? {
 		didSet {
 			NSLog("[JD] RatingSlider delegate was set to \(delegate!)")
 		}
