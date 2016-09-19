@@ -51,6 +51,10 @@ class RemoteConfig {
 			return key.error
 		}
 
+		if let company = UserLoginService.shared.company.name {
+			return value.replacingOccurrences(of: "[company]", with: company)
+		}
+
 		return value
 	}
 
