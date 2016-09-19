@@ -119,7 +119,7 @@ class QuestionVC: UIViewController, Flashable {
 	}
 
 	fileprivate func questionSet() {
-		var text = RemoteConfig.sharedInstance.getString(forKey: .Que_Number_Of_Number)
+		var text = RemoteConfig.shared.getString(forKey: .Que_Number_Of_Number)
 
 		text = text.replacingOccurrences(of: "[first]", with: "\(questionsActiveIndex + 1)")
 		text = text.replacingOccurrences(of: "[second]", with: "\(questions.count)")
@@ -189,14 +189,14 @@ class QuestionVC: UIViewController, Flashable {
 
 		let ratingAnswer = RatingAnswer(UID: UID, rating: rating, comment: comment)
 
-		guard DataService.sharedInstance.addRating(ratingAnswer, lastQuestion: lastQuestion) else {
+		guard DataService.shared.addRating(ratingAnswer, lastQuestion: lastQuestion) else {
 			return unknownError()
 		}
 
 		let flashSpeed = 0.3
 
 		if lastQuestion {
-			NotificationService.sharedInstance.setupNotifications()
+			NotificationService.shared.setupNotifications()
 
 			flash(.in, speed: flashSpeed, completion: { _ in
 				self.dismissVC()

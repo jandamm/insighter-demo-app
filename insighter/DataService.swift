@@ -10,7 +10,7 @@ import Foundation
 import Firebase
 
 class DataService {
-	static let sharedInstance = DataService()
+	static let shared = DataService()
 
 	fileprivate let REF = FIRDatabase.database().reference().child(DBPathKeys.company.rawValue)
 
@@ -29,7 +29,7 @@ class DataService {
 	// MARK: - Internal Methods
 
 	func addRating(_ rating: RatingAnswer, lastQuestion: Bool) -> Bool {
-		guard let userID = UserLoginService.sharedInstance.userID, let company = UserLoginService.sharedInstance.company else {
+		guard let userID = UserLoginService.shared.userID, let company = UserLoginService.shared.company else {
 			return false
 		}
 
@@ -48,7 +48,7 @@ class DataService {
 
 		if lastQuestion {
 			saveRatingToAverage(forCompany: company.UID)
-			return UserLoginService.sharedInstance.updateLastRated()
+			return UserLoginService.shared.updateLastRated()
 		} else {
 			return true
 		}

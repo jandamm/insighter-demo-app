@@ -27,7 +27,7 @@ class EvaluationVC: UIViewController {
 	// MARK: - Actions
 
 	@IBAction func logout(_ sender: UIButton) {
-		UserLoginService.sharedInstance.signOutUser(nil)
+		UserLoginService.shared.signOutUser(nil)
 
 		self.delegate?.logout()
 	}

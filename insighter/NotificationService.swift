@@ -9,7 +9,7 @@
 import UIKit
 
 class NotificationService {
-	static let sharedInstance = NotificationService()
+	static let shared = NotificationService()
 
 	fileprivate let APP = UIApplication.shared
 
@@ -27,8 +27,8 @@ class NotificationService {
 		APP.cancelAllLocalNotifications()
 		APP.applicationIconBadgeNumber = 0
 
-		let weekDay = RemoteConfig.sharedInstance.getInt(forKey: .Notif_Trigger_Weekday)
-		let hour = RemoteConfig.sharedInstance.getInt(forKey: .Notif_Trigger_Hour)
+		let weekDay = RemoteConfig.shared.getInt(forKey: .Notif_Trigger_Weekday)
+		let hour = RemoteConfig.shared.getInt(forKey: .Notif_Trigger_Hour)
 
 		addNotification(onWeekDay: weekDay, atHour: hour)
 		NSLog("[JD] Added Notification")
@@ -39,9 +39,9 @@ class NotificationService {
 	fileprivate func addNotification(onWeekDay weekDay: Int, atHour hour: Int) {
 		let notification = UILocalNotification()
 
-		let title = RemoteConfig.sharedInstance.getString(forKey: .Notif_Reminder_Title)
-		let body = RemoteConfig.sharedInstance.getString(forKey: .Notif_Reminder_Body)
-		let action = RemoteConfig.sharedInstance.getString(forKey: .Notif_Reminder_Action)
+		let title = RemoteConfig.shared.getString(forKey: .Notif_Reminder_Title)
+		let body = RemoteConfig.shared.getString(forKey: .Notif_Reminder_Body)
+		let action = RemoteConfig.shared.getString(forKey: .Notif_Reminder_Action)
 		let date = getDate(forWeekDay: weekDay, atHour: hour)
 
 		notification.alertTitle = title
@@ -63,7 +63,7 @@ class NotificationService {
 
 		let destDate = nowDate.addingTimeInterval(Double(offset) * 60 * 60)
 
-		let ratedRelation = UserLoginService.sharedInstance.ratedWeeksRelation(withDate: destDate)
+		let ratedRelation = UserLoginService.shared.ratedWeeksRelation(withDate: destDate)
 
 		if destDate.timeIntervalSinceNow < 0 || ratedRelation.contains(.this) {
 			return destDate.addingTimeInterval(7 * 24 * 60 * 60)

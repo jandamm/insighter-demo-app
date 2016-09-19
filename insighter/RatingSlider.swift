@@ -66,7 +66,7 @@ class RatingSlider: UIView {
 
 	fileprivate func calculateRating(_ position: CGPoint) {
 		let width = bounds.width
-		ratingValueMax = RemoteConfig.sharedInstance.getDouble(forKey: .Max_Points)
+		ratingValueMax = RemoteConfig.shared.getDouble(forKey: .Max_Points)
 		let posX = position.x
 
 		var rating = Double(posX / width) * ratingValueMax

@@ -165,7 +165,7 @@ class LoginVC: UIViewController {
 	}
 
 	fileprivate func initializeDropdown() {
-		dropdownData = ConstantService.sharedInstance.securityQuestions
+		dropdownData = ConstantService.shared.securityQuestions
 		securityQuestionDropdown.dataSource(dropdownData)
 	}
 }

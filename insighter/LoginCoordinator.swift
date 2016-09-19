@@ -44,7 +44,7 @@ class LoginCoordinator: JDCoordinator, FIRLoginable, LoginDelegate {
 			errorHandler?("ERROR_WEAK_PASSWORD")
 			return
 		}
-		guard let company = UserLoginService.sharedInstance.companyID(forEmail: email) else {
+		guard let company = UserLoginService.shared.companyID(forEmail: email) else {
 			errorHandler?("ERROR_COMPANY_UNKNOWN")
 			return
 		}
@@ -87,9 +87,9 @@ class LoginCoordinator: JDCoordinator, FIRLoginable, LoginDelegate {
 	fileprivate func registerUser(withID uid: String, isCreated created: Bool, errorHandler: CompletionHandlerFirebaseLoginError) {
 		let userData = UserData(UID: uid, company: company, lastRated: nil, previousRated: nil, securityQuestion: securityQuestion, securityAnswer: securityAnswer)
 
-		UserLoginService.sharedInstance.registerNewUser(withUserData: userData)
+		UserLoginService.shared.registerNewUser(withUserData: userData)
 
-		NotificationService.sharedInstance.setupNotifications()
+		NotificationService.shared.setupNotifications()
 
 		finish()
 	}

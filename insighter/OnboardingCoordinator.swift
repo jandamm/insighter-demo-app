@@ -26,7 +26,7 @@ class OnboardingCoordinator: JDCoordinator, FIRLoginable, OnboardingDelegate {
 	// MARK: - Delegates
 
 	func welcomeBtnPressed() {
-		let showNotification = NotificationService.sharedInstance.hasNoAllowance()
+		let showNotification = NotificationService.shared.hasNoAllowance()
 
 		if showNotification {
 			showOnboardingNotification()
@@ -36,7 +36,7 @@ class OnboardingCoordinator: JDCoordinator, FIRLoginable, OnboardingDelegate {
 	}
 
 	func notifBtnPressed() {
-		NotificationService.sharedInstance.askForAllowance()
+		NotificationService.shared.askForAllowance()
 
 		onboardingEnded()
 	}

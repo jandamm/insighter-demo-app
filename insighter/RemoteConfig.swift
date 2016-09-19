@@ -10,7 +10,7 @@ import Foundation
 import Firebase
 
 class RemoteConfig {
-	static let sharedInstance = RemoteConfig()
+	static let shared = RemoteConfig()
 
 	fileprivate let remoteConfig = FIRRemoteConfig.remoteConfig()
 

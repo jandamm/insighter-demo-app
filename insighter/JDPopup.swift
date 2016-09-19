@@ -16,8 +16,8 @@ class JDPopup: JGProgressHUD {
 	}
 
 	convenience init(titleKey: RemoteStringKey, subTitleKey: RemoteStringKey, imageStyle: ImageStyle) {
-		let title = RemoteConfig.sharedInstance.getString(forKey: titleKey)
-		let subTitle = RemoteConfig.sharedInstance.getString(forKey: subTitleKey)
+		let title = RemoteConfig.shared.getString(forKey: titleKey)
+		let subTitle = RemoteConfig.shared.getString(forKey: subTitleKey)
 
 		self.init(title: title, subTitle: subTitle, imageStyle: imageStyle)
 	}

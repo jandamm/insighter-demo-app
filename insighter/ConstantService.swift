@@ -10,7 +10,7 @@ import Foundation
 import Firebase
 
 class ConstantService {
-	static let sharedInstance = ConstantService()
+	static let shared = ConstantService()
 
 	fileprivate let FIR_REF = FIRDatabase.database().reference().child(DBPathKeys.constant.rawValue)
 	fileprivate let NSUD = UserDefaults.standard

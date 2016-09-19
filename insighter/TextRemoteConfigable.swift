@@ -53,6 +53,6 @@ extension TextRemoteConfigable {
 	fileprivate func getValue() -> String {
 		let key = getKey()
 
-		return RemoteConfig.sharedInstance.getString(forKey: key)
+		return RemoteConfig.shared.getString(forKey: key)
 	}
 }

@@ -25,7 +25,7 @@ class RatingQuestion: NSObject, NSCoding {
 	}
 
 	var question: String {
-		let company = UserLoginService.sharedInstance.company.name ?? "Error"
+		let company = UserLoginService.shared.company.name ?? "Error"
 		return _question == nil ? errorQuestion : _question.replacingOccurrences(of: "[company]", with: company)
 	}
 
