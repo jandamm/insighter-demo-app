@@ -90,7 +90,24 @@ class JDDateLabel: JDLabel {
 		let adjustInterval: TimeInterval = thisWeek ? 0 : -7 * 24 * 60 * 60
 		let date = Date().addingTimeInterval(adjustInterval)
 
-		text = String(describing: date)
+		let weekday = CALENDAR.component(.weekday, from: date)
+		let oneDay: TimeInterval = 24 * 60 * 60
+		let daysSinceMonday: TimeInterval = weekday - 2 < 0 ? 6 : TimeInterval(weekday - 2)
+
+		print(Locale.current)
+
+		let dateFormat = DateFormatter.dateFormat(fromTemplate: "ddMM", options: 0, locale: Locale.current) ?? "dd.MM."
+		let formatter = DateFormatter()
+		formatter.dateFormat = dateFormat
+
+		let monday = formatter.string(from: date.addingTimeInterval(oneDay * -daysSinceMonday))
+		let friday = formatter.string(from: date.addingTimeInterval(oneDay * (-daysSinceMonday + 4)))
+		let kw = CALENDAR.component(.weekOfYear, from: date)
+
+		text = RemoteConfig.shared.getString(forKey: .Eva_Date_Lbl)
+			.replacingOccurrences(of: "[first]", with: monday)
+			.replacingOccurrences(of: "[second]", with: friday)
+			.replacingOccurrences(of: "[third]", with: "\(kw)")
 	}
 }
 

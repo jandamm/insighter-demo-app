@@ -70,6 +70,9 @@ enum RemoteStringKey: String, StringReturningEnum {
 	case Que_Comment_Save_Btn
 	case Que_Comment_Discard_Btn
 
+	// Evaluation Date
+	case Eva_Date_Lbl
+
 	// Evaluation User Screen
 	case Eva_User_Title_Lbl
 	case Eva_User_Rating_Title_Lbl

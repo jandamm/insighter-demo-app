@@ -72,11 +72,11 @@ struct CalendarWeek: Equatable {
 	}
 
 	fileprivate func getWeek(_ date: Date) -> Int {
-		return (CALENDAR as NSCalendar).components(.weekOfYear, from: date).weekOfYear!
+		return CALENDAR.component(.weekOfYear, from: date)
 	}
 
 	fileprivate func getYear(_ date: Date) -> Int {
-		return (CALENDAR as NSCalendar).components(.year, from: date).year!
+		return CALENDAR.component(.year, from: date)
 	}
 }
 

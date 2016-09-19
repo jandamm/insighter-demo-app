@@ -57,9 +57,10 @@ class NotificationService {
 
 	fileprivate func getDate(forWeekDay weekDay: Int, atHour hour: Int) -> Date {
 		let nowDate = Date()
-		let nowDateComponents = (CALENDAR as NSCalendar).components([.weekday, .hour], from: nowDate)
+		let nowDateWeekday = CALENDAR.component(.weekday, from: nowDate)
+		let nowDateHour = CALENDAR.component(.hour, from: nowDate)
 
-		let offset = (weekDay - nowDateComponents.weekday!) * 24 + hour - nowDateComponents.hour!
+		let offset = (weekDay - nowDateWeekday) * 24 + hour - nowDateHour
 
 		let destDate = nowDate.addingTimeInterval(Double(offset) * 60 * 60)
 
