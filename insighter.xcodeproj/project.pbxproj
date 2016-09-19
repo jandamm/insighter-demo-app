@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1311FE2A1D8EFCB000362886 /* AverageBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1311FE291D8EFCB000362886 /* AverageBar.swift */; };
+		1311FE681D8FBCEC00362886 /* RatingDisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1311FE671D8FBCEC00362886 /* RatingDisplayView.swift */; };
 		131C8D041D59DF3900A2EE8C /* RemoteConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 131C8D031D59DF3900A2EE8C /* RemoteConfig.swift */; };
 		131C8D061D59E1D200A2EE8C /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 131C8D051D59E1D100A2EE8C /* UserData.swift */; };
 		13233B671D76C403000D825B /* JDNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13233B661D76C403000D825B /* JDNavigationController.swift */; };
@@ -106,6 +107,7 @@
 
 /* Begin PBXFileReference section */
 		1311FE291D8EFCB000362886 /* AverageBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AverageBar.swift; sourceTree = "<group>"; };
+		1311FE671D8FBCEC00362886 /* RatingDisplayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingDisplayView.swift; sourceTree = "<group>"; };
 		131C8D031D59DF3900A2EE8C /* RemoteConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteConfig.swift; sourceTree = "<group>"; };
 		131C8D051D59E1D100A2EE8C /* UserData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		13233B661D76C403000D825B /* JDNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JDNavigationController.swift; sourceTree = "<group>"; };
@@ -353,6 +355,7 @@
 				137EB8921D61D77E00ACC8F9 /* RatingSlider.swift */,
 				1311FE291D8EFCB000362886 /* AverageBar.swift */,
 				137EB89A1D620D7500ACC8F9 /* Flashable.swift */,
+				1311FE671D8FBCEC00362886 /* RatingDisplayView.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -765,6 +768,7 @@
 				13517B4E1D5CEA5B002B74AD /* StringExtension.swift in Sources */,
 				13925BB51D63765E00BA554C /* NumberExtension.swift in Sources */,
 				138C72601D58B9F10049561A /* StringReturningEnum.swift in Sources */,
+				1311FE681D8FBCEC00362886 /* RatingDisplayView.swift in Sources */,
 				13517B4A1D5BBF7D002B74AD /* TextResettable.swift in Sources */,
 				1329B0391D5B12EE004AE52B /* CalendarWeek.swift in Sources */,
 				13BF4DE71D71E9F500035D84 /* JDTextView.swift in Sources */,

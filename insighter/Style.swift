@@ -46,8 +46,9 @@ class Colors: ColorScheme {
 
 enum TextStyle: String {
 	case RatingBigText, RatingBigHighlight
+	case EvaluationPrimary, EvaluationHighlight
 	case Heading, HeadingPrimary, HeadingHighlight
-	case TextBigHighlight
+	case TextBig, TextBigHighlight
 	case Text, TextPrimary
 	case TextSmall
 	case Button, ButtonPrimary, ButtonHighlight, ButtonError
@@ -64,6 +65,8 @@ enum TextStyle: String {
 			size = 30
 		} else if selfString.contains("RatingBig") {
 			size = 70
+		} else if selfString.contains("Evaluation") {
+			size = 53
 		} else if selfString.contains("Heading") {
 			size = 25
 		} else if selfString.contains("TextBig") {

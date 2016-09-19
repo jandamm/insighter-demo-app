@@ -55,12 +55,14 @@
                                                 <userDefinedRuntimeAttribute type="string" keyPath="remoteConfigKey" value="Eva_Comp_User_Title_Lbl"/>
                                             </userDefinedRuntimeAttributes>
                                         </label>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UWM-VP-onn">
-                                            <color key="backgroundColor" red="0.99607843139999996" green="0.10980392160000001" blue="0.10980392160000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UWM-VP-onn" customClass="RatingDisplayView" customModule="insighter" customModuleProvider="target">
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="72" id="FHv-4S-NmS"/>
                                                 <constraint firstAttribute="width" constant="122" id="cH0-DJ-0hO"/>
                                             </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="fontStyle" value="EvaluationHighlight"/>
+                                            </userDefinedRuntimeAttributes>
                                         </view>
                                         <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="zEW-SR-qhc">
                                             <subviews>
@@ -99,12 +101,14 @@
                                                 <userDefinedRuntimeAttribute type="string" keyPath="remoteConfigKey" value="Eva_Comp_Comp_Title_Lbl"/>
                                             </userDefinedRuntimeAttributes>
                                         </label>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jU9-FA-kja">
-                                            <color key="backgroundColor" red="0.99607843139999996" green="0.10980392160000001" blue="0.10980392160000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jU9-FA-kja" customClass="RatingDisplayView" customModule="insighter" customModuleProvider="target">
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="122" id="EXS-AY-C5o"/>
                                                 <constraint firstAttribute="height" constant="72" id="EtV-C2-Ieq"/>
                                             </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="fontStyle" value="EvaluationPrimary"/>
+                                            </userDefinedRuntimeAttributes>
                                         </view>
                                         <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="ZLn-6e-OVU">
                                             <subviews>
