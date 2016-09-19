@@ -43,7 +43,7 @@ struct Average: Equatable {
 		}
 
 		var average: String {
-			return String(averageBase)
+			return averageBase.asRating
 		}
 	}
 
@@ -66,7 +66,7 @@ struct Average: Equatable {
 		}
 
 		var average: String {
-			return String(averageBase)
+			return averageBase.asRating
 		}
 	}
 }

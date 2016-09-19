@@ -45,7 +45,7 @@ extension Double {
 }
 
 extension NSNumber {
-    
+
 	var asRating: String {
 		let nf = getFormatter(forNumber: self)
 

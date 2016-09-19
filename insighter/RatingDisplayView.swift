@@ -20,7 +20,7 @@ class RatingDisplayView: UIView {
 	private weak var ratingLbl: JDLabel!
 	private weak var ratingMaxLbl: JDLabel!
 
-	private var rating: String?
+	private var rating: Double?
 
 	override func awakeFromNib() {
 		super.awakeFromNib()
@@ -48,7 +48,7 @@ class RatingDisplayView: UIView {
 	private func formatLabels() {
 		ratingLbl.fontStyle = fontStyle
 		ratingLbl.textAlignment = .right
-		ratingLbl.text = rating ?? "---"
+		ratingLbl.text = rating?.asRating ?? "---"
 
 		ratingMaxLbl.fontStyle = TextStyle.TextBig.rawValue
 		ratingMaxLbl.text = "/\(RemoteConfig.shared.getDouble(forKey: .Max_Points).asRating)"
