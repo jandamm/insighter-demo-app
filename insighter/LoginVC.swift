@@ -27,19 +27,19 @@ class LoginVC: UIViewController {
 	// MARK: - ErrorType
 
 	fileprivate enum ErrorType {
-		case Email, Password, security, SwitchState
+		case email, password, security, switchState
 
-		fileprivate static var email: Set = ["ERROR_INVALID_EMAIL", "ERROR_EMAIL_ALREADY_IN_USE"]
-		fileprivate static var password: Set = ["ERROR_WEAK_PASSWORD", "ERROR_WRONG_PASSWORD"]
-		fileprivate static var switchState: Set = ["ERROR_USER_NOT_FOUND"]
+		fileprivate static var emails: Set = ["ERROR_INVALID_EMAIL", "ERROR_EMAIL_ALREADY_IN_USE"]
+		fileprivate static var passwords: Set = ["ERROR_WEAK_PASSWORD", "ERROR_WRONG_PASSWORD"]
+		fileprivate static var switchStates: Set = ["ERROR_USER_NOT_FOUND"]
 
 		static func errorType(forString s: String) -> ErrorType? {
-			if email.contains(s) {
-				return .Email
-			} else if password.contains(s) {
-				return .Password
-			} else if switchState.contains(s) {
-				return .SwitchState
+			if emails.contains(s) {
+				return .email
+			} else if passwords.contains(s) {
+				return .password
+			} else if switchStates.contains(s) {
+				return .switchState
 			}
 
 			return nil
@@ -92,7 +92,7 @@ class LoginVC: UIViewController {
 
 		let remoteConfigKey = RemoteStringKey(rawValue: remoteConfig)
 
-		if remoteConfigKey != nil || type == .SwitchState {
+		if remoteConfigKey != nil || type == .switchState {
 			errorHandling(forType: type, withRemoteConfig: remoteConfigKey)
 		} else {
 			errorUndefined()
@@ -101,12 +101,12 @@ class LoginVC: UIViewController {
 
 	fileprivate func errorHandling(forType type: ErrorType, withRemoteConfig remoteConfigKey: RemoteStringKey!) {
 		switch type {
-		case .SwitchState:
+		case .switchState:
 			state = .register
-		case .Email:
+		case .email:
 			emailSubLbl.remoteConfigKey = remoteConfigKey.rawValue
 			emailTxt.shake()
-		case .Password:
+		case .password:
 			passwordSubLbl.remoteConfigKey = remoteConfigKey.rawValue
 			passwordTxt.shake()
 		case .security:
