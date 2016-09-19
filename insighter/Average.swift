@@ -27,7 +27,7 @@ struct Average: Equatable {
 		return "KW \(kw[1])"
 	}
 
-    struct Company: Equatable {
+	struct Company: Equatable {
 		let key: String
 		let users: Int
 		let sum: Int
@@ -47,7 +47,7 @@ struct Average: Equatable {
 		}
 	}
 
-    struct User: Equatable {
+	struct User: Equatable {
 		let key: String
 		let answers: [String: Int]
 
@@ -72,12 +72,13 @@ struct Average: Equatable {
 }
 
 func ==(lhs: Average, rhs: Average) -> Bool {
-    return lhs.key == rhs.key && lhs.company == rhs.company && lhs.user == rhs.user
+	return lhs.key == rhs.key && lhs.company == rhs.company && lhs.user == rhs.user
 }
+
 func ==(lhs: Average.Company, rhs: Average.Company) -> Bool {
-    return lhs.key == rhs.key && lhs.sum == rhs.sum && lhs.users == rhs.users
+	return lhs.key == rhs.key && lhs.sum == rhs.sum && lhs.users == rhs.users
 }
 
 func ==(lhs: Average.User, rhs: Average.User) -> Bool {
-    return lhs.key == rhs.key && lhs.answers == rhs.answers
+	return lhs.key == rhs.key && lhs.answers == rhs.answers
 }
