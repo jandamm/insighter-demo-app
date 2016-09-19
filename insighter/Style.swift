@@ -52,7 +52,7 @@ enum TextStyle: String {
 	case TextSmall
 	case Button, ButtonPrimary, ButtonHighlight, ButtonError
 	case TextField, TextFieldPrimary, TextFieldHighlight
-	case TextView, TextViewMediumWhite
+	case TextView, TextViewMedium, TextViewMediumWhite
 	case TextSubLine, TextSubLineMedium
 
 	func font() -> UIFont {

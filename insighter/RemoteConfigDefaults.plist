@@ -115,6 +115,12 @@ voll zu</string>
 	<string>Summe diese Woche:</string>
 	<key>Eva_Comp_Title_Lbl</key>
 	<string>Firmen Ergebnisse</string>
+	<key>Eva_Comp_User_Title_Lbl</key>
+	<string>Ihr Wert:</string>
+	<key>Eva_Comp_Comp_Title_Lbl</key>
+	<string>[company] insgesamt:</string>
+	<key>Eva_Comp_Diff_Relation_Lbl</key>
+	<string>zur Vorwoche</string>
 	<key>Eva_Comp_Verlauf_Lbl</key>
 	<string>Engagement im Zeitverlauf:</string>
 </dict>
