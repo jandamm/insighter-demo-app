@@ -44,6 +44,7 @@ class QuestionCoordinator: JDCoordinator, QuestionDelegate {
 	fileprivate func showQuestionVC() {
 
 		// TODO: - Implement Checking for Question
+        // TODO: - Implement only one question to QuestionVC
 
 		let vc = QuestionVC(withQuestions: questions)
 
