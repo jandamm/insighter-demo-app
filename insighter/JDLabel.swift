@@ -65,7 +65,7 @@ class JDLabel: UILabel, TextStylable, TextResettable {
 	}
 }
 
-@IBDesignable
+// @IBDesignable
 class JDDateLabel: JDLabel {
 
 	// MARK: - Design
@@ -91,5 +91,66 @@ class JDDateLabel: JDLabel {
 		let date = Date().addingTimeInterval(adjustInterval)
 
 		text = String(describing: date)
+	}
+}
+
+// @IBDesignable
+class JDRatingLabel: UILabel, TextStylable {
+
+	var fontStyle: String! {
+		didSet {
+			applyTextStyle()
+		}
+	}
+
+	// MARK: - Private Data
+
+	private enum DiffType {
+		case negative, positive, neutral
+
+		init(rawValue: Double) {
+			if rawValue > 0 {
+				self = .positive
+			} else if rawValue < 0 {
+				self = .negative
+			} else {
+				self = .neutral
+			}
+		}
+
+		var sign: String {
+			switch self {
+			case .negative: return ""
+			case .positive: return "+"
+			case .neutral: return "±"
+			}
+		}
+	}
+
+	private var diff: Double = 0.0
+	private var diffType = DiffType(rawValue: 0.0)
+
+	// MARK: - Internal Methods
+
+	func setRatingDifference(_ diff: Double) {
+		self.diff = diff
+		self.diffType = DiffType(rawValue: diff)
+
+		setFontStyle()
+		setText()
+	}
+
+	// MARK: - Private Methods
+
+	private func setFontStyle() {
+		switch diffType {
+		case .negative: fontStyle = TextStyle.RatingDiffError.rawValue
+		case .positive: fontStyle = TextStyle.RatingDiffSuccess.rawValue
+		case .neutral: fontStyle = TextStyle.RatingDiffMedium.rawValue
+		}
+	}
+
+	private func setText() {
+		text = "\(diffType.sign)\(diff.asRatingDiff)"
 	}
 }

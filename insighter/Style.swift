@@ -42,6 +42,10 @@ class Colors: ColorScheme {
 	class var lightContrast: UIColor {
 		return rgba(224, 224, 224, 1)
 	}
+
+	class var white: UIColor {
+		return UIColor.white
+	}
 }
 
 enum TextStyle: String {
@@ -54,6 +58,7 @@ enum TextStyle: String {
 	case Button, ButtonPrimary, ButtonHighlight, ButtonError
 	case TextField, TextFieldPrimary, TextFieldHighlight
 	case TextView, TextViewMedium, TextViewMediumWhite
+	case RatingDiffMedium, RatingDiffError, RatingDiffSuccess
 	case TextSubLine, TextSubLineMedium
 
 	func font() -> UIFont {
@@ -75,13 +80,13 @@ enum TextStyle: String {
 			size = 18
 		} else if selfString.contains("TextSmall") {
 			size = 16
-		} else if selfString.contains("TextView") {
+		} else if selfString.contains("TextView") || selfString.contains("RatingDiff") {
 			size = 14
 		} else if selfString.contains("TextSubLine") {
 			size = 12
 		}
 
-		if selfString.contains("Primary") || selfString.contains("Highlight") || selfString.contains("Medium") || selfString.contains("Error") {
+		if selfString.contains("Primary") || selfString.contains("Highlight") || selfString.contains("Medium") || selfString.contains("Error") || selfString.contains("Success") {
 			name = "AvenirNext-Medium"
 		}
 
@@ -89,16 +94,19 @@ enum TextStyle: String {
 	}
 
 	func color() -> UIColor {
+		let selfString = self.rawValue
 		let color: UIColor
 
-		if String(describing: self).contains("Primary") {
+		if selfString.contains("Primary") {
 			color = Colors.primary
-		} else if String(describing: self).contains("Highlight") {
+		} else if selfString.contains("Highlight") {
 			color = Colors.highlight
-		} else if String(describing: self).contains("Error") {
+		} else if selfString.contains("Error") {
 			color = Colors.error
-		} else if String(describing: self).contains("White") {
-			color = UIColor.white
+		} else if selfString.contains("Success") {
+			color = Colors.success
+		} else if selfString.contains("White") {
+			color = Colors.white
 		} else {
 			color = Colors.text
 		}

@@ -15,6 +15,11 @@ extension Int {
 		return number.asRating
 	}
 
+	var asRatingDiff: String {
+		let number = NSNumber(value: self)
+		return number.asRatingDiff
+	}
+
 	func makeBetween(_ floor: Int, and ceiling: Int) -> Int {
 		if self < floor {
 			return floor
@@ -33,6 +38,11 @@ extension Double {
 		return number.asRating
 	}
 
+	var asRatingDiff: String {
+		let number = NSNumber(value: self)
+		return number.asRatingDiff
+	}
+
 	func makeBetween(_ floor: Double, and ceiling: Double) -> Double {
 		if self < floor {
 			return floor
@@ -48,6 +58,14 @@ extension NSNumber {
 
 	var asRating: String {
 		let nf = getFormatter(forNumber: self)
+
+		return nf.string(from: self) ?? String(describing: self)
+	}
+
+	var asRatingDiff: String {
+		let nf = getFormatter(forNumber: self)
+
+		nf.minimumFractionDigits = 0
 
 		return nf.string(from: self) ?? String(describing: self)
 	}
