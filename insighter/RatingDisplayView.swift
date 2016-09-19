@@ -51,6 +51,6 @@ class RatingDisplayView: UIView {
 		ratingLbl.text = rating ?? "---"
 
 		ratingMaxLbl.fontStyle = TextStyle.TextBig.rawValue
-		ratingMaxLbl.text = "/\(RemoteConfig.shared.getDoubleAsString(forKey: .Max_Points))"
+		ratingMaxLbl.text = "/\(RemoteConfig.shared.getDouble(forKey: .Max_Points).asRating)"
 	}
 }

@@ -58,10 +58,6 @@ class RemoteConfig {
 		return getNSNumber(forValue: key.rawValue).doubleValue
 	}
 
-	func getDoubleAsString(forKey key: RemoteDoubleKey) -> String {
-		return String(getDouble(forKey: key)).replacingOccurrences(of: ".0", with: "")
-	}
-
 	func getInt(forKey key: RemoteIntKey) -> Int {
 		return getNSNumber(forValue: key.rawValue).intValue
 	}
