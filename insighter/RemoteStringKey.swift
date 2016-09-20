@@ -77,8 +77,11 @@ enum RemoteStringKey: String, StringReturningEnum {
 	case Eva_User_Title_Lbl
 	case Eva_User_Rating_Title_Lbl
 	case Eva_User_Feedback_Title_Lbl
-	case Eva_User_Feedback_Erklaerung_Lbl
 	case Eva_User_Punkte_Title_Lbl
+	case Eva_User_Punkte_Top_Lbl
+	case Eva_User_Punkte_Middle_Lbl
+	case Eva_User_Punkte_Bottom_Lbl
+	case Eva_User_Punkte_Sum_Lbl
 
 	// Evaluation Company Screen
 	case Eva_Comp_Title_Lbl

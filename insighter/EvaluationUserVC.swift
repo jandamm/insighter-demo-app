@@ -28,14 +28,14 @@ class EvaluationUserVC: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
-		userRatingLbl.rating = 10
-		userRatingDiffLbl.setRatingDifference(1)
+		userRatingLbl.rating = 7.3
+		userRatingDiffLbl.setRatingDifference(-0.5)
 
-		fbScoreTotalLbl.text = "tot"
-		fbRewardLbl.text = "reward"
-		fbScoreThisLbl.text = "this"
-		fbScoreLastLbl.text = "last"
-		fbScorePrevLbl.text = "prev"
-		fbScoreSumLbl.text = "sum"
+		fbScoreTotalLbl.text = "375"
+		fbRewardLbl.text = "Der Mitarbeiter mit dem höchsten Feedback-Score am Ende eines Quartals bekommt ein Spa-Wochenende geschenkt."
+		fbScoreThisLbl.text = "100"
+		fbScoreLastLbl.text = "50"
+		fbScorePrevLbl.text = "25"
+		fbScoreSumLbl.text = "+175"
 	}
 }
