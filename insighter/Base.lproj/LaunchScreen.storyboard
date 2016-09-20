@@ -17,13 +17,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-insighter-intro" translatesAutoresizingMaskIntoConstraints="NO" id="L8X-In-JkC"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-insighter-launch" translatesAutoresizingMaskIntoConstraints="NO" id="83i-UF-2jr"/>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.0" green="0.61176470588235299" blue="0.87450980392156863" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="L8X-In-JkC" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" constant="58" id="GcE-lZ-Ttj"/>
-                            <constraint firstAttribute="trailing" secondItem="L8X-In-JkC" secondAttribute="trailing" constant="58" id="UEZ-e5-lPK"/>
-                            <constraint firstItem="L8X-In-JkC" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="eQw-Nj-3y0"/>
+                            <constraint firstAttribute="trailing" secondItem="83i-UF-2jr" secondAttribute="trailing" constant="58" id="9t4-0k-eDD"/>
+                            <constraint firstItem="83i-UF-2jr" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" constant="58" id="TmE-Jp-OIO"/>
+                            <constraint firstItem="83i-UF-2jr" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="zjm-p4-Tzu"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -33,6 +33,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="logo-insighter-intro" width="258" height="90"/>
+        <image name="logo-insighter-launch" width="292" height="69"/>
     </resources>
 </document>
