@@ -8,10 +8,10 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EvaluationCompanyVC" customModule="insighter" customModuleProvider="target">
             <connections>
                 <outlet property="averageView" destination="Wmr-6a-5tX" id="1RC-Ro-wJt"/>
-                <outlet property="compRating" destination="jU9-FA-kja" id="Liv-kG-RoB"/>
-                <outlet property="compRatingDiff" destination="e1Q-wl-wyS" id="Qxw-01-3sN"/>
-                <outlet property="userRating" destination="UWM-VP-onn" id="YG9-gU-9D7"/>
-                <outlet property="userRatingDiff" destination="xzW-pH-mGj" id="NYv-UT-hnP"/>
+                <outlet property="compRatingDiffLbl" destination="e1Q-wl-wyS" id="dPl-Ak-H68"/>
+                <outlet property="compRatingLbl" destination="jU9-FA-kja" id="xtJ-sk-Q1v"/>
+                <outlet property="userRatingDiffLbl" destination="xzW-pH-mGj" id="sVB-Gb-3Jn"/>
+                <outlet property="userRatingLbl" destination="UWM-VP-onn" id="96F-2e-Eqi"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

@@ -13,10 +13,10 @@ class EvaluationCompanyVC: UIViewController {
 	// MARK: - Outlets
 
 	@IBOutlet weak var averageView: UIStackView!
-	@IBOutlet weak var userRating: RatingDisplayView!
-	@IBOutlet weak var compRating: RatingDisplayView!
-	@IBOutlet weak var userRatingDiff: JDRatingLabel!
-	@IBOutlet weak var compRatingDiff: JDRatingLabel!
+	@IBOutlet weak var userRatingLbl: RatingDisplayView!
+	@IBOutlet weak var compRatingLbl: RatingDisplayView!
+	@IBOutlet weak var userRatingDiffLbl: JDRatingLabel!
+	@IBOutlet weak var compRatingDiffLbl: JDRatingLabel!
 
 	// MARK: - Private Data
 
@@ -25,11 +25,11 @@ class EvaluationCompanyVC: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
-		userRating.rating = 10
-		userRatingDiff.setRatingDifference(1)
+		userRatingLbl.rating = 10
+		userRatingDiffLbl.setRatingDifference(1)
 
-		compRating.rating = 1
-		compRatingDiff.setRatingDifference(-1)
+		compRatingLbl.rating = 1
+		compRatingDiffLbl.setRatingDifference(-1)
 	}
 
 	// MARK: - Internal Methods
