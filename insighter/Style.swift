@@ -54,7 +54,7 @@ enum TextStyle: String {
 	case Heading, HeadingPrimary, HeadingHighlight
 	case TextBig, TextBigHighlight
 	case Text, TextPrimary
-	case TextSmall
+	case TextSmall, TextSmallPrimary
 	case Button, ButtonPrimary, ButtonHighlight, ButtonError
 	case TextField, TextFieldPrimary, TextFieldHighlight
 	case TextView, TextViewMedium, TextViewMediumWhite
