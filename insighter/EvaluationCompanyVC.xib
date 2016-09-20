@@ -8,6 +8,10 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EvaluationCompanyVC" customModule="insighter" customModuleProvider="target">
             <connections>
                 <outlet property="averageView" destination="Wmr-6a-5tX" id="1RC-Ro-wJt"/>
+                <outlet property="compRating" destination="jU9-FA-kja" id="Liv-kG-RoB"/>
+                <outlet property="compRatingDiff" destination="e1Q-wl-wyS" id="Qxw-01-3sN"/>
+                <outlet property="userRating" destination="UWM-VP-onn" id="YG9-gU-9D7"/>
+                <outlet property="userRatingDiff" destination="xzW-pH-mGj" id="NYv-UT-hnP"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -67,7 +71,7 @@
                                         <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="zEW-SR-qhc">
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="+0,2" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xzW-pH-mGj" customClass="JDRatingLabel" customModule="insighter" customModuleProvider="target">
-                                                    <frame key="frameInset" width="21" height="19"/>
+                                                    <frame key="frameInset" width="20" height="19"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -76,7 +80,7 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="zur Vorwoche" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cr2-tK-VXI" customClass="JDLabel" customModule="insighter" customModuleProvider="target">
-                                                    <frame key="frameInset" minX="23" width="106" height="19"/>
+                                                    <frame key="frameInset" minX="22" width="106" height="19"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -115,7 +119,7 @@
                                         <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="ZLn-6e-OVU">
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="+0,2" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e1Q-wl-wyS" customClass="JDRatingLabel" customModule="insighter" customModuleProvider="target">
-                                                    <frame key="frameInset" width="21" height="19"/>
+                                                    <frame key="frameInset" width="20" height="19"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -124,7 +128,7 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="zur Vorwoche" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fIu-ta-dTv" customClass="JDLabel" customModule="insighter" customModuleProvider="target">
-                                                    <frame key="frameInset" minX="23" width="106" height="19"/>
+                                                    <frame key="frameInset" minX="22" width="106" height="19"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>

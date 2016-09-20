@@ -20,7 +20,11 @@ class RatingDisplayView: UIView {
 	private weak var ratingLbl: JDLabel!
 	private weak var ratingMaxLbl: JDLabel!
 
-	private var rating: Double?
+	var rating: Double? {
+		didSet {
+			formatLabels()
+		}
+	}
 
 	override func awakeFromNib() {
 		super.awakeFromNib()
