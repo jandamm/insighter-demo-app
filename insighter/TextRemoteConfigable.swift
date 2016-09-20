@@ -10,6 +10,7 @@ import UIKit
 
 protocol TextRemoteConfigable {
 	var remoteConfigKey: String! { get set }
+	var replaceStrings: [String: String]? { get }
 
 	func setText()
 }
@@ -18,6 +19,7 @@ extension TextRemoteConfigable where Self: UIButton {
 
 	func setText() {
 		let title = getValue()
+
 		setTitle(title, for: UIControlState())
 	}
 }
@@ -53,6 +55,14 @@ extension TextRemoteConfigable {
 	fileprivate func getValue() -> String {
 		let key = getKey()
 
-		return RemoteConfig.shared.getString(forKey: key)
+		var value = RemoteConfig.shared.getString(forKey: key)
+
+		if let replace = replaceStrings {
+			for (ofString, withString) in replace {
+				value = value.replacingOccurrences(of: ofString, with: withString)
+			}
+		}
+
+		return value
 	}
 }

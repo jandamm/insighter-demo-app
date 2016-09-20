@@ -24,6 +24,8 @@ class JDDropdown: UILabel, TextStylable, TextRemoteConfigable {
 		}
 	}
 
+	var replaceStrings: [String: String]?
+
 	// MARK: - Private Data
 
 	fileprivate var _dropdownList: [String]?

@@ -21,11 +21,14 @@ class JDLabel: UILabel, TextStylable, TextResettable {
 			setText()
 		}
 	}
+
 	@IBInspectable var fontStyle: String! {
 		didSet {
 			applyTextStyle()
 		}
 	}
+
+	var replaceStrings: [String: String]?
 
 	// MARK: - Private Data
 
@@ -94,9 +97,7 @@ class JDDateLabel: JDLabel {
 		let oneDay: TimeInterval = 24 * 60 * 60
 		let daysSinceMonday: TimeInterval = weekday - 2 < 0 ? 6 : TimeInterval(weekday - 2)
 
-		print(Locale.current)
-
-		let dateFormat = DateFormatter.dateFormat(fromTemplate: "ddMM", options: 0, locale: Locale.current) ?? "dd.MM."
+		let dateFormat = DateFormatter.dateFormat(fromTemplate: "dM", options: 0, locale: Locale.current) ?? "dd.MM."
 		let formatter = DateFormatter()
 		formatter.dateFormat = dateFormat
 
@@ -104,10 +105,8 @@ class JDDateLabel: JDLabel {
 		let friday = formatter.string(from: date.addingTimeInterval(oneDay * (-daysSinceMonday + 4)))
 		let kw = CALENDAR.component(.weekOfYear, from: date)
 
-		text = RemoteConfig.shared.getString(forKey: .Eva_Date_Lbl)
-			.replacingOccurrences(of: "[first]", with: monday)
-			.replacingOccurrences(of: "[second]", with: friday)
-			.replacingOccurrences(of: "[third]", with: "\(kw)")
+		replaceStrings = ["[first]": monday, "[second]": friday, "[third]": "\(kw)"]
+		remoteConfigKey = "Eva_Date_Lbl"
 	}
 }
 

@@ -21,12 +21,16 @@ class JDButton: UIButton, TextStylable, TextResettable {
 			setText()
 		}
 	}
+
 	@IBInspectable var fontStyle: String! {
 		didSet {
 			applyTextStyle()
 		}
 	}
+
 	@IBInspectable var overrideDefaultSettings: Bool!
+
+	var replaceStrings: [String: String]?
 
 	// MARK: - Private Data
 
