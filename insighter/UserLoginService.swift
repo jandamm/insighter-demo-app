@@ -26,11 +26,11 @@ class UserLoginService {
 
 	// MARK: - External Data
 
-	var userID: String! {
+	var userID: String? {
 		return _userData.UID
 	}
 
-	var company: Company! {
+	var company: Company? {
 		return _company
 	}
 
