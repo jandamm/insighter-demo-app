@@ -11,16 +11,25 @@ import Foundation
 struct UserData: Equatable, FIRUploadable {
 	let UID: String
 	let company: String?
+	let score: Int?
 	let lastRated: CalendarWeek
 	let previousRated: CalendarWeek
 	let securityQuestion: String?
 	let securityAnswer: String?
 
+	var scoreString: String {
+		guard let score = score else {
+			return "0"
+		}
+		return "\(score)"
+	}
+
 	// MARK: - Initialization
 
-	init(UID: String, company: String?, lastRated: TimeInterval?, previousRated: TimeInterval?, securityQuestion: String?, securityAnswer: String?) {
+	init(UID: String, company: String?, score: Int?, lastRated: TimeInterval?, previousRated: TimeInterval?, securityQuestion: String?, securityAnswer: String?) {
 		self.UID = UID
 		self.company = company
+		self.score = score
 		self.securityAnswer = securityAnswer
 		self.securityQuestion = securityQuestion
 

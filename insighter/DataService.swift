@@ -42,7 +42,7 @@ class DataService {
 			NSLog("[JD] No Company for Ratings")
 			return completion()
 		}
-		guard let userID = UserLoginService.shared.userID else {
+		guard let userID = UserLoginService.shared.user?.UID else {
 			NSLog("[JD] No User for Ratings")
 			return completion()
 		}
@@ -121,7 +121,7 @@ class DataService {
 	}
 
 	func addRating(_ rating: RatingAnswer, lastQuestion: Bool) -> Bool {
-		guard let userID = UserLoginService.shared.userID, let company = UserLoginService.shared.company else {
+		guard let userID = UserLoginService.shared.user?.UID, let company = UserLoginService.shared.company else {
 			return false
 		}
 

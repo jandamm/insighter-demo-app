@@ -26,8 +26,8 @@ class UserLoginService {
 
 	// MARK: - External Data
 
-	var userID: String? {
-		return _userData.UID
+	var user: UserData? {
+		return _userData
 	}
 
 	var company: Company? {
@@ -84,7 +84,7 @@ class UserLoginService {
 		dates.removeLast()
 		let previousRated = dates.last
 
-		let user = UserData(UID: old.UID, company: old.company, lastRated: lastRated, previousRated: previousRated, securityQuestion: old.securityQuestion, securityAnswer: old.securityAnswer)
+		let user = UserData(UID: old.UID, company: old.company, score: old.score, lastRated: lastRated, previousRated: previousRated, securityQuestion: old.securityQuestion, securityAnswer: old.securityAnswer)
 
 		_userData = user
 
@@ -168,12 +168,13 @@ class UserLoginService {
 			}
 
 			let company = data[DBValueKeys.User.company.rawValue] as? String
+			let score = data[DBValueKeys.User.score.rawValue] as? Int
 			let lastRated = data[DBValueKeys.User.lastRated.rawValue] as? Double
 			let previousRated = data[DBValueKeys.User.previousRated.rawValue] as? Double
 			let securityQuestion = data[DBValueKeys.User.securityQuestion.rawValue] as? String
 			let securityAnswer = data[DBValueKeys.User.securityAnswer.rawValue] as? String
 
-			let user = UserData(UID: uid, company: company, lastRated: lastRated, previousRated: previousRated, securityQuestion: securityQuestion, securityAnswer: securityAnswer)
+			let user = UserData(UID: uid, company: company, score: score, lastRated: lastRated, previousRated: previousRated, securityQuestion: securityQuestion, securityAnswer: securityAnswer)
 
 			self._userData = user
 			NSLog("[JD] Got User data from Firebase")
