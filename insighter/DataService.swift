@@ -194,6 +194,10 @@ class DataService {
 	fileprivate func saveRatingToAverage(forCompany companyID: String) {
 		let refToAverage = REF.child(companyID).child(DBPathKeys.Company.average.rawValue).child(KW.stringValue)
 
+		let userRating = Average.User(key: KW.stringValue, answers: ratingForAverage)
+
+		_userRating = userRating
+
 		refToAverage.runTransactionBlock({ currentData -> FIRTransactionResult in
 			var data = currentData.value as? [String: [String: Int]] ?? [:]
 
