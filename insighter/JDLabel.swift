@@ -123,8 +123,13 @@ class JDRatingLabel: UILabel, TextStylable {
 
 	private enum DiffType {
 		case negative, positive, neutral
+		case none
 
-		init(rawValue: Double) {
+		init(rawValue: Double?) {
+			guard let rawValue = rawValue else {
+				self = .none
+				return
+			}
 			if rawValue > 0 {
 				self = .positive
 			} else if rawValue < 0 {
@@ -139,16 +144,17 @@ class JDRatingLabel: UILabel, TextStylable {
 			case .negative: return ""
 			case .positive: return "+"
 			case .neutral: return "±"
+			case .none: return ""
 			}
 		}
 	}
 
-	private var diff: Double = 0.0
+	private var diff: Double? = 0.0
 	private var diffType = DiffType(rawValue: 0.0)
 
 	// MARK: - Internal Methods
 
-	func setRatingDifference(_ diff: Double) {
+	func setRatingDifference(_ diff: Double?) {
 		self.diff = diff
 		self.diffType = DiffType(rawValue: diff)
 
@@ -162,11 +168,12 @@ class JDRatingLabel: UILabel, TextStylable {
 		switch diffType {
 		case .negative: fontStyle = TextStyle.RatingDiffError.rawValue
 		case .positive: fontStyle = TextStyle.RatingDiffSuccess.rawValue
-		case .neutral: fontStyle = TextStyle.RatingDiffMedium.rawValue
+		case .neutral, .none: fontStyle = TextStyle.RatingDiffMedium.rawValue
 		}
 	}
 
 	private func setText() {
-		text = "\(diffType.sign)\(diff.asRatingDiff)"
+		let diffString = diff?.asRatingDiff ?? "--"
+		text = "\(diffType.sign)\(diffString)"
 	}
 }
