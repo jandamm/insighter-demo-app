@@ -20,8 +20,8 @@ class DataService {
 
 	fileprivate var ratingForAverage = [String: Int]()
 
-	private var averages = [Average]()
-	private var userRating: Average.User?
+    private var _averages: [Average] = []
+	private var _userRating: Average.User?
 
 	// MARK: - External Data
 
@@ -29,77 +29,86 @@ class DataService {
 
 	// MARK: - Internal Methods
 
-	func getRatings() {
+	func getRatings(completion: @escaping() -> Void) {
 		guard let companyID = UserLoginService.shared.company?.UID else {
 			NSLog("[JD] No Company for Ratings")
-			return
+			return completion()
 		}
 		guard let userID = UserLoginService.shared.userID else {
 			NSLog("[JD] No User for Ratings")
-			return
+			return completion()
 		}
 
-		let appDelegate = UIApplication.shared.delegate as! AppDelegate
-		KW = CalendarWeek()
+		let needAverage = _averages.count == 0
+		let needUserRating = _userRating == nil
 
-		let weeks: Int
-		if let width = appDelegate.window?.bounds.width {
-			weeks = Int(((Double(width) - 64 + 20) / 63).rounded(.down))
-		} else {
-			weeks = 5
-		}
-
-		var keys = [String]()
-
-		for i in 1 ... weeks {
-			keys.append(KW.calendarWeek(beforeWeeks: i))
+		guard needUserRating || needAverage else {
+			return completion()
 		}
 
 		let dispatch = DispatchGroup()
 
+		KW = CalendarWeek()
+
+		var keys: [String] = []
 		var userAverages: [String: Average.User] = [:]
 		var compAverages: [String: Average.Company] = [:]
 
-		dispatch.enter()
-		downloadUserRating(forWeek: KW.stringValue, companyID: companyID, userID: userID) { userRating in
-			self.userRating = userRating
-
-			dispatch.leave()
-		}
-
-		for key in keys {
+		if needUserRating {
 			dispatch.enter()
-			downloadUserRating(forWeek: key, companyID: companyID, userID: userID) { userRating in
-				if let userRating = userRating {
-					userAverages[userRating.key] = userRating
-				}
+			downloadUserRating(forWeek: KW.stringValue, companyID: companyID, userID: userID) { userRating in
+				self._userRating = userRating
 
 				dispatch.leave()
 			}
+		}
 
-			dispatch.enter()
-			downloadCompRating(forWeek: key, companyID: companyID) { companyRating in
-				if let companyRating = companyRating {
-					compAverages[companyRating.key] = companyRating
+		if needAverage {
+			let weeks: Int
+			if let appDelegate = UIApplication.shared.delegate as? AppDelegate, let width = appDelegate.window?.bounds.width {
+				let fitOnScreen = (Double(width) - 64 + 20) / 63
+				weeks = Int(fitOnScreen.rounded(.down))
+			} else {
+				weeks = 5
+			}
+
+			for i in 1 ... weeks {
+				let kw = KW.calendarWeek(beforeWeeks: i)
+				keys.append(kw)
+			}
+
+			for key in keys {
+				dispatch.enter()
+				downloadUserRating(forWeek: key, companyID: companyID, userID: userID) { userRating in
+					if let userRating = userRating {
+						userAverages[userRating.key] = userRating
+					}
+
+					dispatch.leave()
 				}
 
-				dispatch.leave()
+				dispatch.enter()
+				downloadCompRating(forWeek: key, companyID: companyID) { companyRating in
+					if let companyRating = companyRating {
+						compAverages[companyRating.key] = companyRating
+					}
+
+					dispatch.leave()
+				}
 			}
 		}
 
 		dispatch.notify(queue: DispatchQueue.main) {
-			print("This: \(self.userRating)")
-
 			for key in keys.sorted() {
 				let comp = compAverages[key]
 				let user = userAverages[key]
 
 				let average = Average(key: key, company: comp, user: user)
 
-				self.averages.append(average)
+				self._averages.append(average)
 			}
 
-			print("Averages: \(self.averages)")
+			completion()
 		}
 	}
 
