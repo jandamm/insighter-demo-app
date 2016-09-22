@@ -20,10 +20,18 @@ class DataService {
 
 	fileprivate var ratingForAverage = [String: Int]()
 
-    private var _averages: [Average] = []
+	private var _averages: [Average] = []
 	private var _userRating: Average.User?
 
 	// MARK: - External Data
+
+	var averages: [Average] {
+		return _averages
+	}
+
+	var userRating: Average.User? {
+		return _userRating
+	}
 
 	// MARK: - Startup
 
