@@ -20,6 +20,9 @@ class DataService {
 
 	fileprivate var ratingForAverage = [String: Int]()
 
+	private var averages = [Average]()
+	private var userRating: Average.User?
+
 	// MARK: - External Data
 
 	// MARK: - Startup
@@ -46,17 +49,57 @@ class DataService {
 			weeks = 5
 		}
 
-		downloadUserRating(forWeek: KW.stringValue, companyID: companyID, userID: userID) { userRating in
-			print(userRating?.average)
-		}
+		var keys = [String]()
 
 		for i in 1 ... weeks {
-			downloadUserRating(forWeek: KW.calendarWeek(beforeWeeks: i), companyID: companyID, userID: userID) { userRating in
-				print(userRating?.average)
+			keys.append(KW.calendarWeek(beforeWeeks: i))
+		}
+
+		let dispatch = DispatchGroup()
+
+		var userAverages: [String: Average.User] = [:]
+		var compAverages: [String: Average.Company] = [:]
+
+		dispatch.enter()
+		downloadUserRating(forWeek: KW.stringValue, companyID: companyID, userID: userID) { userRating in
+			self.userRating = userRating
+
+			dispatch.leave()
+		}
+
+		for key in keys {
+			dispatch.enter()
+			downloadUserRating(forWeek: key, companyID: companyID, userID: userID) { userRating in
+				if let userRating = userRating {
+					userAverages[userRating.key] = userRating
+				}
+
+				dispatch.leave()
 			}
-			downloadCompRating(forWeek: KW.calendarWeek(beforeWeeks: i), companyID: companyID) { companyRating in
-				print(companyRating?.average)
+
+			dispatch.enter()
+			downloadCompRating(forWeek: key, companyID: companyID) { companyRating in
+				if let companyRating = companyRating {
+					compAverages[companyRating.key] = companyRating
+				}
+
+				dispatch.leave()
 			}
+		}
+
+		dispatch.notify(queue: DispatchQueue.main) {
+			print("This: \(self.userRating)")
+
+			for key in keys.sorted() {
+				let comp = compAverages[key]
+				let user = userAverages[key]
+
+				let average = Average(key: key, company: comp, user: user)
+
+				self.averages.append(average)
+			}
+
+			print("Averages: \(self.averages)")
 		}
 	}
 

@@ -57,8 +57,11 @@ class AverageBar: UIView {
 		let maxPoints = RemoteConfig.shared.getDouble(forKey: .Max_Points)
 		let heightPerPoint = frame.height / CGFloat(maxPoints)
 
-		userConstraint?.constant = heightPerPoint * average.user.avg
-		compConstraint?.constant = heightPerPoint * average.company.avg
+		let userConst: CGFloat = average.user != nil ? heightPerPoint * average.user!.avg : 0
+		let compConst: CGFloat = average.company != nil ? heightPerPoint * average.company!.avg : 19
+
+		userConstraint?.constant = userConst
+		compConstraint?.constant = compConst
 	}
 
 	private func setupView() {

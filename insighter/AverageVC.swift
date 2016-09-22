@@ -46,8 +46,8 @@ class AverageVC: UIViewController {
 	// MARK: - Private Methods
 
 	private func setupDataFields() {
-		userScoreLbl.text = average.user.average
-		compScoreLbl.text = average.company.average
+		userScoreLbl.text = average.user?.average ?? "--"
+		compScoreLbl.text = average.company?.average ?? "--"
 		weekLbl.text = average.week
 	}
 }

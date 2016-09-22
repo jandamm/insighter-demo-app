@@ -10,13 +10,16 @@ import UIKit
 
 struct Average: Equatable {
 	let key: String
-	let company: Company
-	let user: User
+	let company: Company?
+	let user: User?
 
 	var week: String {
 		let kw = key.components(separatedBy: "-")
 
-		guard key == company.key, key == user.key else {
+		let userKey = user?.key ?? key
+		let compKey = company?.key ?? key
+
+		guard key == compKey, key == userKey else {
 			return "Error"
 		}
 
