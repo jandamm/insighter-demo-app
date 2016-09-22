@@ -35,7 +35,7 @@ class AppCoordinator: JDParentCoordinator, AppCoordinatorDelegate {
 	func questionsAsked(_ finishedCoordinator: JDCoordinator) {
 		removeChildCoordinator(finishedCoordinator)
 
-		showEvaluation()
+		transitionToNextView()
 	}
 
 	func loginEnded(_ finishedCoordinator: JDCoordinator) {
@@ -49,13 +49,15 @@ class AppCoordinator: JDParentCoordinator, AppCoordinatorDelegate {
 	fileprivate func transitionToNextView() {
 
 		if !_userLoggedIn {
-
 			showOnboarding()
 		} else {
-			DataService.shared.getRatings()
 
-			if !showQuestion() {
-				showEvaluation()
+			let showedQuestion = !self.showQuestion()
+
+			DataService.shared.getRatings() {
+				if showedQuestion {
+					self.showEvaluation()
+				}
 			}
 		}
 	}
