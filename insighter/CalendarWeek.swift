@@ -52,12 +52,12 @@ struct CalendarWeek: Equatable {
 		}
 	}
 
-	func calendarWeek(beforeWeeks weeks: Double) -> String {
+	func calendarWeek(beforeWeeks weeks: Int) -> String {
 		return calendarWeek(inWeeks: -weeks)
 	}
 
-	func calendarWeek(inWeeks weeks: Double) -> String {
-		let timeInterval: TimeInterval = weeks * 7 * 24 * 60 * 60
+	func calendarWeek(inWeeks weeks: Int) -> String {
+		let timeInterval: TimeInterval = Double(weeks) * 7 * 24 * 60 * 60
 		let date = self.date.addingTimeInterval(timeInterval)
 
 		return calWeek(date)

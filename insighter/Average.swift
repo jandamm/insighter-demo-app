@@ -29,11 +29,11 @@ struct Average: Equatable {
 
 	struct Company: Equatable {
 		let key: String
-		let users: Int
+		let answeredQuestions: Int
 		let sum: Int
 
 		private var averageBase: Double {
-			let avg = Double(sum) / Double(users)
+			let avg = Double(sum) / Double(answeredQuestions)
 			let mltp = 10.0
 			return (avg * mltp).rounded() / mltp
 		}
@@ -76,7 +76,7 @@ func ==(lhs: Average, rhs: Average) -> Bool {
 }
 
 func ==(lhs: Average.Company, rhs: Average.Company) -> Bool {
-	return lhs.key == rhs.key && lhs.sum == rhs.sum && lhs.users == rhs.users
+	return lhs.key == rhs.key && lhs.sum == rhs.sum && lhs.answeredQuestions == rhs.answeredQuestions
 }
 
 func ==(lhs: Average.User, rhs: Average.User) -> Bool {

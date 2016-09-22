@@ -52,6 +52,7 @@ class AppCoordinator: JDParentCoordinator, AppCoordinatorDelegate {
 
 			showOnboarding()
 		} else {
+			DataService.shared.getRatings()
 
 			if !showQuestion() {
 				showEvaluation()
