@@ -28,11 +28,36 @@ class EvaluationUserVC: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
-		userRatingLbl.rating = 7.3
-		userRatingDiffLbl.setRatingDifference(-0.5)
+		setUserRating()
+		setUserScore()
+		setScoreSums()
+	}
 
-		fbScoreTotalLbl.text = "375"
-		fbRewardLbl.text = "Der Mitarbeiter mit dem höchsten Feedback-Score am Ende eines Quartals bekommt ein Spa-Wochenende geschenkt."
+	// MARK: - Private Methods
+
+	private func setUserRating() {
+		let thisRating = DataService.shared.userRating?.averageBase
+		var ratingDiff: Double? = nil
+
+		if let thisRating = thisRating, let lastRating = DataService.shared.averages.last?.user {
+			ratingDiff = thisRating - lastRating.averageBase
+		}
+
+		userRatingLbl.rating = thisRating
+		userRatingDiffLbl.setRatingDifference(ratingDiff)
+	}
+
+	private func setUserScore() {
+		fbScoreTotalLbl.text = UserLoginService.shared.user?.scoreString
+
+		if let reward = UserLoginService.shared.company?.goodie {
+			fbRewardLbl.text = reward
+		} else {
+			fbRewardLbl.isHidden = true
+		}
+	}
+
+	private func setScoreSums() {
 		fbScoreThisLbl.text = "100"
 		fbScoreLastLbl.text = "50"
 		fbScorePrevLbl.text = "25"
