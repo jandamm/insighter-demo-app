@@ -152,6 +152,11 @@ class DataService {
 		let refToAverage = REF.child(companyID).child(DBPathKeys.Company.average.rawValue).child(key)
 
 		refToAverage.observeSingleEvent(of: .value, with: { snapshot in
+			guard snapshot.exists() else {
+				NSLog("[JD] No Data Company Average \(key)")
+				return completion(nil)
+			}
+
 			guard let data = snapshot.value as? [String: [String: Int]] else {
 				NSLog("[JD] Company Average malformed for \(key)")
 				return completion(nil)
@@ -175,6 +180,11 @@ class DataService {
 		let refToAverage = REF.child(companyID).child(DBPathKeys.Company.rating.rawValue).child(key).child(userID)
 
 		refToAverage.observeSingleEvent(of: .value, with: { snapshot in
+			guard snapshot.exists() else {
+				NSLog("[JD] No User Rating Average \(key) / \(userID)")
+				return completion(nil)
+			}
+
 			guard let data = snapshot.value as? [String: Int] else {
 				NSLog("[JD] User Rating malformed for \(key) / \(userID)")
 				return completion(nil)

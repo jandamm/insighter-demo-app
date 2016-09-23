@@ -36,14 +36,12 @@ class EvaluationUserVC: UIViewController {
 	// MARK: - Private Methods
 
 	private func setUserRating() {
-		let thisRating = DataService.shared.userRating?.averageBase
-		var ratingDiff: Double? = nil
+		let thisRating = DataService.shared.userRating
+		let lastRating = DataService.shared.averages.last?.user
 
-		if let thisRating = thisRating, let lastRating = DataService.shared.averages.last?.user {
-			ratingDiff = thisRating - lastRating.averageBase
-		}
+		let ratingDiff = thisRating?.diff(to: lastRating)
 
-		userRatingLbl.rating = thisRating
+		userRatingLbl.rating = thisRating?.averageBase
 		userRatingDiffLbl.setRatingDifference(ratingDiff)
 	}
 

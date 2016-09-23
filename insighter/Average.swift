@@ -54,6 +54,13 @@ struct Average: Equatable {
 		let key: String
 		let answers: [String: Int]
 
+		func diff(to lastWeek: User?) -> Double? {
+			guard let lastWeek = lastWeek else {
+				return nil
+			}
+			return averageBase - lastWeek.averageBase
+		}
+
 		var averageBase: Double {
 			var sum = 0
 
