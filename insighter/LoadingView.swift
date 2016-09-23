@@ -48,10 +48,12 @@ class LoadingView: UIView {
 	// MARK: - Animation
 
 	fileprivate func animation() {
-		UIView.animate(withDuration: 1, animations: {
-			self.bounds = self.bounds == self._boundsMax ? self._boundsMin : self._boundsMax
-		}, completion: { _ in
-			self.animation()
+		UIView.animate(withDuration: 1, animations: { [weak self] in
+			if let view = self {
+				view.bounds = view.bounds == view._boundsMax ? view._boundsMin : view._boundsMax
+			}
+		}, completion: { [weak self] _ in
+			self?.animation()
 		})
 	}
 
