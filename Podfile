@@ -1,7 +1,7 @@
 platform :ios, '9.0'
 
 source 'https://github.com/CocoaPods/Specs.git'
-source 'https://gitlab.com/charmaex/JDPodSpec.git'
+source 'git@gitlab.com:charmaex/JDPodSpec.git'
 
 target 'insighter' do
   use_frameworks!
