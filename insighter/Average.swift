@@ -13,6 +13,12 @@ struct Average: Equatable {
 	let company: Company?
 	let user: User?
 
+	func diff(to lastWeek: Average?) -> (user: Double?, company: Double?) {
+		let company = self.company?.diff(to: lastWeek?.company)
+		let user = self.user?.diff(to: lastWeek?.user)
+		return (user, company)
+	}
+
 	var week: String {
 		let kw = key.components(separatedBy: "-")
 
@@ -35,10 +41,21 @@ struct Average: Equatable {
 		let answeredQuestions: Int
 		let sum: Int
 
-		private var averageBase: Double {
-			let avg = Double(sum) / Double(answeredQuestions)
+		fileprivate func diff(to lastWeek: Company?) -> Double? {
+			guard let lastWeek = lastWeek else {
+				return nil
+			}
+
+			return averageDiff - lastWeek.averageDiff
+		}
+
+		private var averageDiff: Double {
+			return Double(sum) / Double(answeredQuestions)
+		}
+
+		var averageBase: Double {
 			let mltp = 10.0
-			return (avg * mltp).rounded() / mltp
+			return (averageDiff * mltp).rounded() / mltp
 		}
 
 		var avg: CGFloat {
@@ -58,10 +75,10 @@ struct Average: Equatable {
 			guard let lastWeek = lastWeek else {
 				return nil
 			}
-			return averageBase - lastWeek.averageBase
+			return averageDiff - lastWeek.averageDiff
 		}
 
-		var averageBase: Double {
+		private var averageDiff: Double {
 			var sum = 0
 
 			for (_, rating) in answers {
@@ -69,6 +86,11 @@ struct Average: Equatable {
 			}
 
 			return Double(sum) / Double(answers.count)
+		}
+
+		var averageBase: Double {
+			let mltp = 10.0
+			return (averageDiff * mltp).rounded() / mltp
 		}
 
 		var avg: CGFloat {

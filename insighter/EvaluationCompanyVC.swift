@@ -18,33 +18,47 @@ class EvaluationCompanyVC: UIViewController {
 	@IBOutlet weak var userRatingDiffLbl: JDRatingLabel!
 	@IBOutlet weak var compRatingDiffLbl: JDRatingLabel!
 
-	// MARK: - Private Data
-
 	// MARK: - Startup
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
-		userRatingLbl.rating = 6.8
-		userRatingDiffLbl.setRatingDifference(-0.3)
-
-		compRatingLbl.rating = 6.7
-		compRatingDiffLbl.setRatingDifference(0.2)
-
-		addAverage(Average(key: "2016-27", company: Average.Company(key: "2016-27", answeredQuestions: 5, sum: 31), user: Average.User(key: "2016-27", answers: ["1": 56, "2": 0, "3": 0, "4": 0, "5": 0, "6": 0, "7": 0, "8": 0, "9": 0, "0": 0])))
-
-		addAverage(Average(key: "2016-28", company: Average.Company(key: "2016-28", answeredQuestions: 10, sum: 61), user: Average.User(key: "2016-28", answers: ["1": 50, "2": 0, "3": 0, "4": 0, "5": 0, "6": 0, "7": 0, "8": 0, "9": 0, "0": 0])))
-
-		addAverage(Average(key: "2016-29", company: nil, user: Average.User(key: "2016-29", answers: ["1": 62, "2": 0, "3": 0, "4": 0, "5": 0, "6": 0, "7": 0, "8": 0, "9": 0, "0": 0])))
-
-		addAverage(Average(key: "2016-30", company: Average.Company(key: "2016-30", answeredQuestions: 10, sum: 65), user: nil))
-
-		addAverage(Average(key: "2016-31", company: Average.Company(key: "2016-31", answeredQuestions: 10, sum: 67), user: Average.User(key: "2016-31", answers: ["1": 68, "2": 0, "3": 0, "4": 0, "5": 0, "6": 0, "7": 0, "8": 0, "9": 0, "0": 0])))
+		setRatings()
+		addAverages()
 	}
 
-	// MARK: - Internal Methods
+	// MARK: - Private Methods
 
-	func addAverage(_ average: Average) {
+	private func addAverages() {
+		for average in DataService.shared.averages {
+			addAverage(average)
+		}
+	}
+
+	private func setRatings() {
+		let count = DataService.shared.averages.count - 1
+
+		let thisRating: Average?
+		let lastRating: Average?
+
+		if count < 0 {
+			thisRating = nil
+			lastRating = nil
+		} else {
+			thisRating = DataService.shared.averages[count]
+			lastRating = count == 0 ? nil : DataService.shared.averages[count - 1]
+		}
+
+		let ratingDiff = thisRating?.diff(to: lastRating)
+
+		userRatingLbl.rating = thisRating?.user?.averageBase
+		userRatingDiffLbl.setRatingDifference(ratingDiff?.user)
+
+		compRatingLbl.rating = thisRating?.company?.averageBase
+		compRatingDiffLbl.setRatingDifference(ratingDiff?.company)
+	}
+
+	private func addAverage(_ average: Average) {
 		let bar = AverageVC()
 
 		bar.setAverage(average)
