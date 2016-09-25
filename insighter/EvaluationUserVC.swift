@@ -56,9 +56,9 @@ class EvaluationUserVC: UIViewController {
 	}
 
 	private func setScoreSums() {
-		fbScoreThisLbl.text = "100"
-		fbScoreLastLbl.text = "50"
-		fbScorePrevLbl.text = "25"
-		fbScoreSumLbl.text = "+175"
+		fbScoreThisLbl.text = "---"
+		fbScoreLastLbl.text = "---"
+		fbScorePrevLbl.text = "---"
+		fbScoreSumLbl.text = "+---"
 	}
 }

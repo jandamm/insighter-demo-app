@@ -97,6 +97,8 @@ voll zu</string>
 	<string>Begründung verwerfen</string>
 	<key>Eva_Date_Lbl</key>
 	<string>[first] bis [second] (KW[third])</string>
+	<key>Eva_Logout_Btn</key>
+	<string>Logout</string>
 	<key>Eva_User_Title_Lbl</key>
 	<string>Ihre Woche</string>
 	<key>Eva_User_Rating_Title_Lbl</key>

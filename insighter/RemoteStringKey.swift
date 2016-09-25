@@ -72,6 +72,7 @@ enum RemoteStringKey: String, StringReturningEnum {
 
 	// Evaluation Date
 	case Eva_Date_Lbl
+	case Eva_Logout_Btn
 
 	// Evaluation User Screen
 	case Eva_User_Title_Lbl
