@@ -1,4 +1,5 @@
 PODS:
+  - DropDown (2)
   - Firebase/Analytics (3.6.0):
     - FirebaseAnalytics (= 3.4.2)
   - Firebase/Auth (3.6.0):
@@ -46,6 +47,7 @@ PODS:
   - NextResponderTextField (1.2.0)
 
 DEPENDENCIES:
+  - DropDown
   - Firebase/Auth
   - Firebase/Core
   - Firebase/Database
@@ -55,6 +57,7 @@ DEPENDENCIES:
   - NextResponderTextField (~> 1.2.0)
 
 SPEC CHECKSUMS:
+  DropDown: 744784d9c9aa505100e942c16acd05430cbb2f0a
   Firebase: 34187200ef4979dbd485c7aa685ef078bf587c86
   FirebaseAnalytics: 3f5358d9104adf159cc8d99b7b501e50099a39ad
   FirebaseAuth: 75a062bbf2d3c97d1e6e55bbc110e13a6853e25d
@@ -70,6 +73,6 @@ SPEC CHECKSUMS:
   JGProgressHUD: 1617b0940cf80bb53e8f7d6f0fd69252ea45d6d4
   NextResponderTextField: fec52031cbb8b88da36ef8e72ff520196e4ff7be
 
-PODFILE CHECKSUM: e8f472334e52d220bfcefc1c8244f21506c356a3
+PODFILE CHECKSUM: 5bc89380ec4aa32be3e38918b70726352b9a0ca3
 
 COCOAPODS: 1.1.0.rc.2

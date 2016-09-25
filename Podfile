@@ -11,7 +11,7 @@ target 'insighter' do
   pod 'Firebase/Database'
   pod 'Firebase/RemoteConfig'
   
-#  pod 'DropDown'
+  pod 'DropDown'
   pod 'JGProgressHUD'
   pod 'NextResponderTextField', '~> 1.2.0'
   
