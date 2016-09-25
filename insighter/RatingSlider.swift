@@ -14,7 +14,7 @@ protocol RatingSliderDelegate: NSObjectProtocol {
 	func ratingSliderDidChange()
 }
 
-class RatingSlider: UIView {
+class RatingSlider: UIView, Touchable {
 
 	weak var delegate: RatingSliderDelegate? {
 		didSet {
@@ -107,14 +107,6 @@ class RatingSlider: UIView {
 		calculateRating(position)
 
 		delegateMethodsWithShortDelay(touchesBegan: false)
-	}
-
-	fileprivate func getPosition(_ input: Set<UITouch>) -> CGPoint? {
-		guard let touch = input.first else {
-			return nil
-		}
-
-		return touch.location(in: self)
 	}
 
 	fileprivate func delegateMethodsWithShortDelay(touchesBegan began: Bool) {

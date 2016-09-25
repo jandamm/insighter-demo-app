@@ -9,7 +9,7 @@
 import UIKit
 
 // @IBDesignable
-class JDDropdown: UILabel, TextStylable, TextRemoteConfigable {
+class JDDropdown: UILabel, TextStylable, TextRemoteConfigable, Touchable {
 
 	// MARK: - Design
 
@@ -31,6 +31,18 @@ class JDDropdown: UILabel, TextStylable, TextRemoteConfigable {
 
 	// MARK: - Private Data
 
+	private var dropdownShown = false {
+		didSet {
+			rotateArrow()
+            
+			if dropdownShown {
+				presentDropdown()
+			} else {
+				popDropdown()
+			}
+		}
+	}
+
 	fileprivate var _dropdownList: [String]?
 	fileprivate var _selection: String? {
 		didSet {
@@ -50,15 +62,22 @@ class JDDropdown: UILabel, TextStylable, TextRemoteConfigable {
 		super.didMoveToSuperview()
 
 		styleView()
-		addImageView()
 	}
-
-	// MARK: - Interface Builder
 
 	override func prepareForInterfaceBuilder() {
 		super.prepareForInterfaceBuilder()
 
 		applyTextStyle()
+	}
+
+	// MARK: - User Interaction
+
+	override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+		guard let _ = touches.first else {
+			return
+		}
+
+		dropdownShown = !dropdownShown
 	}
 
 	// MARK: - Appearance
@@ -67,22 +86,48 @@ class JDDropdown: UILabel, TextStylable, TextRemoteConfigable {
 		if fontStyle == nil {
 			applyTextStyle()
 		}
+
+		isUserInteractionEnabled = true
 	}
 
 	// MARK: - Internal Methods
 
-	func dataSource(_ source: [String]) {
+	func setDataSource(_ source: [String]) {
 		_dropdownList = source
-
-		// TEST
-		_selection = source.first
+		removeImageView()
 
 		if source.count == 1 {
 			_selection = source.first
+		} else {
+			addImageView()
 		}
 	}
 
 	// MARK: - Private Methods
+    
+    private func presentDropdown() {
+        // TODO
+        
+        print("dropdown")
+    }
+    
+    private func popDropdown() {
+        // TODO
+        
+        print("noDropdown")
+    }
+
+	private func rotateArrow() {
+		guard let imgView = imgView else {
+			return
+		}
+
+		let scaleY: CGFloat = dropdownShown ? -1 : 1
+
+		UIView.animate(withDuration: 0.2) {
+			imgView.transform = CGAffineTransform(scaleX: 1, y: scaleY)
+		}
+	}
 
 	private func addImageView() {
 		let imgView = UIImageView()
