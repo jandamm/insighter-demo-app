@@ -10,26 +10,12 @@ import UIKit
 import DropDown
 
 // @IBDesignable
-class JDDropdown: UILabel, TextStylable, TextRemoteConfigable, Touchable {
+class JDDropdown: JDLabel, Touchable {
 
 	// MARK: - Design
 
-	@IBInspectable var fontStyle: String! {
-		didSet {
-			applyTextStyle()
-		}
-	}
-
-	@IBInspectable var remoteConfigKey: String! {
-		didSet {
-			setText()
-		}
-	}
-
 	private var dropDown: DropDown?
 	private weak var imgView: UIImageView?
-
-	var replaceStrings: [String: String]?
 
 	// MARK: - Private Data
 
@@ -62,7 +48,6 @@ class JDDropdown: UILabel, TextStylable, TextRemoteConfigable, Touchable {
 		super.didMoveToSuperview()
 
 		styleView()
-		setupDropdown()
 	}
 
 	override func prepareForInterfaceBuilder() {
@@ -101,7 +86,7 @@ class JDDropdown: UILabel, TextStylable, TextRemoteConfigable, Touchable {
 			_selection = source.first
 		} else {
 			addImageView()
-			updateDropdown()
+			setupOrUpdateDropdown()
 		}
 	}
 
@@ -120,9 +105,9 @@ class JDDropdown: UILabel, TextStylable, TextRemoteConfigable, Touchable {
 		dropDown.reloadAllComponents()
 	}
 
-	private func setupDropdown() {
+	private func setupOrUpdateDropdown() {
 		guard self.dropDown == nil else {
-			return
+			return updateDropdown()
 		}
 
 		let dropDown = DropDown()
