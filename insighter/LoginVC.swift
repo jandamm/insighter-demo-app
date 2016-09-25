@@ -29,15 +29,18 @@ class LoginVC: UIViewController {
 	fileprivate enum ErrorType {
 		case email, password, security, switchState
 
-		fileprivate static var emails: Set = ["ERROR_INVALID_EMAIL", "ERROR_EMAIL_ALREADY_IN_USE"]
-		fileprivate static var passwords: Set = ["ERROR_WEAK_PASSWORD", "ERROR_WRONG_PASSWORD"]
-		fileprivate static var switchStates: Set = ["ERROR_USER_NOT_FOUND"]
+		private static var emails: Set = ["ERROR_INVALID_EMAIL", "ERROR_EMAIL_ALREADY_IN_USE", "ERROR_COMPANY_UNKNOWN"]
+		private static var passwords: Set = ["ERROR_WEAK_PASSWORD", "ERROR_WRONG_PASSWORD"]
+		private static var securities: Set = ["ERROR_QUESTION_NOT_CHOSEN", "ERROR_QUESTION_ANSWER_TOO_SHORT"]
+		private static var switchStates: Set = ["ERROR_USER_NOT_FOUND"]
 
 		static func errorType(forString s: String) -> ErrorType? {
 			if emails.contains(s) {
 				return .email
 			} else if passwords.contains(s) {
 				return .password
+			} else if securities.contains(s) {
+				return .security
 			} else if switchStates.contains(s) {
 				return .switchState
 			}
@@ -57,9 +60,9 @@ class LoginVC: UIViewController {
 
 	@IBOutlet weak var passwordTxt: JDTextField!
 	@IBOutlet weak var passwordSubLbl: JDLabel!
-    
-    @IBOutlet weak var demoAccountView: UIStackView!
-    @IBOutlet weak var demoAccountSwitch: JDSwitch!
+
+	@IBOutlet weak var demoAccountView: UIStackView!
+	@IBOutlet weak var demoAccountSwitch: JDSwitch!
 
 	@IBOutlet weak var securitySectionView: UIStackView!
 	@IBOutlet weak var securityQuestionDropdown: JDDropdown!
@@ -74,6 +77,7 @@ class LoginVC: UIViewController {
 		super.viewDidLoad()
 
 		initializeDropdown()
+		demoAccountView.isHidden = true
 		applyState()
 	}
 
@@ -107,6 +111,9 @@ class LoginVC: UIViewController {
 		case .switchState:
 			state = .register
 		case .email:
+			if remoteConfigKey == RemoteStringKey.ERROR_COMPANY_UNKNOWN {
+				animate(stackViewIn: demoAccountView)
+			}
 			emailSubLbl.remoteConfigKey = remoteConfigKey.rawValue
 			emailTxt.shake()
 		case .password:
@@ -153,9 +160,13 @@ class LoginVC: UIViewController {
 		passwordTxt.NextResponder = securityAnswerTxt
 		passwordTxt.returnKeyType = .next
 
+		animate(stackViewIn: securitySectionView)
+	}
+
+	fileprivate func animate(stackViewIn stackView: UIStackView) {
 		UIView.animate(withDuration: 0.5, animations: {
-			self.securitySectionView.isHidden = false
-			self.securitySectionView.alpha = 1
+			stackView.isHidden = false
+			stackView.alpha = 1
 		})
 	}
 
