@@ -30,13 +30,20 @@ class EvaluationCompanyVC: UIViewController {
 	// MARK: - Private Methods
 
 	private func addAverages() {
-		for average in DataService.shared.averages {
+		var averages = DataService.shared.averages
+
+		if averages.count == 0 {
+			averages.append(Average(key: "", company: nil, user: nil))
+		}
+
+		for average in averages {
 			addAverage(average)
 		}
 	}
 
 	private func setRatings() {
-		let count = DataService.shared.averages.count - 1
+		let averages = DataService.shared.averages
+		let count = averages.count - 1
 
 		let thisRating: Average?
 		let lastRating: Average?
@@ -45,8 +52,8 @@ class EvaluationCompanyVC: UIViewController {
 			thisRating = nil
 			lastRating = nil
 		} else {
-			thisRating = DataService.shared.averages[count]
-			lastRating = count == 0 ? nil : DataService.shared.averages[count - 1]
+			thisRating = averages[count]
+			lastRating = count == 0 ? nil : averages[count - 1]
 		}
 
 		let ratingDiff = thisRating?.diff(to: lastRating)
