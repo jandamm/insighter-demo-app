@@ -44,12 +44,14 @@ class LoginCoordinator: JDCoordinator, FIRLoginable, LoginDelegate {
 			errorHandler?("ERROR_WEAK_PASSWORD")
 			return
 		}
-		guard let company = UserLoginService.shared.companyID(forEmail: email) else {
+
+		let company = UserLoginService.shared.companyID(forEmail: email)
+		guard company != nil || loginVC.demoAccountSwitch.isOn else {
 			errorHandler?("ERROR_COMPANY_UNKNOWN")
 			return
 		}
 
-		self.company = company
+		self.company = company ?? ConstantService.shared.demoCompany
 
 		switch loginVC.state {
 		case .login:
