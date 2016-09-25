@@ -27,7 +27,7 @@ class JDInputScrollView: UIScrollView {
 
 	func keyboardWillShow(_ notification: Notification) {
 
-		var userInfo = (notification as NSNotification).userInfo!
+		var userInfo = notification.userInfo!
 		var keyboardFrame: CGRect = (userInfo[UIKeyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
 		keyboardFrame = viewController.view.convert(keyboardFrame, from: nil)
 

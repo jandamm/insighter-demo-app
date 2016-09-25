@@ -10,7 +10,8 @@ import Foundation
 
 let CALENDAR = Calendar(identifier: Calendar.Identifier.iso8601)
 
-// Completion Handler
+// MARK: - Completion Handler
+
 typealias CompletionHandler = () -> ()
 typealias CompletionHandlerBool = (Bool) -> ()
 typealias CompletionHandlerFirebaseLogin = (String?, String?, Bool, CompletionHandlerFirebaseLoginError) -> ()
