@@ -88,6 +88,12 @@ class LoginVC: UIViewController {
 		delegate?.login(withEmail: emailTxt.text, password: passwordTxt.text, question: securityQuestionDropdown.selection, answer: securityAnswerTxt.text, errorHandler: errorHandling)
 	}
 
+	@IBAction func emailChanged(_ sender: UITextField) {
+		UIView.animate(withDuration: 0.2) { [weak self] in
+			self?.demoAccountSwitch.isOn = false
+		}
+	}
+
 	// MARK: - Error Handling
 
 	fileprivate func errorHandling(withString rConfig: String?) {
