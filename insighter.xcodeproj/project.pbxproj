@@ -324,12 +324,12 @@
 		13A03DAE1CF1163500920838 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				13233B661D76C403000D825B /* JDNavigationController.swift */,
 				13A03D7F1CF1109E00920838 /* IntroVC.swift */,
-				13A5B9A41D59FBE6008EBDF3 /* LoginVC.swift */,
 				13ED7EA11D6098A40017CF8A /* Onboarding */,
+				13A5B9A41D59FBE6008EBDF3 /* LoginVC.swift */,
 				137EB88F1D61BDF300ACC8F9 /* Question */,
 				13ED7EA01D60989D0017CF8A /* Evaluation */,
-				13233B661D76C403000D825B /* JDNavigationController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";

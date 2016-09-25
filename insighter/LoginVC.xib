@@ -7,6 +7,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginVC" customModule="insighter" customModuleProvider="target">
             <connections>
+                <outlet property="demoAccountSwitch" destination="Tdq-wa-mat" id="zjx-LO-2ai"/>
+                <outlet property="demoAccountView" destination="Dui-Ba-60c" id="RnY-yp-4Ni"/>
                 <outlet property="emailSubLbl" destination="PEa-Je-s5L" id="q9Q-Nc-bUb"/>
                 <outlet property="emailTxt" destination="sJx-WM-g6h" id="ERL-YJ-8qF"/>
                 <outlet property="loginBtn" destination="hag-lS-DfP" id="lTi-9F-sB5"/>
@@ -14,7 +16,7 @@
                 <outlet property="passwordTxt" destination="a9d-0C-4Ax" id="7TL-eG-lrT"/>
                 <outlet property="securityAnswerTxt" destination="8G8-eT-sfj" id="4BI-EL-LSM"/>
                 <outlet property="securityQuestionDropdown" destination="GnS-xN-cO1" id="eOc-Vy-WZC"/>
-                <outlet property="securitySectionSView" destination="kvU-zi-JCS" id="KDC-Hn-Xno"/>
+                <outlet property="securitySectionView" destination="kvU-zi-JCS" id="6Ve-Fp-0E9"/>
                 <outlet property="securitySubLbl" destination="5tk-Fj-Yjh" id="pHK-mn-L6K"/>
                 <outlet property="view" destination="f8n-ZZ-QjV" id="WET-oR-3Qf"/>
             </connections>

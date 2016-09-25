@@ -57,8 +57,11 @@ class LoginVC: UIViewController {
 
 	@IBOutlet weak var passwordTxt: JDTextField!
 	@IBOutlet weak var passwordSubLbl: JDLabel!
+    
+    @IBOutlet weak var demoAccountView: UIStackView!
+    @IBOutlet weak var demoAccountSwitch: JDSwitch!
 
-	@IBOutlet weak var securitySectionSView: UIStackView!
+	@IBOutlet weak var securitySectionView: UIStackView!
 	@IBOutlet weak var securityQuestionDropdown: JDDropdown!
 	@IBOutlet weak var securityAnswerTxt: JDTextField!
 	@IBOutlet weak var securitySubLbl: JDLabel!
@@ -136,8 +139,8 @@ class LoginVC: UIViewController {
 			return
 		}
 
-		securitySectionSView.isHidden = true
-		securitySectionSView.alpha = 0
+		securitySectionView.isHidden = true
+		securitySectionView.alpha = 0
 		passwordTxt.NextResponder = loginBtn
 		passwordTxt.returnKeyType = .done
 	}
@@ -151,8 +154,8 @@ class LoginVC: UIViewController {
 		passwordTxt.returnKeyType = .next
 
 		UIView.animate(withDuration: 0.5, animations: {
-			self.securitySectionSView.isHidden = false
-			self.securitySectionSView.alpha = 1
+			self.securitySectionView.isHidden = false
+			self.securitySectionView.alpha = 1
 		})
 	}
 

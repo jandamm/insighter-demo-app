@@ -39,7 +39,7 @@ class QuestionVC: UIViewController, Flashable {
 	@IBOutlet weak var questionNumberLbl: JDLabel!
 	@IBOutlet weak var questionLbl: JDLabel!
 
-	@IBOutlet weak var ratingStackView: UIStackView!
+	@IBOutlet weak var ratingView: UIStackView!
 	fileprivate var ratingSliderVC: RatingVC!
 	fileprivate var ratingCommentTxtView: JDTextView!
 
@@ -101,8 +101,8 @@ class QuestionVC: UIViewController, Flashable {
 
 		addChildViewController(ratingSliderVC)
 
-		ratingStackView.addArrangedSubview(ratingSliderVC.view)
-		ratingStackView.addArrangedSubview(ratingCommentTxtView)
+		ratingView.addArrangedSubview(ratingSliderVC.view)
+		ratingView.addArrangedSubview(ratingCommentTxtView)
 
 		ratingSliderVC.didMove(toParentViewController: self)
 

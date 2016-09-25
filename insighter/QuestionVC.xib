@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -10,7 +10,7 @@
                 <outlet property="lowerBtn" destination="1pG-Lc-eq3" id="ern-lS-5WV"/>
                 <outlet property="questionLbl" destination="HE3-fr-chq" id="5aB-DU-Xws"/>
                 <outlet property="questionNumberLbl" destination="pNg-u5-nTx" id="FmW-ez-TIz"/>
-                <outlet property="ratingStackView" destination="HxB-n7-73m" id="dn5-dS-exV"/>
+                <outlet property="ratingView" destination="HxB-n7-73m" id="Xzd-uN-k9n"/>
                 <outlet property="upperBtn" destination="gl8-04-xRi" id="8zE-hb-AB5"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -26,8 +26,7 @@
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="eaA-9L-JFR">
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pNg-u5-nTx" customClass="JDLabel" customModule="insighter" customModuleProvider="target">
-                                            <frame key="frameInset" width="311" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pNg-u5-nTx" customClass="JDLabel" customModule="insighter" customModuleProvider="target">
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
@@ -36,8 +35,7 @@
                                                 <userDefinedRuntimeAttribute type="string" keyPath="remoteConfigKey" value="Que_Number_Of_Number"/>
                                             </userDefinedRuntimeAttributes>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HE3-fr-chq" customClass="JDLabel" customModule="insighter" customModuleProvider="target">
-                                            <frame key="frameInset" minY="131" width="311" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HE3-fr-chq" customClass="JDLabel" customModule="insighter" customModuleProvider="target">
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
@@ -45,25 +43,19 @@
                                                 <userDefinedRuntimeAttribute type="string" keyPath="fontStyle" value="Heading"/>
                                             </userDefinedRuntimeAttributes>
                                         </label>
-                                        <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="Ied-A1-3ik">
-                                            <frame key="frameInset" minY="262" width="311" height="345"/>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="Ied-A1-3ik">
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" distribution="equalSpacing" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="fDJ-Sb-UWK">
-                                                    <frame key="frameInset" width="311" height="237"/>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="fDJ-Sb-UWK">
                                                     <subviews>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="HxB-n7-73m">
-                                                            <frame key="frameInset" width="311" height="215"/>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="HxB-n7-73m">
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="215" id="MsN-zU-vqV"/>
                                                             </constraints>
                                                         </stackView>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="anonymity-lock-disclaimer" translatesAutoresizingMaskIntoConstraints="NO" id="ICW-NJ-q5S">
-                                                            <frame key="frameInset" minY="223" width="311" height="14"/>
-                                                        </imageView>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="anonymity-lock-disclaimer" translatesAutoresizingMaskIntoConstraints="NO" id="ICW-NJ-q5S"/>
                                                     </subviews>
                                                 </stackView>
-                                                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gl8-04-xRi" customClass="JDButton" customModule="insighter" customModuleProvider="target">
-                                                    <frame key="frameInset" minY="261" width="311" height="30"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gl8-04-xRi" customClass="JDButton" customModule="insighter" customModuleProvider="target">
                                                     <state key="normal" title="Button"/>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="string" keyPath="fontStyle" value="Button"/>
@@ -73,8 +65,7 @@
                                                         <action selector="upperBtnPressed:" destination="-1" eventType="touchUpInside" id="FiY-0B-1BZ"/>
                                                     </connections>
                                                 </button>
-                                                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1pG-Lc-eq3" customClass="JDButton" customModule="insighter" customModuleProvider="target">
-                                                    <frame key="frameInset" minY="315" width="311" height="30"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1pG-Lc-eq3" customClass="JDButton" customModule="insighter" customModuleProvider="target">
                                                     <state key="normal" title="Button"/>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="string" keyPath="fontStyle" value="ButtonPrimary"/>
