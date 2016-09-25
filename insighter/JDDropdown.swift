@@ -18,11 +18,14 @@ class JDDropdown: UILabel, TextStylable, TextRemoteConfigable {
 			applyTextStyle()
 		}
 	}
+
 	@IBInspectable var remoteConfigKey: String! {
 		didSet {
 			setText()
 		}
 	}
+
+	weak var imgView: UIImageView?
 
 	var replaceStrings: [String: String]?
 
@@ -84,6 +87,8 @@ class JDDropdown: UILabel, TextStylable, TextRemoteConfigable {
 	private func addImageView() {
 		let imgView = UIImageView()
 
+		self.imgView = imgView
+
 		imgView.image = #imageLiteral(resourceName: "dropdown-arrow")
 		addSubview(imgView)
 
@@ -95,5 +100,10 @@ class JDDropdown: UILabel, TextStylable, TextRemoteConfigable {
 
 		addConstraints(horizontal)
 		addConstraints(vertical)
+	}
+
+	private func removeImageView() {
+		imgView?.removeFromSuperview()
+		imgView = nil
 	}
 }
