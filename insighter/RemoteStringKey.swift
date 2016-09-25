@@ -54,6 +54,7 @@ enum RemoteStringKey: String, StringReturningEnum {
 	case Onb_Login_PW_Lbl
 	case Onb_Login_PW_TxtField
 	case Onb_Login_PW_SubLbl
+	case Onb_Login_DemoCompany_Lbl
 	case Onb_Login_Security_Dropdown
 	case Onb_Login_Security_TxtField
 	case Onb_Login_Security_SubLbl

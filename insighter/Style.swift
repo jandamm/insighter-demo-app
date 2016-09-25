@@ -48,7 +48,7 @@ class Colors: ColorScheme {
 	}
 }
 
-enum TextStyle: String {
+enum TextStyle: String, Colorable {
 	case RatingBigText, RatingBigHighlight
 	case EvaluationPrimary, EvaluationHighlight
 	case Heading, HeadingPrimary, HeadingHighlight
@@ -92,6 +92,17 @@ enum TextStyle: String {
 
 		return UIFont(name: name, size: size)!
 	}
+}
+
+enum SwitchStyle: String, Colorable {
+	case Primary, Highlight, Error, Success
+}
+
+protocol Colorable {
+	var rawValue: String { get }
+}
+
+extension Colorable {
 
 	func color() -> UIColor {
 		let selfString = self.rawValue

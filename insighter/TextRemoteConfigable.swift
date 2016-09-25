@@ -34,7 +34,8 @@ extension TextRemoteConfigable where Self: UILabel {
 extension TextRemoteConfigable where Self: UITextField {
 
 	func setText() {
-		placeholder = getValue()
+		let text = getValue()
+		attributedPlaceholder = NSAttributedString(string: text, attributes: [NSForegroundColorAttributeName: Colors.lightContrast])
 	}
 }
 

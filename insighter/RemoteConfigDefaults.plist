@@ -71,10 +71,10 @@
 	<string>Ihr persönliches Passwort</string>
 	<key>Onb_Login_PW_TxtField</key>
 	<string>••••••</string>
+	<key>Onb_Login_DemoCompany_Lbl</key>
+	<string>Demo Account erstellen</string>
 	<key>Onb_Login_Security_Dropdown</key>
 	<string>Bitte eine Sicherheitsfrage wählen</string>
-	<key>Onb_Login_Security_TxtField</key>
-	<string>Ihre persönliche Antwort</string>
 	<key>Onb_Login_Security_SubLbl</key>
 	<string>Sie benötigen diese Antwort um Ihr Passwort wiederherzustellen.</string>
 	<key>Onb_Login_Anmeldung_Btn</key>
