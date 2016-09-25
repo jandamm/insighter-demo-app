@@ -20,6 +20,7 @@ class DataService {
 
 	fileprivate var ratingForAverage = [String: Int]()
 
+	private var _averageUserID: String?
 	private var _averages: [Average] = []
 	private var _userRating: Average.User?
 
@@ -45,6 +46,11 @@ class DataService {
 		guard let userID = UserLoginService.shared.user?.UID else {
 			NSLog("[JD] No User for Ratings")
 			return completion()
+		}
+
+		if userID != _averageUserID {
+			_averages.removeAll()
+			_userRating = nil
 		}
 
 		let needAverage = _averages.count == 0
@@ -115,6 +121,8 @@ class DataService {
 
 				self._averages.append(average)
 			}
+
+			self._averageUserID = userID
 
 			completion()
 		}
