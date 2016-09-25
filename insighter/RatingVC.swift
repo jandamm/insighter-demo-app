@@ -50,9 +50,9 @@ class RatingVC: UIViewController, RatingSliderDelegate {
 
 	fileprivate func animateExplanationLabels(hidden: Bool) {
 		let alpha: CGFloat = hidden ? 0 : 1
-		UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseOut, animations: {
-			self.explanationLeftLbl.alpha = alpha
-			self.explanationRightLbl.alpha = alpha
+		UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseOut, animations: { [weak self] in
+			self?.explanationLeftLbl.alpha = alpha
+			self?.explanationRightLbl.alpha = alpha
 		}, completion: nil)
 	}
 }

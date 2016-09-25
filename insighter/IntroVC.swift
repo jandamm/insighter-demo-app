@@ -44,8 +44,8 @@ class IntroVC: UIViewController {
 	fileprivate func introAnimationStart() {
 		setupScreen()
 
-		UIView.animate(withDuration: 0.5, animations: {
-			self.applyScreen()
+		UIView.animate(withDuration: 0.5, animations: { [weak self] in
+			self?.applyScreen()
 		})
 	}
 

@@ -157,8 +157,8 @@ class QuestionVC: UIViewController, Flashable {
 
 		stateButtonApply()
 
-		UIView.animate(withDuration: 0.3, animations: {
-			self.ratingStackViewShowSubview()
+		UIView.animate(withDuration: 0.3, animations: { [weak self] in
+			self?.ratingStackViewShowSubview()
 		})
 	}
 
