@@ -19,10 +19,15 @@ class ConstantService {
 
 	fileprivate var _versionDate = ""
 
+	fileprivate var _demoCompany: String?
 	fileprivate var _ratingQuestions = [String: RatingQuestion]()
 	fileprivate var _securityQuestions: [String]?
 
 	// MARK: - External Data
+
+	var demoCompany: String {
+		return _demoCompany ?? "demoCompany"
+	}
 
 	var ratingQuestions: [RatingQuestion] {
 		return Array(_ratingQuestions.values)
@@ -68,6 +73,8 @@ class ConstantService {
 	fileprivate func constantsToNSUD() {
 		NSUD.setValue(_versionDate, forKey: DBValueKeys.Constant._versionDate.rawValue)
 
+		NSUD.setValue(_demoCompany, forKey: DBValueKeys.Constant.demoCompany.rawValue)
+
 		let data = NSKeyedArchiver.archivedData(withRootObject: _ratingQuestions)
 		NSUD.set(data, forKey: DBValueKeys.Constant.ratingQuestions.rawValue)
 
@@ -79,7 +86,12 @@ class ConstantService {
 	}
 
 	fileprivate func constantsFromNSUD(_ completion: CompletionHandlerBool?) {
-		var pick = 2
+		var pick = 3
+
+		if let demoCompany = NSUD.string(forKey: DBValueKeys.Constant.demoCompany.rawValue) {
+			_demoCompany = demoCompany
+			pick -= 1
+		}
 
 		if let data = NSUD.object(forKey: DBValueKeys.Constant.ratingQuestions.rawValue) as? Data, let ratingQuestions = NSKeyedUnarchiver.unarchiveObject(with: data) as? [String: RatingQuestion] {
 			_ratingQuestions = ratingQuestions
@@ -109,10 +121,15 @@ class ConstantService {
 				return
 			}
 
-			var pick = 3
+			var pick = 4
 
 			if let version = data[DBValueKeys.Constant._versionDate.rawValue] {
 				self._versionDate = String(describing: version)
+				pick -= 1
+			}
+
+			if let rawData = data[DBValueKeys.Constant.demoCompany.rawValue] as? String {
+				self._demoCompany = rawData
 				pick -= 1
 			}
 
