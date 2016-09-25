@@ -25,6 +25,7 @@
 		13517B4E1D5CEA5B002B74AD /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13517B4D1D5CEA5B002B74AD /* StringExtension.swift */; };
 		13517B501D5D06B9002B74AD /* FIRUploadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13517B4F1D5D06B9002B74AD /* FIRUploadable.swift */; };
 		135C5C141D97EBF100F9C5A0 /* JDSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135C5C131D97EBF100F9C5A0 /* JDSwitch.swift */; };
+		135C5C161D98407C00F9C5A0 /* Touchable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135C5C151D98407C00F9C5A0 /* Touchable.swift */; };
 		137EB8881D6101C200ACC8F9 /* RatingVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 137EB8871D6101C200ACC8F9 /* RatingVC.xib */; };
 		137EB88A1D6101D100ACC8F9 /* RatingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137EB8891D6101D100ACC8F9 /* RatingVC.swift */; };
 		137EB8931D61D77E00ACC8F9 /* RatingSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137EB8921D61D77E00ACC8F9 /* RatingSlider.swift */; };
@@ -125,6 +126,7 @@
 		13517B4D1D5CEA5B002B74AD /* StringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		13517B4F1D5D06B9002B74AD /* FIRUploadable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FIRUploadable.swift; sourceTree = "<group>"; };
 		135C5C131D97EBF100F9C5A0 /* JDSwitch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JDSwitch.swift; sourceTree = "<group>"; };
+		135C5C151D98407C00F9C5A0 /* Touchable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Touchable.swift; sourceTree = "<group>"; };
 		137EB8871D6101C200ACC8F9 /* RatingVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RatingVC.xib; sourceTree = "<group>"; };
 		137EB8891D6101D100ACC8F9 /* RatingVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingVC.swift; sourceTree = "<group>"; };
 		137EB8921D61D77E00ACC8F9 /* RatingSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingSlider.swift; sourceTree = "<group>"; };
@@ -359,6 +361,7 @@
 				1311FE291D8EFCB000362886 /* AverageBar.swift */,
 				137EB89A1D620D7500ACC8F9 /* Flashable.swift */,
 				1311FE671D8FBCEC00362886 /* RatingDisplayView.swift */,
+				135C5C151D98407C00F9C5A0 /* Touchable.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -792,6 +795,7 @@
 				13B761F41D76331000E80677 /* AppCoordinatorDelegate.swift in Sources */,
 				13517B4C1D5CD97E002B74AD /* FIRLoginable.swift in Sources */,
 				137EB8931D61D77E00ACC8F9 /* RatingSlider.swift in Sources */,
+				135C5C161D98407C00F9C5A0 /* Touchable.swift in Sources */,
 				138C725E1D58B3680049561A /* DBValueKeys.swift in Sources */,
 				13A5B9A11D59F2E2008EBDF3 /* TextStylable.swift in Sources */,
 				1340AC801D5A19E1008499CE /* TextRemoteConfigable.swift in Sources */,

@@ -76,7 +76,6 @@ class LoginVC: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
-		initializeDropdown()
 		demoAccountView.isHidden = true
 		applyState()
 	}
@@ -87,6 +86,12 @@ class LoginVC: UIViewController {
 		resetSubLbls()
 
 		delegate?.login(withEmail: emailTxt.text, password: passwordTxt.text, question: securityQuestionDropdown.selection, answer: securityAnswerTxt.text, errorHandler: errorHandling)
+	}
+
+	@IBAction func emailChanged(_ sender: UITextField) {
+		UIView.animate(withDuration: 0.2) { [weak self] in
+			self?.demoAccountSwitch.isOn = false
+		}
 	}
 
 	// MARK: - Error Handling
@@ -165,6 +170,8 @@ class LoginVC: UIViewController {
 		passwordTxt.returnKeyType = .next
 
 		animate(stackViewIn: securitySectionView)
+
+		initializeDropdown()
 	}
 
 	fileprivate func animate(stackViewIn stackView: UIStackView) {
@@ -184,6 +191,6 @@ class LoginVC: UIViewController {
 
 	fileprivate func initializeDropdown() {
 		dropdownData = ConstantService.shared.securityQuestions
-		securityQuestionDropdown.dataSource(dropdownData)
+		securityQuestionDropdown.setDataSource(dropdownData)
 	}
 }

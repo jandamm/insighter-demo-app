@@ -35,10 +35,10 @@ extension Flashable where Self: UIViewController {
 			})
 
 		case .out:
-			UIView.animate(withDuration: speed, animations: { _ in
-				self.view.subviews.last?.alpha = 0
-			}, completion: { complete in
-				self.view.subviews.last?.removeFromSuperview()
+			UIView.animate(withDuration: speed, animations: { [weak self] _ in
+				self?.view.subviews.last?.alpha = 0
+			}, completion: { [weak self] complete in
+				self?.view.subviews.last?.removeFromSuperview()
 				completion?(complete)
 			})
 		}
