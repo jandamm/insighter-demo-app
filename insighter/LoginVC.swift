@@ -145,6 +145,8 @@ class LoginVC: UIViewController {
 		guard state == .login else {
 			return
 		}
+        
+        emailTxt.isEnabled = true
 
 		securitySectionView.isHidden = true
 		securitySectionView.alpha = 0
@@ -156,6 +158,8 @@ class LoginVC: UIViewController {
 		guard state == .register else {
 			return
 		}
+
+		emailTxt.isEnabled = false
 
 		passwordTxt.NextResponder = securityAnswerTxt
 		passwordTxt.returnKeyType = .next
