@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import DropDown
 
 // @IBDesignable
 class JDDropdown: UILabel, TextStylable, TextRemoteConfigable, Touchable {
@@ -25,7 +26,8 @@ class JDDropdown: UILabel, TextStylable, TextRemoteConfigable, Touchable {
 		}
 	}
 
-	weak var imgView: UIImageView?
+	private var dropDown: DropDown?
+	private weak var imgView: UIImageView?
 
 	var replaceStrings: [String: String]?
 
@@ -34,17 +36,15 @@ class JDDropdown: UILabel, TextStylable, TextRemoteConfigable, Touchable {
 	private var dropdownShown = false {
 		didSet {
 			rotateArrow()
-            
+
 			if dropdownShown {
-				presentDropdown()
-			} else {
-				popDropdown()
+				dropDown?.show()
 			}
 		}
 	}
 
-	fileprivate var _dropdownList: [String]?
-	fileprivate var _selection: String? {
+	private var _dropdownList: [String]?
+	private var _selection: String? {
 		didSet {
 			text = _selection
 		}
@@ -62,6 +62,7 @@ class JDDropdown: UILabel, TextStylable, TextRemoteConfigable, Touchable {
 		super.didMoveToSuperview()
 
 		styleView()
+		setupDropdown()
 	}
 
 	override func prepareForInterfaceBuilder() {
@@ -77,7 +78,7 @@ class JDDropdown: UILabel, TextStylable, TextRemoteConfigable, Touchable {
 			return
 		}
 
-		dropdownShown = !dropdownShown
+		toggleDropdown()
 	}
 
 	// MARK: - Appearance
@@ -100,22 +101,53 @@ class JDDropdown: UILabel, TextStylable, TextRemoteConfigable, Touchable {
 			_selection = source.first
 		} else {
 			addImageView()
+			updateDropdown()
 		}
 	}
 
 	// MARK: - Private Methods
-    
-    private func presentDropdown() {
-        // TODO
-        
-        print("dropdown")
-    }
-    
-    private func popDropdown() {
-        // TODO
-        
-        print("noDropdown")
-    }
+
+	private func toggleDropdown() {
+		dropdownShown = !dropdownShown
+	}
+
+	private func updateDropdown() {
+		guard let dropDown = dropDown, let dropdownList = _dropdownList else {
+			return
+		}
+
+		dropDown.dataSource = dropdownList
+		dropDown.reloadAllComponents()
+	}
+
+	private func setupDropdown() {
+		guard self.dropDown == nil else {
+			return
+		}
+
+		let dropDown = DropDown()
+		let dropdownList = _dropdownList ?? [""]
+
+		dropDown.anchorView = self
+		dropDown.direction = .any
+
+		dropDown.dataSource = dropdownList
+
+		dropDown.textFont = TextStyle.TextSmall.font()
+		dropDown.textColor = TextStyle.TextSmall.color()
+		dropDown.backgroundColor = Colors.white
+		dropDown.selectionBackgroundColor = Colors.lightContrast
+
+		dropDown.selectionAction = { [weak self](_, item: String) in
+			self?._selection = item
+			self?.toggleDropdown()
+		}
+		dropDown.cancelAction = { [weak self] in
+			self?.toggleDropdown()
+		}
+
+		self.dropDown = dropDown
+	}
 
 	private func rotateArrow() {
 		guard let imgView = imgView else {

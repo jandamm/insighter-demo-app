@@ -76,7 +76,6 @@ class LoginVC: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
-		initializeDropdown()
 		demoAccountView.isHidden = true
 		applyState()
 	}
@@ -148,8 +147,8 @@ class LoginVC: UIViewController {
 
 		emailTxt.isEnabled = true
 
-		securitySectionView.isHidden = false // TEST true
-		securitySectionView.alpha = 1 // TEST 0
+		securitySectionView.isHidden = true
+		securitySectionView.alpha = 0
 		passwordTxt.NextResponder = loginBtn
 		passwordTxt.returnKeyType = .done
 	}
@@ -165,6 +164,8 @@ class LoginVC: UIViewController {
 		passwordTxt.returnKeyType = .next
 
 		animate(stackViewIn: securitySectionView)
+
+		initializeDropdown()
 	}
 
 	fileprivate func animate(stackViewIn stackView: UIStackView) {
