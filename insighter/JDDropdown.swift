@@ -47,6 +47,7 @@ class JDDropdown: UILabel, TextStylable, TextRemoteConfigable {
 		super.didMoveToSuperview()
 
 		styleView()
+		addImageView()
 	}
 
 	// MARK: - Interface Builder
@@ -79,4 +80,20 @@ class JDDropdown: UILabel, TextStylable, TextRemoteConfigable {
 	}
 
 	// MARK: - Private Methods
+
+	private func addImageView() {
+		let imgView = UIImageView()
+
+		imgView.image = #imageLiteral(resourceName: "dropdown-arrow")
+		addSubview(imgView)
+
+		imgView.translatesAutoresizingMaskIntoConstraints = false
+
+		let views = ["v": imgView]
+		let horizontal = NSLayoutConstraint.constraints(withVisualFormat: "H:[v(13)]-8-|", options: .directionLeadingToTrailing, metrics: nil, views: views)
+		let vertical = NSLayoutConstraint.constraints(withVisualFormat: "V:|-9-[v(8)]", options: .directionLeadingToTrailing, metrics: nil, views: views)
+
+		addConstraints(horizontal)
+		addConstraints(vertical)
+	}
 }
