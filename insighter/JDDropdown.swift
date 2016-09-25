@@ -83,7 +83,7 @@ class JDDropdown: UILabel, TextStylable, TextRemoteConfigable, Touchable {
 
 	// MARK: - Appearance
 
-	fileprivate func styleView() {
+	private func styleView() {
 		if fontStyle == nil {
 			applyTextStyle()
 		}
