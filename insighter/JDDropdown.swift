@@ -137,6 +137,10 @@ class JDDropdown: UILabel, TextStylable, TextRemoteConfigable, Touchable {
 		dropDown.textColor = TextStyle.TextSmall.color()
 		dropDown.backgroundColor = Colors.white
 		dropDown.selectionBackgroundColor = Colors.lightContrast
+		dropDown.bottomOffset = CGPoint(x: 0, y: (dropDown.anchorView?.plainView.bounds.height)!)
+		dropDown.topOffset = CGPoint(x: 0, y: -(dropDown.anchorView?.plainView.bounds.height)!)
+
+		dropDown.shadowColor = UIColor.white.withAlphaComponent(0)
 
 		dropDown.selectionAction = { [weak self](_, item: String) in
 			self?._selection = item
