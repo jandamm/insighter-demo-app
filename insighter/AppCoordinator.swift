@@ -74,18 +74,6 @@ class AppCoordinator: JDParentCoordinator, AppCoordinatorDelegate {
 	private func getInitialData(userDataOnly: Bool) {
 		let dispatch = DispatchGroup()
 
-		DispatchQueue.main.asyncAfter(deadline: .now() + 5) { [weak self] in
-			guard let x = self, x._userLoggedIn == nil else {
-				return
-			}
-			print("forced signout")
-
-			UserLoginService.shared.signOutUser() { _ in
-				x._userLoggedIn = false
-				dispatch.leave()
-			}
-		}
-
 		dispatch.enter()
 		UserLoginService.shared.checkUserIsLoggedInAndGetData { [weak self] loggedIn in
 			self?._userLoggedIn = loggedIn
