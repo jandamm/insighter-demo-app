@@ -10,7 +10,7 @@ import JDCoordinator
 
 class AppCoordinator: JDParentCoordinator, AppCoordinatorDelegate {
 
-	fileprivate var _userLoggedIn = false
+	private var _userLoggedIn: Bool?
 
 	// MARK: - Coordinator
 
@@ -46,9 +46,12 @@ class AppCoordinator: JDParentCoordinator, AppCoordinatorDelegate {
 
 	// MARK: - Private Methods
 
-	fileprivate func transitionToNextView() {
+	private func transitionToNextView() {
+		guard let loggedIn = _userLoggedIn else {
+			return NSLog("[JD] Could not tranisition to next view as userLogin isn't defined")
+		}
 
-		if !_userLoggedIn {
+		if !loggedIn {
 			showOnboarding()
 		} else {
 
@@ -68,8 +71,27 @@ class AppCoordinator: JDParentCoordinator, AppCoordinatorDelegate {
 		getInitialData(userDataOnly: userDataOnly)
 	}
 
-	fileprivate func getInitialData(userDataOnly: Bool) {
+	private func getInitialData(userDataOnly: Bool) {
 		let dispatch = DispatchGroup()
+
+		DispatchQueue.main.asyncAfter(deadline: .now() + 5) { [weak self] in
+			guard let x = self, x._userLoggedIn == nil else {
+				return
+			}
+			print("forced signout")
+
+			UserLoginService.shared.signOutUser() { _ in
+				x._userLoggedIn = false
+				dispatch.leave()
+			}
+		}
+
+		dispatch.enter()
+		UserLoginService.shared.checkUserIsLoggedInAndGetData { [weak self] loggedIn in
+			self?._userLoggedIn = loggedIn
+			NSLog("[JD] User is Logged in: \(loggedIn)")
+			dispatch.leave()
+		}
 
 		if !userDataOnly {
 			dispatch.enter()
@@ -83,13 +105,6 @@ class AppCoordinator: JDParentCoordinator, AppCoordinatorDelegate {
 				NSLog("[JD] Got Remote Config successful: \(successful)")
 				dispatch.leave()
 			}
-		}
-
-		dispatch.enter()
-		UserLoginService.shared.checkUserIsLoggedInAndGetData { loggedIn in
-			self._userLoggedIn = loggedIn
-			NSLog("[JD] User is Logged in: \(loggedIn)")
-			dispatch.leave()
 		}
 
 		dispatch.notify(queue: DispatchQueue.main) {

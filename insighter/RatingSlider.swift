@@ -16,11 +16,7 @@ protocol RatingSliderDelegate: NSObjectProtocol {
 
 class RatingSlider: UIView, Touchable {
 
-	weak var delegate: RatingSliderDelegate? {
-		didSet {
-			NSLog("[JD] RatingSlider delegate was set to \(delegate!)")
-		}
-	}
+	weak var delegate: RatingSliderDelegate?
 
 	// MARK: - Private Data
 
