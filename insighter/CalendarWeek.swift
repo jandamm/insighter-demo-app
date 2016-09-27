@@ -10,18 +10,6 @@ import Foundation
 
 struct CalendarWeek: Equatable {
 
-	struct Relation: OptionSet {
-		let rawValue: Int
-
-		init(rawValue: Int) {
-			self.rawValue = rawValue
-		}
-
-		static let this = Relation(rawValue: 1)
-		static let last = Relation(rawValue: 2)
-		static let prev = Relation(rawValue: 4)
-	}
-
 	// MARK: - Data
 
 	var stringValue: String {
@@ -32,34 +20,23 @@ struct CalendarWeek: Equatable {
 		return date.timeIntervalSince1970
 	}
 
-	fileprivate let date: Date
+	private let date: Date
 
 	// MARK: - Initialization
 
 	init() {
-		date = Date()
+		self.date = Date()
 	}
 
 	init(withDate date: Date) {
 		self.date = date
 	}
+    
+    init(withTimeInterval ti: TimeInterval) {
+        self.date = Date(timeIntervalSince1970: ti)
+    }
 
 	// MARK: - Internal Methods
-
-	func calenderWeekRelation(forDate input: Date) -> Relation {
-		let inputWeek = CalendarWeek(withDate: input)
-
-		switch stringValue {
-		case inputWeek.stringValue:
-			return .this
-		case inputWeek.calendarWeek(beforeWeeks: 1):
-			return .last
-		case inputWeek.calendarWeek(beforeWeeks: 2):
-			return .prev
-		default:
-			return Relation(rawValue: 0)
-		}
-	}
 
 	func calendarWeek(beforeWeeks weeks: Int) -> String {
 		return calendarWeek(inWeeks: -weeks)
@@ -74,17 +51,17 @@ struct CalendarWeek: Equatable {
 
 	// MARK: - Private Methods
 
-	fileprivate func calWeek(_ date: Date) -> String {
+	private func calWeek(_ date: Date) -> String {
 		let year = getYear(date)
 		let week = getWeek(date)
 		return "\(year)-\(week)"
 	}
 
-	fileprivate func getWeek(_ date: Date) -> Int {
+	private func getWeek(_ date: Date) -> Int {
 		return CALENDAR.component(.weekOfYear, from: date)
 	}
 
-	fileprivate func getYear(_ date: Date) -> Int {
+	private func getYear(_ date: Date) -> Int {
 		return CALENDAR.component(.year, from: date)
 	}
 }

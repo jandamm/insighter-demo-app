@@ -36,8 +36,8 @@ struct DBValueKeys {
 	enum User: StringReturningEnum {
 		case company
 		case score
-		case ratedOne
-		case ratedTwo
+		case lastRated
+		case lastRatedDate
 		case securityAnswer
 		case securityQuestion
 	}

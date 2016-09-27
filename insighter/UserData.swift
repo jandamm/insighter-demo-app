@@ -11,35 +11,28 @@ import Foundation
 struct UserData: Equatable, FIRUploadable {
 	let UID: String
 	let company: String?
-	let score: Int?
-	let ratedOne: CalendarWeek
-	let ratedTwo: CalendarWeek
+	let score: Int
+    let lastRated: LastRated
+	let lastRatedDate: CalendarWeek
 	let securityQuestion: String?
 	let securityAnswer: String?
 
 	var scoreString: String {
-		guard let score = score else {
-			return "0"
-		}
 		return "\(score)"
 	}
 
 	// MARK: - Initialization
 
-	init(UID: String, company: String?, score: Int?, ratedOne: TimeInterval?, ratedTwo: TimeInterval?, securityQuestion: String?, securityAnswer: String?) {
+	init(UID: String, company: String?, score: Int?, lastRated: Int?, lastRatedDate: TimeInterval?, securityQuestion: String?, securityAnswer: String?) {
 		self.UID = UID
 		self.company = company
-		self.score = score
+		self.score = score ?? 0
 		self.securityAnswer = securityAnswer
 		self.securityQuestion = securityQuestion
-
-		let ratedOne = ratedOne ?? 0
-		let ratedOneDate = Date(timeIntervalSince1970: ratedOne)
-		self.ratedOne = CalendarWeek(withDate: ratedOneDate)
-
-		let ratedTwo = ratedTwo ?? 0
-		let ratedTwoDate = Date(timeIntervalSince1970: ratedTwo)
-		self.ratedTwo = CalendarWeek(withDate: ratedTwoDate)
+        self.lastRated = LastRated(realValue: lastRated, relationDate: lastRatedDate)
+        
+		let lastRatedDate = lastRatedDate ?? 0
+		self.lastRatedDate = CalendarWeek(withTimeInterval: lastRatedDate)
 	}
 
 	// MARK: - FIRUploadable
@@ -53,14 +46,17 @@ struct UserData: Equatable, FIRUploadable {
 		var out = [String: AnyObject]()
 
 		if let company = company {
-			out[key.company.rawValue] = company as AnyObject?
+			out[key.company.rawValue] = company as AnyObject
 		}
-		if ratedOne.timeIntervalSince1970 > 0 {
-			out[key.ratedOne.rawValue] = ratedOne.timeIntervalSince1970 as AnyObject
+        if score > 0 {
+            out[key.score.rawValue] = key as AnyObject
+        }
+		if lastRated.realValue > 0 {
+			out[key.lastRated.rawValue] = lastRated.realValue as AnyObject
 		}
-		if ratedTwo.timeIntervalSince1970 > 0 {
-			out[key.ratedTwo.rawValue] = ratedTwo.timeIntervalSince1970 as AnyObject
-		}
+        if lastRatedDate.timeIntervalSince1970 > 0 {
+            out[key.lastRatedDate.rawValue] = lastRatedDate.timeIntervalSince1970 as AnyObject
+        }
 		if let securityQuestion = securityQuestion {
 			out[key.securityQuestion.rawValue] = securityQuestion as AnyObject
 		}

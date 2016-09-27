@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1311FE2A1D8EFCB000362886 /* AverageBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1311FE291D8EFCB000362886 /* AverageBar.swift */; };
 		1311FE681D8FBCEC00362886 /* RatingDisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1311FE671D8FBCEC00362886 /* RatingDisplayView.swift */; };
+		1312E7D61D9ACC7200D635E8 /* LastRated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1312E7D51D9ACC7200D635E8 /* LastRated.swift */; };
 		131C8D041D59DF3900A2EE8C /* RemoteConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 131C8D031D59DF3900A2EE8C /* RemoteConfig.swift */; };
 		131C8D061D59E1D200A2EE8C /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 131C8D051D59E1D100A2EE8C /* UserData.swift */; };
 		13233B671D76C403000D825B /* JDNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13233B661D76C403000D825B /* JDNavigationController.swift */; };
@@ -110,6 +111,7 @@
 /* Begin PBXFileReference section */
 		1311FE291D8EFCB000362886 /* AverageBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AverageBar.swift; sourceTree = "<group>"; };
 		1311FE671D8FBCEC00362886 /* RatingDisplayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingDisplayView.swift; sourceTree = "<group>"; };
+		1312E7D51D9ACC7200D635E8 /* LastRated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LastRated.swift; sourceTree = "<group>"; };
 		131C8D031D59DF3900A2EE8C /* RemoteConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteConfig.swift; sourceTree = "<group>"; };
 		131C8D051D59E1D100A2EE8C /* UserData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		13233B661D76C403000D825B /* JDNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JDNavigationController.swift; sourceTree = "<group>"; };
@@ -373,6 +375,7 @@
 				13ED7E911D5DD32E0017CF8A /* Company.swift */,
 				131C8D051D59E1D100A2EE8C /* UserData.swift */,
 				1329B0381D5B12EE004AE52B /* CalendarWeek.swift */,
+				1312E7D51D9ACC7200D635E8 /* LastRated.swift */,
 				1329B0441D5B4901004AE52B /* RatingQuestion.swift */,
 				137EB8981D61FECD00ACC8F9 /* RatingAnswer.swift */,
 				13517B4D1D5CEA5B002B74AD /* StringExtension.swift */,
@@ -811,6 +814,7 @@
 				1340AC7E1D5A0EB0008499CE /* RemoteStringKey.swift in Sources */,
 				13ED7E921D5DD32E0017CF8A /* Company.swift in Sources */,
 				13ED7E941D5E17D10017CF8A /* RemoteIntKey.swift in Sources */,
+				1312E7D61D9ACC7200D635E8 /* LastRated.swift in Sources */,
 				137EB89B1D620D7500ACC8F9 /* Flashable.swift in Sources */,
 				1329B0451D5B4901004AE52B /* RatingQuestion.swift in Sources */,
 				13B761EE1D75F6ED00E80677 /* LoginCoordinator.swift in Sources */,
