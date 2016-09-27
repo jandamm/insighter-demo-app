@@ -40,20 +40,21 @@ struct CalendarWeek: Equatable {
 		date = Date()
 	}
 
-	init(withNSDate date: Date) {
+	init(withDate date: Date) {
 		self.date = date
 	}
 
 	// MARK: - Internal Methods
 
-	func calenderWeekRelation(forDate inputDate: Date) -> Relation {
+	func calenderWeekRelation(forDate input: Date) -> Relation {
+		let inputWeek = CalendarWeek(withDate: input)
 
-		switch calWeek(inputDate) {
-		case stringValue:
+		switch stringValue {
+		case inputWeek.stringValue:
 			return .this
-		case calendarWeek(beforeWeeks: 1):
+		case inputWeek.calendarWeek(beforeWeeks: 1):
 			return .last
-		case calendarWeek(beforeWeeks: 2):
+		case inputWeek.calendarWeek(beforeWeeks: 2):
 			return .prev
 		default:
 			return Relation(rawValue: 0)

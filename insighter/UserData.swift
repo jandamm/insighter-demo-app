@@ -35,11 +35,11 @@ struct UserData: Equatable, FIRUploadable {
 
 		let ratedOne = ratedOne ?? 0
 		let ratedOneDate = Date(timeIntervalSince1970: ratedOne)
-		self.ratedOne = CalendarWeek(withNSDate: ratedOneDate)
+		self.ratedOne = CalendarWeek(withDate: ratedOneDate)
 
 		let ratedTwo = ratedTwo ?? 0
 		let ratedTwoDate = Date(timeIntervalSince1970: ratedTwo)
-		self.ratedTwo = CalendarWeek(withNSDate: ratedTwoDate)
+		self.ratedTwo = CalendarWeek(withDate: ratedTwoDate)
 	}
 
 	// MARK: - FIRUploadable
