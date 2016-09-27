@@ -9,9 +9,10 @@
 /* Begin PBXBuildFile section */
 		1311FE2A1D8EFCB000362886 /* AverageBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1311FE291D8EFCB000362886 /* AverageBar.swift */; };
 		1311FE681D8FBCEC00362886 /* RatingDisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1311FE671D8FBCEC00362886 /* RatingDisplayView.swift */; };
+		1312E7D31D9A91BF00D635E8 /* NavigationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1312E7D21D9A91BF00D635E8 /* NavigationDelegate.swift */; };
 		131C8D041D59DF3900A2EE8C /* RemoteConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 131C8D031D59DF3900A2EE8C /* RemoteConfig.swift */; };
 		131C8D061D59E1D200A2EE8C /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 131C8D051D59E1D100A2EE8C /* UserData.swift */; };
-		13233B671D76C403000D825B /* JDNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13233B661D76C403000D825B /* JDNavigationController.swift */; };
+		13233B671D76C403000D825B /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13233B661D76C403000D825B /* NavigationController.swift */; };
 		1329B0391D5B12EE004AE52B /* CalendarWeek.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1329B0381D5B12EE004AE52B /* CalendarWeek.swift */; };
 		1329B0451D5B4901004AE52B /* RatingQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1329B0441D5B4901004AE52B /* RatingQuestion.swift */; };
 		132A5EBA1D58A28400448DAC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 132A5EB91D58A28400448DAC /* GoogleService-Info.plist */; };
@@ -110,9 +111,10 @@
 /* Begin PBXFileReference section */
 		1311FE291D8EFCB000362886 /* AverageBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AverageBar.swift; sourceTree = "<group>"; };
 		1311FE671D8FBCEC00362886 /* RatingDisplayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingDisplayView.swift; sourceTree = "<group>"; };
+		1312E7D21D9A91BF00D635E8 /* NavigationDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationDelegate.swift; sourceTree = "<group>"; };
 		131C8D031D59DF3900A2EE8C /* RemoteConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteConfig.swift; sourceTree = "<group>"; };
 		131C8D051D59E1D100A2EE8C /* UserData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
-		13233B661D76C403000D825B /* JDNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JDNavigationController.swift; sourceTree = "<group>"; };
+		13233B661D76C403000D825B /* NavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		1329B0381D5B12EE004AE52B /* CalendarWeek.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarWeek.swift; sourceTree = "<group>"; };
 		1329B0441D5B4901004AE52B /* RatingQuestion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingQuestion.swift; sourceTree = "<group>"; };
 		132A5EB91D58A28400448DAC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -231,6 +233,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1312E7D41D9A952F00D635E8 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				13A03D7D1CF1109E00920838 /* AppDelegate.swift */,
+				13233B661D76C403000D825B /* NavigationController.swift */,
+				1312E7D21D9A91BF00D635E8 /* NavigationDelegate.swift */,
+			);
+			name = App;
+			sourceTree = "<group>";
+		};
 		132A5EB81D58A27700448DAC /* Misc */ = {
 			isa = PBXGroup;
 			children = (
@@ -300,7 +312,7 @@
 				132A5EBB1D58A2BF00448DAC /* Services */,
 				132A5EB81D58A27700448DAC /* Misc */,
 				13A03D871CF1109E00920838 /* Assets.xcassets */,
-				13A03D7D1CF1109E00920838 /* AppDelegate.swift */,
+				1312E7D41D9A952F00D635E8 /* App */,
 			);
 			path = insighter;
 			sourceTree = "<group>";
@@ -326,7 +338,6 @@
 		13A03DAE1CF1163500920838 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				13233B661D76C403000D825B /* JDNavigationController.swift */,
 				13A03D7F1CF1109E00920838 /* IntroVC.swift */,
 				13ED7EA11D6098A40017CF8A /* Onboarding */,
 				13A5B9A41D59FBE6008EBDF3 /* LoginVC.swift */,
@@ -784,10 +795,11 @@
 				13517B481D5BAE59002B74AD /* Shakeable.swift in Sources */,
 				137EB8971D61EA1500ACC8F9 /* RatingColors.swift in Sources */,
 				1338777B1D62529D00FAF762 /* InsighterKit.swift in Sources */,
-				13233B671D76C403000D825B /* JDNavigationController.swift in Sources */,
+				13233B671D76C403000D825B /* NavigationController.swift in Sources */,
 				13ED7E991D60985B0017CF8A /* EvaluationUserVC.swift in Sources */,
 				13A5B9AB1D5A0275008EBDF3 /* EvaluationVC.swift in Sources */,
 				13A5B9A51D59FBE6008EBDF3 /* LoginVC.swift in Sources */,
+				1312E7D31D9A91BF00D635E8 /* NavigationDelegate.swift in Sources */,
 				13517B501D5D06B9002B74AD /* FIRUploadable.swift in Sources */,
 				138C725C1D58B3290049561A /* LocalConstant.swift in Sources */,
 				13D489C21D75D876003D39C5 /* OnboardingCoordinator.swift in Sources */,

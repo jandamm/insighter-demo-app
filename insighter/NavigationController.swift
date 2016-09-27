@@ -1,5 +1,5 @@
 //
-//  JDNavigationController.swift
+//  NavigationController.swift
 //  insighter
 //
 //  Created by Jan Dammshäuser on 31.08.16.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class JDNavigationController: UINavigationController {
+class NavigationController: UINavigationController {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()

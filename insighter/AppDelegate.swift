@@ -7,6 +7,7 @@
 //
 
 import JDCoordinator
+import JDTransition
 import Firebase
 
 @UIApplicationMain
@@ -14,9 +15,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 	var window: UIWindow?
 
-	var rootViewController: UINavigationController!
-
 	var appCoordinator: JDCoordinator!
+    var rootViewController: UINavigationController!
+    var navigationDelegate: JDNavigationDelegate!
 
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 		FIRApp.configure()
@@ -24,7 +25,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		let windowFrame = UIScreen.main.bounds
 		window = UIWindow(frame: windowFrame)
 
-		rootViewController = JDNavigationController()
+		rootViewController = NavigationController()
+		navigationDelegate = NavigationDelegate()
+
+		rootViewController.delegate = navigationDelegate
 
 		appCoordinator = AppCoordinator(withNavigationController: rootViewController)
 
