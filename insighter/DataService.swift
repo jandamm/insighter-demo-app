@@ -148,7 +148,7 @@ class DataService {
 
 		if lastQuestion {
 			saveRatingToAverage(forCompany: company.UID)
-			return UserLoginService.shared.updateLastRated()
+			return UserLoginService.shared.userRated()
 		} else {
 			return true
 		}

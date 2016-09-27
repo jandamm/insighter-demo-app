@@ -10,8 +10,16 @@ import Foundation
 
 struct CalendarWeek: Equatable {
 
-	enum Relation {
-		case this, last, previous, none
+	struct Relation: OptionSet {
+		let rawValue: Int
+
+		init(rawValue: Int) {
+			self.rawValue = rawValue
+		}
+
+		static let this = Relation(rawValue: 1)
+		static let last = Relation(rawValue: 2)
+		static let prev = Relation(rawValue: 4)
 	}
 
 	// MARK: - Data
@@ -46,9 +54,9 @@ struct CalendarWeek: Equatable {
 		case calendarWeek(beforeWeeks: 1):
 			return .last
 		case calendarWeek(beforeWeeks: 2):
-			return .previous
+			return .prev
 		default:
-			return .none
+			return Relation(rawValue: 0)
 		}
 	}
 

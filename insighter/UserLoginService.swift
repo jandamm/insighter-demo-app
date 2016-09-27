@@ -34,9 +34,9 @@ class UserLoginService {
 		return _company
 	}
 
-	func ratedWeeksRelation(withDate date: Date) -> Set<CalendarWeek.Relation> {
+	func ratedWeeksRelation(withDate date: Date) -> CalendarWeek.Relation {
 		guard let userData = _userData else {
-			return [.none]
+			return CalendarWeek.Relation(rawValue: 0)
 		}
 
 		let relationOne = userData.ratedOne.calenderWeekRelation(forDate: date)
@@ -73,7 +73,7 @@ class UserLoginService {
 		getFIRUser(completion)
 	}
 
-	func updateLastRated(withDate date: Date = Date()) -> Bool {
+	func userRated(withDate date: Date = Date()) -> Bool {
 		guard let old = _userData else {
 			return false
 		}
