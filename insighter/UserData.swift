@@ -12,8 +12,8 @@ struct UserData: Equatable, FIRUploadable {
 	let UID: String
 	let company: String?
 	let score: Int?
-	let lastRated: CalendarWeek
-	let previousRated: CalendarWeek
+	let ratedOne: CalendarWeek
+	let ratedTwo: CalendarWeek
 	let securityQuestion: String?
 	let securityAnswer: String?
 
@@ -26,20 +26,20 @@ struct UserData: Equatable, FIRUploadable {
 
 	// MARK: - Initialization
 
-	init(UID: String, company: String?, score: Int?, lastRated: TimeInterval?, previousRated: TimeInterval?, securityQuestion: String?, securityAnswer: String?) {
+	init(UID: String, company: String?, score: Int?, ratedOne: TimeInterval?, ratedTwo: TimeInterval?, securityQuestion: String?, securityAnswer: String?) {
 		self.UID = UID
 		self.company = company
 		self.score = score
 		self.securityAnswer = securityAnswer
 		self.securityQuestion = securityQuestion
 
-		let lastRated = lastRated == nil ? 0 : lastRated!
-		let lastRatedDate = Date(timeIntervalSince1970: lastRated)
-		self.lastRated = CalendarWeek(withNSDate: lastRatedDate)
+		let ratedOne = ratedOne ?? 0
+		let ratedOneDate = Date(timeIntervalSince1970: ratedOne)
+		self.ratedOne = CalendarWeek(withNSDate: ratedOneDate)
 
-		let previousRated = previousRated == nil ? 0 : previousRated!
-		let previousRatedDate = Date(timeIntervalSince1970: previousRated)
-		self.previousRated = CalendarWeek(withNSDate: previousRatedDate)
+		let ratedTwo = ratedTwo ?? 0
+		let ratedTwoDate = Date(timeIntervalSince1970: ratedTwo)
+		self.ratedTwo = CalendarWeek(withNSDate: ratedTwoDate)
 	}
 
 	// MARK: - FIRUploadable
@@ -55,11 +55,11 @@ struct UserData: Equatable, FIRUploadable {
 		if let company = company {
 			out[key.company.rawValue] = company as AnyObject?
 		}
-		if lastRated.timeIntervalSince1970 > 0 {
-			out[key.lastRated.rawValue] = lastRated.timeIntervalSince1970 as AnyObject
+		if ratedOne.timeIntervalSince1970 > 0 {
+			out[key.ratedOne.rawValue] = ratedOne.timeIntervalSince1970 as AnyObject
 		}
-		if previousRated.timeIntervalSince1970 > 0 {
-			out[key.previousRated.rawValue] = previousRated.timeIntervalSince1970 as AnyObject
+		if ratedTwo.timeIntervalSince1970 > 0 {
+			out[key.ratedTwo.rawValue] = ratedTwo.timeIntervalSince1970 as AnyObject
 		}
 		if let securityQuestion = securityQuestion {
 			out[key.securityQuestion.rawValue] = securityQuestion as AnyObject
@@ -73,5 +73,5 @@ struct UserData: Equatable, FIRUploadable {
 }
 
 func ==(lhs: UserData, rhs: UserData) -> Bool {
-	return lhs.UID == rhs.UID && lhs.company == rhs.company && lhs.lastRated == rhs.lastRated && lhs.securityQuestion == rhs.securityQuestion && lhs.securityAnswer == rhs.securityAnswer
+	return lhs.UID == rhs.UID && lhs.company == rhs.company && lhs.ratedOne == rhs.ratedOne && lhs.ratedTwo == rhs.ratedTwo && lhs.securityQuestion == rhs.securityQuestion && lhs.securityAnswer == rhs.securityAnswer
 }

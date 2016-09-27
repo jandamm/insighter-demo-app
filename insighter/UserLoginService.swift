@@ -39,10 +39,10 @@ class UserLoginService {
 			return [.none]
 		}
 
-		let relationLast = userData.lastRated.calenderWeekRelation(forDate: date)
-		let relationPrevious = userData.previousRated.calenderWeekRelation(forDate: date)
+		let relationOne = userData.ratedOne.calenderWeekRelation(forDate: date)
+		let relationTwo = userData.ratedTwo.calenderWeekRelation(forDate: date)
 
-		return [relationLast, relationPrevious]
+		return [relationOne, relationTwo]
 	}
 
 	func companyID(forEmail mail: String) -> String? {
@@ -78,13 +78,13 @@ class UserLoginService {
 			return false
 		}
 
-		var dates = [date.timeIntervalSince1970, old.lastRated.timeIntervalSince1970, old.previousRated.timeIntervalSince1970].sorted()
+		var dates = [date.timeIntervalSince1970, old.ratedOne.timeIntervalSince1970, old.ratedTwo.timeIntervalSince1970].sorted()
 
-		let lastRated = dates.last
+		let ratedOne = dates.last
 		dates.removeLast()
-		let previousRated = dates.last
+		let ratedTwo = dates.last
 
-		let user = UserData(UID: old.UID, company: old.company, score: old.score, lastRated: lastRated, previousRated: previousRated, securityQuestion: old.securityQuestion, securityAnswer: old.securityAnswer)
+		let user = UserData(UID: old.UID, company: old.company, score: old.score, ratedOne: ratedOne, ratedTwo: ratedTwo, securityQuestion: old.securityQuestion, securityAnswer: old.securityAnswer)
 
 		_userData = user
 
@@ -169,12 +169,12 @@ class UserLoginService {
 
 			let company = data[DBValueKeys.User.company.rawValue] as? String
 			let score = data[DBValueKeys.User.score.rawValue] as? Int
-			let lastRated = data[DBValueKeys.User.lastRated.rawValue] as? Double
-			let previousRated = data[DBValueKeys.User.previousRated.rawValue] as? Double
+			let ratedOne = data[DBValueKeys.User.ratedOne.rawValue] as? Double
+			let ratedTwo = data[DBValueKeys.User.ratedTwo.rawValue] as? Double
 			let securityQuestion = data[DBValueKeys.User.securityQuestion.rawValue] as? String
 			let securityAnswer = data[DBValueKeys.User.securityAnswer.rawValue] as? String
 
-			let user = UserData(UID: uid, company: company, score: score, lastRated: lastRated, previousRated: previousRated, securityQuestion: securityQuestion, securityAnswer: securityAnswer)
+			let user = UserData(UID: uid, company: company, score: score, ratedOne: ratedOne, ratedTwo: ratedTwo, securityQuestion: securityQuestion, securityAnswer: securityAnswer)
 
 			self._userData = user
 			NSLog("[JD] Got User data from Firebase")
