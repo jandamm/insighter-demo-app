@@ -233,6 +233,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1312E7D71D9AE7F300D635E8 /* JDViews */ = {
+			isa = PBXGroup;
+			children = (
+				13BF4DE11D71E9F500035D84 /* JDButton.swift */,
+				13BF4DE21D71E9F500035D84 /* JDDropdown.swift */,
+				13BF4DE31D71E9F500035D84 /* JDLabel.swift */,
+				13BF4DDD1D71E9F500035D84 /* JDPopup.swift */,
+				13BF4DDE1D71E9F500035D84 /* JDScrollView.swift */,
+				135C5C131D97EBF100F9C5A0 /* JDSwitch.swift */,
+				13BF4DDF1D71E9F500035D84 /* JDTextField.swift */,
+				13BF4DE01D71E9F500035D84 /* JDTextView.swift */,
+			);
+			name = JDViews;
+			sourceTree = "<group>";
+		};
 		132A5EB81D58A27700448DAC /* Misc */ = {
 			isa = PBXGroup;
 			children = (
@@ -346,14 +361,7 @@
 				1338777A1D62529D00FAF762 /* InsighterKit.swift */,
 				13A5B99E1D59F250008EBDF3 /* Style.swift */,
 				137EB8961D61EA1500ACC8F9 /* RatingColors.swift */,
-				13BF4DE11D71E9F500035D84 /* JDButton.swift */,
-				13BF4DE21D71E9F500035D84 /* JDDropdown.swift */,
-				13BF4DE31D71E9F500035D84 /* JDLabel.swift */,
-				13BF4DDD1D71E9F500035D84 /* JDPopup.swift */,
-				13BF4DDE1D71E9F500035D84 /* JDScrollView.swift */,
-				135C5C131D97EBF100F9C5A0 /* JDSwitch.swift */,
-				13BF4DDF1D71E9F500035D84 /* JDTextField.swift */,
-				13BF4DE01D71E9F500035D84 /* JDTextView.swift */,
+				1312E7D71D9AE7F300D635E8 /* JDViews */,
 				138C72551D58AB260049561A /* LoadingView.swift */,
 				13A5B9A01D59F2E2008EBDF3 /* TextStylable.swift */,
 				1340AC7F1D5A19E1008499CE /* TextRemoteConfigable.swift */,

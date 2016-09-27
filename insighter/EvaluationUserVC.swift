@@ -16,6 +16,8 @@ class EvaluationUserVC: UIViewController {
 	@IBOutlet weak var userRatingDiffLbl: JDRatingLabel!
 	@IBOutlet weak var fbScoreTotalLbl: JDLabel!
 	@IBOutlet weak var fbRewardLbl: JDLabel!
+	@IBOutlet weak var fbScoreView: UIStackView!
+	@IBOutlet weak var fbScoreThisView: UIStackView!
 	@IBOutlet weak var fbScoreThisLbl: JDLabel!
 	@IBOutlet weak var fbScoreLastView: UIStackView!
 	@IBOutlet weak var fbScoreLastLbl: JDLabel!
@@ -56,9 +58,32 @@ class EvaluationUserVC: UIViewController {
 	}
 
 	private func setScoreSums() {
-		fbScoreThisLbl.text = "---"
-		fbScoreLastLbl.text = "---"
-		fbScorePrevLbl.text = "---"
-		fbScoreSumLbl.text = "+---"
+		let lastRated = UserLoginService.shared.lastRated
+
+		if lastRated.isDisjoint(with: [.this, .last, .prev]) {
+			fbScoreView.isHidden = true
+			return
+		}
+
+		var score: Double = 0
+
+		fbScoreThisView.isHidden = lastRated.isDisjoint(with: .this)
+		fbScoreLastView.isHidden = lastRated.isDisjoint(with: .last)
+		fbScorePrevLbl.isHidden = lastRated.isDisjoint(with: .prev)
+
+		if lastRated.contains(.this) {
+			score += 100
+			fbScoreThisLbl.text = "100"
+		}
+		if lastRated.contains(.last) {
+			score += 50
+			fbScoreLastLbl.text = "50"
+		}
+		if lastRated.contains(.prev) {
+			score += 25
+			fbScorePrevLbl.text = "25"
+		}
+
+		fbScoreSumLbl.text = "+\(score)"
 	}
 }

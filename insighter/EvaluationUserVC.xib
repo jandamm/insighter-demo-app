@@ -14,7 +14,9 @@
                 <outlet property="fbScorePrevView" destination="rGv-9C-bpx" id="ICe-jY-1N3"/>
                 <outlet property="fbScoreSumLbl" destination="m7b-H0-XT9" id="hPh-CK-Yn1"/>
                 <outlet property="fbScoreThisLbl" destination="AGJ-BS-IWK" id="IpB-cP-ZnC"/>
+                <outlet property="fbScoreThisView" destination="YqB-Jy-u39" id="hAB-sI-P8Y"/>
                 <outlet property="fbScoreTotalLbl" destination="Vnl-7Y-vug" id="4dh-HD-Qo0"/>
+                <outlet property="fbScoreView" destination="3PT-Op-Qtz" id="eN2-iu-s6N"/>
                 <outlet property="userRatingDiffLbl" destination="uNg-Q8-bci" id="jgY-bM-aCz"/>
                 <outlet property="userRatingLbl" destination="bCL-dF-f5D" id="EVO-8P-PqN"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -212,7 +214,7 @@
                                                             <nil key="highlightedColor"/>
                                                             <userDefinedRuntimeAttributes>
                                                                 <userDefinedRuntimeAttribute type="string" keyPath="fontStyle" value="TextSmall"/>
-                                                                <userDefinedRuntimeAttribute type="string" keyPath="remoteConfigKey" value="Eva_User_Punkte_Sum_Lbl"/>
+                                                                <userDefinedRuntimeAttribute type="string" keyPath="remoteConfigKey" value="Eva_User_Punkte_Bottom_Lbl"/>
                                                             </userDefinedRuntimeAttributes>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q1l-D0-Szx" customClass="JDLabel" customModule="insighter" customModuleProvider="target">
