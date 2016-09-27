@@ -42,7 +42,7 @@ class UserLoginService {
 		let relationOne = userData.ratedOne.calenderWeekRelation(forDate: date)
 		let relationTwo = userData.ratedTwo.calenderWeekRelation(forDate: date)
 
-		return [relationOne, relationTwo]
+		return relationOne.union(relationTwo)
 	}
 
 	func companyID(forEmail mail: String) -> String? {
