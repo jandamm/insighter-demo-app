@@ -128,7 +128,7 @@ class AppCoordinator: JDParentCoordinator, AppCoordinatorDelegate {
 	}
 
 	fileprivate func showQuestion() -> Bool {
-		guard UserLoginService.shared.ratedWeeksRelation(withDate: Date()).isDisjoint(with: [.this]) else {
+		guard UserLoginService.shared.lastRated.isDisjoint(with: [.this]) else {
 			NSLog("[JD] No question needs to be asked")
 			return false
 		}

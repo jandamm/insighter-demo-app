@@ -12,7 +12,7 @@ struct UserData: Equatable, FIRUploadable {
 	let UID: String
 	let company: String?
 	let score: Int
-    let lastRated: LastRated
+	let lastRated: LastRated
 	let lastRatedDate: CalendarWeek
 	let securityQuestion: String?
 	let securityAnswer: String?
@@ -29,8 +29,8 @@ struct UserData: Equatable, FIRUploadable {
 		self.score = score ?? 0
 		self.securityAnswer = securityAnswer
 		self.securityQuestion = securityQuestion
-        self.lastRated = LastRated(realValue: lastRated, relationDate: lastRatedDate)
-        
+		self.lastRated = LastRated(realValue: lastRated, relationDate: lastRatedDate)
+
 		let lastRatedDate = lastRatedDate ?? 0
 		self.lastRatedDate = CalendarWeek(withTimeInterval: lastRatedDate)
 	}
@@ -48,15 +48,15 @@ struct UserData: Equatable, FIRUploadable {
 		if let company = company {
 			out[key.company.rawValue] = company as AnyObject
 		}
-        if score > 0 {
-            out[key.score.rawValue] = key as AnyObject
-        }
+		if score > 0 {
+			out[key.score.rawValue] = key as AnyObject
+		}
 		if lastRated.realValue > 0 {
 			out[key.lastRated.rawValue] = lastRated.realValue as AnyObject
 		}
-        if lastRatedDate.timeIntervalSince1970 > 0 {
-            out[key.lastRatedDate.rawValue] = lastRatedDate.timeIntervalSince1970 as AnyObject
-        }
+		if lastRatedDate.timeIntervalSince1970 > 0 {
+			out[key.lastRatedDate.rawValue] = lastRatedDate.timeIntervalSince1970 as AnyObject
+		}
 		if let securityQuestion = securityQuestion {
 			out[key.securityQuestion.rawValue] = securityQuestion as AnyObject
 		}
@@ -69,5 +69,5 @@ struct UserData: Equatable, FIRUploadable {
 }
 
 func ==(lhs: UserData, rhs: UserData) -> Bool {
-	return lhs.UID == rhs.UID && lhs.company == rhs.company && lhs.ratedOne == rhs.ratedOne && lhs.ratedTwo == rhs.ratedTwo && lhs.securityQuestion == rhs.securityQuestion && lhs.securityAnswer == rhs.securityAnswer
+	return lhs.UID == rhs.UID && lhs.company == rhs.company && lhs.score == rhs.score && lhs.lastRated == rhs.lastRated && lhs.lastRatedDate == rhs.lastRatedDate && lhs.securityQuestion == rhs.securityQuestion && lhs.securityAnswer == rhs.securityAnswer
 }

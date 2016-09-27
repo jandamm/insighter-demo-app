@@ -64,9 +64,9 @@ class NotificationService {
 
 		let destDate = nowDate.addingTimeInterval(Double(offset) * 60 * 60)
 
-		let ratedRelation = UserLoginService.shared.ratedWeeksRelation(withDate: destDate)
+		let lastRated = UserLoginService.shared.lastRated
 
-		if destDate.timeIntervalSinceNow < 0 || ratedRelation.contains(.this) {
+		if destDate.timeIntervalSinceNow < 0 || lastRated.contains(.this) {
 			return destDate.addingTimeInterval(7 * 24 * 60 * 60)
 		}
 

@@ -34,15 +34,12 @@ class UserLoginService {
 		return _company
 	}
 
-	func ratedWeeksRelation(withDate date: Date) -> CalendarWeek.Relation {
-		guard let userData = _userData else {
-			return CalendarWeek.Relation(rawValue: 0)
+	var lastRated: LastRated {
+		guard let user = _userData else {
+			return LastRated(rawValue: 0)
 		}
 
-		let relationOne = userData.ratedOne.calenderWeekRelation(forDate: date)
-		let relationTwo = userData.ratedTwo.calenderWeekRelation(forDate: date)
-
-		return relationOne.union(relationTwo)
+		return user.lastRated
 	}
 
 	func companyID(forEmail mail: String) -> String? {
@@ -78,13 +75,9 @@ class UserLoginService {
 			return false
 		}
 
-		var dates = [date.timeIntervalSince1970, old.ratedOne.timeIntervalSince1970, old.ratedTwo.timeIntervalSince1970].sorted()
+		let rated = old.lastRated.union(LastRated.this).rawValue
 
-		let ratedOne = dates.last
-		dates.removeLast()
-		let ratedTwo = dates.last
-
-		let user = UserData(UID: old.UID, company: old.company, score: old.score, ratedOne: ratedOne, ratedTwo: ratedTwo, securityQuestion: old.securityQuestion, securityAnswer: old.securityAnswer)
+		let user = UserData(UID: old.UID, company: old.company, score: old.score, lastRated: rated, lastRatedDate: date.timeIntervalSince1970, securityQuestion: old.securityQuestion, securityAnswer: old.securityAnswer)
 
 		_userData = user
 
@@ -169,12 +162,12 @@ class UserLoginService {
 
 			let company = data[DBValueKeys.User.company.rawValue] as? String
 			let score = data[DBValueKeys.User.score.rawValue] as? Int
-			let ratedOne = data[DBValueKeys.User.ratedOne.rawValue] as? Double
-			let ratedTwo = data[DBValueKeys.User.ratedTwo.rawValue] as? Double
+			let lastRated = data[DBValueKeys.User.lastRated.rawValue] as? Int
+			let lastRatedDate = data[DBValueKeys.User.lastRatedDate.rawValue] as? Double
 			let securityQuestion = data[DBValueKeys.User.securityQuestion.rawValue] as? String
 			let securityAnswer = data[DBValueKeys.User.securityAnswer.rawValue] as? String
 
-			let user = UserData(UID: uid, company: company, score: score, ratedOne: ratedOne, ratedTwo: ratedTwo, securityQuestion: securityQuestion, securityAnswer: securityAnswer)
+			let user = UserData(UID: uid, company: company, score: score, lastRated: lastRated, lastRatedDate: lastRatedDate, securityQuestion: securityQuestion, securityAnswer: securityAnswer)
 
 			self._userData = user
 			NSLog("[JD] Got User data from Firebase")

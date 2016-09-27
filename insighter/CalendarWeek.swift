@@ -24,17 +24,13 @@ struct CalendarWeek: Equatable {
 
 	// MARK: - Initialization
 
-	init() {
-		self.date = Date()
-	}
-
-	init(withDate date: Date) {
+	init(withDate date: Date = Date()) {
 		self.date = date
 	}
-    
-    init(withTimeInterval ti: TimeInterval) {
-        self.date = Date(timeIntervalSince1970: ti)
-    }
+
+	init(withTimeInterval ti: TimeInterval) {
+		self.date = Date(timeIntervalSince1970: ti)
+	}
 
 	// MARK: - Internal Methods
 
@@ -43,7 +39,7 @@ struct CalendarWeek: Equatable {
 	}
 
 	func calendarWeek(inWeeks weeks: Int) -> String {
-		let timeInterval: TimeInterval = Double(weeks) * 7 * 24 * 60 * 60
+		let timeInterval = Double(weeks) * 7 * 24 * 60 * 60
 		let date = self.date.addingTimeInterval(timeInterval)
 
 		return calWeek(date)
