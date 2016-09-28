@@ -235,16 +235,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-        1312E7D41D9A952F00D635E8 /* App */ = {
-            isa = PBXGroup;
-            children = (
-                13A03D7D1CF1109E00920838 /* AppDelegate.swift */,
-                13233B661D76C403000D825B /* NavigationController.swift */,
-                1312E7D21D9A91BF00D635E8 /* NavigationDelegate.swift */,
-            );
-            name = App;
-            sourceTree = "<group>";
-        };
+		1312E7D41D9A952F00D635E8 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				13A03D7D1CF1109E00920838 /* AppDelegate.swift */,
+				13233B661D76C403000D825B /* NavigationController.swift */,
+				1312E7D21D9A91BF00D635E8 /* NavigationDelegate.swift */,
+			);
+			name = App;
+			sourceTree = "<group>";
+		};
 		1312E7D71D9AE7F300D635E8 /* JDViews */ = {
 			isa = PBXGroup;
 			children = (
