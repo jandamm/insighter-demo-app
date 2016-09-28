@@ -75,9 +75,11 @@ class UserLoginService {
 			return false
 		}
 
-		let rated = old.lastRated.union(LastRated.this).rawValue
+		let rated = old.lastRated.union(LastRated.this)
 
-		let user = UserData(UID: old.UID, company: old.company, score: old.score, lastRated: rated, lastRatedDate: date.timeIntervalSince1970, securityQuestion: old.securityQuestion, securityAnswer: old.securityAnswer)
+		let score = old.score + rated.ratingScore()
+
+		let user = UserData(UID: old.UID, company: old.company, score: score, lastRated: rated.rawValue, lastRatedDate: date.timeIntervalSince1970, securityQuestion: old.securityQuestion, securityAnswer: old.securityAnswer)
 
 		_userData = user
 

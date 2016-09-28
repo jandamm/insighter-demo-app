@@ -49,7 +49,7 @@ struct UserData: Equatable, FIRUploadable {
 			out[key.company.rawValue] = company as AnyObject
 		}
 		if score > 0 {
-			out[key.score.rawValue] = key as AnyObject
+			out[key.score.rawValue] = score as AnyObject
 		}
 		if lastRated.realValue > 0 {
 			out[key.lastRated.rawValue] = lastRated.realValue as AnyObject
