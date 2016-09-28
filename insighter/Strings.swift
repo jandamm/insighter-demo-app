@@ -1,5 +1,5 @@
 //
-//  StringExtension.swift
+//  Strings.swift
 //  insighter
 //
 //  Created by Jan Dammshäuser on 11.08.16.

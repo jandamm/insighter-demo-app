@@ -23,7 +23,7 @@
 		13517B481D5BAE59002B74AD /* Shakeable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13517B471D5BAE59002B74AD /* Shakeable.swift */; };
 		13517B4A1D5BBF7D002B74AD /* TextResettable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13517B491D5BBF7D002B74AD /* TextResettable.swift */; };
 		13517B4C1D5CD97E002B74AD /* FIRLoginable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13517B4B1D5CD97E002B74AD /* FIRLoginable.swift */; };
-		13517B4E1D5CEA5B002B74AD /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13517B4D1D5CEA5B002B74AD /* StringExtension.swift */; };
+		13517B4E1D5CEA5B002B74AD /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13517B4D1D5CEA5B002B74AD /* Strings.swift */; };
 		13517B501D5D06B9002B74AD /* FIRUploadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13517B4F1D5D06B9002B74AD /* FIRUploadable.swift */; };
 		135C5C141D97EBF100F9C5A0 /* JDSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135C5C131D97EBF100F9C5A0 /* JDSwitch.swift */; };
 		135C5C161D98407C00F9C5A0 /* Touchable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135C5C151D98407C00F9C5A0 /* Touchable.swift */; };
@@ -44,7 +44,7 @@
 		138C725E1D58B3680049561A /* DBValueKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 138C725D1D58B3680049561A /* DBValueKeys.swift */; };
 		138C72601D58B9F10049561A /* StringReturningEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 138C725F1D58B9F10049561A /* StringReturningEnum.swift */; };
 		138C72621D58BE3F0049561A /* DBPathKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 138C72611D58BE3F0049561A /* DBPathKeys.swift */; };
-		13925BB51D63765E00BA554C /* NumberExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13925BB41D63765E00BA554C /* NumberExtension.swift */; };
+		13925BB51D63765E00BA554C /* Numbers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13925BB41D63765E00BA554C /* Numbers.swift */; };
 		13A03D7E1CF1109E00920838 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A03D7D1CF1109E00920838 /* AppDelegate.swift */; };
 		13A03D801CF1109E00920838 /* IntroVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A03D7F1CF1109E00920838 /* IntroVC.swift */; };
 		13A03D881CF1109E00920838 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13A03D871CF1109E00920838 /* Assets.xcassets */; };
@@ -125,7 +125,7 @@
 		13517B471D5BAE59002B74AD /* Shakeable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shakeable.swift; sourceTree = "<group>"; };
 		13517B491D5BBF7D002B74AD /* TextResettable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextResettable.swift; sourceTree = "<group>"; };
 		13517B4B1D5CD97E002B74AD /* FIRLoginable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FIRLoginable.swift; sourceTree = "<group>"; };
-		13517B4D1D5CEA5B002B74AD /* StringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		13517B4D1D5CEA5B002B74AD /* Strings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		13517B4F1D5D06B9002B74AD /* FIRUploadable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FIRUploadable.swift; sourceTree = "<group>"; };
 		135C5C131D97EBF100F9C5A0 /* JDSwitch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JDSwitch.swift; sourceTree = "<group>"; };
 		135C5C151D98407C00F9C5A0 /* Touchable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Touchable.swift; sourceTree = "<group>"; };
@@ -146,7 +146,7 @@
 		138C725D1D58B3680049561A /* DBValueKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBValueKeys.swift; sourceTree = "<group>"; };
 		138C725F1D58B9F10049561A /* StringReturningEnum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringReturningEnum.swift; sourceTree = "<group>"; };
 		138C72611D58BE3F0049561A /* DBPathKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBPathKeys.swift; sourceTree = "<group>"; };
-		13925BB41D63765E00BA554C /* NumberExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumberExtension.swift; sourceTree = "<group>"; };
+		13925BB41D63765E00BA554C /* Numbers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Numbers.swift; sourceTree = "<group>"; };
 		13A03D7A1CF1109E00920838 /* insighter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = insighter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13A03D7D1CF1109E00920838 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		13A03D7F1CF1109E00920838 /* IntroVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroVC.swift; sourceTree = "<group>"; };
@@ -246,6 +246,41 @@
 				13BF4DE01D71E9F500035D84 /* JDTextView.swift */,
 			);
 			name = JDViews;
+			sourceTree = "<group>";
+		};
+		1312E7D81D9BBF7400D635E8 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				13A5B9A01D59F2E2008EBDF3 /* TextStylable.swift */,
+				1340AC7F1D5A19E1008499CE /* TextRemoteConfigable.swift */,
+				13517B491D5BBF7D002B74AD /* TextResettable.swift */,
+				137EB89A1D620D7500ACC8F9 /* Flashable.swift */,
+				13517B471D5BAE59002B74AD /* Shakeable.swift */,
+				135C5C151D98407C00F9C5A0 /* Touchable.swift */,
+			);
+			name = Protocols;
+			sourceTree = "<group>";
+		};
+		1312E7D91D9BBF9A00D635E8 /* Style */ = {
+			isa = PBXGroup;
+			children = (
+				1338777A1D62529D00FAF762 /* InsighterKit.swift */,
+				13A5B99E1D59F250008EBDF3 /* Style.swift */,
+				137EB8961D61EA1500ACC8F9 /* RatingColors.swift */,
+			);
+			name = Style;
+			sourceTree = "<group>";
+		};
+		1312E7DA1D9BBFAD00D635E8 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				138C725F1D58B9F10049561A /* StringReturningEnum.swift */,
+				13517B4D1D5CEA5B002B74AD /* Strings.swift */,
+				13925BB41D63765E00BA554C /* Numbers.swift */,
+				13517B4B1D5CD97E002B74AD /* FIRLoginable.swift */,
+				13517B4F1D5D06B9002B74AD /* FIRUploadable.swift */,
+			);
+			name = Protocols;
 			sourceTree = "<group>";
 		};
 		132A5EB81D58A27700448DAC /* Misc */ = {
@@ -358,20 +393,13 @@
 			children = (
 				13A03D891CF1109E00920838 /* LaunchScreen.storyboard */,
 				13D489C01D75CFD9003D39C5 /* VCs */,
-				1338777A1D62529D00FAF762 /* InsighterKit.swift */,
-				13A5B99E1D59F250008EBDF3 /* Style.swift */,
-				137EB8961D61EA1500ACC8F9 /* RatingColors.swift */,
 				1312E7D71D9AE7F300D635E8 /* JDViews */,
-				138C72551D58AB260049561A /* LoadingView.swift */,
-				13A5B9A01D59F2E2008EBDF3 /* TextStylable.swift */,
-				1340AC7F1D5A19E1008499CE /* TextRemoteConfigable.swift */,
-				13517B491D5BBF7D002B74AD /* TextResettable.swift */,
-				13517B471D5BAE59002B74AD /* Shakeable.swift */,
+				1312E7D91D9BBF9A00D635E8 /* Style */,
+				1312E7D81D9BBF7400D635E8 /* Protocols */,
 				137EB8921D61D77E00ACC8F9 /* RatingSlider.swift */,
+				138C72551D58AB260049561A /* LoadingView.swift */,
 				1311FE291D8EFCB000362886 /* AverageBar.swift */,
-				137EB89A1D620D7500ACC8F9 /* Flashable.swift */,
 				1311FE671D8FBCEC00362886 /* RatingDisplayView.swift */,
-				135C5C151D98407C00F9C5A0 /* Touchable.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -379,18 +407,14 @@
 		13A03DB01CF1165D00920838 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				138C725F1D58B9F10049561A /* StringReturningEnum.swift */,
+				1312E7DA1D9BBFAD00D635E8 /* Protocols */,
 				13ED7E911D5DD32E0017CF8A /* Company.swift */,
 				131C8D051D59E1D100A2EE8C /* UserData.swift */,
 				1329B0381D5B12EE004AE52B /* CalendarWeek.swift */,
 				1312E7D51D9ACC7200D635E8 /* LastRated.swift */,
 				1329B0441D5B4901004AE52B /* RatingQuestion.swift */,
 				137EB8981D61FECD00ACC8F9 /* RatingAnswer.swift */,
-				13517B4D1D5CEA5B002B74AD /* StringExtension.swift */,
-				13517B4B1D5CD97E002B74AD /* FIRLoginable.swift */,
-				13517B4F1D5D06B9002B74AD /* FIRUploadable.swift */,
 				137EB8941D61E67900ACC8F9 /* Rating.swift */,
-				13925BB41D63765E00BA554C /* NumberExtension.swift */,
 				138A432E1D8E70E000680299 /* Average.swift */,
 			);
 			name = Model;
@@ -782,8 +806,8 @@
 				13A03D801CF1109E00920838 /* IntroVC.swift in Sources */,
 				138A432F1D8E70E000680299 /* Average.swift in Sources */,
 				137EB88A1D6101D100ACC8F9 /* RatingVC.swift in Sources */,
-				13517B4E1D5CEA5B002B74AD /* StringExtension.swift in Sources */,
-				13925BB51D63765E00BA554C /* NumberExtension.swift in Sources */,
+				13517B4E1D5CEA5B002B74AD /* Strings.swift in Sources */,
+				13925BB51D63765E00BA554C /* Numbers.swift in Sources */,
 				138C72601D58B9F10049561A /* StringReturningEnum.swift in Sources */,
 				1311FE681D8FBCEC00362886 /* RatingDisplayView.swift in Sources */,
 				13517B4A1D5BBF7D002B74AD /* TextResettable.swift in Sources */,

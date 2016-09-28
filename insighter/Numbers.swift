@@ -1,5 +1,5 @@
 //
-//  IntExtension.swift
+//  Numbers.swift
 //  insighter
 //
 //  Created by Jan Dammshäuser on 16.08.16.
