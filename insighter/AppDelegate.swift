@@ -16,8 +16,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	var window: UIWindow?
 
 	var appCoordinator: JDCoordinator!
-    var rootViewController: UINavigationController!
-    var navigationDelegate: JDNavigationDelegate!
+	var rootViewController: UINavigationController!
+	var navigationDelegate: JDNavigationDelegate!
 
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 		FIRApp.configure()
