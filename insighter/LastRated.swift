@@ -28,6 +28,26 @@ struct LastRated: OptionSet {
 		self.rawValue = realValue * LastRated.multiplier(forDate: ti)
 	}
 
+	func ratingScore(forWeek week: LastRated = [.this, .last, .prev]) -> Double {
+		var score: Double = 0
+
+		if self.contains(.this) && week.contains(.this) {
+			score += RemoteConfig.shared.getDouble(forKey: .Score_This_Week)
+		}
+		if self.contains(.last) && week.contains(.last) {
+			score += RemoteConfig.shared.getDouble(forKey: .Score_Last_Week)
+		}
+		if self.contains(.prev) && week.contains(.prev) {
+			score += RemoteConfig.shared.getDouble(forKey: .Score_Prev_Week)
+		}
+
+		return score
+	}
+
+	func ratingScore(forWeek week: LastRated = [.this, .last, .prev]) -> String {
+		return ratingScore(forWeek: week).asScore
+	}
+
 	private static func multiplier(forDate ti: TimeInterval) -> Int {
 		let weeks = (-Date(timeIntervalSince1970: ti).timeIntervalSinceNow / 7 / 24 / 60 / 60).rounded(.down)
 		let multiplier = pow(2, weeks)

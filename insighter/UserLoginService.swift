@@ -161,7 +161,7 @@ class UserLoginService {
 			}
 
 			let company = data[DBValueKeys.User.company.rawValue] as? String
-			let score = data[DBValueKeys.User.score.rawValue] as? Int
+			let score = data[DBValueKeys.User.score.rawValue] as? Double
 			let lastRated = data[DBValueKeys.User.lastRated.rawValue] as? Int
 			let lastRatedDate = data[DBValueKeys.User.lastRatedDate.rawValue] as? Double
 			let securityQuestion = data[DBValueKeys.User.securityQuestion.rawValue] as? String

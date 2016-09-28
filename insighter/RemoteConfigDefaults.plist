@@ -125,5 +125,11 @@ voll zu</string>
 	<string>zur Vorwoche</string>
 	<key>Eva_Comp_Verlauf_Lbl</key>
 	<string>Engagement im Zeitverlauf:</string>
+	<key>Score_This_Week</key>
+	<integer>100</integer>
+	<key>Score_Last_Week</key>
+	<integer>50</integer>
+	<key>Score_Prev_Week</key>
+	<integer>25</integer>
 </dict>
 </plist>

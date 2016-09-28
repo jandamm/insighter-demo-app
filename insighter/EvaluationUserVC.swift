@@ -17,11 +17,8 @@ class EvaluationUserVC: UIViewController {
 	@IBOutlet weak var fbScoreTotalLbl: JDLabel!
 	@IBOutlet weak var fbRewardLbl: JDLabel!
 	@IBOutlet weak var fbScoreView: UIStackView!
-	@IBOutlet weak var fbScoreThisView: UIStackView!
 	@IBOutlet weak var fbScoreThisLbl: JDLabel!
-	@IBOutlet weak var fbScoreLastView: UIStackView!
 	@IBOutlet weak var fbScoreLastLbl: JDLabel!
-	@IBOutlet weak var fbScorePrevView: UIStackView!
 	@IBOutlet weak var fbScorePrevLbl: JDLabel!
 	@IBOutlet weak var fbScoreSumLbl: JDLabel!
 
@@ -65,25 +62,10 @@ class EvaluationUserVC: UIViewController {
 			return
 		}
 
-		var score: Double = 0
+		fbScoreThisLbl.text = lastRated.ratingScore(forWeek: .this)
+		fbScoreLastLbl.text = lastRated.ratingScore(forWeek: .last)
+		fbScorePrevLbl.text = lastRated.ratingScore(forWeek: .prev)
 
-		fbScoreThisView.isHidden = lastRated.isDisjoint(with: .this)
-		fbScoreLastView.isHidden = lastRated.isDisjoint(with: .last)
-		fbScorePrevLbl.isHidden = lastRated.isDisjoint(with: .prev)
-
-		if lastRated.contains(.this) {
-			score += 100
-			fbScoreThisLbl.text = "100"
-		}
-		if lastRated.contains(.last) {
-			score += 50
-			fbScoreLastLbl.text = "50"
-		}
-		if lastRated.contains(.prev) {
-			score += 25
-			fbScorePrevLbl.text = "25"
-		}
-
-		fbScoreSumLbl.text = "+\(score)"
+		fbScoreSumLbl.text = lastRated.ratingScore()
 	}
 }

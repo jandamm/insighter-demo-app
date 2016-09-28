@@ -9,12 +9,9 @@
             <connections>
                 <outlet property="fbRewardLbl" destination="Lfm-ZQ-O7w" id="edt-I0-TXv"/>
                 <outlet property="fbScoreLastLbl" destination="sCR-iH-JCQ" id="N6m-Gr-xFT"/>
-                <outlet property="fbScoreLastView" destination="3a3-p1-51z" id="ThQ-y8-x7V"/>
                 <outlet property="fbScorePrevLbl" destination="Q1l-D0-Szx" id="U5D-RT-mZZ"/>
-                <outlet property="fbScorePrevView" destination="rGv-9C-bpx" id="ICe-jY-1N3"/>
                 <outlet property="fbScoreSumLbl" destination="m7b-H0-XT9" id="hPh-CK-Yn1"/>
                 <outlet property="fbScoreThisLbl" destination="AGJ-BS-IWK" id="IpB-cP-ZnC"/>
-                <outlet property="fbScoreThisView" destination="YqB-Jy-u39" id="hAB-sI-P8Y"/>
                 <outlet property="fbScoreTotalLbl" destination="Vnl-7Y-vug" id="4dh-HD-Qo0"/>
                 <outlet property="fbScoreView" destination="3PT-Op-Qtz" id="eN2-iu-s6N"/>
                 <outlet property="userRatingDiffLbl" destination="uNg-Q8-bci" id="jgY-bM-aCz"/>
@@ -101,14 +98,11 @@
                                 <constraint firstAttribute="height" constant="52" id="cNd-Ft-73P"/>
                             </constraints>
                         </imageView>
-                        <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="2KC-g2-oG4">
-                            <frame key="frameInset" minY="375" width="311" height="49"/>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="2KC-g2-oG4">
                             <subviews>
-                                <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="QJ4-w0-BJ2">
-                                    <frame key="frameInset" width="311" height="21"/>
+                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="QJ4-w0-BJ2">
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4WB-Yk-awf" customClass="JDLabel" customModule="insighter" customModuleProvider="target">
-                                            <frame key="frameInset" width="156" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4WB-Yk-awf" customClass="JDLabel" customModule="insighter" customModuleProvider="target">
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -116,8 +110,7 @@
                                                 <userDefinedRuntimeAttribute type="string" keyPath="remoteConfigKey" value="Eva_User_Feedback_Title_Lbl"/>
                                             </userDefinedRuntimeAttributes>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vnl-7Y-vug" customClass="JDLabel" customModule="insighter" customModuleProvider="target">
-                                            <frame key="frameInset" minX="156" width="156" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vnl-7Y-vug" customClass="JDLabel" customModule="insighter" customModuleProvider="target">
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -127,8 +120,7 @@
                                         </label>
                                     </subviews>
                                 </stackView>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lfm-ZQ-O7w" customClass="JDLabel" customModule="insighter" customModuleProvider="target">
-                                    <frame key="frameInset" minY="29" width="311" height="21"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lfm-ZQ-O7w" customClass="JDLabel" customModule="insighter" customModuleProvider="target">
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
@@ -138,11 +130,9 @@
                                 </label>
                             </subviews>
                         </stackView>
-                        <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="3PT-Op-Qtz">
-                            <frame key="frameInset" minY="472" width="311" height="124"/>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="3PT-Op-Qtz">
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qPo-SZ-rcn" customClass="JDLabel" customModule="insighter" customModuleProvider="target">
-                                    <frame key="frameInset" width="311" height="21"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qPo-SZ-rcn" customClass="JDLabel" customModule="insighter" customModuleProvider="target">
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
@@ -150,17 +140,13 @@
                                         <userDefinedRuntimeAttribute type="string" keyPath="remoteConfigKey" value="Eva_User_Punkte_Title_Lbl"/>
                                     </userDefinedRuntimeAttributes>
                                 </label>
-                                <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="o1H-B5-tPP">
-                                    <frame key="frameInset" minY="33" width="311" height="91"/>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="o1H-B5-tPP">
                                     <subviews>
-                                        <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="9Gz-Xu-yyA">
-                                            <frame key="frameInset" width="311" height="63"/>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="9Gz-Xu-yyA">
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="YqB-Jy-u39">
-                                                    <frame key="frameInset" width="311" height="21"/>
+                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="YqB-Jy-u39">
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c7a-fa-YFv" customClass="JDLabel" customModule="insighter" customModuleProvider="target">
-                                                            <frame key="frameInset" width="156" height="21"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c7a-fa-YFv" customClass="JDLabel" customModule="insighter" customModuleProvider="target">
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -169,8 +155,7 @@
                                                                 <userDefinedRuntimeAttribute type="string" keyPath="remoteConfigKey" value="Eva_User_Punkte_Top_Lbl"/>
                                                             </userDefinedRuntimeAttributes>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AGJ-BS-IWK" customClass="JDLabel" customModule="insighter" customModuleProvider="target">
-                                                            <frame key="frameInset" minX="156" width="156" height="21"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AGJ-BS-IWK" customClass="JDLabel" customModule="insighter" customModuleProvider="target">
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -180,11 +165,9 @@
                                                         </label>
                                                     </subviews>
                                                 </stackView>
-                                                <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="3a3-p1-51z">
-                                                    <frame key="frameInset" minY="21" width="311" height="21"/>
+                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="3a3-p1-51z">
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="St6-Dc-n5t" customClass="JDLabel" customModule="insighter" customModuleProvider="target">
-                                                            <frame key="frameInset" width="156" height="21"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="St6-Dc-n5t" customClass="JDLabel" customModule="insighter" customModuleProvider="target">
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -193,8 +176,7 @@
                                                                 <userDefinedRuntimeAttribute type="string" keyPath="remoteConfigKey" value="Eva_User_Punkte_Middle_Lbl"/>
                                                             </userDefinedRuntimeAttributes>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sCR-iH-JCQ" customClass="JDLabel" customModule="insighter" customModuleProvider="target">
-                                                            <frame key="frameInset" minX="156" width="156" height="21"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sCR-iH-JCQ" customClass="JDLabel" customModule="insighter" customModuleProvider="target">
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -204,11 +186,9 @@
                                                         </label>
                                                     </subviews>
                                                 </stackView>
-                                                <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="rGv-9C-bpx">
-                                                    <frame key="frameInset" minY="41" width="311" height="21"/>
+                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="rGv-9C-bpx">
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ncj-aA-OlB" customClass="JDLabel" customModule="insighter" customModuleProvider="target">
-                                                            <frame key="frameInset" width="156" height="21"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ncj-aA-OlB" customClass="JDLabel" customModule="insighter" customModuleProvider="target">
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -217,8 +197,7 @@
                                                                 <userDefinedRuntimeAttribute type="string" keyPath="remoteConfigKey" value="Eva_User_Punkte_Bottom_Lbl"/>
                                                             </userDefinedRuntimeAttributes>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q1l-D0-Szx" customClass="JDLabel" customModule="insighter" customModuleProvider="target">
-                                                            <frame key="frameInset" minX="156" width="156" height="21"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q1l-D0-Szx" customClass="JDLabel" customModule="insighter" customModuleProvider="target">
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -228,8 +207,7 @@
                                                         </label>
                                                     </subviews>
                                                 </stackView>
-                                                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Iq8-SX-0Iy">
-                                                    <frame key="frameInset" minY="62" width="311" height="1"/>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Iq8-SX-0Iy">
                                                     <color key="backgroundColor" red="0.0" green="0.61176470588235299" blue="0.87450980392156863" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="1" id="inu-AF-yJD"/>
@@ -237,11 +215,9 @@
                                                 </view>
                                             </subviews>
                                         </stackView>
-                                        <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="Xc1-PJ-5m9">
-                                            <frame key="frameInset" minY="71" width="311" height="21"/>
+                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="Xc1-PJ-5m9">
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R6m-Lf-Ve8" customClass="JDLabel" customModule="insighter" customModuleProvider="target">
-                                                    <frame key="frameInset" width="156" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R6m-Lf-Ve8" customClass="JDLabel" customModule="insighter" customModuleProvider="target">
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -250,8 +226,7 @@
                                                         <userDefinedRuntimeAttribute type="string" keyPath="remoteConfigKey" value="Eva_User_Punkte_Sum_Lbl"/>
                                                     </userDefinedRuntimeAttributes>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m7b-H0-XT9" customClass="JDLabel" customModule="insighter" customModuleProvider="target">
-                                                    <frame key="frameInset" minX="156" width="156" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m7b-H0-XT9" customClass="JDLabel" customModule="insighter" customModuleProvider="target">
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>

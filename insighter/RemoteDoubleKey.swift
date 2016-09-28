@@ -12,4 +12,8 @@ enum RemoteDoubleKey: String, StringReturningEnum {
 	case _ERROR_
 
 	case Max_Points
+
+	case Score_This_Week
+	case Score_Last_Week
+	case Score_Prev_Week
 }
