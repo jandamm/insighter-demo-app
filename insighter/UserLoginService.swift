@@ -158,7 +158,9 @@ class UserLoginService {
 		REF_USER.child(uid).observeSingleEvent(of: .value, with: { snapshot in
 			guard snapshot.exists(), let data = snapshot.value as? [String: AnyObject] else {
 				NSLog("[JD] No User data available in Firebase")
-				self.complete(completion, withForcedValue: forcedCompletionValue, andRealValue: false)
+				self.signOutUser() { _ in
+					self.complete(completion, withForcedValue: false, andRealValue: false)
+				}
 				return
 			}
 
