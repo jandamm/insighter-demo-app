@@ -114,6 +114,7 @@
 		1311FE671D8FBCEC00362886 /* RatingDisplayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingDisplayView.swift; sourceTree = "<group>"; };
 		1312E7D21D9A91BF00D635E8 /* NavigationDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationDelegate.swift; sourceTree = "<group>"; };
 		1312E7D51D9ACC7200D635E8 /* LastRated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LastRated.swift; sourceTree = "<group>"; };
+		1312E7DB1D9C117100D635E8 /* insighter.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = insighter.entitlements; sourceTree = "<group>"; };
 		131C8D031D59DF3900A2EE8C /* RemoteConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteConfig.swift; sourceTree = "<group>"; };
 		131C8D051D59E1D100A2EE8C /* UserData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		13233B661D76C403000D825B /* NavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
@@ -299,6 +300,7 @@
 			isa = PBXGroup;
 			children = (
 				13A03D8C1CF1109E00920838 /* Info.plist */,
+				1312E7DB1D9C117100D635E8 /* insighter.entitlements */,
 				132A5EB91D58A28400448DAC /* GoogleService-Info.plist */,
 				1340AC7B1D5A0E89008499CE /* RemoteConfigDefaults.plist */,
 				1340AC7D1D5A0EB0008499CE /* RemoteStringKey.swift */,
@@ -584,6 +586,11 @@
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = 7TCLF98BX7;
 						LastSwiftMigration = 0800;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					13A03D901CF1109E00920838 = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -1015,6 +1022,7 @@
 			baseConfigurationReference = 6DF52CA7CBBCD29BD959C9E8 /* Pods-insighter.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = insighter/insighter.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = insighter/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -1031,6 +1039,7 @@
 			baseConfigurationReference = 2B1A7C62CD2140921EA62CD8 /* Pods-insighter.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = insighter/insighter.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = insighter/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
