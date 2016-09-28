@@ -15,7 +15,7 @@ target 'insighter' do
   pod 'JGProgressHUD'
   pod 'NextResponderTextField', '~> 1.2.0'
   
-#  pod 'JDTransition'
+  pod 'JDTransition'
   pod 'JDCoordinator'
 
   target 'insighterTests' do
