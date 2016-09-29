@@ -1,7 +1,7 @@
 Fragen:
 
 [company]:
-	Wird ersetzt durch den aktuellen Firmenname.
+	Wird ersetzt durch den aktuellen Firmennamen.
 
 RemoteConfig:
 
@@ -15,4 +15,3 @@ Notif_Trigger_Weekday
 Notif_Trigger_Hour
 	Uhrzeit an der die Benachrichtigung stattfinden soll (Int: 0-23)
 	Minuten/Sekunden hängen von der Erstellung der Benachrichtigung ab
-
