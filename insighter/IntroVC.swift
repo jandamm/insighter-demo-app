@@ -15,51 +15,23 @@ class IntroVC: UIViewController {
 
 	// MARK: - Outlets
 
-	@IBOutlet weak var logoVerticalCenterConstraint: NSLayoutConstraint!
-	@IBOutlet weak var loadingSpinnerView: LoadingView!
+	@IBOutlet weak var introView: IntroAnimationView!
 
 	// MARK: - Startup
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
-		if !self.animated {
-			setupScreen()
-			applyScreen()
-		}
+		introView.addIntroViewAnimation(removedOnCompletion: false)
 	}
 
 	override func viewDidAppear(_ animated: Bool) {
 		super.viewDidAppear(animated)
 
-		spinnerStart()
+		introView.removeIntroViewAnimation()
 
-		if self.animated {
-			introAnimationStart()
+		introView.addIntroAnimation(removedOnCompletion: true) { [weak self] finished in
+			self?.introView.addLoadingAnimation()
 		}
-	}
-
-	// MARK: - Animation
-
-	fileprivate func introAnimationStart() {
-		setupScreen()
-
-		UIView.animate(withDuration: 0.5, animations: { [weak self] in
-			self?.applyScreen()
-		})
-	}
-
-	fileprivate func setupScreen() {
-		loadingSpinnerView.alpha = 0
-		logoVerticalCenterConstraint.constant = -45
-	}
-
-	fileprivate func applyScreen() {
-		self.view.layoutIfNeeded()
-		self.loadingSpinnerView.alpha = 1
-	}
-
-	fileprivate func spinnerStart() {
-		loadingSpinnerView.animationStart()
 	}
 }

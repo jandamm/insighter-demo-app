@@ -1,14 +1,13 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11201"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="IntroVC" customModule="insighter" customModuleProvider="target">
             <connections>
-                <outlet property="loadingSpinnerView" destination="wEI-Ta-wFg" id="s1G-8o-kia"/>
-                <outlet property="logoVerticalCenterConstraint" destination="xSd-gu-5Vn" id="CWG-Mj-6vx"/>
+                <outlet property="introView" destination="QFx-Qg-8o3" id="XeQ-1g-ZdW"/>
                 <outlet property="view" destination="VBi-V6-WAU" id="snZ-0s-CV5"/>
             </connections>
         </placeholder>
@@ -17,26 +16,19 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wEI-Ta-wFg" customClass="LoadingView" customModule="insighter" customModuleProvider="target">
-                    <color key="backgroundColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QFx-Qg-8o3" customClass="IntroAnimationView" customModule="insighter" customModuleProvider="target">
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="30" id="Sqi-MX-Z4P"/>
-                        <constraint firstAttribute="width" constant="30" id="zEB-GZ-fMX"/>
+                        <constraint firstAttribute="width" constant="280" id="77A-DA-6dO"/>
+                        <constraint firstAttribute="height" constant="280" id="tR0-vW-bgp"/>
                     </constraints>
                 </view>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-insighter-intro" translatesAutoresizingMaskIntoConstraints="NO" id="WlK-xi-c3u"/>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="wEI-Ta-wFg" firstAttribute="centerX" secondItem="VBi-V6-WAU" secondAttribute="centerX" id="9f6-kU-GPv"/>
-                <constraint firstAttribute="trailing" secondItem="WlK-xi-c3u" secondAttribute="trailing" constant="58" id="B15-Sw-n8L"/>
-                <constraint firstItem="WlK-xi-c3u" firstAttribute="leading" secondItem="VBi-V6-WAU" secondAttribute="leading" constant="58" id="QUE-PE-FMH"/>
-                <constraint firstItem="wEI-Ta-wFg" firstAttribute="centerY" secondItem="VBi-V6-WAU" secondAttribute="centerY" constant="40" id="bUu-hk-zJK"/>
-                <constraint firstItem="WlK-xi-c3u" firstAttribute="centerY" secondItem="VBi-V6-WAU" secondAttribute="centerY" id="xSd-gu-5Vn"/>
+                <constraint firstItem="QFx-Qg-8o3" firstAttribute="centerY" secondItem="VBi-V6-WAU" secondAttribute="centerY" id="3eJ-GD-TNy"/>
+                <constraint firstItem="QFx-Qg-8o3" firstAttribute="centerX" secondItem="VBi-V6-WAU" secondAttribute="centerX" id="Bge-Eo-GOl"/>
             </constraints>
         </view>
     </objects>
-    <resources>
-        <image name="logo-insighter-intro" width="258" height="90"/>
-    </resources>
 </document>
