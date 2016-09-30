@@ -12,7 +12,7 @@ import Firebase
 class RemoteConfig {
 	static let shared = RemoteConfig()
 
-	fileprivate let remoteConfig = FIRRemoteConfig.remoteConfig()
+	private let remoteConfig = FIRRemoteConfig.remoteConfig()
 
 	// MARK: - Initialization
 
@@ -28,15 +28,15 @@ class RemoteConfig {
 	// MARK: - External Methods
 
 	func getRemoteConfigValues(_ completion: CompletionHandlerBool?) {
-		let expDuration = remoteConfig.configSettings.isDeveloperModeEnabled ? 0 : 3600
+		let expDuration: TimeInterval = remoteConfig.configSettings.isDeveloperModeEnabled ? 0 : 3600
 
-		remoteConfig.fetch(withExpirationDuration: TimeInterval(expDuration)) { (status, error) in
+		remoteConfig.fetch(withExpirationDuration: expDuration) { (status, error) in
 			if (status == FIRRemoteConfigFetchStatus.success) {
 				self.remoteConfig.activateFetched()
 				NSLog("[JD] RemoteConfig successfully fetched and activated")
 				completion?(true)
 			} else {
-				let errorString = error == nil ? "Error unspecified" : error!.localizedDescription
+				let errorString = error?.localizedDescription ?? "Error unspecified"
 
 				NSLog("[JD] Config not fetched: \(errorString)")
 				completion?(false)
