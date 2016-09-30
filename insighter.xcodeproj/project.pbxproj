@@ -16,7 +16,6 @@
 		13233B671D76C403000D825B /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13233B661D76C403000D825B /* NavigationController.swift */; };
 		1329B0391D5B12EE004AE52B /* CalendarWeek.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1329B0381D5B12EE004AE52B /* CalendarWeek.swift */; };
 		1329B0451D5B4901004AE52B /* RatingQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1329B0441D5B4901004AE52B /* RatingQuestion.swift */; };
-		132A5EBA1D58A28400448DAC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 132A5EB91D58A28400448DAC /* GoogleService-Info.plist */; };
 		1338777B1D62529D00FAF762 /* InsighterKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1338777A1D62529D00FAF762 /* InsighterKit.swift */; };
 		1340AC7C1D5A0E89008499CE /* RemoteConfigDefaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1340AC7B1D5A0E89008499CE /* RemoteConfigDefaults.plist */; };
 		1340AC7E1D5A0EB0008499CE /* RemoteStringKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1340AC7D1D5A0EB0008499CE /* RemoteStringKey.swift */; };
@@ -78,6 +77,7 @@
 		13D489C21D75D876003D39C5 /* OnboardingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D489C11D75D876003D39C5 /* OnboardingCoordinator.swift */; };
 		13E2201E1D9DB63700723BD4 /* IntroAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E2201C1D9DB63700723BD4 /* IntroAnimationView.swift */; };
 		13E2201F1D9DB63700723BD4 /* SwipeInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E2201D1D9DB63700723BD4 /* SwipeInView.swift */; };
+		13E220211D9EA7E900723BD4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 13E220201D9EA7E900723BD4 /* GoogleService-Info.plist */; };
 		13ED7E901D5DC8CC0017CF8A /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13ED7E8F1D5DC8CC0017CF8A /* NotificationService.swift */; };
 		13ED7E921D5DD32E0017CF8A /* Company.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13ED7E911D5DD32E0017CF8A /* Company.swift */; };
 		13ED7E941D5E17D10017CF8A /* RemoteIntKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13ED7E931D5E17D10017CF8A /* RemoteIntKey.swift */; };
@@ -121,7 +121,6 @@
 		13233B661D76C403000D825B /* NavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		1329B0381D5B12EE004AE52B /* CalendarWeek.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarWeek.swift; sourceTree = "<group>"; };
 		1329B0441D5B4901004AE52B /* RatingQuestion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingQuestion.swift; sourceTree = "<group>"; };
-		132A5EB91D58A28400448DAC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1338777A1D62529D00FAF762 /* InsighterKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InsighterKit.swift; sourceTree = "<group>"; };
 		1340AC7B1D5A0E89008499CE /* RemoteConfigDefaults.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = RemoteConfigDefaults.plist; sourceTree = "<group>"; };
 		1340AC7D1D5A0EB0008499CE /* RemoteStringKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteStringKey.swift; sourceTree = "<group>"; };
@@ -189,6 +188,7 @@
 		13D489C11D75D876003D39C5 /* OnboardingCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingCoordinator.swift; sourceTree = "<group>"; };
 		13E2201C1D9DB63700723BD4 /* IntroAnimationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroAnimationView.swift; sourceTree = "<group>"; };
 		13E2201D1D9DB63700723BD4 /* SwipeInView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwipeInView.swift; sourceTree = "<group>"; };
+		13E220201D9EA7E900723BD4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		13ED7E8F1D5DC8CC0017CF8A /* NotificationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		13ED7E911D5DD32E0017CF8A /* Company.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Company.swift; sourceTree = "<group>"; };
 		13ED7E931D5E17D10017CF8A /* RemoteIntKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteIntKey.swift; sourceTree = "<group>"; };
@@ -302,8 +302,8 @@
 			isa = PBXGroup;
 			children = (
 				13A03D8C1CF1109E00920838 /* Info.plist */,
+				13E220201D9EA7E900723BD4 /* GoogleService-Info.plist */,
 				1312E7DB1D9C117100D635E8 /* insighter.entitlements */,
-				132A5EB91D58A28400448DAC /* GoogleService-Info.plist */,
 				1340AC7B1D5A0E89008499CE /* RemoteConfigDefaults.plist */,
 				1340AC7D1D5A0EB0008499CE /* RemoteStringKey.swift */,
 				13ED7E931D5E17D10017CF8A /* RemoteIntKey.swift */,
@@ -637,7 +637,6 @@
 				13D489B91D75CC31003D39C5 /* OnboardingWelcomeVC.xib in Resources */,
 				13A03D8B1CF1109E00920838 /* LaunchScreen.storyboard in Resources */,
 				1340AC7C1D5A0E89008499CE /* RemoteConfigDefaults.plist in Resources */,
-				132A5EBA1D58A28400448DAC /* GoogleService-Info.plist in Resources */,
 				13D489BD1D75CDF7003D39C5 /* LoginVC.xib in Resources */,
 				13A03D881CF1109E00920838 /* Assets.xcassets in Resources */,
 				13ED7E9A1D60985B0017CF8A /* EvaluationUserVC.xib in Resources */,
@@ -646,6 +645,7 @@
 				13D489BF1D75CE8C003D39C5 /* EvaluationVC.xib in Resources */,
 				138A43331D8E759300680299 /* AverageVC.xib in Resources */,
 				13D489B71D75CA49003D39C5 /* IntroVC.xib in Resources */,
+				13E220211D9EA7E900723BD4 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
