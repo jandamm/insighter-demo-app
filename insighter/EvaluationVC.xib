@@ -8,6 +8,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EvaluationVC" customModule="insighter" customModuleProvider="target">
             <connections>
                 <outlet property="scrollView" destination="qdH-Pj-amQ" id="ZXy-y6-KQY"/>
+                <outlet property="swipeInView" destination="TUX-mI-BuN" id="Cwb-C2-QCv"/>
                 <outlet property="view" destination="1cr-sT-EMX" id="kmc-Iq-f1g"/>
             </connections>
         </placeholder>
@@ -32,6 +33,12 @@
                         <action selector="logout:" destination="-1" eventType="touchUpInside" id="d1M-QE-kVT"/>
                     </connections>
                 </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TUX-mI-BuN" customClass="SwipeInView" customModule="insighter" customModuleProvider="target">
+                    <constraints>
+                        <constraint firstAttribute="height" constant="360" id="JA1-Pc-2Mv"/>
+                        <constraint firstAttribute="width" constant="175" id="oQm-qo-er8"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
@@ -40,7 +47,9 @@
                 <constraint firstItem="qdH-Pj-amQ" firstAttribute="leading" secondItem="1cr-sT-EMX" secondAttribute="leading" id="AgL-rv-Jhm"/>
                 <constraint firstAttribute="trailing" secondItem="qdH-Pj-amQ" secondAttribute="trailing" id="I6C-rk-G81"/>
                 <constraint firstItem="VLX-UO-0cI" firstAttribute="top" secondItem="1cr-sT-EMX" secondAttribute="top" constant="20" id="IIH-MS-kkj"/>
+                <constraint firstAttribute="trailing" secondItem="TUX-mI-BuN" secondAttribute="trailing" id="SI2-QQ-M32"/>
                 <constraint firstItem="VLX-UO-0cI" firstAttribute="leading" secondItem="1cr-sT-EMX" secondAttribute="leading" constant="20" id="aOZ-iX-KlV"/>
+                <constraint firstItem="TUX-mI-BuN" firstAttribute="centerY" secondItem="1cr-sT-EMX" secondAttribute="centerY" id="bIq-oT-lOe"/>
             </constraints>
         </view>
     </objects>

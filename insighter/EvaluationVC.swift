@@ -14,6 +14,7 @@ class EvaluationVC: UIViewController {
 	weak var delegate: EvaluationDelegate?
 
 	@IBOutlet weak var scrollView: JDPagingScrollView!
+	@IBOutlet weak var swipeInView: SwipeInView!
 
 	fileprivate var evalUserVC: EvaluationUserVC!
 	fileprivate var evalCompVC: EvaluationCompanyVC!
