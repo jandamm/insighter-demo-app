@@ -73,7 +73,7 @@ class EvaluationVC: UIViewController, UIScrollViewDelegate {
 	}
 
 	private func setAnimationTimer() {
-		let interval: TimeInterval = 3
+		let interval: TimeInterval = 5.5
 
 		if #available(iOS 10.0, *) {
 			animTimer = Timer.scheduledTimer(withTimeInterval: interval, repeats: true, block: { [weak self] _ in

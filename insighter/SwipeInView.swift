@@ -86,9 +86,9 @@ class SwipeInView: UIView, CAAnimationDelegate {
 		swipeInCircle.image = imgSwipeInCircle
 		swipeInCircle.contentMode = .center
 		swipeInCircle.bounds = CGRect(x: 0, y: 0, width: 250.0, height: 250.0)
-		swipeInCircle__root.layer.position = CGPoint(x: 127.827, y: 1.346)
+		swipeInCircle__root.layer.position = CGPoint(x: 150.043, y: 0.000)
 		swipeInCircle__xScale.transform = CGAffineTransform(scaleX: 1.00, y: 1.00)
-		swipeInCircle__yScale.transform = CGAffineTransform(scaleX: 1.00, y: 2.20)
+		swipeInCircle__yScale.transform = CGAffineTransform(scaleX: 1.00, y: 1.75)
 		swipeInCircle__root.transform = CGAffineTransform(rotationAngle: 6.281)
 		__scaling__.addSubview(swipeInCircle__root)
 		swipeInCircle__root.addSubview(swipeInCircle__xScale)
@@ -147,59 +147,28 @@ class SwipeInView: UIView, CAAnimationDelegate {
 	}
 
 	func addSwipeToNextPageAnimation(beginTime: CFTimeInterval, fillMode: String, removedOnCompletion: Bool, completion: ((Bool) -> Void)?) {
-		let linearTiming = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
 		let easeInTiming = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn)
 		let easeOutTiming = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
 		if let complete = completion {
 			let representativeAnimation = CABasicAnimation(keyPath: "not.a.real.key")
-			representativeAnimation.duration = 1.000
+			representativeAnimation.duration = 1.500
 			representativeAnimation.delegate = self
 			self.layer.add(representativeAnimation, forKey: "SwipeToNextPage")
 			self.animationCompletions[layer.animation(forKey: "SwipeToNextPage")!] = complete
 		}
 
-		let swipeInCircleOpacityAnimation = CAKeyframeAnimation(keyPath: "opacity")
-		swipeInCircleOpacityAnimation.duration = 1.000
-		swipeInCircleOpacityAnimation.values = [1.000, 0.650, 0.650, 0.000] as [Float]
-		swipeInCircleOpacityAnimation.keyTimes = [0.000, 0.375, 0.750, 1.000] as [NSNumber]
-		swipeInCircleOpacityAnimation.timingFunctions = [easeInTiming, linearTiming, easeOutTiming]
-		swipeInCircleOpacityAnimation.beginTime = beginTime
-		swipeInCircleOpacityAnimation.fillMode = fillMode
-		swipeInCircleOpacityAnimation.isRemovedOnCompletion = removedOnCompletion
-		self.viewsByName["swipe-in-circle__root"]?.layer.add(swipeInCircleOpacityAnimation, forKey: "Swipe To Next Page_Opacity")
-
-		let swipeInCircleScaleYAnimation = CAKeyframeAnimation(keyPath: "transform.scale.y")
-		swipeInCircleScaleYAnimation.duration = 1.000
-		swipeInCircleScaleYAnimation.values = [1.500, 1.500] as [Float]
-		swipeInCircleScaleYAnimation.keyTimes = [0.000, 1.000] as [NSNumber]
-		swipeInCircleScaleYAnimation.timingFunctions = [linearTiming]
-		swipeInCircleScaleYAnimation.beginTime = beginTime
-		swipeInCircleScaleYAnimation.fillMode = fillMode
-		swipeInCircleScaleYAnimation.isRemovedOnCompletion = removedOnCompletion
-		self.viewsByName["swipe-in-circle__yScale"]?.layer.add(swipeInCircleScaleYAnimation, forKey: "Swipe To Next Page_ScaleY")
-
-		let swipeInCircleTranslationXAnimation = CAKeyframeAnimation(keyPath: "transform.translation.x")
-		swipeInCircleTranslationXAnimation.duration = 1.000
-		swipeInCircleTranslationXAnimation.values = [0.000, -40.000] as [Float]
-		swipeInCircleTranslationXAnimation.keyTimes = [0.000, 1.000] as [NSNumber]
-		swipeInCircleTranslationXAnimation.timingFunctions = [easeOutTiming]
-		swipeInCircleTranslationXAnimation.beginTime = beginTime
-		swipeInCircleTranslationXAnimation.fillMode = fillMode
-		swipeInCircleTranslationXAnimation.isRemovedOnCompletion = removedOnCompletion
-		self.viewsByName["swipe-in-circle__root"]?.layer.add(swipeInCircleTranslationXAnimation, forKey: "Swipe To Next Page_TranslationX")
-
 		let swipeInArrowOpacityAnimation = CAKeyframeAnimation(keyPath: "opacity")
-		swipeInArrowOpacityAnimation.duration = 1.000
-		swipeInArrowOpacityAnimation.values = [1.000, 0.850, 0.850, 0.000] as [Float]
-		swipeInArrowOpacityAnimation.keyTimes = [0.000, 0.375, 0.750, 1.000] as [NSNumber]
-		swipeInArrowOpacityAnimation.timingFunctions = [easeInTiming, linearTiming, easeOutTiming]
+		swipeInArrowOpacityAnimation.duration = 1.500
+		swipeInArrowOpacityAnimation.values = [0.750, 0.000] as [Float]
+		swipeInArrowOpacityAnimation.keyTimes = [0.000, 1.000] as [NSNumber]
+		swipeInArrowOpacityAnimation.timingFunctions = [easeInTiming]
 		swipeInArrowOpacityAnimation.beginTime = beginTime
 		swipeInArrowOpacityAnimation.fillMode = fillMode
 		swipeInArrowOpacityAnimation.isRemovedOnCompletion = removedOnCompletion
 		self.viewsByName["swipe-in-arrow__root"]?.layer.add(swipeInArrowOpacityAnimation, forKey: "Swipe To Next Page_Opacity")
 
 		let swipeInArrowTranslationXAnimation = CAKeyframeAnimation(keyPath: "transform.translation.x")
-		swipeInArrowTranslationXAnimation.duration = 1.000
+		swipeInArrowTranslationXAnimation.duration = 1.500
 		swipeInArrowTranslationXAnimation.values = [0.000, -80.000] as [Float]
 		swipeInArrowTranslationXAnimation.keyTimes = [0.000, 1.000] as [NSNumber]
 		swipeInArrowTranslationXAnimation.timingFunctions = [easeOutTiming]
@@ -207,15 +176,34 @@ class SwipeInView: UIView, CAAnimationDelegate {
 		swipeInArrowTranslationXAnimation.fillMode = fillMode
 		swipeInArrowTranslationXAnimation.isRemovedOnCompletion = removedOnCompletion
 		self.viewsByName["swipe-in-arrow__root"]?.layer.add(swipeInArrowTranslationXAnimation, forKey: "Swipe To Next Page_TranslationX")
+
+		let swipeInCircleOpacityAnimation = CAKeyframeAnimation(keyPath: "opacity")
+		swipeInCircleOpacityAnimation.duration = 1.500
+		swipeInCircleOpacityAnimation.values = [0.750, 0.000] as [Float]
+		swipeInCircleOpacityAnimation.keyTimes = [0.000, 1.000] as [NSNumber]
+		swipeInCircleOpacityAnimation.timingFunctions = [easeInTiming]
+		swipeInCircleOpacityAnimation.beginTime = beginTime
+		swipeInCircleOpacityAnimation.fillMode = fillMode
+		swipeInCircleOpacityAnimation.isRemovedOnCompletion = removedOnCompletion
+		self.viewsByName["swipe-in-circle__root"]?.layer.add(swipeInCircleOpacityAnimation, forKey: "Swipe To Next Page_Opacity")
+
+		let swipeInCircleTranslationXAnimation = CAKeyframeAnimation(keyPath: "transform.translation.x")
+		swipeInCircleTranslationXAnimation.duration = 1.500
+		swipeInCircleTranslationXAnimation.values = [0.000, -60.000] as [Float]
+		swipeInCircleTranslationXAnimation.keyTimes = [0.000, 1.000] as [NSNumber]
+		swipeInCircleTranslationXAnimation.timingFunctions = [easeOutTiming]
+		swipeInCircleTranslationXAnimation.beginTime = beginTime
+		swipeInCircleTranslationXAnimation.fillMode = fillMode
+		swipeInCircleTranslationXAnimation.isRemovedOnCompletion = removedOnCompletion
+		self.viewsByName["swipe-in-circle__root"]?.layer.add(swipeInCircleTranslationXAnimation, forKey: "Swipe To Next Page_TranslationX")
 	}
 
 	func removeSwipeToNextPageAnimation() {
 		self.layer.removeAnimation(forKey: "SwipeToNextPage")
-		self.viewsByName["swipe-in-circle__root"]?.layer.removeAnimation(forKey: "Swipe To Next Page_Opacity")
-		self.viewsByName["swipe-in-circle__yScale"]?.layer.removeAnimation(forKey: "Swipe To Next Page_ScaleY")
-		self.viewsByName["swipe-in-circle__root"]?.layer.removeAnimation(forKey: "Swipe To Next Page_TranslationX")
 		self.viewsByName["swipe-in-arrow__root"]?.layer.removeAnimation(forKey: "Swipe To Next Page_Opacity")
 		self.viewsByName["swipe-in-arrow__root"]?.layer.removeAnimation(forKey: "Swipe To Next Page_TranslationX")
+		self.viewsByName["swipe-in-circle__root"]?.layer.removeAnimation(forKey: "Swipe To Next Page_Opacity")
+		self.viewsByName["swipe-in-circle__root"]?.layer.removeAnimation(forKey: "Swipe To Next Page_TranslationX")
 	}
 
 	// MARK: CAAnimationDelegate
