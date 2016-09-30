@@ -22,16 +22,32 @@ class IntroVC: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
-		introView.addIntroViewAnimation(removedOnCompletion: false)
+		if animated {
+			introView.addIntroViewAnimation()
+		}
 	}
 
 	override func viewDidAppear(_ animated: Bool) {
 		super.viewDidAppear(animated)
 
-		introView.removeIntroViewAnimation()
+		if self.animated {
+			introView.removeIntroViewAnimation()
 
-		introView.addIntroAnimation(removedOnCompletion: true) { [weak self] finished in
-			self?.introView.addLoadingAnimation()
+			introAnimation()
+		} else {
+			loadingAnimation()
 		}
+	}
+
+	private func introAnimation(withLoadingAnimation loading: Bool = true) {
+		introView.addIntroAnimation(removedOnCompletion: true) { [weak self] _ in
+			if loading {
+				self?.loadingAnimation()
+			}
+		}
+	}
+
+	private func loadingAnimation() {
+		introView.addLoadingAnimation()
 	}
 }
