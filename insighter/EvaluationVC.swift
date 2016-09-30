@@ -13,16 +13,26 @@ class EvaluationVC: UIViewController {
 
 	weak var delegate: EvaluationDelegate?
 
+	// MARK: - Outlets
+
 	@IBOutlet weak var scrollView: JDPagingScrollView!
 	@IBOutlet weak var swipeInView: SwipeInView!
 
-	fileprivate var evalUserVC: EvaluationUserVC!
-	fileprivate var evalCompVC: EvaluationCompanyVC!
+	private var evalUserVC: EvaluationUserVC!
+	private var evalCompVC: EvaluationCompanyVC!
+
+	// MARK: - Private Data
+
+	private var animTimer: Timer!
+
+	// MARK: - Startup
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
 		setupScrollView()
+
+		setAnimationTimer()
 	}
 
 	// MARK: - Actions
@@ -33,9 +43,27 @@ class EvaluationVC: UIViewController {
 		self.delegate?.logout()
 	}
 
+	// MARK: - Internal Methods
+
+	func swipeInAnimation() {
+		swipeInView.addSwipeToNextPageAnimation(removedOnCompletion: true)
+	}
+
 	// MARK: - Private Methods
 
-	fileprivate func setupScrollView() {
+	private func setAnimationTimer() {
+		let interval: TimeInterval = 3
+
+		if #available(iOS 10.0, *) {
+			animTimer = Timer.scheduledTimer(withTimeInterval: interval, repeats: true, block: { [weak self] _ in
+				self?.swipeInView.addSwipeToNextPageAnimation(removedOnCompletion: true)
+			})
+		} else {
+			animTimer = Timer.scheduledTimer(timeInterval: interval, target: self, selector: #selector(swipeInAnimation), userInfo: nil, repeats: true)
+		}
+	}
+
+	private func setupScrollView() {
 		evalUserVC = EvaluationUserVC()
 		evalCompVC = EvaluationCompanyVC()
 

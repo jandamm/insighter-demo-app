@@ -34,9 +34,12 @@
                     </connections>
                 </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TUX-mI-BuN" customClass="SwipeInView" customModule="insighter" customModuleProvider="target">
+                    <accessibility key="accessibilityConfiguration">
+                        <accessibilityTraits key="traits" notEnabled="YES"/>
+                    </accessibility>
                     <constraints>
-                        <constraint firstAttribute="height" constant="360" id="JA1-Pc-2Mv"/>
-                        <constraint firstAttribute="width" constant="175" id="oQm-qo-er8"/>
+                        <constraint firstAttribute="height" constant="2" id="JA1-Pc-2Mv"/>
+                        <constraint firstAttribute="width" constant="2" id="oQm-qo-er8"/>
                     </constraints>
                 </view>
             </subviews>
