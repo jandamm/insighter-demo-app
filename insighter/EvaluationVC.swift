@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class EvaluationVC: UIViewController {
+class EvaluationVC: UIViewController, UIScrollViewDelegate {
 
 	weak var delegate: EvaluationDelegate?
 
@@ -43,6 +43,19 @@ class EvaluationVC: UIViewController {
 		self.delegate?.logout()
 	}
 
+	// MARK: - UIScrollViewDelegate
+
+	func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+		let width = view.bounds.width
+		let scrollWidth = scrollView.contentOffset.x
+
+		guard width <= scrollWidth else {
+			return
+		}
+
+		cancelAnimationTimer()
+	}
+
 	// MARK: - Internal Methods
 
 	func swipeInAnimation() {
@@ -50,6 +63,14 @@ class EvaluationVC: UIViewController {
 	}
 
 	// MARK: - Private Methods
+
+	private func cancelAnimationTimer() {
+		guard let timer = animTimer else {
+			return
+		}
+
+		timer.invalidate()
+	}
 
 	private func setAnimationTimer() {
 		let interval: TimeInterval = 3
@@ -64,6 +85,8 @@ class EvaluationVC: UIViewController {
 	}
 
 	private func setupScrollView() {
+		scrollView.delegate = self
+
 		evalUserVC = EvaluationUserVC()
 		evalCompVC = EvaluationCompanyVC()
 
