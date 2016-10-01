@@ -10,7 +10,19 @@ import Foundation
 import Firebase
 
 class UserLoginService {
-	static let shared = UserLoginService()
+	private static var _shared: UserLoginService?
+
+	static var shared: UserLoginService {
+		guard let shared = _shared else {
+			_shared = UserLoginService()
+			return _shared!
+		}
+		return shared
+	}
+
+	static func unload() {
+		_shared = nil
+	}
 
 	fileprivate let REF_COMP = FIRDatabase.database().reference().child(DBPathKeys.company.rawValue)
 	fileprivate let REF_MAIL = FIRDatabase.database().reference().child(DBPathKeys.email.rawValue)

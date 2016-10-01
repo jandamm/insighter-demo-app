@@ -10,7 +10,19 @@ import Foundation
 import Firebase
 
 class DataService {
-	static let shared = DataService()
+	private static var _shared: DataService?
+
+	static var shared: DataService {
+		guard let shared = _shared else {
+			_shared = DataService()
+			return _shared!
+		}
+		return shared
+	}
+
+	static func unload() {
+		_shared = nil
+	}
 
 	fileprivate let REF = FIRDatabase.database().reference().child(DBPathKeys.company.rawValue)
 

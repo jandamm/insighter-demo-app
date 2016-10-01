@@ -50,6 +50,6 @@ class QuestionCoordinator: JDCoordinator, QuestionDelegate {
 
 		vc.delegate = self
 
-		pushViewController(vc, animated: true)
+		setViewControllers(vc, animated: true)
 	}
 }

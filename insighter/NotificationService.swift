@@ -9,7 +9,19 @@
 import UIKit
 
 class NotificationService {
-	static let shared = NotificationService()
+	private static var _shared: NotificationService?
+
+	static var shared: NotificationService {
+		guard let shared = _shared else {
+			_shared = NotificationService()
+			return _shared!
+		}
+		return shared
+	}
+
+	static func unload() {
+		_shared = nil
+	}
 
 	fileprivate let APP = UIApplication.shared
 

@@ -10,7 +10,19 @@ import Foundation
 import Firebase
 
 class RemoteConfig {
-	static let shared = RemoteConfig()
+	private static var _shared: RemoteConfig?
+
+	static var shared: RemoteConfig {
+		guard let shared = _shared else {
+			_shared = RemoteConfig()
+			return _shared!
+		}
+		return shared
+	}
+
+	static func unload() {
+		_shared = nil
+	}
 
 	private let remoteConfig = FIRRemoteConfig.remoteConfig()
 
