@@ -89,6 +89,8 @@ nicht zu</string>
 voll zu</string>
 	<key>Que_Rating_Comment_Btn</key>
 	<string>Begründung hinzufügen</string>
+	<key>Que_Rating_Commented_Btn</key>
+	<string>Begründung ändern</string>
 	<key>Que_Rating_Save_Btn</key>
 	<string>Antwort speichern</string>
 	<key>Que_Comment_Save_Btn</key>

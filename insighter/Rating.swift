@@ -27,7 +27,7 @@ struct Rating: Equatable {
 			self.slided = true
 		} else {
 			self.integer = 0
-			self.string = "0"
+			self.string = "--"
 			self.fraction = 0.5
 			self.slided = false
 		}

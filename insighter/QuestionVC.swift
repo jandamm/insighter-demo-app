@@ -142,7 +142,11 @@ class QuestionVC: UIViewController, Flashable {
 	fileprivate func stateApply() {
 		switch state {
 		case .rating:
-			upperBtn.resetRemoteConfigText()
+			if let text = ratingCommentTxtView.text, text != "" {
+				upperBtn.remoteConfigKey = RemoteStringKey.Que_Rating_Commented_Btn.rawValue
+			} else {
+				upperBtn.resetRemoteConfigText()
+			}
 			lowerBtn.resetRemoteConfigText()
 
 			upperBtn.fontStyle = TextStyle.Button.rawValue

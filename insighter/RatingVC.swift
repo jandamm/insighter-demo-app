@@ -23,6 +23,8 @@ class RatingVC: UIViewController, RatingSliderDelegate {
 		super.viewDidLoad()
 
 		ratingSlider.delegate = self
+
+		ratingSliderDidChange()
 	}
 
 	// MARK: - RatingSliderDelegate
