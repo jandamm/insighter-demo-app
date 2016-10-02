@@ -15,6 +15,8 @@ class AppCoordinator: JDParentCoordinator, AppCoordinatorDelegate {
 	// MARK: - Coordinator
 
 	override func start() {
+		UserLoginService.shared.signOutUser()
+
 		getInitialDataWithIntro(userDataOnly: false, animatedIntro: true)
 	}
 
