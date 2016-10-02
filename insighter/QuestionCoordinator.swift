@@ -9,46 +9,71 @@
 import JDCoordinator
 
 protocol QuestionDelegate: JDCoordinatorDelegate {
-	func nextQuestion()
+	func nextQuestion(withRatingAnswer answer: RatingAnswer)
 }
 
 class QuestionCoordinator: JDCoordinator, QuestionDelegate {
 
 	weak var delegate: QuestionCoordinatorDelegate?
 
-	var questions = [RatingQuestion]()
+	private var questions: [RatingQuestion]!
+
+	private var index = 0
+
+	private var lastQuestion: Bool {
+		return questions.count - 1 == index
+	}
+
+	private weak var activeVC: QuestionVC?
 
 	// MARK: - Coordinator
 
 	override func start() {
-		if questions.count > 0 {
-			showQuestionVC()
-		} else {
-			NSLog("[JD] Empty Questions")
-			questionsAsked()
+		questions = ConstantService.shared.ratingQuestions
+
+		guard questions.count > 0 else {
+			NSLog("[JD] No questions available")
+			return questionsAsked()
 		}
+
+		showQuestionVC()
 	}
 
-	func nextQuestion() {
-		questionsAsked()
+	func nextQuestion(withRatingAnswer answer: RatingAnswer) {
+		guard DataService.shared.addRating(answer, lastQuestion: lastQuestion) else {
+			return unknownError()
+		}
+
+		if lastQuestion {
+			NotificationService.shared.setupNotifications()
+
+			questionsAsked()
+		} else {
+			index += 1
+			showQuestionVC()
+		}
 	}
 
 	// MARK: - Private Methods
 
-	fileprivate func questionsAsked() {
+	private func unknownError() {
+		let HUD = JDPopup(titleKey: .ERROR_UNKNOWN_TITLE, subTitleKey: .ERROR_UNKNOWN_EXPLANATION, imageStyle: .error)
+		HUD.show(in: activeVC?.view)
+	}
+
+	private func questionsAsked() {
 		delegate?.questionsAsked(self)
 	}
 
 	// MARK: - Show Methods
 
 	fileprivate func showQuestionVC() {
-
-		// TODO: - Implement Checking for Question
-		// TODO: - Implement only one question to QuestionVC
-
-		let vc = QuestionVC(withQuestions: questions)
+		let question = questions[index]
+		let vc = QuestionVC(withQuestion: question, andQuestionNumber: index + 1)
 
 		vc.delegate = self
+
+		activeVC = vc
 
 		setViewControllers(vc, animated: true)
 	}

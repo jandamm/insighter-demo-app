@@ -32,7 +32,11 @@ class JDTextField: NextResponderTextField, TextStylable, TextRemoteConfigable, S
 
 	let fontStyle: String! = TextStyle.TextField.rawValue
 
-	var replaceStrings: [String: String]?
+	var replaceStrings: [String: String]? {
+		didSet {
+			setText()
+		}
+	}
 
 	// MARK: - Startup
 

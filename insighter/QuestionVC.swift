@@ -8,21 +8,13 @@
 
 import UIKit
 
-class QuestionVC: UIViewController, Flashable {
+class QuestionVC: UIViewController {
 
 	weak var delegate: QuestionDelegate?
 
-	fileprivate var questions = [RatingQuestion]()
-
-	fileprivate var questionsActiveIndex = 0 {
-		didSet {
-			let maxIndex = questions.count - 1
-
-			questionsActiveIndex = questionsActiveIndex.makeBetween(0, and: maxIndex)
-
-			questionSet()
-		}
-	}
+	private var question: RatingQuestion!
+	private var questionNumber: Int!
+	private let questionCount = RemoteConfig.shared.getInt(forKey: .Questions_Per_Week) + 1
 
 	fileprivate var state: State = .rating {
 		didSet {
@@ -48,10 +40,11 @@ class QuestionVC: UIViewController, Flashable {
 
 	// MARK: - Startup
 
-	init(withQuestions questions: [RatingQuestion]) {
+	init(withQuestion question: RatingQuestion, andQuestionNumber num: Int) {
 		super.init(nibName: "QuestionVC", bundle: nil)
 
-		self.questions = questions
+		self.question = question
+		self.questionNumber = num
 	}
 
 	required init?(coder aDecoder: NSCoder) {
@@ -65,7 +58,7 @@ class QuestionVC: UIViewController, Flashable {
 
 		state = .rating
 
-		questionsActiveIndex = 0
+		questionSet()
 	}
 
 	// MARK: - Actions
@@ -118,14 +111,12 @@ class QuestionVC: UIViewController, Flashable {
 		ratingCommentTxtView.alpha = stateRating ? 0 : 1
 	}
 
-	fileprivate func questionSet() {
-		var text = RemoteConfig.shared.getString(forKey: .Que_Number_Of_Number)
+	private func questionSet() {
+		let questionNumber = self.questionNumber ?? 1
+		let replace = ["[first]": "\(questionNumber)", "[second]": "\(questionCount)"]
 
-		text = text.replacingOccurrences(of: "[first]", with: "\(questionsActiveIndex + 1)")
-		text = text.replacingOccurrences(of: "[second]", with: "\(questions.count)")
-
-		questionNumberLbl.text = text
-		questionLbl.text = questions[questionsActiveIndex].question
+		questionNumberLbl.replaceStrings = replace
+		questionLbl.text = question.question
 	}
 
 	// MARK: - State
@@ -139,7 +130,7 @@ class QuestionVC: UIViewController, Flashable {
 		}
 	}
 
-	fileprivate func stateApply() {
+	private func stateApply() {
 		switch state {
 		case .rating:
 			if let text = ratingCommentTxtView.text, text != "" {
@@ -168,11 +159,6 @@ class QuestionVC: UIViewController, Flashable {
 
 	// MARK: - Private Methods
 
-	fileprivate func unknownError() {
-		let HUD = JDPopup(titleKey: .ERROR_UNKNOWN_TITLE, subTitleKey: .ERROR_UNKNOWN_EXPLANATION, imageStyle: .error)
-		HUD.show(in: view)
-	}
-
 	fileprivate func dismissKeyboard() {
 		UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
 	}
@@ -182,9 +168,8 @@ class QuestionVC: UIViewController, Flashable {
 	}
 
 	fileprivate func saveAnswerAndProceed() {
-		let UID = questions[questionsActiveIndex].uid
+		let UID = question.uid
 		let rating = ratingSliderVC.ratingSlider.value.integer
-		let lastQuestion = questionsActiveIndex == questions.count - 1
 		var comment: String? = nil
 
 		if let text = ratingCommentTxtView.text, text.trimmed != "" {
@@ -193,42 +178,10 @@ class QuestionVC: UIViewController, Flashable {
 
 		let ratingAnswer = RatingAnswer(UID: UID, rating: rating, comment: comment)
 
-		guard DataService.shared.addRating(ratingAnswer, lastQuestion: lastQuestion) else {
-			return unknownError()
-		}
-
-		let flashSpeed = 0.3
-
-		if lastQuestion {
-			NotificationService.shared.setupNotifications()
-
-			flash(.in, speed: flashSpeed, completion: { _ in
-				self.dismissVC()
-			})
-		} else {
-			flash(.in, speed: flashSpeed, completion: { _ in
-				self.resetView(andNextQuestion: true)
-				self.flash(.out, speed: flashSpeed, completion: nil)
-			})
-		}
+		nextQuestion(withRatingAnswer: ratingAnswer)
 	}
 
-	fileprivate func dismissVC() {
-		delegate?.nextQuestion()
-	}
-
-	fileprivate func resetView(andNextQuestion nextQuestion: Bool = false) {
-
-		deleteComment()
-
-		ratingSliderVC.ratingSlider.reset()
-
-		if state != .rating {
-			state = .rating
-		}
-
-		if nextQuestion {
-			questionsActiveIndex += 1
-		}
+	fileprivate func nextQuestion(withRatingAnswer answer: RatingAnswer) {
+		delegate?.nextQuestion(withRatingAnswer: answer)
 	}
 }

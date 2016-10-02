@@ -30,7 +30,11 @@ class JDButton: UIButton, TextStylable, TextResettable {
 
 	@IBInspectable var overrideDefaultSettings: Bool!
 
-	var replaceStrings: [String: String]?
+	var replaceStrings: [String: String]? {
+		didSet {
+			setText()
+		}
+	}
 
 	// MARK: - Private Data
 

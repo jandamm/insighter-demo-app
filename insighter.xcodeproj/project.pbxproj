@@ -33,7 +33,6 @@
 		137EB8951D61E67900ACC8F9 /* Rating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137EB8941D61E67900ACC8F9 /* Rating.swift */; };
 		137EB8971D61EA1500ACC8F9 /* RatingColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137EB8961D61EA1500ACC8F9 /* RatingColors.swift */; };
 		137EB8991D61FECD00ACC8F9 /* RatingAnswer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137EB8981D61FECD00ACC8F9 /* RatingAnswer.swift */; };
-		137EB89B1D620D7500ACC8F9 /* Flashable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137EB89A1D620D7500ACC8F9 /* Flashable.swift */; };
 		138A432F1D8E70E000680299 /* Average.swift in Sources */ = {isa = PBXBuildFile; fileRef = 138A432E1D8E70E000680299 /* Average.swift */; };
 		138A43311D8E735E00680299 /* AverageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 138A43301D8E735E00680299 /* AverageVC.swift */; };
 		138A43331D8E759300680299 /* AverageVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 138A43321D8E759300680299 /* AverageVC.xib */; };
@@ -138,7 +137,6 @@
 		137EB8941D61E67900ACC8F9 /* Rating.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rating.swift; sourceTree = "<group>"; };
 		137EB8961D61EA1500ACC8F9 /* RatingColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingColors.swift; sourceTree = "<group>"; };
 		137EB8981D61FECD00ACC8F9 /* RatingAnswer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingAnswer.swift; sourceTree = "<group>"; };
-		137EB89A1D620D7500ACC8F9 /* Flashable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Flashable.swift; sourceTree = "<group>"; };
 		138A432E1D8E70E000680299 /* Average.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Average.swift; sourceTree = "<group>"; };
 		138A43301D8E735E00680299 /* AverageVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AverageVC.swift; sourceTree = "<group>"; };
 		138A43321D8E759300680299 /* AverageVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AverageVC.xib; sourceTree = "<group>"; };
@@ -269,7 +267,6 @@
 				13A5B9A01D59F2E2008EBDF3 /* TextStylable.swift */,
 				1340AC7F1D5A19E1008499CE /* TextRemoteConfigable.swift */,
 				13517B491D5BBF7D002B74AD /* TextResettable.swift */,
-				137EB89A1D620D7500ACC8F9 /* Flashable.swift */,
 				13517B471D5BAE59002B74AD /* Shakeable.swift */,
 				135C5C151D98407C00F9C5A0 /* Touchable.swift */,
 			);
@@ -870,7 +867,6 @@
 				13ED7E921D5DD32E0017CF8A /* Company.swift in Sources */,
 				13ED7E941D5E17D10017CF8A /* RemoteIntKey.swift in Sources */,
 				1312E7D61D9ACC7200D635E8 /* LastRated.swift in Sources */,
-				137EB89B1D620D7500ACC8F9 /* Flashable.swift in Sources */,
 				1329B0451D5B4901004AE52B /* RatingQuestion.swift in Sources */,
 				13B761EE1D75F6ED00E80677 /* LoginCoordinator.swift in Sources */,
 				13BF4DE91D71E9F500035D84 /* JDDropdown.swift in Sources */,

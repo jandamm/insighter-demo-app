@@ -28,7 +28,11 @@ class JDLabel: UILabel, TextStylable, TextResettable {
 		}
 	}
 
-	var replaceStrings: [String: String]?
+	var replaceStrings: [String: String]? {
+		didSet {
+			setText()
+		}
+	}
 
 	// MARK: - Private Data
 

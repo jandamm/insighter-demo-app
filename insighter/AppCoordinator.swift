@@ -35,7 +35,7 @@ class AppCoordinator: JDParentCoordinator, AppCoordinatorDelegate {
 	func questionsAsked(_ finishedCoordinator: JDCoordinator) {
 		removeChildCoordinator(finishedCoordinator)
 
-		transitionToNextView()
+		transitionToNextView(askedQuestions: true)
 	}
 
 	func loginEnded(_ finishedCoordinator: JDCoordinator) {
@@ -46,7 +46,7 @@ class AppCoordinator: JDParentCoordinator, AppCoordinatorDelegate {
 
 	// MARK: - Private Methods
 
-	private func transitionToNextView() {
+	private func transitionToNextView(askedQuestions asked: Bool = false) {
 		guard let loggedIn = _userLoggedIn else {
 			return NSLog("[JD] Could not tranisition to next view as userLogin isn't defined")
 		}
@@ -55,10 +55,13 @@ class AppCoordinator: JDParentCoordinator, AppCoordinatorDelegate {
 			showOnboarding()
 		} else {
 
-			let showedQuestion = !self.showQuestion()
-
-			DataService.shared.getRatings() {
-				if showedQuestion {
+			if UserLoginService.shared.lastRated.isDisjoint(with: .this) {
+				showQuestion()
+			} else {
+				if asked {
+					showIntro(animated: false)
+				}
+				DataService.shared.getRatings() {
 					self.showEvaluation()
 				}
 			}
@@ -130,29 +133,14 @@ class AppCoordinator: JDParentCoordinator, AppCoordinatorDelegate {
 		coordinator.start()
 	}
 
-	fileprivate func showQuestion() -> Bool {
-		guard UserLoginService.shared.lastRated.isDisjoint(with: [.this]) else {
-			NSLog("[JD] No question needs to be asked")
-			return false
-		}
-
-		let questions = ConstantService.shared.ratingQuestions
-
-		guard questions.count > 0 else {
-			NSLog("[JD] No questions available")
-			return false
-		}
-
+	fileprivate func showQuestion() {
 		let coordinator = QuestionCoordinator(withNavigationController: navigationController)
 
 		coordinator.delegate = self
-		coordinator.questions = questions
 
 		addChildCoordinator(coordinator)
 
 		coordinator.start()
-
-		return true
 	}
 
 	fileprivate func showEvaluation() {
