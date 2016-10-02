@@ -68,12 +68,18 @@ class JDDropdown: JDLabel, Touchable {
 
 	// MARK: - Appearance
 
-	private func styleView() {
-		if fontStyle == nil {
-			applyTextStyle()
-		}
+	override func textRect(forBounds bounds: CGRect, limitedToNumberOfLines numberOfLines: Int) -> CGRect {
+		let width = self.bounds.width - 4 - 13 - 4
+		let size = CGSize(width: width, height: bounds.height)
+		let newBounds = CGRect(origin: bounds.origin, size: size)
 
-		isUserInteractionEnabled = true
+		return super.textRect(forBounds: newBounds, limitedToNumberOfLines: numberOfLines)
+	}
+
+	override func drawText(in rect: CGRect) {
+		let newRect = textRect(forBounds: rect, limitedToNumberOfLines: numberOfLines)
+
+		super.drawText(in: newRect)
 	}
 
 	// MARK: - Internal Methods
@@ -103,6 +109,14 @@ class JDDropdown: JDLabel, Touchable {
 
 		dropDown.dataSource = dropdownList
 		dropDown.reloadAllComponents()
+	}
+
+	private func styleView() {
+		if fontStyle == nil {
+			applyTextStyle()
+		}
+
+		isUserInteractionEnabled = true
 	}
 
 	private func setupOrUpdateDropdown() {
@@ -161,8 +175,8 @@ class JDDropdown: JDLabel, Touchable {
 		imgView.translatesAutoresizingMaskIntoConstraints = false
 
 		let views = ["v": imgView]
-		let horizontal = NSLayoutConstraint.constraints(withVisualFormat: "H:[v(13)]-8-|", options: .directionLeadingToTrailing, metrics: nil, views: views)
-		let vertical = NSLayoutConstraint.constraints(withVisualFormat: "V:|-9-[v(8)]", options: .directionLeadingToTrailing, metrics: nil, views: views)
+		let horizontal = NSLayoutConstraint.constraints(withVisualFormat: "H:[v(13)]-4-|", options: .directionLeadingToTrailing, metrics: nil, views: views)
+		let vertical = NSLayoutConstraint.constraints(withVisualFormat: "V:[v(8)]-8-|", options: .directionLeadingToTrailing, metrics: nil, views: views)
 
 		addConstraints(horizontal)
 		addConstraints(vertical)
