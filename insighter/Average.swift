@@ -38,7 +38,7 @@ struct Average: Equatable {
 
 	struct Company: Equatable {
 		let key: String
-		let answeredQuestions: Int
+		let users: Int
 		let sum: Int
 
 		fileprivate func diff(to lastWeek: Company?) -> Double? {
@@ -50,7 +50,7 @@ struct Average: Equatable {
 		}
 
 		private var averageDiff: Double {
-			return Double(sum) / Double(answeredQuestions)
+			return Double(sum) / Double(users)
 		}
 
 		var averageBase: Double {
@@ -79,13 +79,11 @@ struct Average: Equatable {
 		}
 
 		private var averageDiff: Double {
-			var sum = 0
-
-			for (_, rating) in answers {
-				sum += rating
+			guard let rating = answers[ConstantService.mainQuestionKey] else {
+				return 0
 			}
 
-			return Double(sum) / Double(answers.count)
+			return Double(rating)
 		}
 
 		var averageBase: Double {
@@ -108,7 +106,7 @@ func ==(lhs: Average, rhs: Average) -> Bool {
 }
 
 func ==(lhs: Average.Company, rhs: Average.Company) -> Bool {
-	return lhs.key == rhs.key && lhs.sum == rhs.sum && lhs.answeredQuestions == rhs.answeredQuestions
+	return lhs.key == rhs.key && lhs.sum == rhs.sum && lhs.users == rhs.users
 }
 
 func ==(lhs: Average.User, rhs: Average.User) -> Bool {

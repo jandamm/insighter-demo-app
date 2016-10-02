@@ -14,4 +14,7 @@ enum RemoteIntKey: String, StringReturningEnum {
 	// Notification Times
 	case Notif_Trigger_Weekday
 	case Notif_Trigger_Hour
+
+	// Questions
+	case Questions_Per_Week
 }

@@ -169,7 +169,7 @@ class DataService {
 	// MARK: - Private Methods
 
 	private func downloadCompRating(forWeek key: String, companyID: String, completion: @escaping(Average.Company?) -> Void) {
-		let refToAverage = REF.child(companyID).child(DBPathKeys.Company.average.rawValue).child(key)
+		let refToAverage = REF.child(companyID).child(DBPathKeys.Company.average.rawValue).child(key).child(ConstantService.mainQuestionKey)
 
 		refToAverage.observeSingleEvent(of: .value, with: { snapshot in
 			guard snapshot.exists() else {
@@ -177,20 +177,15 @@ class DataService {
 				return completion(nil)
 			}
 
-			guard let data = snapshot.value as? [String: [String: Int]] else {
-				NSLog("[JD] Company Average malformed for \(key)")
+			guard let data = snapshot.value as? [String: Int] else {
+				NSLog("[JD] Company Average ratingQuestionMain malformed for \(key)")
 				return completion(nil)
 			}
 
-			var sum: Int = 0
-			var users: Int = 0
+			let sum: Int = data[DBValueKeys.CompanyAverage.sum.rawValue] ?? 0
+			let users: Int = data[DBValueKeys.CompanyAverage.users.rawValue] ?? 0
 
-			for (_, values) in data {
-				sum += values["sum"] ?? 0
-				users += values["users"] ?? 0
-			}
-
-			let average = Average.Company(key: key, answeredQuestions: users, sum: sum)
+			let average = Average.Company(key: key, users: users, sum: sum)
 
 			completion(average)
 		})

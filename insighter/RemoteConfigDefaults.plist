@@ -33,6 +33,8 @@
 	<string>/10</string>
 	<key>Max_Points</key>
 	<integer>10</integer>
+	<key>Questions_Per_Week</key>
+	<integer>3</integer>
 	<key>Notif_Reminder_Title</key>
 	<string>Neue Umfrage</string>
 	<key>Notif_Reminder_Body</key>

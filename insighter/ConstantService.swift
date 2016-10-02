@@ -42,8 +42,45 @@ class ConstantService {
 		return _demoCompany ?? "demoCompany"
 	}
 
+	static let mainQuestionKey = DBValueKeys.Constant.ratingQuestionMain.rawValue
+
 	var ratingQuestions: [RatingQuestion] {
-		return Array(_ratingQuestions.values)
+		guard let mainQ = _mainQuestion else {
+			return []
+		}
+		var out = [mainQ]
+
+		let qCount = RemoteConfig.shared.getInt(forKey: RemoteIntKey.Questions_Per_Week)
+		let count = _ratingQuestions.count
+
+		var keyWeek = Int(Date().timeIntervalSince1970 / 7 / 24 / 60 / 60)
+
+		while keyWeek > count / qCount {
+			keyWeek -= count / qCount
+		}
+		keyWeek *= qCount
+		keyWeek -= 1
+
+		var keyDict = Array(_ratingQuestions.keys).sorted(by: { (x, y) in
+			let a = x.components(separatedBy: "_")
+			let b = y.components(separatedBy: "_")
+			return "\(a[1])\(a[0])" < "\(b[1])\(b[0])"
+		})
+
+		if keyWeek > qCount - 1 {
+			keyDict.removeSubrange(0 ... keyWeek - qCount)
+		}
+		if keyDict.count > qCount {
+			keyDict.removeSubrange(qCount ... keyDict.count - 1)
+		}
+
+		for key in keyDict {
+			if let question = _ratingQuestions[key] {
+				out.append(question)
+			}
+		}
+
+		return out
 	}
 
 	var securityQuestions: [String] {
@@ -156,8 +193,8 @@ class ConstantService {
 				pick -= 1
 			}
 
-			if let rawData = data[DBValueKeys.Constant.ratingQuestionMain.rawValue] as? String {
-				let key = DBValueKeys.Constant.ratingQuestionMain.rawValue
+			if let rawData = data[ConstantService.mainQuestionKey] as? String {
+				let key = ConstantService.mainQuestionKey
 
 				self._mainQuestion = RatingQuestion(uid: key, question: rawData)
 				pick -= 1
