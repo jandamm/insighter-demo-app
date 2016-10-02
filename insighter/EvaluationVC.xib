@@ -48,10 +48,10 @@
                 <constraint firstItem="qdH-Pj-amQ" firstAttribute="top" secondItem="1cr-sT-EMX" secondAttribute="top" id="0Ls-TO-N3j"/>
                 <constraint firstAttribute="bottom" secondItem="qdH-Pj-amQ" secondAttribute="bottom" id="2VQ-gZ-iBx"/>
                 <constraint firstItem="qdH-Pj-amQ" firstAttribute="leading" secondItem="1cr-sT-EMX" secondAttribute="leading" id="AgL-rv-Jhm"/>
+                <constraint firstAttribute="trailing" secondItem="VLX-UO-0cI" secondAttribute="trailing" constant="20" id="DF1-Ee-3P5"/>
                 <constraint firstAttribute="trailing" secondItem="qdH-Pj-amQ" secondAttribute="trailing" id="I6C-rk-G81"/>
                 <constraint firstItem="VLX-UO-0cI" firstAttribute="top" secondItem="1cr-sT-EMX" secondAttribute="top" constant="20" id="IIH-MS-kkj"/>
                 <constraint firstAttribute="trailing" secondItem="TUX-mI-BuN" secondAttribute="trailing" id="SI2-QQ-M32"/>
-                <constraint firstItem="VLX-UO-0cI" firstAttribute="leading" secondItem="1cr-sT-EMX" secondAttribute="leading" constant="20" id="aOZ-iX-KlV"/>
                 <constraint firstItem="TUX-mI-BuN" firstAttribute="centerY" secondItem="1cr-sT-EMX" secondAttribute="centerY" id="bIq-oT-lOe"/>
             </constraints>
         </view>
