@@ -24,16 +24,17 @@ class ConstantService {
 		_shared = nil
 	}
 
-	fileprivate let FIR_REF = FIRDatabase.database().reference().child(DBPathKeys.constant.rawValue)
-	fileprivate let NSUD = UserDefaults.standard
+	private let FIR_REF = FIRDatabase.database().reference().child(DBPathKeys.constant.rawValue)
+	private let NSUD = UserDefaults.standard
 
 	// MARK: - Private Data
 
-	fileprivate var _versionDate = ""
+	private var _versionDate = ""
 
-	fileprivate var _demoCompany: String?
-	fileprivate var _ratingQuestions = [String: RatingQuestion]()
-	fileprivate var _securityQuestions: [String]?
+	private var _demoCompany: String?
+	private var _mainQuestion: RatingQuestion?
+	private var _ratingQuestions = [String: RatingQuestion]()
+	private var _securityQuestions: [String]?
 
 	// MARK: - External Data
 
@@ -76,19 +77,24 @@ class ConstantService {
 
 	// MARK: - NSUserDefaults
 
-	fileprivate func versionFromNSUD() {
+	private func versionFromNSUD() {
 		if let versionDate = NSUD.string(forKey: DBValueKeys.Constant._versionDate.rawValue) {
 			_versionDate = versionDate
 		}
 	}
 
-	fileprivate func constantsToNSUD() {
+	private func constantsToNSUD() {
 		NSUD.setValue(_versionDate, forKey: DBValueKeys.Constant._versionDate.rawValue)
 
 		NSUD.setValue(_demoCompany, forKey: DBValueKeys.Constant.demoCompany.rawValue)
 
-		let data = NSKeyedArchiver.archivedData(withRootObject: _ratingQuestions)
-		NSUD.set(data, forKey: DBValueKeys.Constant.ratingQuestions.rawValue)
+		if let _mainQuestion = _mainQuestion {
+			let mainQ = NSKeyedArchiver.archivedData(withRootObject: _mainQuestion)
+			NSUD.set(mainQ, forKey: DBValueKeys.Constant.ratingQuestionMain.rawValue)
+		}
+
+		let ratingQ = NSKeyedArchiver.archivedData(withRootObject: _ratingQuestions)
+		NSUD.set(ratingQ, forKey: DBValueKeys.Constant.ratingQuestions.rawValue)
 
 		NSUD.setValue(_securityQuestions, forKey: DBValueKeys.Constant.securityQuestions.rawValue)
 
@@ -97,11 +103,16 @@ class ConstantService {
 		NSLog("[JD] Saved Constants from Firebase to NSUD successful: \(success)")
 	}
 
-	fileprivate func constantsFromNSUD(_ completion: CompletionHandlerBool?) {
-		var pick = 3
+	private func constantsFromNSUD(_ completion: CompletionHandlerBool?) {
+		var pick = 4
 
 		if let demoCompany = NSUD.string(forKey: DBValueKeys.Constant.demoCompany.rawValue) {
 			_demoCompany = demoCompany
+			pick -= 1
+		}
+
+		if let data = NSUD.object(forKey: DBValueKeys.Constant.ratingQuestionMain.rawValue) as? Data, let ratingQuestions = NSKeyedUnarchiver.unarchiveObject(with: data) as? RatingQuestion {
+			_mainQuestion = ratingQuestions
 			pick -= 1
 		}
 
@@ -124,7 +135,7 @@ class ConstantService {
 
 	// MARK: - Firebase
 
-	fileprivate func constantsFromFirebase(_ completion: CompletionHandlerBool?) {
+	private func constantsFromFirebase(_ completion: CompletionHandlerBool?) {
 		NSLog("[JD] Getting Constants from Firebase")
 		FIR_REF.observeSingleEvent(of: .value, with: { snapshot in
 			guard snapshot.exists(), let data = snapshot.value as? [String: AnyObject] else {
@@ -133,7 +144,7 @@ class ConstantService {
 				return
 			}
 
-			var pick = 4
+			var pick = 5
 
 			if let version = data[DBValueKeys.Constant._versionDate.rawValue] {
 				self._versionDate = String(describing: version)
@@ -142,6 +153,13 @@ class ConstantService {
 
 			if let rawData = data[DBValueKeys.Constant.demoCompany.rawValue] as? String {
 				self._demoCompany = rawData
+				pick -= 1
+			}
+
+			if let rawData = data[DBValueKeys.Constant.ratingQuestionMain.rawValue] as? String {
+				let key = DBValueKeys.Constant.ratingQuestionMain.rawValue
+
+				self._mainQuestion = RatingQuestion(uid: key, question: rawData)
 				pick -= 1
 			}
 
@@ -173,7 +191,7 @@ class ConstantService {
 
 	// MARK: - Private Methods
 
-	fileprivate func noConnectionToFirebase() {
+	private func noConnectionToFirebase() {
 		NSLog("[JD] Constants: No connection to Firebase")
 	}
 }
