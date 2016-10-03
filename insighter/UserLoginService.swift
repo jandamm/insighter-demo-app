@@ -102,17 +102,17 @@ class UserLoginService {
 
 	func registerNewUser(withUserData userData: UserData) {
 		userData.upload()
-		addUserToCompanyUserCount()
+		addUserToCompanyUserCount(withID: userData.company)
 	}
 
 	// MARK: - Private Methods
 
-	fileprivate func addUserToCompanyUserCount() {
-		guard let company = _company else {
+	fileprivate func addUserToCompanyUserCount(withID companyID: String?) {
+		guard let companyID = companyID else {
 			return NSLog("[JD] No Company found, could not add user to company count")
 		}
 
-		let refToUsers = REF_COMP.child(company.UID).child(DBPathKeys.Company.value.rawValue).child(DBValueKeys.CompanyValue.users.rawValue)
+		let refToUsers = REF_COMP.child(companyID).child(DBPathKeys.Company.value.rawValue).child(DBValueKeys.CompanyValue.users.rawValue)
 
 		refToUsers.runTransactionBlock({ currentData -> FIRTransactionResult in
 			let users = currentData.value as? Int ?? 0
@@ -124,7 +124,7 @@ class UserLoginService {
 			if let error = error, !committed {
 				NSLog("[JD] Could not add user to company count: \(error.localizedDescription)")
 				NSLog("[JD] Retrying...")
-				self.addUserToCompanyUserCount()
+				self.addUserToCompanyUserCount(withID: companyID)
 			} else if committed {
 				NSLog("[JD] Added new user to company count")
 			}
