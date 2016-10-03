@@ -1,3 +1,9 @@
+E-Mail Endungen:
+email
+	ID
+		company: companyID
+		ending: a.de
+
 Fragen:
 
 [company]:
