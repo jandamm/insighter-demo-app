@@ -74,7 +74,7 @@ class IntroVC: UIViewController {
 			self?.cancelView.alpha = 0
 			self?.cancelView.isHidden = false
 
-			UIView.animate(withDuration: 0.5, animations: {  [weak self] in
+			UIView.animate(withDuration: 0.5, animations: { [weak self] in
 				self?.cancelView.alpha = 1
 			})
 		}
