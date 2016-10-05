@@ -67,8 +67,12 @@ class UserLoginService {
 
 	// MARK: - Internal Methods
 
-	func signOutUser(_ completion: CompletionHandlerBool? = nil) {
+	func signOutUser(loadData load: Bool = true, _ completion: CompletionHandlerBool? = nil) {
 		try! FIRAuth.auth()!.signOut()
+
+		guard load else {
+			return
+		}
 
 		_userFirebase = nil
 		_userData = nil

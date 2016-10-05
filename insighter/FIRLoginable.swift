@@ -31,11 +31,13 @@ extension FIRLoginable {
 		FIRAuth.auth()?.createUser(withEmail: email, password: password) { user, error in
 			if user?.uid != nil {
 				NSLog("[JD] Registered at Firebase")
+
+				self.loginUser(withEmail: email, andPassword: password, completion: completion, errorHandler: errorHandler)
+			} else {
+				let errorKey = self.errorKey(fromError: error)
+
+				completion(user?.uid, errorKey, true, errorHandler)
 			}
-
-			let errorKey = self.errorKey(fromError: error)
-
-			completion(user?.uid, errorKey, true, errorHandler)
 		}
 	}
 

@@ -587,6 +587,9 @@
 						DevelopmentTeam = 7TCLF98BX7;
 						LastSwiftMigration = 0800;
 						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
 							com.apple.Push = {
 								enabled = 1;
 							};
