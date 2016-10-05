@@ -124,11 +124,11 @@ class UserLoginService {
 			currentData.value = users + 1
 
 			return FIRTransactionResult.success(withValue: currentData)
-		}) { error, committed, data in
+		}) { [weak self] error, committed, data in
 			if let error = error, !committed {
 				NSLog("[JD] Could not add user to company count: \(error.localizedDescription)")
 				NSLog("[JD] Retrying...")
-				self.addUserToCompanyUserCount(withID: companyID)
+				self?.addUserToCompanyUserCount(withID: companyID)
 			} else if committed {
 				NSLog("[JD] Added new user to company count")
 			}
@@ -146,18 +146,18 @@ class UserLoginService {
 	}
 
 	fileprivate func getFIRUser(_ completion: CompletionHandlerBool?) {
-		_userListener = FIRAuth.auth()?.addStateDidChangeListener { auth, user in
-			guard self._userFirebase == nil else {
+		_userListener = FIRAuth.auth()?.addStateDidChangeListener { [weak self] auth, user in
+			guard self?._userFirebase == nil else {
 				return
 			}
 
-			if let listener = self._userListener {
+			if let listener = self?._userListener {
 				FIRAuth.auth()?.removeStateDidChangeListener(listener)
-				self._userListener = nil
+				self?._userListener = nil
 			}
 
-			self._userFirebase = user
-			self.getUserDataOrEmailEndings(completion)
+			self?._userFirebase = user
+			self?.getUserDataOrEmailEndings(completion)
 		}
 	}
 
@@ -165,17 +165,17 @@ class UserLoginService {
 		let uid = _userFirebase.uid
 
 		if let user = _userData, user.UID == uid {
-			self.complete(completion, withForcedValue: forcedCompletionValue, andRealValue: false)
+			complete(completion, withForcedValue: forcedCompletionValue, andRealValue: false)
 			return
 		}
 
 		NSLog("[JD] Checking User data from Firebase")
 
-		REF_USER.child(uid).observeSingleEvent(of: .value, with: { snapshot in
+		REF_USER.child(uid).observeSingleEvent(of: .value, with: { [weak self] snapshot in
 			guard snapshot.exists(), let data = snapshot.value as? [String: AnyObject] else {
 				NSLog("[JD] No User data available in Firebase")
-				self.signOutUser() { _ in
-					self.complete(completion, withForcedValue: false, andRealValue: false)
+				self?.signOutUser() { _ in
+					self?.complete(completion, withForcedValue: false, andRealValue: false)
 				}
 				return
 			}
@@ -189,26 +189,26 @@ class UserLoginService {
 
 			let user = UserData(UID: uid, company: company, score: score, lastRated: lastRated, lastRatedDate: lastRatedDate, securityQuestion: securityQuestion, securityAnswer: securityAnswer)
 
-			self._userData = user
+			self?._userData = user
 			NSLog("[JD] Got User data from Firebase")
 
-			self.getCompanyFromFirebase(completion, forcedCompletionValue: nil)
+			self?.getCompanyFromFirebase(completion, forcedCompletionValue: nil)
 		})
 	}
 
 	fileprivate func getCompanyFromFirebase(_ completion: CompletionHandlerBool?, forcedCompletionValue: Bool?) {
 		guard let user = _userData, let uid = user.company else {
 			NSLog("[JD] No User or Company found")
-			self.complete(completion, withForcedValue: forcedCompletionValue, andRealValue: false)
+			complete(completion, withForcedValue: forcedCompletionValue, andRealValue: false)
 			return
 		}
 
 		let refToValue = REF_COMP.child(uid).child(DBPathKeys.Company.value.rawValue)
 
-		refToValue.observeSingleEvent(of: .value, with: { snapshot in
+		refToValue.observeSingleEvent(of: .value, with: { [weak self] snapshot in
 			guard snapshot.exists(), let data = snapshot.value as? [String: AnyObject] else {
 				NSLog("[JD] No Company data available in Firebase")
-				self.complete(completion, withForcedValue: forcedCompletionValue, andRealValue: false)
+				self?.complete(completion, withForcedValue: forcedCompletionValue, andRealValue: false)
 				return
 			}
 
@@ -218,10 +218,10 @@ class UserLoginService {
 
 			let company = Company(UID: uid, name: name, users: users, goodie: goodie)
 
-			self._company = company
+			self?._company = company
 			NSLog("[JD] Got Company data from Firebase")
 
-			self.complete(completion, withForcedValue: forcedCompletionValue, andRealValue: true)
+			self?.complete(completion, withForcedValue: forcedCompletionValue, andRealValue: true)
 		})
 	}
 
@@ -233,10 +233,10 @@ class UserLoginService {
 
 		NSLog("[JD] Checking Email Endings from Firebase")
 
-		REF_MAIL.observeSingleEvent(of: .value, with: { snapshot in
+		REF_MAIL.observeSingleEvent(of: .value, with: { [weak self] snapshot in
 			guard snapshot.exists(), let data = snapshot.value as? [String: [String: String]] else {
 				NSLog("[JD] No Email data available in Firebase")
-				self.complete(completion, withForcedValue: forcedCompletionValue, andRealValue: false)
+				self?.complete(completion, withForcedValue: forcedCompletionValue, andRealValue: false)
 				return
 			}
 
@@ -248,10 +248,10 @@ class UserLoginService {
 				}
 			}
 
-			self._emailEndings = mails
+			self?._emailEndings = mails
 			NSLog("[JD] Got Email Endings from Firebase")
 
-			self.complete(completion, withForcedValue: forcedCompletionValue, andRealValue: true)
+			self?.complete(completion, withForcedValue: forcedCompletionValue, andRealValue: true)
 		})
 	}
 
@@ -259,5 +259,9 @@ class UserLoginService {
 		let returnValue = forced ?? value
 
 		completion?(returnValue)
+	}
+
+	deinit {
+		print("gone-bitch")
 	}
 }

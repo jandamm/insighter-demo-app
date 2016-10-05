@@ -8,7 +8,7 @@
 
 import JDCoordinator
 
-class AppCoordinator: JDParentCoordinator, AppCoordinatorDelegate {
+class AppCoordinator: JDParentCoordinator, AppCoordinatorDelegate, IntroDelegate {
 
 	private var _userLoggedIn: Bool?
 
@@ -19,6 +19,14 @@ class AppCoordinator: JDParentCoordinator, AppCoordinatorDelegate {
 	}
 
 	// MARK: - Delegates
+
+	func cancelStartup() {
+		UserLoginService.unload()
+		UserLoginService.shared.signOutUser()
+
+		_userLoggedIn = false
+		transitionToNextView()
+	}
 
 	func loggedOut(_ finishedCoordinator: JDCoordinator) {
 		removeChildCoordinator(finishedCoordinator)
@@ -108,6 +116,7 @@ class AppCoordinator: JDParentCoordinator, AppCoordinatorDelegate {
 	fileprivate func showIntro(animated: Bool) {
 		let vc = IntroVC()
 
+		vc.delegate = self
 		vc.animated = animated
 
 		pushViewController(vc, animated: true)

@@ -8,10 +8,17 @@
 
 import UIKit
 import Firebase
+import JDCoordinator
+
+protocol IntroDelegate: JDCoordinatorDelegate {
+	func cancelStartup()
+}
 
 class IntroVC: UIViewController {
 
 	var animated = true
+
+	weak var delegate: IntroDelegate?
 
 	// MARK: - Outlets
 
@@ -37,6 +44,12 @@ class IntroVC: UIViewController {
 		} else {
 			loadingAnimation()
 		}
+	}
+
+	// MARK: - Actions
+
+	@IBAction func cancelBtn(sender: UIButton) {
+		delegate?.cancelStartup()
 	}
 
 	private func introAnimation(withLoadingAnimation loading: Bool = true) {
