@@ -79,8 +79,4 @@ class IntroVC: UIViewController {
 			})
 		}
 	}
-
-	deinit {
-		print("ywy")
-	}
 }
