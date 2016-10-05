@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="IntroVC" customModule="insighter" customModuleProvider="target">
             <connections>
+                <outlet property="cancelView" destination="WIm-ec-dX5" id="xnK-76-bPP"/>
                 <outlet property="introView" destination="QFx-Qg-8o3" id="XeQ-1g-ZdW"/>
                 <outlet property="view" destination="VBi-V6-WAU" id="snZ-0s-CV5"/>
             </connections>
@@ -22,19 +23,37 @@
                         <constraint firstAttribute="height" constant="280" id="tR0-vW-bgp"/>
                     </constraints>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4cC-Xa-Rrt">
-                    <state key="normal" title="Button"/>
-                    <connections>
-                        <action selector="cancelBtnWithSender:" destination="-1" eventType="touchUpInside" id="X7g-p6-PQc"/>
-                    </connections>
-                </button>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="WIm-ec-dX5">
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8T7-Zd-kMv" customClass="JDLabel" customModule="insighter" customModuleProvider="target">
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="fontStyle" value="TextSmall"/>
+                                <userDefinedRuntimeAttribute type="string" keyPath="remoteConfigKey" value="Int_Cancel_Lbl"/>
+                            </userDefinedRuntimeAttributes>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4cC-Xa-Rrt" customClass="JDButton" customModule="insighter" customModuleProvider="target">
+                            <state key="normal" title="Button"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="fontStyle" value="ButtonPrimary"/>
+                                <userDefinedRuntimeAttribute type="string" keyPath="remoteConfigKey" value="Int_Cancel_Btn"/>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="cancelBtnWithSender:" destination="-1" eventType="touchUpInside" id="X7g-p6-PQc"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                </stackView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="QFx-Qg-8o3" firstAttribute="centerY" secondItem="VBi-V6-WAU" secondAttribute="centerY" id="3eJ-GD-TNy"/>
                 <constraint firstItem="QFx-Qg-8o3" firstAttribute="centerX" secondItem="VBi-V6-WAU" secondAttribute="centerX" id="Bge-Eo-GOl"/>
-                <constraint firstItem="4cC-Xa-Rrt" firstAttribute="centerX" secondItem="VBi-V6-WAU" secondAttribute="centerX" id="RQq-jH-Cin"/>
-                <constraint firstAttribute="bottom" secondItem="4cC-Xa-Rrt" secondAttribute="bottom" constant="20" id="zok-iE-1pJ"/>
+                <constraint firstItem="WIm-ec-dX5" firstAttribute="leading" secondItem="VBi-V6-WAU" secondAttribute="leading" constant="32" id="NfY-k2-q76"/>
+                <constraint firstAttribute="trailing" secondItem="WIm-ec-dX5" secondAttribute="trailing" constant="32" id="azm-y4-lgy"/>
+                <constraint firstAttribute="bottom" secondItem="WIm-ec-dX5" secondAttribute="bottom" constant="32" id="hfe-zk-bMk"/>
             </constraints>
         </view>
     </objects>

@@ -45,6 +45,10 @@
 	<integer>6</integer>
 	<key>Notif_Trigger_Hour</key>
 	<integer>13</integer>
+	<key>Int_Cancel_Lbl</key>
+	<string>Wenn sie eine gute Internetverbindung haben sollten Sie jetzt abbrechen!</string>
+	<key>Int_Cancel_Btn</key>
+	<string>Abbrechen</string>
 	<key>Onb_Will_Willkommen_Lbl</key>
 	<string>Herzlich willkommen bei</string>
 	<key>Onb_Will_Wir_Verbessern_Lbl</key>

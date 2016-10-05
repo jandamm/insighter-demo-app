@@ -23,6 +23,7 @@ class IntroVC: UIViewController {
 	// MARK: - Outlets
 
 	@IBOutlet weak var introView: IntroAnimationView!
+	@IBOutlet weak var cancelView: UIStackView!
 
 	// MARK: - Startup
 
@@ -32,6 +33,8 @@ class IntroVC: UIViewController {
 		if animated {
 			introView.addIntroViewAnimation()
 		}
+
+		setupCancelView()
 	}
 
 	override func viewDidAppear(_ animated: Bool) {
@@ -62,5 +65,22 @@ class IntroVC: UIViewController {
 
 	private func loadingAnimation() {
 		introView.addLoadingAnimation()
+	}
+
+	private func setupCancelView() {
+		cancelView.isHidden = true
+
+		DispatchQueue.main.asyncAfter(deadline: .now() + 5) { [weak self] in
+			self?.cancelView.alpha = 0
+			self?.cancelView.isHidden = false
+
+			UIView.animate(withDuration: 0.5, animations: {  [weak self] in
+				self?.cancelView.alpha = 1
+			})
+		}
+	}
+
+	deinit {
+		print("ywy")
 	}
 }
