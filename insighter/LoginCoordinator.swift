@@ -89,7 +89,9 @@ class LoginCoordinator: JDCoordinator, FIRLoginable, LoginDelegate {
 	fileprivate func registerUser(withID uid: String, isCreated created: Bool, errorHandler: CompletionHandlerFirebaseLoginError) {
 		let userData = UserData(UID: uid, company: company, score: nil, lastRated: nil, lastRatedDate: nil, securityQuestion: securityQuestion, securityAnswer: securityAnswer)
 
-		UserLoginService.shared.registerNewUser(withUserData: userData)
+		if created {
+			UserLoginService.shared.registerNewUser(withUserData: userData)
+		}
 
 		NotificationService.shared.setupNotifications()
 
