@@ -12,6 +12,7 @@ class EvaluationCompanyVC: UIViewController {
 
 	// MARK: - Outlets
 
+	@IBOutlet weak var mainView: UIStackView!
 	@IBOutlet weak var averageView: UIStackView!
 	@IBOutlet weak var userRatingLbl: RatingDisplayView!
 	@IBOutlet weak var compRatingLbl: RatingDisplayView!
@@ -23,11 +24,21 @@ class EvaluationCompanyVC: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
+		setMainViewSpacing()
+
 		setRatings()
 		addAverages()
 	}
 
 	// MARK: - Private Methods
+
+	private func setMainViewSpacing() {
+		let smallPhone = UIScreen.main.bounds.width < 375
+
+		if smallPhone {
+			mainView.spacing = 20
+		}
+	}
 
 	private func addAverages() {
 		var averages = DataService.shared.averages

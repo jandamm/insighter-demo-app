@@ -10,6 +10,7 @@
                 <outlet property="averageView" destination="Wmr-6a-5tX" id="1RC-Ro-wJt"/>
                 <outlet property="compRatingDiffLbl" destination="e1Q-wl-wyS" id="dPl-Ak-H68"/>
                 <outlet property="compRatingLbl" destination="jU9-FA-kja" id="xtJ-sk-Q1v"/>
+                <outlet property="mainView" destination="GLO-BZ-KRJ" id="Mjv-be-0bi"/>
                 <outlet property="userRatingDiffLbl" destination="xzW-pH-mGj" id="sVB-Gb-3Jn"/>
                 <outlet property="userRatingLbl" destination="UWM-VP-onn" id="96F-2e-Eqi"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>

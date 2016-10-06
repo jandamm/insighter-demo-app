@@ -14,6 +14,7 @@ class EvaluationUserVC: UIViewController {
 
 	@IBOutlet weak var userRatingLbl: RatingDisplayView!
 	@IBOutlet weak var userRatingDiffLbl: JDRatingLabel!
+	@IBOutlet weak var fbScoreImage: UIImageView!
 	@IBOutlet weak var fbScoreTotalLbl: JDLabel!
 	@IBOutlet weak var fbRewardLbl: JDLabel!
 	@IBOutlet weak var fbScoreView: UIStackView!
@@ -27,12 +28,20 @@ class EvaluationUserVC: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
+		hideScoreImage()
+
 		setUserRating()
 		setUserScore()
 		setScoreSums()
 	}
 
 	// MARK: - Private Methods
+
+	private func hideScoreImage() {
+		let smallPhone = UIScreen.main.bounds.width < 375
+
+		fbScoreImage.isHidden = smallPhone
+	}
 
 	private func setUserRating() {
 		let thisRating = DataService.shared.userRating

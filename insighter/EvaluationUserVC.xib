@@ -8,6 +8,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EvaluationUserVC" customModule="insighter" customModuleProvider="target">
             <connections>
                 <outlet property="fbRewardLbl" destination="Lfm-ZQ-O7w" id="edt-I0-TXv"/>
+                <outlet property="fbScoreImage" destination="dc7-Ag-WcL" id="yR0-JO-hVZ"/>
                 <outlet property="fbScoreLastLbl" destination="sCR-iH-JCQ" id="N6m-Gr-xFT"/>
                 <outlet property="fbScorePrevLbl" destination="Q1l-D0-Szx" id="U5D-RT-mZZ"/>
                 <outlet property="fbScoreSumLbl" destination="m7b-H0-XT9" id="hPh-CK-Yn1"/>
@@ -21,7 +22,7 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+            <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="t2v-r3-5h5">
