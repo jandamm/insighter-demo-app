@@ -28,7 +28,10 @@ class NotificationService {
 	// MARK: - External Methods
 
 	func hasNoAllowance() -> Bool {
-		return APP.currentUserNotificationSettings?.types == UIUserNotificationType()
+		guard let types = APP.currentUserNotificationSettings?.types else {
+			return true
+		}
+		return types == UIUserNotificationType()
 	}
 
 	func askForAllowance() {

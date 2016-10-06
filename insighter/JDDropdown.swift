@@ -141,7 +141,7 @@ class JDDropdown: JDLabel, Touchable {
 
 		dropDown.shadowColor = UIColor.white.withAlphaComponent(0)
 
-		dropDown.selectionAction = { [weak self](_, item: String) in
+		dropDown.selectionAction = { [weak self] (_, item: String) in
 			self?._selection = item
 			self?.toggleDropdown()
 		}
