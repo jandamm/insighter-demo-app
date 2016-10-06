@@ -14,6 +14,10 @@ protocol FIRLoginable {}
 extension FIRLoginable {
 
 	func loginUser(withEmail email: String, andPassword password: String, completion: @escaping CompletionHandlerFirebaseLogin, errorHandler: CompletionHandlerFirebaseLoginError) {
+		loginUser(withEmail: email, andPassword: password, newUser: false, completion: completion, errorHandler: errorHandler)
+	}
+
+	private func loginUser(withEmail email: String, andPassword password: String, newUser created: Bool, completion: @escaping CompletionHandlerFirebaseLogin, errorHandler: CompletionHandlerFirebaseLoginError) {
 		NSLog("[JD] Attempt Login with Firebase")
 		FIRAuth.auth()?.signIn(withEmail: email, password: password) { user, error in
 			if user?.uid != nil {
@@ -22,7 +26,7 @@ extension FIRLoginable {
 
 			let errorKey = self.errorKey(fromError: error)
 
-			completion(user?.uid, errorKey, false, errorHandler)
+			completion(user?.uid, errorKey, created, errorHandler)
 		}
 	}
 
@@ -32,7 +36,7 @@ extension FIRLoginable {
 			if user?.uid != nil {
 				NSLog("[JD] Registered at Firebase")
 
-				self.loginUser(withEmail: email, andPassword: password, completion: completion, errorHandler: errorHandler)
+				self.loginUser(withEmail: email, andPassword: password, newUser: true, completion: completion, errorHandler: errorHandler)
 			} else {
 				let errorKey = self.errorKey(fromError: error)
 
