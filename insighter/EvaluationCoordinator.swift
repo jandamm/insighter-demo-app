@@ -19,6 +19,8 @@ class EvaluationCoordinator: JDCoordinator, EvaluationDelegate {
 	// MARK: - Coordinator
 
 	override func start() {
+		NotificationService.shared.setupNotifications()
+
 		showEvaluationVC()
 	}
 

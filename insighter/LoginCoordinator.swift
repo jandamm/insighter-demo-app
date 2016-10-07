@@ -92,9 +92,6 @@ class LoginCoordinator: JDCoordinator, FIRLoginable, LoginDelegate {
 		if created {
 			UserLoginService.shared.registerNewUser(withUserData: userData)
 		}
-
-		NotificationService.shared.setupNotifications()
-
 		finish()
 	}
 

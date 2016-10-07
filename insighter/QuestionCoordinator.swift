@@ -45,8 +45,6 @@ class QuestionCoordinator: JDCoordinator, QuestionDelegate {
 		}
 
 		if lastQuestion {
-			NotificationService.shared.setupNotifications()
-
 			questionsAsked()
 		} else {
 			index += 1
